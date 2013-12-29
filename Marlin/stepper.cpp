@@ -476,9 +476,11 @@ ISR(TIMER1_COMPA_vect)
 
     
     for(int8_t i=0; i < step_loops; i++) { // Take multiple steps per interrupt (For high speed moves) 
+#ifndef USE_HW_SERIAL
       #if MOTHERBOARD != 8 // !teensylu
       MSerial.checkRx(); // Check for serial chars.
       #endif 
+#endif
       
       #ifdef ADVANCE
       counter_e += current_block->steps_e;

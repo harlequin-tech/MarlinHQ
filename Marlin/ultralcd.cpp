@@ -6,10 +6,12 @@
 #include "language.h"
 #include "temperature.h"
 #include "EEPROMwrite.h"
-#include <LiquidCrystal.h>
+#include <SPI.h>
+#include <oled256.h>
 //===========================================================================
 //=============================imported variables============================
 //===========================================================================
+
 
 extern volatile int feedmultiply;
 extern volatile bool feedmultiplychanged;
@@ -22,12 +24,54 @@ extern long position[4];
 extern CardReader card;
 #endif
 
+extern unsigned int __bss_end;
+extern unsigned int __heap_start;
+extern void *__brkval;
+
+static char lcdErrorStr[17];
+
+static void lcd_showError(void)
+{
+    lcd.setCursor(16,4);
+    lcd.print(lcdErrorStr);
+}
+
+void lcd_clearError(void)
+{
+    memset(lcdErrorStr, ' ', 16);
+    lcdErrorStr[16] = 0;
+
+    lcd_showError();
+}
+
+void lcd_error(const __FlashStringHelper *error)
+{
+    lcd_clearError();
+
+    strncpy_P(lcdErrorStr, (const prog_char *)error, 16);
+    lcd_showError();
+}
+
+static int freeMemory(void) 
+{
+    int free_memory;
+
+    if((int)__brkval == 0)
+      free_memory = ((int)&free_memory) - ((int)&__bss_end);
+    else
+      free_memory = ((int)&free_memory) - ((int)__brkval);
+
+    return free_memory;
+}
+
 //===========================================================================
 //=============================public variables============================
 //===========================================================================
+
 volatile char buttons=0;  //the last checked buttons in a bit array.
 long encoderpos=0;
-short lastenc=0;
+uint8_t lastenc=0;
+int8_t lastStep=0;
 
 
 //===========================================================================
@@ -38,7 +82,8 @@ static char messagetext[LCD_WIDTH]="";
 //return for string conversion routines
 static char conv[8];
 
-LiquidCrystal lcd(LCD_PINS_RS, LCD_PINS_ENABLE, LCD_PINS_D4, LCD_PINS_D5,LCD_PINS_D6,LCD_PINS_D7);  //RS,Enable,D4,D5,D6,D7 
+//LiquidCrystal lcd(LCD_PINS_RS, LCD_PINS_ENABLE, LCD_PINS_D4, LCD_PINS_D5,LCD_PINS_D6,LCD_PINS_D7);  //RS,Enable,D4,D5,D6,D7 
+LcdDisplay lcd(17, 16, 10);	// cs, data_command, reset
 
 static unsigned long previous_millis_lcd=0;
 //static long previous_millis_buttons=0;
@@ -100,14 +145,15 @@ void lcd_alertstatuspgm(const char* message)
 
 FORCE_INLINE void clear()
 {
-  lcd.clear();
+    lcd.clear();
+    lcd_showError();
 }
 
 
 void lcd_init()
 {
   //beep();
-  #ifdef ULTIPANEL
+  #if defined(ULTIPANEL) || defined(NEWPANEL)
     buttons_init();
   #endif
   
@@ -136,12 +182,25 @@ void lcd_init()
   byte uplevel[8]={0x04, 0x0e, 0x1f, 0x04, 0x1c, 0x00, 0x00, 0x00};//thanks joris
   byte refresh[8]={0x00, 0x06, 0x19, 0x18, 0x03, 0x13, 0x0c, 0x00}; //thanks joris
   byte folder [8]={0x00, 0x1c, 0x1f, 0x11, 0x11, 0x1f, 0x00, 0x00}; //thanks joris
+
+  pinMode(4, OUTPUT);
+  digitalWrite(4, LOW);
+
+  SPI.begin();
+  SPI.setDataMode(SPI_MODE0);
+  SPI.setClockDivider(SPI_CLOCK_DIV4);
+
   lcd.begin(LCD_WIDTH, LCD_HEIGHT);
   lcd.createChar(1,Degree);
   lcd.createChar(2,Thermometer);
   lcd.createChar(3,uplevel);
   lcd.createChar(4,refresh);
   lcd.createChar(5,folder);
+#if 0
+  MYSERIAL.println(F("echo:lcd_init waiting 5 seconds"));
+  delay(5000);
+  MYSERIAL.println(F("echo:lcd_init complete"));
+#endif
   LCD_MESSAGEPGM(WELCOME_MSG);
 }
 
@@ -184,12 +243,13 @@ void beepshort()
 
 void lcd_status()
 {
-  #ifdef ULTIPANEL
+  #if defined(ULTIPANEL) || defined(NEWPANEL)
     static uint8_t oldbuttons=0;
     //static long previous_millis_buttons=0;
     //static long previous_lcdinit=0;
-  //  buttons_check(); // Done in temperature interrupt
+    buttons_check(); // Done in temperature interrupt
     //previous_millis_buttons=millis();
+#if 1	/* XXX check */
     long ms=millis();
     for(int8_t i=0; i<8; i++) {
       #ifndef NEWPANEL
@@ -200,6 +260,7 @@ void lcd_status()
         buttons &= ~(1<<i);        
       #endif
     }
+#endif
     if((buttons==oldbuttons) &&  ((millis() - previous_millis_lcd) < LCD_UPDATE_INTERVAL)   )
       return;
     oldbuttons=buttons;
@@ -212,23 +273,25 @@ void lcd_status()
   previous_millis_lcd=millis();
   menu.update();
 }
-#ifdef ULTIPANEL  
+#if defined(ULTIPANEL) || defined(NEWPANEL)
 
 
 void buttons_init()
 {
+    pinMode(4,OUTPUT);  // must be output for SPI master mode
+    pinMode(A0,OUTPUT);  // must be output for SPI master mode
+    digitalWrite(4, HIGH);
+    digitalWrite(A0, HIGH);
   #ifdef NEWPANEL
     pinMode(BTN_EN1,INPUT);
     pinMode(BTN_EN2,INPUT); 
     pinMode(BTN_ENC,INPUT); 
-    pinMode(SDCARDDETECT,INPUT);
-    WRITE(BTN_EN1,HIGH);
-    WRITE(BTN_EN2,HIGH);
-    WRITE(BTN_ENC,HIGH);
+    WRITE(BTN_EN1,HIGH);	// pullup
+    WRITE(BTN_EN2,HIGH);	// pullup
+    WRITE(BTN_ENC,HIGH);	// pullup
     #if (SDCARDDETECT > -1)
-    {
-      WRITE(SDCARDDETECT,HIGH);
-    }
+    pinMode(SDCARDDETECT,INPUT);
+    WRITE(SDCARDDETECT,HIGH);
     #endif
   #else
     pinMode(SHIFT_CLK,OUTPUT);
@@ -241,17 +304,169 @@ void buttons_init()
   #endif
 }
 
-
+#if 1
 void buttons_check()
 {
-  
-  #ifdef NEWPANEL
+#ifdef NEWPANEL
     uint8_t newbutton=0;
     if(READ(BTN_EN1)==0)  newbutton|=EN_A;
     if(READ(BTN_EN2)==0)  newbutton|=EN_B;
     if((blocking<millis()) &&(READ(BTN_ENC)==0))
-      newbutton|=EN_C;
+	newbutton|=EN_C;
     buttons=newbutton;
+#else   //read it from the shift register
+    uint8_t newbutton=0;
+    WRITE(SHIFT_LD,LOW);
+    WRITE(SHIFT_LD,HIGH);
+    unsigned char tmp_buttons=0;
+    for(int8_t i=0;i<8;i++) { 
+	newbutton = newbutton>>1;
+	if(READ(SHIFT_OUT))
+	    newbutton|=(1<<7);
+	WRITE(SHIFT_CLK,HIGH);
+	WRITE(SHIFT_CLK,LOW);
+    }
+    buttons=~newbutton; //invert it, because a pressed switch produces a logical 0
+#endif
+
+    //manage encoder rotation
+    uint8_t enc=0;
+
+    if (buttons & EN_A) {
+	enc = 1;
+    }
+    if (buttons & EN_B) {
+	enc |= 2;
+    }
+
+    uint8_t delta = (enc - lastenc) % 4;
+    switch(delta) {
+	case 0:	// no change
+	    break;
+
+	case 1: // clockwise step
+	    encoderpos++;
+	    lastStep = 1;
+	    break;
+	    
+	case 2: // 2 steps (missed pulse)
+	    // assume its the same direction as the last step
+	    encoderpos += 2*lastStep;
+	    break;
+
+	case 3: // counter-clockwise step
+	    encoderpos--;
+	    lastStep = -1;
+	    break;
+
+	default:
+	    break;
+    }
+    lastenc=enc;
+}
+#else
+uint32_t debounce_EN_A=0;
+uint32_t debounce_EN_B=0;
+uint32_t debounce_EN_C=0;
+uint8_t debounce=0;
+#define DEBOUNCE_PERIOD	5
+
+void buttons_check()
+{
+  #ifdef NEWPANEL
+    //uint8_t newbutton=0;
+    if (READ(BTN_EN1)==0) {
+	if (!buttons & EN_A) {
+	    if (debounce & EN_A) {
+		if ((millis() - debounce_EN_A) > DEBOUNCE_PERIOD) {
+		    buttons |= EN_A;
+		    debounce &= ~EN_A;
+		}
+	    } else {
+		debounce_EN_A = millis();
+		debounce |= EN_A;
+	    }
+	} else {
+	    debounce &= ~EN_A;
+	}
+    } else {
+	if (buttons & EN_A) {
+	    if (debounce & EN_A) {
+		if ((millis() - debounce_EN_A) > DEBOUNCE_PERIOD) {
+		    buttons &= ~EN_A;
+		    debounce &= ~EN_A;
+		}
+	    } else {
+		debounce_EN_A = millis();
+		debounce |= EN_A;
+	    }
+	} else {
+	    debounce &= ~EN_A;
+	}
+    }
+
+    if (READ(BTN_EN2)==0) {
+	if (!buttons & EN_B) {
+	    if (debounce & EN_B) {
+		if ((millis() - debounce_EN_B) > DEBOUNCE_PERIOD) {
+		    buttons |= EN_B;
+		    debounce &= ~EN_B;
+		}
+	    } else {
+		debounce_EN_B = millis();
+		debounce |= EN_B;
+	    }
+	} else {
+	    debounce &= ~EN_B;
+	}
+    } else {
+	if (buttons & EN_B) {
+	    if (debounce & EN_B) {
+		if ((millis() - debounce_EN_B) > DEBOUNCE_PERIOD) {
+		    buttons &= ~EN_B;
+		    debounce &= ~EN_B;
+		}
+	    } else {
+		debounce_EN_B = millis();
+		debounce |= EN_B;
+	    }
+	} else {
+	    debounce &= ~EN_B;
+	}
+    }
+
+    if (READ(BTN_ENC)==0) {
+	if (!buttons & EN_C) {
+	    if (debounce & EN_C) {
+		if ((millis() - debounce_EN_C) > DEBOUNCE_PERIOD) {
+		    buttons |= EN_C;
+		    debounce &= ~EN_C;
+		}
+	    } else {
+		debounce_EN_C = millis();
+		debounce |= EN_C;
+	    }
+	} else {
+	    debounce &= ~EN_C;
+	}
+    } else {
+	if (buttons & EN_C) {
+	    if (debounce & EN_C) {
+		if ((millis() - debounce_EN_C) > DEBOUNCE_PERIOD) {
+		    buttons &= ~EN_C;
+		    debounce &= ~EN_C;
+		}
+	    } else {
+		debounce_EN_C = millis();
+		debounce |= EN_C;
+	    }
+	} else {
+	    debounce &= ~EN_C;
+	}
+    }
+    //if((blocking<millis()) &&(READ(BTN_ENC)==0))
+     // newbutton|=EN_C;
+    //buttons=newbutton;
   #else   //read it from the shift register
     uint8_t newbutton=0;
     WRITE(SHIFT_LD,LOW);
@@ -308,6 +523,7 @@ void buttons_check()
   }
   lastenc=enc;
 }
+#endif
 
 #endif
 
@@ -323,7 +539,7 @@ MainMenu::MainMenu()
 
 void MainMenu::showStatus()
 { 
-#if LCD_HEIGHT==4
+#if LCD_HEIGHT>=4
   static int olddegHotEnd0=-1;
   static int oldtargetHotEnd0=-1;
   //force_lcd_update=true;
@@ -455,6 +671,9 @@ void MainMenu::showStatus()
     lcdprintPGM("%SD");
   }
 #endif
+  lcd.setCursor(18,2);
+  lcd.print(freeMemory());
+  lcd.print(F("   "));
 #else //smaller LCDS----------------------------------
   static int olddegHotEnd0=-1;
   static int oldtargetHotEnd0=-1;
@@ -2227,146 +2446,137 @@ void MainMenu::showControl()
 
 
 
+char workingDir[14] = "";
 
 void MainMenu::showSD()
 {
 #ifdef SDSUPPORT
- uint8_t line=0;
+    uint8_t line=0;
+    static uint8_t nrfiles=0;
+    bool enforceupdate=false;
+    char *dirname;
 
- clearIfNecessary();
- static uint8_t nrfiles=0;
- if(force_lcd_update)
- {
-  if(card.cardOK)
-  {
-    nrfiles=card.getnrfilenames();
-  }
-  else
-  {
-    nrfiles=0;
-    lineoffset=0;
-  }
- }
- bool enforceupdate=false;
- for(int8_t i=lineoffset;i<lineoffset+LCD_HEIGHT;i++)
- {
-  switch(i)
-  {
-    case 0:
-      MENUITEM(  lcdprintPGM(MSG_MAIN)  ,  BLOCK;status=Main_Menu;beepshort(); ) ;
-      break;
-//     case 1:
-//       {
-//         if(force_lcd_update)
-//         {
-//           lcd.setCursor(0,line);
-//            #ifdef CARDINSERTED
-//           if(CARDINSERTED)
-//           #else
-//           if(true)
-//           #endif
-//           {
-//             lcdprintPGM(" \004Refresh");
-//           }
-//           else
-//           {
-//             lcdprintPGM(" \004Insert Card");
-//           }
-//           
-//         }
-//         if((activeline==line) && CLICKED)
-//         {
-//           BLOCK;
-//           beepshort();
-//           card.initsd();
-//           force_lcd_update=true;
-//            nrfiles=card.getnrfilenames();
-//         }
-//       }break;
-    case 1:
-      MENUITEM(  lcd.print(" ");card.getWorkDirName();
-	  if(card.filename[0]=='/') lcdprintPGM(MSG_REFRESH);
-	  else {
-		  lcd.print("\005");
-		  lcd.print(card.filename);
-		  lcd.print("/..");
-			}  ,  
-	BLOCK;
-			if(SDCARDDETECT == -1) card.initsd();
-			card.updir();
-			enforceupdate=true;
-			lineoffset=0;
-			beepshort(); ) ;
-      
-      break;
-    default:
-    {
-      #define FIRSTITEM 2
-      if(i-FIRSTITEM<nrfiles)
-      {
-        if(force_lcd_update)
-        {
-          card.getfilename(i-FIRSTITEM);
-          //Serial.print("Filenr:");Serial.println(i-2);
-          lcd.setCursor(0,line);lcdprintPGM(" ");
-          if(card.filenameIsDir) lcd.print("\005");
-          if (card.longFilename[0])
-          {
-            card.longFilename[LCD_WIDTH-1] = '\0';
-            lcd.print(card.longFilename);
-          }
-          else
-          {
-            lcd.print(card.filename);
-          }
-        }
-        if((activeline==line) && CLICKED)
-        {
-          BLOCK
-          card.getfilename(i-FIRSTITEM);
-          if(card.filenameIsDir)
-          {
-            for(int8_t i=0;i<strlen(card.filename);i++)
-              card.filename[i]=tolower(card.filename[i]);
-            card.chdir(card.filename);
-            lineoffset=0;
-            enforceupdate=true;
-          }
-          else
-          {
-            char cmd[30];
-            for(int8_t i=0;i<strlen(card.filename);i++)
-              card.filename[i]=tolower(card.filename[i]);
-            sprintf(cmd,"M23 %s",card.filename);
-            //sprintf(cmd,"M115");
-            enquecommand(cmd);
-            enquecommand("M24");
-            beep(); 
-            status=Main_Status;
-            if (card.longFilename[0])
-            {
-              card.longFilename[LCD_WIDTH-1] = '\0';
-              lcd_status(card.longFilename);
-            }
-            else
-            {
-              lcd_status(card.filename);
-            }
-          }
-        } 
-      }
-      
+    clearIfNecessary();
+    if (force_lcd_update) {
+	if (card.cardOK) {
+	    nrfiles=card.getnrfilenames();
+	} else {
+	    nrfiles=0;
+	    lineoffset=0;
+	}
     }
-      break;
-  }
-  line++;
- }
- updateActiveLines(FIRSTITEM+nrfiles-1,encoderpos);
- if(enforceupdate)
- {
-   force_lcd_update=true;
-   enforceupdate=false;
- }
+    for(int8_t i=lineoffset;i<lineoffset+LCD_HEIGHT;i++) {
+	switch(i) {
+	case 0:
+	    MENUITEM(  lcdprintPGM(MSG_MAIN)  ,  BLOCK;status=Main_Menu;beepshort(); ) ;
+	    break;
+#if 0
+	case 1: {
+	    if(force_lcd_update) {
+		lcd.setCursor(0,line);
+#ifdef CARDINSERTED
+		if(CARDINSERTED)
+#else
+		if(true)
+#endif
+		{
+		    lcdprintPGM(" \004Refresh");
+		} else {
+		    lcdprintPGM(" \004Insert Card");
+		}
+
+	    }
+	    if((activeline==line) && CLICKED) {
+		BLOCK;
+		beepshort();
+		card.initsd();
+		force_lcd_update=true;
+		nrfiles=card.getnrfilenames();
+	    }
+	    }
+	    break;
+#endif
+	case 1:
+	    MENUITEM(  lcd.print(" "); dirname = card.getWorkDirName();
+		if (sizeof(dirname) >= LCD_WIDTH) {
+		    dirname[LCD_WIDTH-1] = 0;
+		}
+		if (dirname[0]=='/') {
+		    lcdprintPGM(MSG_REFRESH);
+		} else {
+		    lcd.print("\005");
+		    lcd.print(dirname);
+		    lcd.print("/..");
+		}  ,  
+		BLOCK;
+		if ((activeline==line) && CLICKED) {
+		    if (dirname[0]=='/') {
+			if (SDCARDDETECT == -1) card.initsd();
+		    }
+		    card.popDir();
+		}
+		enforceupdate=true;
+		lineoffset=0;
+		beepshort();
+	    );
+	    break;
+
+	default: {
+#define FIRSTITEM 2
+	    if (i-FIRSTITEM<nrfiles) {
+		if (force_lcd_update) {
+		    card.getfilename(i-FIRSTITEM);
+#ifdef DEBUG
+		    MYSERIAL.print("Filenr:");MYSERIAL.print(i-FIRSTITEM);
+		    MYSERIAL.print(" = "); MYSERIAL.println(card.longFilename);
+#endif
+		    lcd.setCursor(0,line);lcdprintPGM(" ");
+		    if(card.filenameIsDir) lcd.print("\005");
+		    if (sizeof(card.longFilename) >= LCD_WIDTH) {
+			card.longFilename[LCD_WIDTH-1] = '\0';
+		    }
+		    lcd.print(card.longFilename);
+		}
+		if((activeline==line) && CLICKED) {
+		    BLOCK
+		    card.getfilename(i-FIRSTITEM);
+		    if(card.filenameIsDir) {
+			for(int8_t ind=0; card.filename[ind]; ind++) {
+			    card.filename[ind]=tolower(card.filename[ind]);
+			}
+			card.pushDir(card.filename, i-FIRSTITEM);
+			lineoffset=0;
+			enforceupdate=true;
+		    } else {
+			char cmd[30];
+			for(int8_t i=0;i<strlen(card.filename);i++) {
+			    card.filename[i]=tolower(card.filename[i]);
+			}
+			snprintf(cmd, sizeof(cmd), "M23 %s",card.filename);		// select file for printing
+			//sprintf(cmd,"M115");
+			enquecommand(cmd);
+			enquecommand("M24");				// start / resume print
+			beep(); 
+			status=Main_Status;
+			if (card.longFilename[0]) {
+			    card.longFilename[LCD_WIDTH-1] = '\0';
+			    lcd_status(card.longFilename);
+			} else {
+			    lcd_status(card.filename);
+			}
+		    }
+		}
+	    } 
+	    }
+	    break;
+	    }
+	line++;
+    }
+    updateActiveLines(FIRSTITEM+nrfiles-1,encoderpos);
+    if (enforceupdate) {
+	force_lcd_update=true;
+	enforceupdate=false;
+    }
 #endif
 }
 
@@ -3018,6 +3228,65 @@ char *ftostr52(const float &x)
   return conv;
 }
 
+void MainMenu::updateActiveLines(const uint8_t &maxlines,volatile long &encoderpos)
+{
+    long curencoderpos=encoderpos;  
+
+    if (linechanging) return; // an item is changint its value, do not switch lines hence
+
+    lastlineoffset=lineoffset; 
+    force_lcd_update=false;
+
+    if (abs(curencoderpos-lastencoderpos) < lcdslow) { 
+	lcd.setCursor(0,activeline);
+	lcd.print((activeline+lineoffset)?' ':' '); 
+	if (curencoderpos<0)  {  
+	    lineoffset--; 
+	    if(lineoffset<0) lineoffset=0; 
+	    curencoderpos=lcdslow-1;
+	} 
+	if (curencoderpos>(LCD_HEIGHT)*lcdslow) { 
+	    lineoffset++; 
+	    curencoderpos=(LCD_HEIGHT-1)*lcdslow; 
+	    if(lineoffset>(maxlines+1-LCD_HEIGHT)) 
+		lineoffset=maxlines+1-LCD_HEIGHT; 
+	    if(curencoderpos>maxlines*lcdslow) 
+		curencoderpos=maxlines*lcdslow; 
+	} 
+	lastencoderpos=encoderpos=curencoderpos;
+	activeline=curencoderpos/lcdslow;
+
+	if (activeline<0) activeline=0;
+	if (activeline>LCD_HEIGHT-1) activeline=LCD_HEIGHT-1;
+	if (activeline>maxlines) {
+	    activeline=maxlines;
+	    curencoderpos=maxlines*lcdslow;
+	}
+
+	if (lastlineoffset!=lineoffset) {
+	    force_lcd_update=true;
+	}
+	lcd.setCursor(0,activeline);lcd.print((activeline+lineoffset)?'>':'\003');    
+    } 
+}
+
+void MainMenu::clearIfNecessary()
+{
+    if (lastlineoffset!=lineoffset ||force_lcd_update) {
+	force_lcd_update=true;
+	clear();
+    } 
+}
+
+#else
+void lcd_error(const __FlashStringHelper *error)
+{
+    /* No LCD */
+}
+
+void lcd_clearError(void)
+{
+}
 #endif //ULTRA_LCD
 
 

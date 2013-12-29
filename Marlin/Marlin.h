@@ -4,7 +4,11 @@
 #ifndef MARLIN_H
 #define MARLIN_H
 
+#define USE_HW_SERIAL
+
+#ifndef USE_HW_SERIAL
 #define  HardwareSerial_h // trick to disable the standard HWserial
+#endif
 
 #define  FORCE_INLINE __attribute__((always_inline)) inline
 
@@ -25,6 +29,12 @@
 #include "Configuration.h"
 #include "pins.h"
 
+#undef PROGMEM 
+#define PROGMEM __attribute__(( section(".progmem.data") )) 
+#undef PSTR 
+#define PSTR(s) (__extension__({static prog_char __c[] PROGMEM = (s); &__c[0];})) 
+
+#if 1
 #if ARDUINO >= 100 
   #if defined(__AVR_ATmega644P__)
     #include "WProgram.h"
@@ -34,8 +44,10 @@
 #else
    #include "WProgram.h"
 #endif
-
-#include "MarlinSerial.h"
+#endif
+#if 0
+#include "Arduino.h"
+#endif
 
 #ifndef cbi
 #define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
@@ -45,12 +57,7 @@
 #endif
 
 #include "WString.h"
-
-#if MOTHERBOARD == 8  // Teensylu
-  #define MYSERIAL Serial
-#else
-  #define MYSERIAL MSerial
-#endif
+#define MYSERIAL Serial
 
 //this is a unfinsihed attemp to removes a lot of warning messages, see:
 // http://www.avrfreaks.net/index.php?name=PNphpBB2&file=printview&t=57011
@@ -66,8 +73,8 @@
 #define SERIAL_PROTOCOL(x) MYSERIAL.print(x);
 #define SERIAL_PROTOCOL_F(x,y) MYSERIAL.print(x,y);
 #define SERIAL_PROTOCOLPGM(x) serialprintPGM(MYPGM(x));
-#define SERIAL_PROTOCOLLN(x) {MYSERIAL.print(x);MYSERIAL.write('\n');}
-#define SERIAL_PROTOCOLLNPGM(x) {serialprintPGM(MYPGM(x));MYSERIAL.write('\n');}
+#define SERIAL_PROTOCOLLN(x) {MYSERIAL.print(x);MYSERIAL.println();}
+#define SERIAL_PROTOCOLLNPGM(x) {serialprintPGM(MYPGM(x));MYSERIAL.println();}
 
 
 const char errormagic[] PROGMEM ="Error:";
@@ -196,6 +203,7 @@ extern float add_homeing[3];
 extern float min_pos[3];
 extern float max_pos[3];
 extern unsigned char FanSpeed;
+extern unsigned long starttime;
 
 // Handling multiple extruders pins
 extern uint8_t active_extruder;

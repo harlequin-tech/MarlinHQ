@@ -70,10 +70,29 @@
 /// toggle a pin wrapper
 #define TOGGLE(IO)  _TOGGLE(IO)
 
+#if 1
 /// set pin as input wrapper
 #define SET_INPUT(IO)  _SET_INPUT(IO)
 /// set pin as output wrapper
 #define SET_OUTPUT(IO)  _SET_OUTPUT(IO)
+#else
+#define SET_INPUT(IO)  do {			\
+	    MYSERIAL.print(__FILE__);	\
+	    MYSERIAL.print(".");	\
+	    MYSERIAL.print(__LINE__);	\
+	    MYSERIAL.print(" SET_INPUT: ");	\
+	    MYSERIAL.println(IO);		\
+	    _SET_INPUT(IO);			\
+	} while (0)
+#define SET_OUTPUT(IO)  do {			\
+	    MYSERIAL.print(__FILE__);	\
+	    MYSERIAL.print(".");	\
+	    MYSERIAL.print(__LINE__);	\
+	    MYSERIAL.print(" SET_OUTPUT: ");	\
+	    MYSERIAL.println(IO);		\
+	    _SET_OUTPUT(IO);			\
+	} while (0)
+#endif
 
 /// check if pin is an input wrapper
 #define GET_INPUT(IO)  _GET_INPUT(IO)

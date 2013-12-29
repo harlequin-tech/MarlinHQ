@@ -22,8 +22,8 @@
 	#define MACHINE_NAME "Ultimaker"
 	#define FIRMWARE_URL "http://firmware.ultimaker.com"
 #else
-	#define MACHINE_NAME "Mendel"
-	#define FIRMWARE_URL "http://www.mendel-parts.com"
+	#define MACHINE_NAME "Trinity"
+	#define FIRMWARE_URL "http://co-lab181.co.nz"
 #endif
 
 #define STRINGIFY_(n) #n
@@ -101,7 +101,7 @@
 	#define MSG_PAUSE_PRINT " Pause Print \x7E"
 	#define MSG_RESUME_PRINT " Resume Print \x7E"
 	#define MSG_STOP_PRINT " Stop Print   \x7E"
-	#define MSG_CARD_MENU " Card Menu    \x7E"
+	#define MSG_CARD_MENU " Files        \x7E"
 	#define MSG_NO_CARD " No Card"
 	#define MSG_DWELL "Sleep..."
 	#define MSG_USERWAIT "Wait for user..."

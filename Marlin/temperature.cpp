@@ -46,6 +46,10 @@ int target_bed_high_temp =0;
 int current_raw[EXTRUDERS] = { 0 };
 int current_raw_bed = 0;
 
+#ifdef HEATER_0_USES_MAX31855
+#define MAX31855_SS 4	// digital pin 4 is chip select
+#endif
+
 #ifdef PIDTEMP
   // used external
   float pid_setpoint[EXTRUDERS] = { 0.0 };
@@ -817,6 +821,46 @@ int read_max6675()
 }
 #endif
 
+#ifdef HEATER_0_USES_MAX31855
+#define MAX31855_FAULT (1<<16)
+uint32_t max31855_previous_millis = 0;
+int max31855_temp = 2000;
+
+int read_max31855()
+{
+    if (millis() - max31855_previous_millis < HEAT_INTERVAL) {
+	return max31855_temp;
+    }
+  
+    max31855_previous_millis = millis();
+    max31855_temp = 0;
+
+    digitalWrite(MAX31855_SS,LOW);
+    delayMicroseconds(1);		// at least 100ns
+    uint32_t data = 0;
+    for (int ind=3; ind>=0; ind--) {
+	((uint8_t *)&data)[ind] = SPI.transfer(0);
+    }
+    digitalWrite(MAX31855_SS,HIGH);
+    if (data & MAX31855_FAULT) {
+	max31855_temp = 2000;
+    } else {
+	max31855_temp = (data >> 18) & 0x3FFF;
+
+	// check sign bit
+	if (data & 0x80000000) {
+	    max31855_temp |= 0xC000;
+	}
+
+	//max31855_temp = (int)((float)max31855_temp * 0.25);	// rounded down
+	// return raw value (0.25 degree units)
+    }
+    
+    return max31855_temp;
+}
+#endif
+
+
 
 // Timer 0 is shared with millies
 ISR(TIMER0_COMPB_vect)
@@ -878,6 +922,9 @@ ISR(TIMER0_COMPB_vect)
       #endif
       #ifdef HEATER_0_USES_MAX6675 // TODO remove the blocking
         raw_temp_0_value = read_max6675();
+      #endif
+      #ifdef HEATER_0_USES_MAX31855 
+        raw_temp_0_value = read_max31855();
       #endif
       temp_state = 2;
       break;
@@ -951,7 +998,7 @@ ISR(TIMER0_COMPB_vect)
     
   if(temp_count >= 16) // 8 ms * 16 = 128ms.
   {
-    #if defined(HEATER_0_USES_AD595) || defined(HEATER_0_USES_MAX6675)
+    #if defined(HEATER_0_USES_AD595) || defined(HEATER_0_USES_MAX6675) || defined(HEATER_0_USES_MAX31855)
       current_raw[0] = raw_temp_0_value;
     #else
       current_raw[0] = 16383 - raw_temp_0_value;

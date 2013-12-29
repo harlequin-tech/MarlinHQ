@@ -8,12 +8,12 @@
 //User specified version info of THIS file to display in [Pronterface, etc] terminal window during startup.
 //Implementation of an idea by Prof Braino to inform user that any changes made
 //to THIS file by the user have been successfully uploaded into firmware.
-#define STRING_VERSION_CONFIG_H "2012-05-02" //Personal revision number for changes to THIS file.
-#define STRING_CONFIG_H_AUTHOR "erik" //Who made the changes.
+#define STRING_VERSION_CONFIG_H "2013-1-6" //Personal revision number for changes to THIS file.
+#define STRING_CONFIG_H_AUTHOR "Trinity" //Who made the changes.
 
 // This determines the communication speed of the printer
-#define BAUDRATE 250000
-//#define BAUDRATE 115200
+//#define BAUDRATE 250000
+#define BAUDRATE 115200
 
 //// The following define selects which electronics board you have. Please choose the one that matches your setup
 // Gen7 custom (Alfons3 Version) = 10 "https://github.com/Alfons3/Generation_7_Electronics"
@@ -30,12 +30,32 @@
 // Ultimaker = 7
 // Teensylu = 8
 // Gen3+ =9
+//
+
+#define MB_GEN7_CUSTOM	10 // Gen7 custom (Alfons3 Version) "https://github.com/Alfons3/Generation_7_Electronics"
+#define MB_GEN7_1_1	11
+#define MB_GEN7_1_2	11
+#define MB_GEN7_1_3	12
+#define MB_GEN7_1_4	13
+#define MB_RAMPS_1_2	3
+#define MB_RAMPS_1_3	33
+#define MB_RAMPS_1_3A	34
+#define MB_GEN6		5
+#define MB_GEN6_DELUXE	51
+#define MB_SANGUINOLOLU 62
+#define MB_MELZI	63
+#define MB_TEENSYLU	8
+#define MB_GEN3		9
+#define MB_SANGUINO	6
+#define MB_DUEMILANOVE  4
+#define MB_ULTIMAKER    7
+#define MB_ULTIMAKER_OLD 71
+#define MB_OMCA_ALPHA   90
+#define MB_OMCA         91
 
 #ifndef MOTHERBOARD
-#define MOTHERBOARD 7
+#define MOTHERBOARD MB_SANGUINOLOLU
 #endif
-
-
 
 //===========================================================================
 //=============================Thermal Settings  ============================
@@ -44,6 +64,7 @@
 //--NORMAL IS 4.7kohm PULLUP!-- 1kohm pullup can be used on hotend sensor, using correct resistor and table
 //
 //// Temperature sensor settings:
+// -3 is thermocouple with MAX31855 (only for sensor 0)
 // -2 is thermocouple with MAX6675 (only for sensor 0)
 // -1 is thermocouple with AD595
 // 0 is not used
@@ -61,7 +82,7 @@
 // 52 is 200k thermistor - ATC Semitec 204GT-2 (1k pullup)
 // 55 is 100k thermistor - ATC Semitec 104GT-2 (Used in ParCan) (1k pullup)
 
-#define TEMP_SENSOR_0 -1
+#define TEMP_SENSOR_0 0
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_BED 0
@@ -82,9 +103,9 @@
 // When temperature exceeds max temp, your heater will be switched off.
 // This feature exists to protect your hotend from overheating accidentally, but *NOT* from thermistor short/failure!
 // You should use MINTEMP for thermistor short/failure protection.
-#define HEATER_0_MAXTEMP 275
-#define HEATER_1_MAXTEMP 275
-#define HEATER_2_MAXTEMP 275
+#define HEATER_0_MAXTEMP 250
+#define HEATER_1_MAXTEMP 250
+#define HEATER_2_MAXTEMP 250
 #define BED_MAXTEMP 150
 
 // If your bed has low resistance e.g. .6 ohm and throws the fuse you can duty cycle it to reduce the
@@ -132,7 +153,6 @@
 //===========================================================================
 //=============================Mechanical Settings===========================
 //===========================================================================
-
 // Uncomment the following line to enable CoreXY kinematics
 // #define COREXY
 
@@ -177,26 +197,26 @@ const bool Z_ENDSTOPS_INVERTING = true; // set to true to invert the logic of th
 #define DISABLE_E false // For all extruders
 
 #define INVERT_X_DIR true    // for Mendel set to false, for Orca set to true
-#define INVERT_Y_DIR false    // for Mendel set to true, for Orca set to false
+#define INVERT_Y_DIR true    // for Mendel set to true, for Orca set to false
 #define INVERT_Z_DIR true     // for Mendel set to false, for Orca set to true
-#define INVERT_E0_DIR false   // for direct drive extruder v9 set to true, for geared extruder set to false
+#define INVERT_E0_DIR true   // for direct drive extruder v9 set to true, for geared extruder set to false
 #define INVERT_E1_DIR false    // for direct drive extruder v9 set to true, for geared extruder set to false
 #define INVERT_E2_DIR false   // for direct drive extruder v9 set to true, for geared extruder set to false
 
 // ENDSTOP SETTINGS:
 // Sets direction of endstops when homing; 1=MAX, -1=MIN
 #define X_HOME_DIR -1
-#define Y_HOME_DIR -1
+#define Y_HOME_DIR 1
 #define Z_HOME_DIR -1
 
 #define min_software_endstops true //If true, axis won't move to coordinates less than HOME_POS.
 #define max_software_endstops true  //If true, axis won't move to coordinates greater than the defined lengths below.
 // Travel limits after homing
-#define X_MAX_POS 205
+#define X_MAX_POS 165
 #define X_MIN_POS 0
-#define Y_MAX_POS 205
+#define Y_MAX_POS 200
 #define Y_MIN_POS 0
-#define Z_MAX_POS 200
+#define Z_MAX_POS 100
 #define Z_MIN_POS 0
 
 #define X_MAX_LENGTH (X_MAX_POS - X_MIN_POS)
@@ -205,24 +225,29 @@ const bool Z_ENDSTOPS_INVERTING = true; // set to true to invert the logic of th
 
 // The position of the homing switches. Use MAX_LENGTH * -0.5 if the center should be 0, 0, 0
 #define X_HOME_POS 0
-#define Y_HOME_POS 0
+#define Y_HOME_POS 200 
 #define Z_HOME_POS 0
 
 //// MOVEMENT SETTINGS
 #define NUM_AXIS 4 // The axis order in all axis related arrays is X, Y, Z, E
-#define HOMING_FEEDRATE {50*60, 50*60, 4*60, 0}  // set the homing speeds (mm/min)
+//#define HOMING_FEEDRATE {50*60, 50*60, 4*60, 0}  // set the homing speeds (mm/min)
+#define HOMING_FEEDRATE {50*60, 50*60, 2*60, 0}  // set the homing speeds (mm/min)
 
 // default settings 
 
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {78.7402,78.7402,200*8/3,760*1.1}  // default steps per unit for ultimaker 
+//#define DEFAULT_AXIS_STEPS_PER_UNIT   {78.7402,78.7402,200*8/3,760*1.1}  // default steps per unit for ultimaker 
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {160,160,5120,1592.7069}  // steps per unit for Prusa  with 0.9degree steppers
 #define DEFAULT_MAX_FEEDRATE          {500, 500, 5, 45}    // (mm/sec)    
-#define DEFAULT_MAX_ACCELERATION      {9000,9000,100,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
+#define DEFAULT_MAX_ACCELERATION      {5000,5000,50,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
+//#define DEFAULT_MAX_ACCELERATION      {9000,9000,50,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
 
-#define DEFAULT_ACCELERATION          3000    // X, Y, Z and E max acceleration in mm/s^2 for printing moves 
+#define DEFAULT_ACCELERATION          1000    // X, Y, Z and E max acceleration in mm/s^2 for printing moves 
+//#define DEFAULT_ACCELERATION          3000    // X, Y, Z and E max acceleration in mm/s^2 for printing moves 
 #define DEFAULT_RETRACT_ACCELERATION  3000   // X, Y, Z and E max acceleration in mm/s^2 for r retracts
 
 // 
-#define DEFAULT_XYJERK                20.0    // (mm/sec)
+//#define DEFAULT_XYJERK                20.0    // (mm/sec)
+#define DEFAULT_XYJERK                10.0    // (mm/sec)
 #define DEFAULT_ZJERK                 0.4     // (mm/sec)
 #define DEFAULT_EJERK                 5.0    // (mm/sec)
 
@@ -242,8 +267,11 @@ const bool Z_ENDSTOPS_INVERTING = true; // set to true to invert the logic of th
 //#define EEPROM_CHITCHAT
 
 //LCD and SD support
-//#define ULTRA_LCD  //general lcd support, also 16x2
-//#define SDSUPPORT // Enable SD Card Support in Hardware Console
+#undef ULTRA_LCD  //general lcd support, also 16x2
+#undef ULTIPANEL 
+#undef SDSUPPORT // Enable SD Card Support in Hardware Console
+#undef NEWPANEL
+#define BEEPER -1
 
 //#define ULTIMAKERCONTROLLER //as available from the ultimaker online store.
 //#define ULTIPANEL  //the ultipanel as on thingiverse
@@ -259,11 +287,11 @@ const bool Z_ENDSTOPS_INVERTING = true; // set to true to invert the logic of th
 //  #define NEWPANEL  //enable this if you have a click-encoder panel
   #define SDSUPPORT
   #define ULTRA_LCD
-  #define LCD_WIDTH 20
-  #define LCD_HEIGHT 4
+  #define LCD_WIDTH 32
+  #define LCD_HEIGHT 5
   
 // Preheat Constants
-  #define PLA_PREHEAT_HOTEND_TEMP 180 
+  #define PLA_PREHEAT_HOTEND_TEMP 190 
   #define PLA_PREHEAT_HPB_TEMP 70
   #define PLA_PREHEAT_FAN_SPEED 255		// Insert Value between 0 and 255
 

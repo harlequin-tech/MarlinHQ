@@ -39,6 +39,12 @@
 #include "EEPROMwrite.h"
 #include "language.h"
 #include "pins_arduino.h"
+//#include <EEPROM.h>
+#include <SPI.h>
+#include <oled256.h>
+#ifdef SDSUPPORT
+#include <SD.h>
+#endif
 
 #define VERSION_STRING  "1.0.0"
 
@@ -189,7 +195,7 @@ static unsigned long previous_millis_cmd = 0;
 static unsigned long max_inactive_time = 0;
 static unsigned long stepper_inactive_time = DEFAULT_STEPPER_DEACTIVE_TIME*1000l;
 
-static unsigned long starttime=0;
+unsigned long starttime=0;
 static unsigned long stoptime=0;
 
 static uint8_t tmp_extruder;
@@ -282,12 +288,18 @@ void suicide()
     #endif
   #endif
 }
+#if 0
+rf24 rf(A4,4,60,32);
+RFStream rfstream;
+#endif
 
 void setup()
 {
   setup_killpin(); 
   setup_powerhold();
+
   MYSERIAL.begin(BAUDRATE);
+  
   SERIAL_PROTOCOLLNPGM("start");
   SERIAL_ECHO_START;
 
@@ -341,6 +353,7 @@ void setup()
 
 void loop()
 {
+    //rfstream.available();
   if(buflen < (BUFSIZE-1))
     get_command();
   #ifdef SDSUPPORT
@@ -404,7 +417,8 @@ void get_command()
             SERIAL_ERROR_START;
             SERIAL_ERRORPGM(MSG_ERR_LINE_NO);
             SERIAL_ERRORLN(gcode_LastN);
-            //Serial.println(gcode_N);
+	    lcd_error(F("missing line"));
+            //MYSERIAL.println(gcode_N);
             FlushSerialRequestResend();
             serial_count = 0;
             return;
@@ -421,6 +435,7 @@ void get_command()
               SERIAL_ERROR_START;
               SERIAL_ERRORPGM(MSG_ERR_CHECKSUM_MISMATCH);
               SERIAL_ERRORLN(gcode_LastN);
+	      lcd_error(F("checksum error"));
               FlushSerialRequestResend();
               serial_count = 0;
               return;
@@ -433,6 +448,7 @@ void get_command()
             SERIAL_ERRORPGM(MSG_ERR_NO_CHECKSUM);
             SERIAL_ERRORLN(gcode_LastN);
             FlushSerialRequestResend();
+	    lcd_error(F("no checksum "));
             serial_count = 0;
             return;
           }
@@ -447,6 +463,7 @@ void get_command()
             SERIAL_ERROR_START;
             SERIAL_ERRORPGM(MSG_ERR_NO_LINENUMBER_WITH_CHECKSUM);
             SERIAL_ERRORLN(gcode_LastN);
+	    lcd_error(F("no line number "));
             serial_count = 0;
             return;
           }
@@ -468,6 +485,7 @@ void get_command()
             else {
               SERIAL_ERRORLNPGM(MSG_ERR_STOPPED);
               LCD_MESSAGEPGM(MSG_STOPPED);
+	      lcd_error(F("error stopped"));
             }
             break;
           default:
@@ -492,7 +510,30 @@ void get_command()
   }
   while( !card.eof()  && buflen < BUFSIZE) {
     int16_t n=card.get();
+    uint8_t retry=0;
+    while ((n == -1) && !card.eof()) {
+        retry++;
+	lcd_error(F("read failed"));
+	if (retry > 5 || !card.recover()) {
+	    MYSERIAL.println(F("echo: shutdown"));
+	    /* Shutdown */
+	    card.printingHasFinished();
+	    setTargetHotend0(0);
+	    setTargetHotend1(0);
+	    setTargetHotend2(0);
+	    setTargetBed(0);
+	    /* Raise Z */
+            current_position[Z_AXIS] += 5;
+            plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
+	    break;
+	} else {
+	    n = card.get();
+	    lcd_error(F("recovered"));
+	}
+    }
+
     serial_char = (char)n;
+
     if(serial_char == '\n' || 
        serial_char == '\r' || 
        (serial_char == ':' && comment_mode == false) || 
@@ -512,8 +553,8 @@ void get_command()
         LCD_MESSAGE(time);
         card.printingHasFinished();
         card.checkautostart(true);
-        
       }
+
       if(!serial_count)
       {
         comment_mode = false; //for new command

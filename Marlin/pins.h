@@ -50,17 +50,17 @@
 ****************************************************************************************/
 
 
-#if MOTHERBOARD == 13
-#define MOTHERBOARD 11
+#if MOTHERBOARD == MB_GEN7_1_4
+#define MOTHERBOARD MB_GEN7_1_2
 #define GEN7_VERSION 14 // v1.4
 #endif
 
-#if MOTHERBOARD == 12
-#define MOTHERBOARD 11
+#if MOTHERBOARD == MB_GEN7_1_3
+#define MOTHERBOARD MB_GEN7_1_2
 #define GEN7_VERSION 13 // v1.3
 #endif
 
-#if MOTHERBOARD == 11
+#if MOTHERBOARD == MB_GEN7_1_2
 #define KNOWN_BOARD
 
 #if !defined(__AVR_ATmega644P__) && !defined(__AVR_ATmega644__) && !defined(__AVR_ATmega1284P__)
@@ -144,7 +144,7 @@
 ********/
 /* These Pins are assigned for the modified GEN7 Board from Alfons3 Please review the pins and adjust it for your needs*/
 
-#if MOTHERBOARD == 10
+#if MOTHERBOARD == MB_GEN7_CUSTOM
 #define KNOWN_BOARD
 
 #if !defined(__AVR_ATmega644P__) && !defined(__AVR_ATmega644__) && !defined(__AVR_ATmega1284P__)
@@ -233,7 +233,7 @@
 * Arduino Mega pin assignment
 *
 ****************************************************************************************/
-#if MOTHERBOARD == 3 || MOTHERBOARD == 33 || MOTHERBOARD == 34
+#if MOTHERBOARD == MB_RAMPS_1_2	|| MOTHERBOARD == MB_RAMPS_1_3 || MOTHERBOARD == MB_RAMPS_1_3A
 #define KNOWN_BOARD 1
 
 //////////////////FIX THIS//////////////
@@ -247,7 +247,7 @@
 // #define RAMPS_V_1_3
 // #define RAMPS_V_1_0
 
-#if MOTHERBOARD == 33 || MOTHERBOARD == 34
+#if MOTHERBOARD == MB_RAMPS_1_3	|| MOTHERBOARD == MB_RAMPS_1_3A
 
 #define X_STEP_PIN         54
 #define X_DIR_PIN          55
@@ -283,7 +283,7 @@
 #define SDSS               53
 #define LED_PIN            13
 
-#if MOTHERBOARD == 33
+#if MOTHERBOARD == MB_RAMPS_1_3
 #define FAN_PIN            9 // (Sprinter config)
 #else
 #define FAN_PIN            4 // IO pin. Buffer needed
@@ -292,7 +292,7 @@
 #define KILL_PIN           -1
 
 #define HEATER_0_PIN       10   // EXTRUDER 1
-#if MOTHERBOARD == 33
+#if MOTHERBOARD == MB_RAMPS_1_3
 #define HEATER_1_PIN       -1
 #else
 #define HEATER_1_PIN       9    // EXTRUDER 2 (FAN On Sprinter)
@@ -438,7 +438,7 @@
 * Duemilanove w/ ATMega328P pin assignment
 *
 ****************************************************************************************/
-#if MOTHERBOARD == 4
+#if MOTHERBOARD == MB_DUEMILANOVE 
 #define KNOWN_BOARD 1
 
 #ifndef __AVR_ATmega328P__
@@ -489,7 +489,7 @@
 * Gen6 pin assignment
 *
 ****************************************************************************************/
-#if MOTHERBOARD == 5 || MOTHERBOARD == 51
+#if MOTHERBOARD == MB_GEN6 || MOTHERBOARD == MB_GEN6_DELUXE
 #define KNOWN_BOARD 1
 
 #ifndef __AVR_ATmega644P__
@@ -531,7 +531,7 @@
     #define HEATER_0_PIN    14    //changed @ rkoeppl 20110410
     #define HEATER_1_PIN    -1
     #define HEATER_2_PIN    -1
-    #if MOTHERBOARD == 5
+    #if MOTHERBOARD == MB_GEN6
     #define HEATER_BED_PIN  -1    //changed @ rkoeppl 20110410
     #define TEMP_BED_PIN    -1    //changed @ rkoeppl 20110410
     #else
@@ -559,104 +559,23 @@
 * Sanguinololu pin assignment
 *
 ****************************************************************************************/
-#if MOTHERBOARD == 63
+#if MOTHERBOARD == MB_SANGUINOLOLU || MOTHERBOARD == MB_MELZI
+
+#if MOTHERBOARD == MB_MELZI
 #define MELZI
 #endif
-#if MOTHERBOARD == 62 || MOTHERBOARD == 63
+
 #undef MOTHERBOARD
-#define MOTHERBOARD 6
+#define MOTHERBOARD MB_SANGUINO
 #define SANGUINOLOLU_V_1_2 
-#endif
-#if MOTHERBOARD == 6
-#define KNOWN_BOARD 1
-#ifndef __AVR_ATmega644P__
-#ifndef __AVR_ATmega1284P__
-#error Oops!  Make sure you have 'Sanguino' selected from the 'Tools -> Boards' menu.
-#endif
-#endif
-
-#define X_STEP_PIN         15
-#define X_DIR_PIN          21
-#if X_HOME_DIR < 0
-# define X_MIN_PIN          18 
-# define X_MAX_PIN          -1
-#else
-# define X_MIN_PIN          -1
-# define X_MAX_PIN          18
-#endif
-
-#define Y_STEP_PIN         22
-#define Y_DIR_PIN          23
-#if Y_HOME_DIR < 0
-# define Y_MIN_PIN          19 
-# define Y_MAX_PIN          -1
-#else
-# define Y_MIN_PIN          -1
-# define Y_MAX_PIN          19
-#endif
-
-#define Z_STEP_PIN         3
-#define Z_DIR_PIN          2
-#if Z_HOME_DIR < 0
-# define Z_MIN_PIN          20 
-# define Z_MAX_PIN          -1
-#else
-# define Z_MIN_PIN          -1
-# define Z_MAX_PIN          20
-#endif
-
-#define E0_STEP_PIN         1
-#define E0_DIR_PIN          0
-
-#define LED_PIN            -1
-
-#define FAN_PIN            -1 
-
-#ifdef MELZI
-#define LED_PIN            28
-#define FAN_PIN            4
-#endif
-
-#define PS_ON_PIN          -1
-#define KILL_PIN           -1
-
-#define HEATER_0_PIN       13 // (extruder)
-#define HEATER_1_PIN       -1
-#define HEATER_2_PIN       -1
-
-#ifdef SANGUINOLOLU_V_1_2
-
-#define HEATER_BED_PIN     12 // (bed)
-#define X_ENABLE_PIN       14
-#define Y_ENABLE_PIN       14
-#define Z_ENABLE_PIN       26
-#define E0_ENABLE_PIN       14
-
-#else
-
-#define HEATER_BED_PIN       14  // (bed)
-#define X_ENABLE_PIN       -1
-#define Y_ENABLE_PIN       -1
-#define Z_ENABLE_PIN       -1
-#define E0_ENABLE_PIN       -1
 
 #endif
 
-#define TEMP_0_PIN          7   // MUST USE ANALOG INPUT NUMBERING NOT DIGITAL OUTPUT NUMBERING!!!!!!!!! (pin 33 extruder)
-#define TEMP_1_PIN         -1
-#define TEMP_2_PIN         -1
-#define TEMP_BED_PIN        6   // MUST USE ANALOG INPUT NUMBERING NOT DIGITAL OUTPUT NUMBERING!!!!!!!!! (pin 34 bed)
-#define SDPOWER            -1
-#define SDSS               31
-
-#ifdef MELZI
-#define SDSS               24
+#if MOTHERBOARD == MB_SANGUINO
+#include "mb_sanguino.h"
 #endif
 
-#endif
-
-
-#if MOTHERBOARD == 7
+#if MOTHERBOARD == MB_ULTIMAKER
 #define KNOWN_BOARD
 /*****************************************************************
 * Ultimaker pin assignment
@@ -791,7 +710,7 @@
 
 #endif
 
-#if MOTHERBOARD == 71
+#if MOTHERBOARD == MB_ULTIMAKER_OLD
 #define KNOWN_BOARD
 /*****************************************************************
 * Ultimaker pin assignment (Old electronics)
@@ -862,8 +781,7 @@
 * Teensylu 0.7 pin assingments (ATMEGA90USB)
 * Requires the Teensyduino software with Teensy2.0++ selected in arduino IDE!
 ****************************************************************************************/
-#if MOTHERBOARD == 8
-#define MOTHERBOARD 8
+#if MOTHERBOARD == MB_TEENSYLU
 #define KNOWN_BOARD 1
 
 
@@ -921,8 +839,8 @@
 * Gen3+ pin assignment
 *
 ****************************************************************************************/
-#if MOTHERBOARD == 9
-#define MOTHERBOARD 6
+#if MOTHERBOARD == MB_GEN3
+#define MOTHERBOARD MB_SANGUINO
 #define KNOWN_BOARD 1
 #ifndef __AVR_ATmega644P__
 #ifndef __AVR_ATmega1284P__
@@ -1003,7 +921,7 @@
 *                        +--------+
 *
 ****************************************************************************************/
-#if MOTHERBOARD == 90 //Alpha OMCA board
+#if MOTHERBOARD == MB_OMCA_ALPHA //Alpha OMCA board
 #define KNOWN_BOARD 1
 
 #ifndef __AVR_ATmega644__
@@ -1060,7 +978,7 @@
 
 #endif
 
-#if MOTHERBOARD == 91  // Final OMCA board -- REF http://sanguino.cc/hardware
+#if MOTHERBOARD == MB_OMCA  // Final OMCA board -- REF http://sanguino.cc/hardware
 #define KNOWN_BOARD 1
 
 #if !defined(__AVR_ATmega644P__) && !defined(__AVR_ATmega644__)
