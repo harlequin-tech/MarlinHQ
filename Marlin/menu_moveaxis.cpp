@@ -22,7 +22,7 @@ static void mma_ShowAxis(uint8_t line, uint8_t axis)
     mma_Show(line, ftostr52(current_position[axis]));
 }
 
-static void mma_ClickAxis(uint8_t line, long &pos, bool &adjustValue, uint8_t axis)
+static void mma_ClickAxis(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t axis)
 {
     adjustValue = !adjustValue;
     if(adjustValue) {
@@ -36,7 +36,7 @@ static void mma_ClickAxis(uint8_t line, long &pos, bool &adjustValue, uint8_t ax
 #define MMA_EXTRUDE 1
 #define MMA_RETRACT 2
 
-static void mma_ClickExtruder(uint8_t line, long &pos, bool &adjustValue, uint8_t direction)
+static void mma_ClickExtruder(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t direction)
 {
     if (direction == MMA_EXTRUDE) {
 	enquecommand("G92 E0");
@@ -49,7 +49,7 @@ static void mma_ClickExtruder(uint8_t line, long &pos, bool &adjustValue, uint8_
     }
 }
 
-void mma_AdjustAxis(uint8_t line, long &pos, uint8_t axis)
+void mma_AdjustAxis(uint8_t line, volatile long &pos, uint8_t axis)
 {
     if (pos > 0) {
 	switch (axis) {
@@ -66,6 +66,7 @@ void mma_AdjustAxis(uint8_t line, long &pos, uint8_t axis)
 	default: break;
 	}
     }
+    pos = 0;
 
     mma_ShowAxis(line, axis);
 }

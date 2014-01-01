@@ -28,13 +28,13 @@ void mct_Show(uint8_t line, const char *value)
     lcd.print(value);
 }
 
-void mct_ClickMenu(uint8_t line, long &pos, bool &adjustValue, uint8_t newMenu)
+void mct_ClickMenu(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t newMenu)
 {
-    mainMenu.status = (MainStatus)newMenu;
+    mainMenu.changeMenu((MainStatus)newMenu);
     beepshort();
 }
 
-void mct_AdjustTemp(uint8_t line, long &pos, uint8_t arg)
+void mct_AdjustTemp(uint8_t line, volatile long &pos, uint8_t arg)
 {
     limitEncoder(pos, 0, 260);
     mct_Show(line, itostr3(pos));
@@ -45,7 +45,7 @@ void mct_ShowNozzle(uint8_t line, uint8_t extruder)
     mct_Show(line, itostr3(intround(degTargetHotend(extruder))));
 }
 
-void mct_ClickNozzle(uint8_t line, long &pos, bool &adjustValue, uint8_t extruder)
+void mct_ClickNozzle(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t extruder)
 {
     adjustValue = !adjustValue;
     if (adjustValue) {
@@ -56,7 +56,7 @@ void mct_ClickNozzle(uint8_t line, long &pos, bool &adjustValue, uint8_t extrude
 }
 
 #ifdef AUTOTEMP
-static void mct_AdjustFactor(uint8_t line, long &pos, uint8_t arg)
+static void mct_AdjustFactor(uint8_t line, volatile long &pos, uint8_t arg)
 {
     limitEncoder(pos, 0, 99);
     mct_Show(line, itostr3(pos));
@@ -82,7 +82,7 @@ static void mct_ShowAutotemp(uint8_t line, uint8_t which)
     }
 }
 
-static void mct_ClickAutotemp(uint8_t line, long &pos, bool &adjustValue, uint8_t which)
+static void mct_ClickAutotemp(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
     float *temp = NULL;
     float scale = 1;
@@ -123,7 +123,7 @@ static void mct_ShowAutotempStatus(uint8_t line, uint8_t which)
     }
 }
 
-static void mct_ClickAutotempStatus(uint8_t line, long &pos, bool &adjustValue, uint8_t which)
+static void mct_ClickAutotempStatus(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
     autotemp_enabled=!autotemp_enabled;
     mct_ShowAutotempStatus(line, which);
@@ -136,7 +136,7 @@ void mct_ShowBed(uint8_t line, uint8_t which)
     mct_Show(line, ftostr3(intround(degTargetBed())));
 }
 
-void mct_ClickBed(uint8_t line, long &pos, bool &adjustValue, uint8_t which)
+void mct_ClickBed(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
     adjustValue = !adjustValue;
     if (adjustValue) {
@@ -153,7 +153,7 @@ void mct_ShowFan(uint8_t line, uint8_t which)
     mct_Show(line, itostr3(FanSpeed));
 }
 
-void mct_ClickFan(uint8_t line, long &pos, bool &adjustValue, uint8_t which)
+void mct_ClickFan(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
     adjustValue = !adjustValue;
     if (adjustValue) {
@@ -164,7 +164,7 @@ void mct_ClickFan(uint8_t line, long &pos, bool &adjustValue, uint8_t which)
     }
 }
 
-void mct_AdjustFan(uint8_t line, long &pos, uint8_t arg)
+void mct_AdjustFan(uint8_t line, volatile long &pos, uint8_t arg)
 {
     limitEncoder(pos, 0, 255);
 
@@ -198,7 +198,7 @@ static void mct_ShowPid(uint8_t line, uint8_t which)
     }
 }
 
-static void mct_ClickPid(uint8_t line, long &pos, bool &adjustValue, uint8_t which)
+static void mct_ClickPid(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
     adjustValue = !adjustValue;
     if (adjustValue) {
@@ -220,7 +220,7 @@ static void mct_ClickPid(uint8_t line, long &pos, bool &adjustValue, uint8_t whi
     }
 }
 
-static void mct_AdjustPid(uint8_t line, long &pos, uint8_t which)
+static void mct_AdjustPid(uint8_t line, volatile long &pos, uint8_t which)
 {
     if (which == PID_P) {
 	if (pos<1) pos=1;

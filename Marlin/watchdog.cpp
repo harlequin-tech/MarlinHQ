@@ -52,7 +52,7 @@ ISR(WDT_vect)
     WDTCSR |= (1<<WDCE) | (1<<WDE);
     WDTCSR = 0;
     #ifdef RESET_MANUAL
-      kill(); //kill blocks
+      kill(__LINE__); //kill blocks
       while(1); //wait for user or serial reset
     #else
       ctrlaltdelete();

@@ -40,14 +40,14 @@ static void main_ShowFile(uint8_t line, uint8_t arg)
     }
 }
 
-static void main_ClickFile(uint8_t line, long &pos, bool &adjustValue, uint8_t which)
+static void main_ClickFile(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
 #ifdef CARDINSERTED
     if (!CARDINSERTED) return;
 #endif
 
     card.printingHasFinished();
-    mainMenu.status = Main_SD;
+    mainMenu.changeMenu(Main_SD);
     beepshort();
 }
 
@@ -57,6 +57,7 @@ static void main_ShowPause(uint8_t line, uint8_t arg)
     if (!CARDINSERTED) return;
 #endif
 
+    lcd.setCursor(0, line);
     if (card.sdprinting) {
 	lcdprintPGM(MSG_PAUSE_PRINT);
     } else {
@@ -64,7 +65,7 @@ static void main_ShowPause(uint8_t line, uint8_t arg)
     }
 }
 
-static void main_ClickPause(uint8_t line, long &pos, bool &adjustValue, uint8_t which)
+static void main_ClickPause(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
 #ifdef CARDINSERTED
     if (!CARDINSERTED) return;
@@ -77,7 +78,7 @@ static void main_ClickPause(uint8_t line, long &pos, bool &adjustValue, uint8_t 
 	starttime=millis();
     }
     beepshort();
-    mainMenu.status = Main_Status;
+    mainMenu.changeMenu(Main_Status);
 }
 
 static const menu_t menu[] __attribute__((__progmem__)) = {
@@ -96,6 +97,7 @@ void MainMenu::showMainMenu()
 {
 #ifndef ULTIPANEL
     force_lcd_update=false;
+#error
 #endif
     if (tune) {
 	if (!(movesplanned() || IS_SD_PRINTING)) {

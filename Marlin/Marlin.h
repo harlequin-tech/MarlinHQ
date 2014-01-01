@@ -178,7 +178,7 @@ void ClearToSend();
 
 void get_coordinates();
 void prepare_move();
-void kill();
+void kill(int line);
 void Stop();
 
 bool IsStopped();

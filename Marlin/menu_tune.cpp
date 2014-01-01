@@ -10,7 +10,6 @@
 extern volatile int feedmultiply;
 extern volatile bool feedmultiplychanged;
 extern volatile int extrudemultiply;
-extern long encoderpos;
 extern long position[4];   
 
 /*
@@ -33,7 +32,7 @@ static void mt_ShowSpeed(uint8_t line, uint8_t arg)
     mt_Show(line, ftostr3(feedmultiply));
 }
 
-static void mt_ClickSpeed(uint8_t line, long &pos, bool &adjustValue, uint8_t arg)
+static void mt_ClickSpeed(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t arg)
 {
     adjustValue = !adjustValue;
     if(adjustValue) {
@@ -41,7 +40,7 @@ static void mt_ClickSpeed(uint8_t line, long &pos, bool &adjustValue, uint8_t ar
     }
 }
 
-void mt_AdjustSpeed(uint8_t line, long &pos, uint8_t arg)
+void mt_AdjustSpeed(uint8_t line, volatile long &pos, uint8_t arg)
 {
     limitEncoder(pos, 1, 400);
     feedmultiply = encoderpos;
@@ -54,7 +53,7 @@ static void mt_ShowFlow(uint8_t line, uint8_t arg)
     mt_Show(line, ftostr3(feedmultiply));
 }
 
-static void mt_ClickFlow(uint8_t line, long &pos, bool &adjustValue, uint8_t arg)
+static void mt_ClickFlow(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t arg)
 {
     adjustValue =! adjustValue;
     if (adjustValue) {
@@ -66,7 +65,7 @@ static void mt_ClickFlow(uint8_t line, long &pos, bool &adjustValue, uint8_t arg
     }
 }
 
-void mt_AdjustFlow(uint8_t line, long &pos, uint8_t arg)
+void mt_AdjustFlow(uint8_t line, volatile long &pos, uint8_t arg)
 {
     limitEncoder(pos, 5, 999999);
     mt_Show(line, ftostr52(encoderpos/100.0));

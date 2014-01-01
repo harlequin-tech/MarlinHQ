@@ -10,11 +10,9 @@
 #include "cardreader.h"
 extern CardReader card;
 
-extern long encoderpos;
-
 static void menuClickMain()
 {
-    mainMenu.status = Main_Menu;
+    mainMenu.changeMenu(Main_Menu);
     beepshort();
 }
 
@@ -80,7 +78,7 @@ static void menuClickCooldown()
 
 static void menuClickPrepareMove()
 {
-    mainMenu.status=Sub_PrepareMove;
+    mainMenu.changeMenu(Sub_PrepareMove);
     beepshort();
 }
 
@@ -105,7 +103,15 @@ void MainMenu::showPrepare()
 {
     uint8_t line = activeline + lineoffset;
 
-    updateActiveLines(MENU_PREPARE_MAX, encoderpos);
+    clearIfNecessary();
+    if (force_lcd_update) {
+	for (line=lineoffset; line<lineoffset+LCD_HEIGHT; line++) {
+	    lcd.setCursor(0, line-lineoffset);
+	    lcdProgMemprint(menu[line].name);
+	}
+	showCursor();
+	force_lcd_update = false;
+    }
 
     if (CLICKED && (line < MENU_PREPARE_MAX)) {
 	BLOCK;
@@ -113,13 +119,7 @@ void MainMenu::showPrepare()
 	action();
     }
 
-    clearIfNecessary();
-    if (force_lcd_update) {
-	for (line=lineoffset; line<lineoffset+LCD_HEIGHT; line++) {
-	    lcd.setCursor(0, line-lineoffset);
-	    lcdProgMemprint(menu[line].name);
-	}
-    }
+    updateActiveLines(MENU_PREPARE_MAX-1, encoderpos);
 }
 
 #endif

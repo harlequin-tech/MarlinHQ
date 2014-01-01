@@ -52,7 +52,7 @@ static void mp_ShowPreheat(uint8_t line, uint8_t which)
     }
 }
 
-static void mp_ClickPreheat(uint8_t line, long &pos, bool &adjustValue, uint8_t which)
+static void mp_ClickPreheat(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
     if (which >= NUM_PARMS) return;
 
@@ -64,14 +64,14 @@ static void mp_ClickPreheat(uint8_t line, long &pos, bool &adjustValue, uint8_t 
     }
 }
 
-static void mp_AdjustPreheat(uint8_t line, long &pos, uint8_t which)
+static void mp_AdjustPreheat(uint8_t line, volatile long &pos, uint8_t which)
 {
     if (which >= NUM_PARMS) return;
     limitEncoder(pos, 0, limit[which]);
     mp_Show(line, itostr3(pos));
 }
 
-static void mp_ClickStore(uint8_t line, long &pos, bool &adjustValue, uint8_t which)
+static void mp_ClickStore(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
     EEPROM_StoreSettings();
 }

@@ -68,9 +68,9 @@
     
   // blocking time for recognizing a new keypress of one key, ms
   #define blocktime 500
-  #define lcdslow 5
+  #define lcdslow 1
     
-  void limitEncoder(long &pos, long min, long max);
+  void limitEncoder(volatile long &pos, long min, long max);
   enum MainStatus{Main_Status, Main_Menu, Main_Prepare,Sub_PrepareMove, Main_Control, Main_SD,Sub_TempControl,Sub_MotionControl,Sub_RetractControl, Sub_PreheatPLASettings, Sub_PreheatABSSettings};
 
   class MainMenu{
@@ -94,6 +94,8 @@
     void showSD();
     void showPLAsettings();
     void showABSsettings();
+    void showCursor();
+    void changeMenu(MainStatus newMenu);
     bool force_lcd_update;
     long lastencoderpos;
     int8_t lineoffset;
@@ -104,6 +106,7 @@
   private:
     void updateActiveLines(const uint8_t maxlines,volatile long &encoderpos);
     void clearIfNecessary(void);
+    uint32_t timeoutToStatus;
   };
 
   //conversion routines, could need some overworking
@@ -155,5 +158,6 @@ extern uint32_t blocking;
 #else
 extern long blocking[8];
 #endif
+extern volatile long encoderpos;
 
 #endif //ULTRALCD

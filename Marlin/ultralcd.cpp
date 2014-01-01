@@ -27,6 +27,7 @@ extern CardReader card;
 extern unsigned int __bss_end;
 extern unsigned int __heap_start;
 extern void *__brkval;
+void encoderInit();
 
 static char lcdErrorStr[17];
 
@@ -69,9 +70,9 @@ static int freeMemory(void)
 //===========================================================================
 
 volatile char buttons=0;  //the last checked buttons in a bit array.
-long encoderpos=0;
-uint8_t lastenc=0;
-int8_t lastStep=0;
+volatile long encoderpos=0;
+volatile uint8_t lastenc=0;
+volatile int8_t lastStep=0;
 
 
 //===========================================================================
@@ -196,7 +197,7 @@ void lcd_init()
   lcd.createChar(4,refresh);
   lcd.createChar(5,folder);
 #if 0
-  MYSERIAL.println(F("echo:lcd_init waiting 5 seconds"));
+  MYSERIAL.println(F("echo:lcd_init waiting 4 seconds"));
   delay(5000);
   MYSERIAL.println(F("echo:lcd_init complete"));
 #endif
@@ -246,7 +247,7 @@ void lcd_status()
     static uint8_t oldbuttons=0;
     //static long previous_millis_buttons=0;
     //static long previous_lcdinit=0;
-    buttons_check(); // Done in temperature interrupt
+    //buttons_check(); // Done in temperature interrupt
     //previous_millis_buttons=millis();
 #if 1	/* XXX check */
     uint32_t ms=millis();
@@ -301,9 +302,124 @@ void buttons_init()
     WRITE(SHIFT_LD,HIGH); 
     WRITE(SHIFT_EN,LOW); 
   #endif
+    encoderInit();
 }
 
-#if 1
+#define ERR	 0
+#define CW_HALF  0
+#define CW_FULL  1
+#define CW_END   0
+#define ACW_HALF 0 
+#define ACW_FULL -1
+#define ACW_END  0
+
+/*
+* Clockwise:      (BA) 00 -> 01 -> 11 -> 10 -> 00
+* Anti-clockwise: (BA) 00 -> 10 -> 11 -> 01 -> 00
+*                                Detect
+*
+* Note: Encoder A and B signals are active low
+*/
+int8_t encState[4][4] = {
+ // BA:    00       01         10        11  current
+     {         0,  CW_HALF, ACW_HALF,     ERR  }, // 00
+     {  ACW_HALF,        0,      ERR, CW_FULL  }, // 01
+     {    CW_END,      ERR,        0, ACW_FULL }, // 10
+     {       ERR,  ACW_HALF, CW_HALF,        0 }, // 11
+};
+
+typedef struct {
+    uint32_t time;
+    uint8_t lastValue;
+} debounce_t;
+
+uint8_t debounce(uint8_t value, uint16_t period, debounce_t &state)
+{
+    uint32_t now = millis();
+
+    if (value != state.lastValue) {
+	if (state.time) {
+	    if ((now - state.time) < period) {
+		return state.lastValue;
+	    } else {
+		// debounced
+		state.lastValue = value;
+		state.time = 0;
+	    }
+	} else {
+	    // got a change
+	    state.time = now;
+	}
+    } else {
+	// reset
+	state.time = 0;
+    }
+
+    return state.lastValue;
+}
+
+debounce_t debEncA = { 0, 0 };
+debounce_t debEncB = { 0, 0 };
+
+uint8_t lastEnc=0;
+void encoderInit()
+{
+    lastEnc = 0;
+    if (READ(BTN_EN1) == 0) {
+	lastEnc |= 1;
+	debEncA.lastValue = 1;
+    }
+    if (READ(BTN_EN2) == 0) {
+	lastEnc |= 2;
+	debEncB.lastValue = 2;
+    }
+}
+
+
+
+/*
+* Clockwise:      (BA) 00 -> 01 -> 11 -> 10 -> 00
+* Anti-clockwise: (BA) 00 -> 10 -> 11 -> 01 -> 00
+*                                Detect
+*
+* Note: Encoder A and B signals are active low
+*/
+int8_t encoderChange(uint8_t curEnc)
+{
+    static uint32_t lastTick = 0;
+    static int8_t lastStep = 0;
+    static uint8_t stepCount = 0;
+    int8_t step = encState[lastEnc & 0x3][curEnc & 0x3];
+    uint32_t now = millis();
+#if 0
+    if (curEnc != lastEnc) {
+	MYSERIAL.print(F("ENC: "));
+	MYSERIAL.print(lastEnc);
+	MYSERIAL.print(F(" -> "));
+	MYSERIAL.print(curEnc);
+	MYSERIAL.print(F(" = "));
+	MYSERIAL.println(step);
+    }
+#endif
+    lastEnc = curEnc;
+
+    if (mainMenu.linechanging && step) {
+	// provide some faster updates when the encoder is spun faster
+	if ((lastStep == step) && ((now - lastTick) < 100)) {
+	    lastStep = step;
+	    step *= 10;
+	    if ((now - lastTick) < 20) {
+		step *= 10;
+	    }
+	} else {
+	    lastStep = step;
+	}
+	lastTick = now;
+    }
+    return step;
+}
+ 
+// Note: May be called from an ISR
 void buttons_check()
 {
 #ifdef NEWPANEL
@@ -331,209 +447,33 @@ void buttons_check()
     //manage encoder rotation
     uint8_t enc=0;
 
+#define DEBOUNCE_MS 2
     if (buttons & EN_A) {
-	enc = 1;
+	enc = debounce(1, DEBOUNCE_MS, debEncA);
+    } else {
+	enc = debounce(0, DEBOUNCE_MS, debEncA);
     }
+
     if (buttons & EN_B) {
-	enc |= 2;
+	enc |= debounce(2, DEBOUNCE_MS, debEncB);
+    } else {
+	enc = (enc & 0x1) | debounce(0, DEBOUNCE_MS, debEncB);
     }
 
-    uint8_t delta = (enc - lastenc) % 4;
-    switch(delta) {
-	case 0:	// no change
-	    break;
-
-	case 1: // clockwise step
-	    encoderpos++;
-	    lastStep = 1;
-	    break;
-	    
-	case 2: // 2 steps (missed pulse)
-	    // assume its the same direction as the last step
-	    encoderpos += 2*lastStep;
-	    break;
-
-	case 3: // counter-clockwise step
-	    encoderpos--;
-	    lastStep = -1;
-	    break;
-
-	default:
-	    break;
-    }
-    lastenc=enc;
+    encoderpos += encoderChange(enc);
 }
-#else
-uint32_t debounce_EN_A=0;
-uint32_t debounce_EN_B=0;
-uint32_t debounce_EN_C=0;
-uint8_t debounce=0;
-#define DEBOUNCE_PERIOD	5
-
-void buttons_check()
-{
-  #ifdef NEWPANEL
-    //uint8_t newbutton=0;
-    if (READ(BTN_EN1)==0) {
-	if (!buttons & EN_A) {
-	    if (debounce & EN_A) {
-		if ((millis() - debounce_EN_A) > DEBOUNCE_PERIOD) {
-		    buttons |= EN_A;
-		    debounce &= ~EN_A;
-		}
-	    } else {
-		debounce_EN_A = millis();
-		debounce |= EN_A;
-	    }
-	} else {
-	    debounce &= ~EN_A;
-	}
-    } else {
-	if (buttons & EN_A) {
-	    if (debounce & EN_A) {
-		if ((millis() - debounce_EN_A) > DEBOUNCE_PERIOD) {
-		    buttons &= ~EN_A;
-		    debounce &= ~EN_A;
-		}
-	    } else {
-		debounce_EN_A = millis();
-		debounce |= EN_A;
-	    }
-	} else {
-	    debounce &= ~EN_A;
-	}
-    }
-
-    if (READ(BTN_EN2)==0) {
-	if (!buttons & EN_B) {
-	    if (debounce & EN_B) {
-		if ((millis() - debounce_EN_B) > DEBOUNCE_PERIOD) {
-		    buttons |= EN_B;
-		    debounce &= ~EN_B;
-		}
-	    } else {
-		debounce_EN_B = millis();
-		debounce |= EN_B;
-	    }
-	} else {
-	    debounce &= ~EN_B;
-	}
-    } else {
-	if (buttons & EN_B) {
-	    if (debounce & EN_B) {
-		if ((millis() - debounce_EN_B) > DEBOUNCE_PERIOD) {
-		    buttons &= ~EN_B;
-		    debounce &= ~EN_B;
-		}
-	    } else {
-		debounce_EN_B = millis();
-		debounce |= EN_B;
-	    }
-	} else {
-	    debounce &= ~EN_B;
-	}
-    }
-
-    if (READ(BTN_ENC)==0) {
-	if (!buttons & EN_C) {
-	    if (debounce & EN_C) {
-		if ((millis() - debounce_EN_C) > DEBOUNCE_PERIOD) {
-		    buttons |= EN_C;
-		    debounce &= ~EN_C;
-		}
-	    } else {
-		debounce_EN_C = millis();
-		debounce |= EN_C;
-	    }
-	} else {
-	    debounce &= ~EN_C;
-	}
-    } else {
-	if (buttons & EN_C) {
-	    if (debounce & EN_C) {
-		if ((millis() - debounce_EN_C) > DEBOUNCE_PERIOD) {
-		    buttons &= ~EN_C;
-		    debounce &= ~EN_C;
-		}
-	    } else {
-		debounce_EN_C = millis();
-		debounce |= EN_C;
-	    }
-	} else {
-	    debounce &= ~EN_C;
-	}
-    }
-    //if((blocking<millis()) &&(READ(BTN_ENC)==0))
-     // newbutton|=EN_C;
-    //buttons=newbutton;
-  #else   //read it from the shift register
-    uint8_t newbutton=0;
-    WRITE(SHIFT_LD,LOW);
-    WRITE(SHIFT_LD,HIGH);
-    unsigned char tmp_buttons=0;
-    for(int8_t i=0;i<8;i++)
-    { 
-      newbutton = newbutton>>1;
-      if(READ(SHIFT_OUT))
-        newbutton|=(1<<7);
-      WRITE(SHIFT_CLK,HIGH);
-      WRITE(SHIFT_CLK,LOW);
-    }
-    buttons=~newbutton; //invert it, because a pressed switch produces a logical 0
-  #endif
-  
-  //manage encoder rotation
-  char enc=0;
-  if(buttons&EN_A)
-    enc|=(1<<0);
-  if(buttons&EN_B)
-    enc|=(1<<1);
-  if(enc!=lastenc)
-	{
-    switch(enc)
-    {
-    case encrot0:
-      if(lastenc==encrot3)
-        encoderpos++;
-      else if(lastenc==encrot1)
-        encoderpos--;
-      break;
-    case encrot1:
-      if(lastenc==encrot0)
-        encoderpos++;
-      else if(lastenc==encrot2)
-        encoderpos--;
-      break;
-    case encrot2:
-      if(lastenc==encrot1)
-        encoderpos++;
-      else if(lastenc==encrot3)
-        encoderpos--;
-      break;
-    case encrot3:
-      if(lastenc==encrot2)
-        encoderpos++;
-      else if(lastenc==encrot0)
-        encoderpos--;
-      break;
-    default:
-      ;
-    }
-  }
-  lastenc=enc;
-}
-#endif
 
 #endif
 
 MainMenu::MainMenu()
 {
-  status=Main_Status;
-  displayStartingRow=0;
-  activeline=0;
-  force_lcd_update=true;
-  linechanging=false;
-  tune=false;
+    status = Main_Status;
+    displayStartingRow = 0;
+    activeline = 0;
+    force_lcd_update = true;
+    linechanging = false;
+    tune = false;
+    timeoutToStatus = 0;
 }
 
 void MainMenu::showStatus()
@@ -1045,8 +985,7 @@ void MainMenu::showControl()
 
 void MainMenu::update()
 {
-    static MainStatus oldstatus=Main_Menu;  //init automatically causes foce_lcd_update=true
-    static uint32_t timeoutToStatus=0;
+    static MainStatus oldstatus=Main_Status;  //init automatically causes foce_lcd_update=true
 #ifdef CARDINSERTED
     static bool oldcardstatus=false;
     if ((CARDINSERTED != oldcardstatus)) {
@@ -1064,16 +1003,12 @@ void MainMenu::update()
     }
 #endif
 
-    if (status!=oldstatus) {
+    if (status != oldstatus) {
 	force_lcd_update = true;
 	encoderpos = 0;
 	lineoffset = 0;
 	oldstatus = status;
     }
-    if ((encoderpos != lastencoderpos) || CLICKED) {
-	timeoutToStatus = millis()+STATUSTIMEOUT;
-    }
-
     switch(status) {
     case Main_Status: 
 	showStatus();
@@ -1121,6 +1056,10 @@ void MainMenu::update()
 	break;
     default:
 	break;
+    }
+
+    if ((encoderpos != lastencoderpos) || CLICKED) {
+	timeoutToStatus = millis()+STATUSTIMEOUT;
     }
 
     if (timeoutToStatus<millis())
@@ -1252,7 +1191,7 @@ void MainMenu::updateActiveLines(const uint8_t maxlines,volatile long &encoderpo
     lastlineoffset=lineoffset; 
     force_lcd_update=false;
 
-    if (abs(curencoderpos-lastencoderpos) < lcdslow) { 
+    if (abs(curencoderpos-lastencoderpos) >= lcdslow) { 
 	lcd.setCursor(0,activeline);
 	lcd.print((activeline+lineoffset)?' ':' '); 
 	if (curencoderpos<0)  {  
@@ -1260,7 +1199,7 @@ void MainMenu::updateActiveLines(const uint8_t maxlines,volatile long &encoderpo
 	    if(lineoffset<0) lineoffset=0; 
 	    curencoderpos=lcdslow-1;
 	} 
-	if (curencoderpos>(LCD_HEIGHT)*lcdslow) { 
+	if (curencoderpos>=(LCD_HEIGHT)*lcdslow) { 
 	    lineoffset++; 
 	    curencoderpos=(LCD_HEIGHT-1)*lcdslow; 
 	    if(lineoffset>(maxlines+1-LCD_HEIGHT)) 
@@ -1269,6 +1208,7 @@ void MainMenu::updateActiveLines(const uint8_t maxlines,volatile long &encoderpo
 		curencoderpos=maxlines*lcdslow; 
 	} 
 	lastencoderpos=encoderpos=curencoderpos;
+	timeoutToStatus = millis()+STATUSTIMEOUT;
 	activeline=curencoderpos/lcdslow;
 
 	if (activeline<0) activeline=0;
@@ -1285,6 +1225,12 @@ void MainMenu::updateActiveLines(const uint8_t maxlines,volatile long &encoderpo
     } 
 }
 
+void MainMenu::showCursor()
+{
+    lcd.setCursor(0,activeline);
+    lcd.print((activeline+lineoffset)?'>':'\003');    
+}
+
 void MainMenu::clearIfNecessary()
 {
     if (lastlineoffset!=lineoffset ||force_lcd_update) {
@@ -1295,19 +1241,56 @@ void MainMenu::clearIfNecessary()
 
 void MainMenu::show(const menu_t *menu, uint8_t menuMax)
 {
-    uint8_t line = activeline + lineoffset;
+    uint8_t curline = activeline + lineoffset;
 
-    if (line >= menuMax) {
+    if (curline >= menuMax) {
 	return;
     }
 
-    adjust_t adjust = (adjust_t)pgm_read_dword(&menu[line].adjust);
+    adjust_t adjust = (adjust_t)pgm_read_word(&menu[curline].adjust);
     bool adjusting = linechanging;
-    uint8_t arg = pgm_read_byte(&menu[line].arg);
+    uint8_t arg;
+
+    clearIfNecessary();
+    if (force_lcd_update) {
+	for (uint8_t line=lineoffset; line<lineoffset+LCD_HEIGHT; line++) {
+	    show_t show = (show_t)pgm_read_word(&menu[line].show);
+#if 0
+	    click_t click = (click_t)pgm_read_word(&menu[line].click);
+	    arg = pgm_read_byte(&menu[line].arg);
+	    MYSERIAL.print(F("sizeof(click_t) = "));
+	    MYSERIAL.println(sizeof(click_t));
+	    MYSERIAL.print(F("line["));
+	    MYSERIAL.print(line);
+	    MYSERIAL.print(F("] \""));
+	    MYSERIAL.print((const __FlashStringHelper *)menu[line].name);
+	    MYSERIAL.println(F("\""));
+	    MYSERIAL.print(F("    show   = "));
+	    MYSERIAL.println((uint32_t)show, HEX);
+	    MYSERIAL.print(F("    click = "));
+	    MYSERIAL.println((uint32_t)click, HEX);
+	    MYSERIAL.print(F("    adjust = "));
+	    MYSERIAL.println((uint32_t)adjust, HEX);
+	    MYSERIAL.print(F("    arg    = "));
+	    MYSERIAL.println((int)arg);
+#endif
+	    
+
+	    lcd.setCursor(0, line-lineoffset);
+	    lcdProgMemprint(menu[line].name);
+	    if (show) {
+		arg = pgm_read_byte(&menu[line].arg);
+		show(line-lineoffset, arg);
+	    }
+	}
+	showCursor();
+	force_lcd_update = false;
+    }
 
     if (CLICKED) {
 	BLOCK;	// XXX fix this
-	click_t click = (click_t)pgm_read_dword(&menu[line].click);
+	click_t click = (click_t)pgm_read_word(&menu[curline].click);
+	arg = pgm_read_byte(&menu[curline].arg);
 	click(activeline, encoderpos, linechanging, arg);
 	if (adjusting && !linechanging) {
 	    // restore correct encoder position
@@ -1319,26 +1302,22 @@ void MainMenu::show(const menu_t *menu, uint8_t menuMax)
     if (linechanging) {
 	// user is changing the parameter value of the current line
 	if (adjust) {
+	    arg = pgm_read_byte(&menu[curline].arg);
 	    adjust(activeline, encoderpos, arg);
 	}
     } else {
-	updateActiveLines(menuMax, encoderpos);
+	updateActiveLines(menuMax-1, encoderpos);
     }
 
-    clearIfNecessary();
-    if (force_lcd_update) {
-	for (line=lineoffset; line<lineoffset+LCD_HEIGHT; line++) {
-	    show_t show = (show_t)pgm_read_dword(&menu[line].show);
-	    lcd.setCursor(0, line-lineoffset);
-	    lcdProgMemprint(menu[line].name);
-	    if (show) {
-		show(line-lineoffset, pgm_read_byte(&menu[line].arg));
-	    }
-	}
-    }
 }
 
-void limitEncoder(long &pos, long min, long max)
+void MainMenu::changeMenu(MainStatus newMenu)
+{
+    status = newMenu;
+    force_lcd_update = true;
+}
+
+void limitEncoder(volatile long &pos, long min, long max)
 {
     if (pos<min) {
 	pos = 1;
@@ -1357,5 +1336,4 @@ void lcd_clearError(void)
 {
 }
 #endif //ULTRA_LCD
-
 

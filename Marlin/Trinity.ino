@@ -190,9 +190,9 @@ const int sensitive_pins[] = SENSITIVE_PINS; // Sensitive pin list for M42
 //static float bt = 0;
 
 //Inactivity shutdown variables
-static unsigned long previous_millis_cmd = 0;
-static unsigned long max_inactive_time = 0;
-static unsigned long stepper_inactive_time = DEFAULT_STEPPER_DEACTIVE_TIME*1000l;
+static uint32_t previous_millis_cmd = 0;
+static volatile uint32_t max_inactive_time = 0;
+static uint32_t stepper_inactive_time = DEFAULT_STEPPER_DEACTIVE_TIME*1000l;
 
 unsigned long starttime=0;
 static unsigned long stoptime=0;
@@ -353,42 +353,36 @@ void setup()
 void loop()
 {
     //rfstream.available();
-  if(buflen < (BUFSIZE-1))
-    get_command();
-  #ifdef SDSUPPORT
-  card.checkautostart(false);
-  #endif
-  if(buflen)
-  {
-    #ifdef SDSUPPORT
-      if(card.saving)
-      {
-	if(strstr(cmdbuffer[bufindr],"M29") == NULL)
-	{
-	  card.write_command(cmdbuffer[bufindr]);
-	  SERIAL_PROTOCOLLNPGM(MSG_OK);
+    if (buflen < (BUFSIZE-1)) {
+	get_command();
+    }
+#ifdef SDSUPPORT
+    card.checkautostart(false);
+#endif
+    if(buflen) {
+#ifdef SDSUPPORT
+	if(card.saving) {
+	    if(strstr(cmdbuffer[bufindr],"M29") == NULL) {
+		card.write_command(cmdbuffer[bufindr]);
+		SERIAL_PROTOCOLLNPGM(MSG_OK);
+	    } else {
+		card.closefile();
+		SERIAL_PROTOCOLLNPGM(MSG_FILE_SAVED);
+	    }
+	} else {
+	    process_commands();
 	}
-	else
-	{
-	  card.closefile();
-	  SERIAL_PROTOCOLLNPGM(MSG_FILE_SAVED);
-	}
-      }
-      else
-      {
+#else
 	process_commands();
-      }
-    #else
-      process_commands();
-    #endif //SDSUPPORT
-    buflen = (buflen-1);
-    bufindr = (bufindr + 1)%BUFSIZE;
-  }
-  //check heater every n milliseconds
-  manage_heater();
-  manage_inactivity();
-  checkHitEndstops();
-  LCD_STATUS;
+#endif //SDSUPPORT
+	buflen = (buflen-1);
+	bufindr = (bufindr + 1)%BUFSIZE;
+    }
+    //check heater every n milliseconds
+    manage_heater();
+    manage_inactivity();
+    checkHitEndstops();
+    LCD_STATUS;
 }
 
 void get_command() 
@@ -1715,52 +1709,66 @@ void controllerFan()
 
 void manage_inactivity() 
 { 
-  if( (millis() - previous_millis_cmd) >  max_inactive_time ) 
-    if(max_inactive_time) 
-      kill(); 
-  if(stepper_inactive_time)  {
-    if( (millis() - previous_millis_cmd) >  stepper_inactive_time ) 
-    {
-      if(blocks_queued() == false) {
-        disable_x();
-        disable_y();
-        disable_z();
-        disable_e0();
-        disable_e1();
-        disable_e2();
-      }
+    if ((millis() - previous_millis_cmd) > max_inactive_time) {
+	if (max_inactive_time > 0) {
+	    lcd.setCursor(0, 2);
+	    lcd.print("max_inactive_time: ");
+	    lcd.print(max_inactive_time);
+	    if (max_inactive_time) {
+		lcd.setCursor(8, 3);
+		lcd.print("not zero");
+	    } else {
+		    lcd.setCursor(0, 3);
+		lcd.print("zero");
+	    }
+	    if (max_inactive_time > 0) {
+		kill(42); 
+	    }
+	}
     }
-  }
-  #if( KILL_PIN>-1 )
-    if( 0 == READ(KILL_PIN) )
-      kill();
-  #endif
-  #ifdef CONTROLLERFAN_PIN
+    if (stepper_inactive_time)  {
+	if ((millis() - previous_millis_cmd) >  stepper_inactive_time ) {
+	    if(blocks_queued() == false) {
+		disable_x();
+		disable_y();
+		disable_z();
+		disable_e0();
+		disable_e1();
+		disable_e2();
+	    }
+	}
+    }
+#if( KILL_PIN>-1 )
+    if (0 == READ(KILL_PIN)) {
+	kill(2);
+    }
+#endif
+#ifdef CONTROLLERFAN_PIN
     controllerFan(); //Check if fan should be turned on to cool stepper drivers down
-  #endif
-  #ifdef EXTRUDER_RUNOUT_PREVENT
-    if( (millis() - previous_millis_cmd) >  EXTRUDER_RUNOUT_SECONDS*1000 ) 
-    if(degHotend(active_extruder)>EXTRUDER_RUNOUT_MINTEMP)
-    {
-     bool oldstatus=READ(E0_ENABLE_PIN);
-     enable_e0();
-     float oldepos=current_position[E_AXIS];
-     float oldedes=destination[E_AXIS];
-     plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], 
-                      current_position[E_AXIS]+EXTRUDER_RUNOUT_EXTRUDE*EXTRUDER_RUNOUT_ESTEPS/axis_steps_per_unit[E_AXIS], 
-                      EXTRUDER_RUNOUT_SPEED/60.*EXTRUDER_RUNOUT_ESTEPS/axis_steps_per_unit[E_AXIS], active_extruder);
-     current_position[E_AXIS]=oldepos;
-     destination[E_AXIS]=oldedes;
-     plan_set_e_position(oldepos);
-     previous_millis_cmd=millis();
-     st_synchronize();
-     WRITE(E0_ENABLE_PIN,oldstatus);
+#endif
+#ifdef EXTRUDER_RUNOUT_PREVENT
+    if ((millis() - previous_millis_cmd) >  EXTRUDER_RUNOUT_SECONDS*1000) {
+	if(degHotend(active_extruder)>EXTRUDER_RUNOUT_MINTEMP) {
+	    bool oldstatus=READ(E0_ENABLE_PIN);
+	    enable_e0();
+	    float oldepos=current_position[E_AXIS];
+	    float oldedes=destination[E_AXIS];
+	    plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], 
+	    current_position[E_AXIS]+EXTRUDER_RUNOUT_EXTRUDE*EXTRUDER_RUNOUT_ESTEPS/axis_steps_per_unit[E_AXIS], 
+	    EXTRUDER_RUNOUT_SPEED/60.*EXTRUDER_RUNOUT_ESTEPS/axis_steps_per_unit[E_AXIS], active_extruder);
+	    current_position[E_AXIS]=oldepos;
+	    destination[E_AXIS]=oldedes;
+	    plan_set_e_position(oldepos);
+	    previous_millis_cmd=millis();
+	    st_synchronize();
+	    WRITE(E0_ENABLE_PIN,oldstatus);
+	}
     }
-  #endif
-  check_axes_activity();
+#endif
+    check_axes_activity();
 }
 
-void kill()
+void kill(int line)
 {
   cli(); // Stop interrupts
   disable_heater();
@@ -1776,6 +1784,8 @@ void kill()
   SERIAL_ERROR_START;
   SERIAL_ERRORLNPGM(MSG_ERR_KILLED);
   LCD_ALERTMESSAGEPGM(MSG_KILLED);
+  lcd.print(" ");
+  lcd.print(line);
   suicide();
   while(1); // Wait for reset
 }

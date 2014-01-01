@@ -8,7 +8,7 @@
 //User specified version info of THIS file to display in [Pronterface, etc] terminal window during startup.
 //Implementation of an idea by Prof Braino to inform user that any changes made
 //to THIS file by the user have been successfully uploaded into firmware.
-#define STRING_VERSION_CONFIG_H "2013-1-6" //Personal revision number for changes to THIS file.
+#define STRING_VERSION_CONFIG_H "2014-1-1" //Personal revision number for changes to THIS file.
 #define STRING_CONFIG_H_AUTHOR "Trinity" //Who made the changes.
 
 // This determines the communication speed of the printer
@@ -82,10 +82,10 @@
 // 52 is 200k thermistor - ATC Semitec 204GT-2 (1k pullup)
 // 55 is 100k thermistor - ATC Semitec 104GT-2 (Used in ParCan) (1k pullup)
 
-#define TEMP_SENSOR_0 1
+#define TEMP_SENSOR_0 0
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
-#define TEMP_SENSOR_BED 1
+#define TEMP_SENSOR_BED 0
 
 // Actual temperature must be close to target for this long before M109 returns success
 #define TEMP_RESIDENCY_TIME 10	// (seconds)
@@ -268,7 +268,7 @@ const bool Z_ENDSTOPS_INVERTING = true; // set to true to invert the logic of th
 
 //LCD and SD support
 #define ULTRA_LCD  //general lcd support, also 16x2
-#undef ULTIPANEL 
+#define ULTIPANEL 
 #define SDSUPPORT // Enable SD Card Support in Hardware Console
 #define NEWPANEL
 #define BEEPER -1

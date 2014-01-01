@@ -135,7 +135,7 @@ void PID_autotune(float temp)
   unsigned long temp_millis = millis();
   unsigned long t1=temp_millis;
   unsigned long t2=temp_millis;
-  long t_high=300;
+  long t_high=0;
   long t_low;
 
   long bias=PID_MAX/2;
@@ -143,7 +143,7 @@ void PID_autotune(float temp)
   float Ku, Tu;
   float Kp, Ki, Kd;
   float max=0;
-  float min=300;
+  float min=0;
   
   SERIAL_ECHOLN("PID Autotune start");
   
@@ -415,7 +415,7 @@ int temp2analog(int celsius, uint8_t e) {
       SERIAL_ERROR_START;
       SERIAL_ERROR((int)e);
       SERIAL_ERRORLNPGM(" - Invalid extruder number!");
-      kill();
+      kill(10);
   }
   #ifdef HEATER_0_USES_MAX6675
     if (e == 0)
@@ -491,7 +491,7 @@ float analog2temp(int raw, uint8_t e) {
       SERIAL_ERROR_START;
       SERIAL_ERROR((int)e);
       SERIAL_ERRORLNPGM(" - Invalid extruder number !");
-      kill();
+      kill(11);
   } 
   #ifdef HEATER_0_USES_MAX6675
     if (e == 0)

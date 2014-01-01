@@ -13,7 +13,6 @@ extern long position[4];
  * Motion menu
  */
 
-
 #define MOTION_ACCELERATION	0
 #define MOTION_XYJERK		1
 #define MOTION_VMAXX		2
@@ -72,7 +71,7 @@ static void mm_ShowAccel(uint8_t line, uint8_t which)
     lcdprintPGM("00");
 }
 
-static void mm_ClickFloat(uint8_t line, long &pos, bool &adjustValue, uint8_t which)
+static void mm_ClickFloat(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
     adjustValue = !adjustValue;
     if(adjustValue) {
@@ -86,7 +85,7 @@ static void mm_ClickFloat(uint8_t line, long &pos, bool &adjustValue, uint8_t wh
     }
 }
 
-static void mm_ClickAccel(uint8_t line, long &pos, bool &adjustValue, uint8_t which)
+static void mm_ClickAccel(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
     adjustValue = !adjustValue;
     if(adjustValue) {
@@ -96,7 +95,7 @@ static void mm_ClickAccel(uint8_t line, long &pos, bool &adjustValue, uint8_t wh
     }
 }
 
-void mm_AdjustFloat(uint8_t line, long &pos, uint8_t which)
+void mm_AdjustFloat(uint8_t line, volatile long &pos, uint8_t which)
 {
     limitEncoder(pos, fparm[which].min, fparm[which].max);
 
@@ -112,7 +111,7 @@ void mm_AdjustFloat(uint8_t line, long &pos, uint8_t which)
     }
 }
 
-void mm_AdjustAccel(uint8_t line, long &pos, uint8_t axis)
+void mm_AdjustAccel(uint8_t line, volatile long &pos, uint8_t axis)
 {
     limitEncoder(pos, 1, 990);
     mct_Show(line, itostr3(pos));

@@ -119,8 +119,8 @@
 
 // Sanguinololu panel settings
 #ifdef NEWPANEL
-    #define BTN_EN1 29	// A
-    #define BTN_EN2 28	// B
+    #define BTN_EN1 28	// A
+    #define BTN_EN2 29	// B
     #define BTN_ENC 27  //the click
     
     #define BLEN_A 0	// just bits in buttons field
