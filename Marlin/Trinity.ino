@@ -172,7 +172,6 @@ static float feedrate = 1500.0, next_feedrate, saved_feedrate;
 static long gcode_N, gcode_LastN, Stopped_gcode_LastN = 0;
 
 static bool relative_mode = false;  //Determines Absolute or Relative Coordinates
-static bool relative_mode_e = false;  //Determines Absolute or Relative E Codes while in Absolute Coordinates mode. E is always relative in Relative Coordinates mode.
 
 static char cmdbuffer[BUFSIZE][MAX_CMD_SIZE];
 static bool fromsd[BUFSIZE];
@@ -1236,7 +1235,7 @@ void process_commands()
     case 92: // M92
       for(int8_t i=0; i < NUM_AXIS; i++) 
       {
-        if(code_seen(axis_codes[i])) 
+        if(code_seen(axis_codes[i])) {
           
           if(i == 3) { // E
             float value = code_value();
@@ -1251,6 +1250,7 @@ void process_commands()
           else {
             axis_steps_per_unit[i] = code_value();
           }
+	}
       }
       break;
     case 115: // M115

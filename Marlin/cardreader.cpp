@@ -120,7 +120,6 @@ char *CardReader::getFilenameFromIndex(SdFile &parent, uint16_t index)
 void CardReader::lsDive(char *path, uint16_t limit, SdFile &parent)
 {
     dir_t dir;
-    uint16_t count = 0;
     char lfilename[13];
 
     parent.rewind();
@@ -333,7 +332,7 @@ void CardReader::openFile(char* name,bool read)
       // record path stack for file and file name (needed for recovery)
       memcpy(filePathStack, pathStack, sizeof(pathStack));
       strncpy(curFilename, fname, sizeof(curFilename));
-      curFilename[sizeof(curFilename)] = 0;
+      curFilename[sizeof(curFilename)-1] = 0;
       filePathDepth = pathDepth;
       MYSERIAL.print(F("echo:pathDepth "));
       MYSERIAL.println(pathDepth);
@@ -557,7 +556,6 @@ bool CardReader::chdir(uint16_t *path, uint8_t depth)
 {
     uint8_t ind;
     SdFile dir, next;
-    dir_t entry;
 
     MYSERIAL.print(F("echo:chdir depth="));
     MYSERIAL.println(depth);
@@ -639,9 +637,7 @@ void CardReader::pushDir(const char *subdirname, uint16_t index)
  */
 bool CardReader::popDir(void)
 {
-    uint8_t ind;
     SdFile dir, next;
-    dir_t entry;
 
     if (pathDepth > 0) {
 	pathDepth--;

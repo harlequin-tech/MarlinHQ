@@ -128,21 +128,22 @@ static unsigned long  previous_millis_bed_heater;
 
 void PID_autotune(float temp)
 {
-  float input;
+  float input=0;
   int cycles=0;
   bool heating = true;
 
   unsigned long temp_millis = millis();
   unsigned long t1=temp_millis;
   unsigned long t2=temp_millis;
-  long t_high;
+  long t_high=300;
   long t_low;
 
   long bias=PID_MAX/2;
   long d = PID_MAX/2;
   float Ku, Tu;
   float Kp, Ki, Kd;
-  float max, min;
+  float max=0;
+  float min=300;
   
   SERIAL_ECHOLN("PID Autotune start");
   
@@ -874,8 +875,12 @@ ISR(TIMER0_COMPB_vect)
   static unsigned char temp_state = 0;
   static unsigned char pwm_count = 1;
   static unsigned char soft_pwm_0;
+#if EXTRUDERS > 1
   static unsigned char soft_pwm_1;
+#endif
+#if EXTRUDERS > 2
   static unsigned char soft_pwm_2;
+#endif
   
   if(pwm_count == 0){
     soft_pwm_0 = soft_pwm[0];

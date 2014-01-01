@@ -3,6 +3,7 @@
 #include "Marlin.h"
 #ifdef ULTRA_LCD
   #include <oled256.h>
+  #include "menu.h"
   void lcd_status();
   void lcd_init();
   void lcd_status(const char* message);
@@ -16,6 +17,9 @@
   extern volatile char buttons;  //the last checked buttons in a bit array.
   extern LcdDisplay lcd;
   
+  #define lcdprintPGM(x) lcdProgMemprint(MYPGM(x))
+  void lcdProgMemprint(const char *str);
+
   #ifdef NEWPANEL
     #define EN_C (1<<BLEN_C)
     #define EN_B (1<<BLEN_B)
@@ -66,6 +70,7 @@
   #define blocktime 500
   #define lcdslow 5
     
+  void limitEncoder(long &pos, long min, long max);
   enum MainStatus{Main_Status, Main_Menu, Main_Prepare,Sub_PrepareMove, Main_Control, Main_SD,Sub_TempControl,Sub_MotionControl,Sub_RetractControl, Sub_PreheatPLASettings, Sub_PreheatABSSettings};
 
   class MainMenu{
@@ -76,6 +81,7 @@
     MainStatus status;
     uint8_t displayStartingRow;
     
+    void show(const menu_t *menu, uint8_t menuMax);
     void showStatus();
     void showMainMenu();
     void showPrepare();
@@ -96,7 +102,7 @@
     bool tune;
     
   private:
-    void updateActiveLines(const uint8_t &maxlines,volatile long &encoderpos);
+    void updateActiveLines(const uint8_t maxlines,volatile long &encoderpos);
     void clearIfNecessary(void);
   };
 
@@ -137,4 +143,17 @@ char *itostr31(const int &xx);
 char *itostr3(const int &xx);
 char *itostr4(const int &xx);
 char *ftostr51(const float &x);
+
+void beep();
+void beepshort();
+int intround(const float &x);
+
+extern MainMenu mainMenu;
+
+#ifdef NEWPANEL
+extern uint32_t blocking;
+#else
+extern long blocking[8];
+#endif
+
 #endif //ULTRALCD

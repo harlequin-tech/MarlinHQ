@@ -82,10 +82,10 @@
 // 52 is 200k thermistor - ATC Semitec 204GT-2 (1k pullup)
 // 55 is 100k thermistor - ATC Semitec 104GT-2 (Used in ParCan) (1k pullup)
 
-#define TEMP_SENSOR_0 0
+#define TEMP_SENSOR_0 1
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
-#define TEMP_SENSOR_BED 0
+#define TEMP_SENSOR_BED 1
 
 // Actual temperature must be close to target for this long before M109 returns success
 #define TEMP_RESIDENCY_TIME 10	// (seconds)
@@ -267,10 +267,10 @@ const bool Z_ENDSTOPS_INVERTING = true; // set to true to invert the logic of th
 //#define EEPROM_CHITCHAT
 
 //LCD and SD support
-#undef ULTRA_LCD  //general lcd support, also 16x2
+#define ULTRA_LCD  //general lcd support, also 16x2
 #undef ULTIPANEL 
-#undef SDSUPPORT // Enable SD Card Support in Hardware Console
-#undef NEWPANEL
+#define SDSUPPORT // Enable SD Card Support in Hardware Console
+#define NEWPANEL
 #define BEEPER -1
 
 //#define ULTIMAKERCONTROLLER //as available from the ultimaker online store.

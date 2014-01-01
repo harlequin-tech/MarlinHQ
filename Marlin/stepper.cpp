@@ -50,10 +50,10 @@ static long counter_x,       // Counter variables for the bresenham line tracer
             counter_e;
 volatile static unsigned long step_events_completed; // The number of step events executed in the current block
 #ifdef ADVANCE
-  static long advance_rate, advance, final_advance = 0;
-  static long old_advance = 0;
-#endif
+static long advance_rate, advance, final_advance = 0;
+static long old_advance = 0;
 static long e_steps[3];
+#endif
 static long acceleration_time, deceleration_time;
 //static unsigned long accelerate_until, decelerate_after, acceleration_rate, initial_rate, final_rate, nominal_rate;
 static unsigned short acc_step_rate; // needed for deccelaration start point
@@ -66,12 +66,24 @@ static volatile bool endstop_x_hit=false;
 static volatile bool endstop_y_hit=false;
 static volatile bool endstop_z_hit=false;
 
+#if X_MIN_PIN > -1
 static bool old_x_min_endstop=false;
+#endif
+#if X_MAX_PIN > -1
 static bool old_x_max_endstop=false;
+#endif
+#if Y_MIN_PIN > -1
 static bool old_y_min_endstop=false;
+#endif
+#if Y_MAX_PIN > -1
 static bool old_y_max_endstop=false;
+#endif
+#if Z_MIN_PIN > -1
 static bool old_z_min_endstop=false;
+#endif
+#if Z_MAX_PIN > -1
 static bool old_z_max_endstop=false;
+#endif
 
 static bool check_endstops = true;
 
