@@ -8,6 +8,8 @@
 #include "EEPROMwrite.h"
 #include <SPI.h>
 #include <oled256.h>
+#include <math.h>
+#include <stdbool.h>
 //===========================================================================
 //=============================imported variables============================
 //===========================================================================
@@ -388,7 +390,6 @@ int8_t encoderChange(uint8_t curEnc)
 {
     static uint32_t lastTick = 0;
     static int8_t lastStep = 0;
-    static uint8_t stepCount = 0;
     int8_t step = encState[lastEnc & 0x3][curEnc & 0x3];
     uint32_t now = millis();
 #if 0
@@ -605,12 +606,26 @@ void MainMenu::showStatus()
   uint8_t percent=card.percentDone();
   if(oldpercent!=percent ||force_lcd_update)
   {
-     lcd.setCursor(10,2);
+    lcd.setCursor(10,2);
     lcd.print(itostr3((int)percent));
-    lcdprintPGM("%SD");
+    lcdprintPGM("%SD ");
+    if (card.sdprinting) {
+	uint32_t time = card.timeLeft();
+	lcd.print(time/3600);
+	time -= (time/3600) * 3600;
+	lcd.print(':');
+	lcd.print(itostr2(time/60));
+	time -= (time/60) * 60;
+	lcd.print(':');
+	lcd.print(itostr2(time));
+	lcd.print(F("  "));
+    } else {
+	lcd.print(F("        "));
+    }
   }
 #endif
-  lcd.setCursor(18,2);
+  lcd.setCursor(18,3);
+  lcd.print(F("mem: "));
   lcd.print(freeMemory());
   lcd.print(F("   "));
 #else //smaller LCDS----------------------------------
@@ -1325,6 +1340,154 @@ void limitEncoder(volatile long &pos, long min, long max)
 	pos = max;
     }
 }
+
+#if 0
+bool getGParm(char key, char *fbuf, float &res)
+{
+    while (*fbuf != key) {
+	if (*fbuf == 0) return false;
+	fbuf++;
+    }
+
+    res = strtod(fbuf+1, NULL);
+
+    return true;
+}
+
+#if 0
+int16_t sd_fgets(char *str, int16_t num, char *delim=0) 
+{
+    char ch;
+    int16_t n = 0;
+    int16_t r = -1;
+    while ((n + 1) < num && (r = card.file.read(&ch, 1)) == 1) {
+	// delete CR
+	if (ch == '\r') continue;
+	    str[n++] = ch;
+	if (!delim) {
+	    if (ch == '\n') break;
+	} else {
+	    if (strchr(delim, ch)) break;
+	}
+    }
+    if (r < 0) {
+	// read error
+	return -1;
+    }
+    str[n] = '\0';
+    return n;
+}
+#else
+char sdBuf[512];
+int16_t sdBufSize=0;
+int16_t sdInd=0;
+char *sd_fgets(char *str, int16_t num)
+{
+    char *res = str;
+    while (num > 2) {
+	if (sdInd >= sdBufSize) {
+	    sdBufSize = card.file.read(sdBuf, sizeof(sdBuf));
+	    if (sdBufSize <= 0) {
+		return NULL;
+	    }
+	    sdInd = 0;
+	}
+
+	char ch = sdBuf[sdInd++];
+	if (ch == '\r') continue;
+	*str++ = ch;
+	if (ch == '\n') break;
+	num--;
+    }
+    *str = '\0';
+
+    return res;
+}
+#endif
+
+uint32_t printDuration(char *filename, uint16_t *layers)
+{
+    float lastx=0;
+    float lasty=0;
+    float lastz=0;
+    float laste=0;
+    float lastf=0;
+    float x=0;
+    float y=0;
+    float z=lastz;
+    float e=0;
+    float f=0;
+    float currenttravel = 0;
+    float moveduration = 0;
+    float totalduration = 0;
+    float acceleration = 1500;	// get this from settings
+    float layerbeginduration = 0;
+    float distance=0;
+    uint32_t layercount = 0;
+    char fbuf[80];
+
+    card.openFile(filename, true);
+    while (!card.eof()) {
+	if (sd_fgets(fbuf, sizeof(fbuf)) != NULL) {
+	    if (fbuf[0] != 'G') continue;
+	    if (fbuf[1] == '4') {
+		if (getGParm('P', &fbuf[2], moveduration)) {
+		    moveduration /= 1000.0;
+		} else if (!getGParm('S', &fbuf[2], moveduration)) {
+		    continue;
+		}
+	    } else if (fbuf[1] == '1') {
+		if (!getGParm('X', &fbuf[2], x)) x = lastx;
+		if (!getGParm('Y', &fbuf[2], y)) y = lasty;
+		if (!getGParm('Z', &fbuf[2], z)) z = lastz;
+		if (!getGParm('E', &fbuf[2], e)) e = laste;
+		if (!getGParm('F', &fbuf[2], f)) {
+		    f = lastf;
+		} else {
+		    f /= 60.0;
+		}
+
+		currenttravel = hypot(lastx-x, hypot(lasty-y, lastz-z));
+                distance = abs(2* ((lastf+f) * (f-lastf) * 0.5 ) / acceleration);
+                if ((distance <= currenttravel) && ((lastf + f) != 0) && (f != 0)) {
+                    moveduration = 2 * distance / ( lastf + f );
+                    currenttravel -= distance;
+                    moveduration += currenttravel/f;
+		} else {
+                    moveduration = sqrt(2 * distance / acceleration);
+		}
+	    }
+
+            totalduration += moveduration;
+
+            if (z > lastz) {
+                layercount++;
+#if 0
+		MYSERIAL.print(F("layer "));
+		MYSERIAL.print(lastz);
+		MYSERIAL.print(F(" duration "));
+		MYSERIAL.print(int(totalduration - layerbeginduration));
+		MYSERIAL.println(F(" seconds "));
+#endif
+                layerbeginduration = totalduration;
+	    }
+
+            lastx = x;
+            lasty = y;
+            lastz = z;
+            laste = e;
+            lastf = f;
+	} else {
+	    break;
+	}
+    }
+    if (layers) {
+	*layers = int(layercount);
+    }
+    card.closefile();
+    return (int)totalduration;
+}
+#endif
 
 #else
 void lcd_error(const __FlashStringHelper *error)

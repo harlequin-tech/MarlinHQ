@@ -23,6 +23,7 @@ CardReader::CardReader()
    cardOK = false;
    saving = false;
    autostart_atmillis=0;
+   startTime = 0;
 
    workDirName[0] = '/';
    workDirName[1] = 0;
@@ -247,6 +248,7 @@ void CardReader::startFileprint()
   if(cardOK)
   {
     sdprinting = true;
+    startTime = millis();
     
   }
 }
@@ -705,4 +707,23 @@ bool CardReader::recover(void)
     MYSERIAL.println(F("echo:recovery suceeded"));
     return true;
 }
+
+#define ROUGH_BYTES_PER_SECOND	320L
+
+// return number of seconds left in print
+uint32_t CardReader::timeLeft()
+{
+    if (filesize < 1) return 0;
+
+    uint32_t duration = millis() - startTime;
+
+    if (sdpos < (120*ROUGH_BYTES_PER_SECOND)) {
+	return (filesize - sdpos) / ROUGH_BYTES_PER_SECOND;
+    } else {
+	if (duration == 0) return 0;
+	// estimate based on time taken so far
+	return (filesize - sdpos) / ((sdpos * 1000) / duration);
+    }
+}
+
 #endif //SDSUPPORT

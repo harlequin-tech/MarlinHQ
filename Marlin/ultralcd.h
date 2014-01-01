@@ -150,6 +150,7 @@ char *ftostr51(const float &x);
 void beep();
 void beepshort();
 int intround(const float &x);
+uint32_t printDuration(char *filename, uint16_t *layers=NULL);
 
 extern MainMenu mainMenu;
 

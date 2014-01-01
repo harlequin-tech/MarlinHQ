@@ -37,6 +37,7 @@ public:
     bool popDir(void);
     bool chdir(uint16_t *path, uint8_t depth);
     bool recover(void);
+    uint32_t timeLeft(void);
 
     FORCE_INLINE bool eof() 
 	{
@@ -71,6 +72,7 @@ public:
     char longFilename[LONG_FILENAME_LENGTH];
     bool filenameIsDir;
     int lastnr; //last number of the autostart;
+    SdFile file;
 
 private:
     uint16_t pathStack[32];	// Directory path list
@@ -79,13 +81,13 @@ private:
     SdFile root,*curDir,workDir,workDirParent,workDirParentParent;
     Sd2Card card;
     SdVolume volume;
-    SdFile file;
     char curFilename[13];
     uint16_t filePathStack[32];	// Directory path list for current file
     uint8_t filePathDepth;	// Directory path depth for current file
     uint32_t filesize;
     unsigned long autostart_atmillis;
     uint32_t sdpos ;
+    uint32_t startTime;
 
     bool autostart_stilltocheck; //the sd start is delayed, because otherwise the serial cannot answer fast enought to make contact with the hostsoftware.
 

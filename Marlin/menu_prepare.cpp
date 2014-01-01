@@ -87,14 +87,14 @@ static const struct {
     void (*action)();
 } menu[] __attribute__((__progmem__)) = {
     { MSG_MAIN,			menuClickMain },
-    { MSG_AUTOSTART,		menuClickAutostart },
-    { MSG_DISABLE_STEPPERS,	menuClickDisableSteppers },
-    { MSG_AUTO_HOME,		menuClickAutoHome },
-    { MSG_SET_ORIGIN,		menuClickSetOrigin }, 
     { MSG_PREHEAT_PLA,		menuClickPreheatPLA },
     { MSG_PREHEAT_ABS,		menuClickPreheatABS },
     { MSG_COOLDOWN,		menuClickCooldown },
     { MSG_MOVE_AXIS,		menuClickPrepareMove },
+    { MSG_DISABLE_STEPPERS,	menuClickDisableSteppers },
+    { MSG_AUTO_HOME,		menuClickAutoHome },
+    { MSG_SET_ORIGIN,		menuClickSetOrigin }, 
+    { MSG_AUTOSTART,		menuClickAutostart },
 };
 
 #define MENU_PREPARE_MAX (sizeof(menu) / sizeof(menu[0]))

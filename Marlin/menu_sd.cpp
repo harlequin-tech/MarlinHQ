@@ -129,6 +129,16 @@ void MainMenu::showSD()
 		//sprintf(cmd,"M115");
 		enquecommand(cmd);
 		enquecommand("M24");				// start / resume print
+#if 0
+		MYSERIAL.println(F("Getting duration"));
+		uint16_t layers;
+		uint32_t time = printDuration(card.filename, &layers);
+		MYSERIAL.print(F("Duration "));
+		MYSERIAL.print(time);
+		MYSERIAL.print(F(" seconds,  "));
+		MYSERIAL.print(layers);
+		MYSERIAL.println(F(" layers"));
+#endif
 		beep(); 
 		mainMenu.changeMenu(Main_Status);
 		if (card.longFilename[0]) {
