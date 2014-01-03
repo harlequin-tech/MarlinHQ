@@ -27,5 +27,6 @@ void mct_ClickBed(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t w
 void mct_ShowFan(uint8_t line, uint8_t which);
 void mct_ClickFan(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which);
 void mct_AdjustFan(uint8_t line, volatile long &pos, uint8_t arg);
+void mp_ClickStore(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which);
 
 #endif

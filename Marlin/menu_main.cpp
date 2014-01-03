@@ -97,7 +97,6 @@ void MainMenu::showMainMenu()
 {
 #ifndef ULTIPANEL
     force_lcd_update=false;
-#error
 #endif
     if (tune) {
 	if (!(movesplanned() || IS_SD_PRINTING)) {

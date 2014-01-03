@@ -10,13 +10,11 @@
 #include "cardreader.h"
 extern CardReader card;
 
-static void menuClickMain()
-{
-    mainMenu.changeMenu(Main_Menu);
-    beepshort();
-}
+#define MP_DISABLE_STEPPERS 1
+#define MP_AUTO_HOME        2
+#define MP_SET_ORIGIN       3
 
-static void menuClickAutostart()
+static void mp_ClickAutostart(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
 #ifdef SDSUPPORT
     card.lastnr=0;
@@ -26,26 +24,25 @@ static void menuClickAutostart()
     beepshort();
 }
 
-static void menuClickDisableSteppers()
+static void mp_ClickEnqueue(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
-    enquecommand("M84");
+    switch (which) {
+    case MP_SET_ORIGIN:
+	enquecommand("G92 X0 Y0 Z0");
+	break;
+    case MP_AUTO_HOME:
+	enquecommand("G28");
+	break;
+    case MP_DISABLE_STEPPERS:
+	enquecommand("M84");
+	break;
+    default:
+	break;
+    }
     beepshort();
 }
 
-static void menuClickAutoHome()
-{
-    enquecommand("G28");
-    beepshort();
-}
-
-
-static void menuClickSetOrigin()
-{
-    enquecommand("G92 X0 Y0 Z0");
-    beepshort();
-}
-
-static void menuClickPreheatPLA()
+static void mp_ClickPreheatPLA(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
     setTargetHotend0(plaPreheatHotendTemp);
     setTargetBed(plaPreheatHPBTemp);
@@ -56,7 +53,7 @@ static void menuClickPreheatPLA()
     beepshort();
 }
 
-static void menuClickPreheatABS()
+static void mp_ClickPreheatABS(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
     setTargetHotend0(absPreheatHotendTemp);
     setTargetBed(absPreheatHPBTemp); 
@@ -67,7 +64,7 @@ static void menuClickPreheatABS()
     beepshort();
 }
 
-static void menuClickCooldown()
+static void mp_ClickCooldown(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
     setTargetHotend0(0);
     setTargetHotend1(0);
@@ -76,50 +73,23 @@ static void menuClickCooldown()
     beepshort();
 }
 
-static void menuClickPrepareMove()
-{
-    mainMenu.changeMenu(Sub_PrepareMove);
-    beepshort();
-}
-
-static const struct {
-    char name[20];
-    void (*action)();
-} menu[] __attribute__((__progmem__)) = {
-    { MSG_MAIN,			menuClickMain },
-    { MSG_PREHEAT_PLA,		menuClickPreheatPLA },
-    { MSG_PREHEAT_ABS,		menuClickPreheatABS },
-    { MSG_COOLDOWN,		menuClickCooldown },
-    { MSG_MOVE_AXIS,		menuClickPrepareMove },
-    { MSG_DISABLE_STEPPERS,	menuClickDisableSteppers },
-    { MSG_AUTO_HOME,		menuClickAutoHome },
-    { MSG_SET_ORIGIN,		menuClickSetOrigin }, 
-    { MSG_AUTOSTART,		menuClickAutostart },
+static menu_t menu[] __attribute__((__progmem__)) = {
+    { MSG_MAIN,            NULL,        mct_ClickMenu,           NULL,  Main_Menu },
+    { MSG_PREHEAT_PLA,     NULL,	mp_ClickPreheatPLA,      NULL,   0 },
+    { MSG_PREHEAT_ABS,     NULL,	mp_ClickPreheatABS,      NULL,   0 },
+    { MSG_COOLDOWN,        NULL,	mp_ClickCooldown,        NULL,   0 },
+    { MSG_MOVE_AXIS,       NULL,	mct_ClickMenu,           NULL,   Sub_PrepareMove },
+    { MSG_DISABLE_STEPPERS,NULL,	mp_ClickEnqueue,         NULL,   MP_DISABLE_STEPPERS },
+    { MSG_AUTO_HOME,       NULL,	mp_ClickEnqueue,         NULL,   MP_AUTO_HOME },
+    { MSG_SET_ORIGIN,      NULL,	mp_ClickEnqueue,         NULL,   MP_SET_ORIGIN }, 
+    { MSG_AUTOSTART,       NULL,	mp_ClickAutostart,       NULL,   0 },
 };
 
-#define MENU_PREPARE_MAX (sizeof(menu) / sizeof(menu[0]))
+#define MENU_MAX (sizeof(menu) / sizeof(menu[0]))
 
 void MainMenu::showPrepare()
 {
-    uint8_t line = activeline + lineoffset;
-
-    clearIfNecessary();
-    if (force_lcd_update) {
-	for (line=lineoffset; line<lineoffset+LCD_HEIGHT; line++) {
-	    lcd.setCursor(0, line-lineoffset);
-	    lcdProgMemprint(menu[line].name);
-	}
-	showCursor();
-	force_lcd_update = false;
-    }
-
-    if (CLICKED && (line < MENU_PREPARE_MAX)) {
-	BLOCK;
-	void (*action)() = (void (*)())pgm_read_dword(&menu[line].action);
-	action();
-    }
-
-    updateActiveLines(MENU_PREPARE_MAX-1, encoderpos);
+    show(menu, MENU_MAX);
 }
 
 #endif

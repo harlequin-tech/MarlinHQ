@@ -53,16 +53,69 @@ static menu_t menu[] __attribute__((__progmem__)) = {
 
 #define MENU_MAX (sizeof(menu) / sizeof(menu[0]))
 
+void MainMenu::showSDLine(uint8_t line)
+{
+    uint8_t menuline = line + lineoffset;
+
+    MYSERIAL.print(F("showSDLine: "));
+    MYSERIAL.print(line);
+    MYSERIAL.print(F(" offset "));
+    MYSERIAL.println(lineoffset);
+
+    if (menuline < MENU_MAX) {
+	show_t show = (show_t)(pgm_read_word(&currentMenu[menuline].show));
+	lcd.setCursor(0, line);
+	if (line == activeline) {
+	    lcd.setBackground(2);
+	}
+	lcdProgMemprint(currentMenu[menuline].name);
+	if (show) {
+	    show(line, pgm_read_byte(&currentMenu[menuline].arg));
+	}
+	if (line == activeline) {
+	    lcd.setCursor(0,line);
+	    lcd.print((line+lineoffset)?'>':'\003');    
+	    lcd.setBackground(0);
+	}
+    } else {
+	uint16_t fileno = menuline-MENU_MAX;
+	card.getfilename(fileno);
+#ifdef DEBUG
+	MYSERIAL.print(F("line["));
+	MYSERIAL.print(menuline);
+	MYSERIAL.print(F("] "));
+	MYSERIAL.print(F("Filenr:"));MYSERIAL.print(fileno);
+	MYSERIAL.print(F(" = ")); MYSERIAL.println(card.longFilename);
+#endif
+	lcd.setCursor(0,line);
+	if (line == activeline) {
+	    lcd.print('>');
+	    lcd.setBackground(2);
+	} else {
+	    lcd.print(' ');
+	}
+	if (card.filenameIsDir) {
+	    lcd.print("\005");
+	}
+	if (sizeof(card.longFilename) >= LCD_WIDTH) {
+	    card.longFilename[LCD_WIDTH-1] = '\0';
+	}
+	lcd.print(card.longFilename);
+	if (line == activeline) {
+	    lcd.setBackground(0);
+	}
+    }
+}
+
 void MainMenu::showSD()
 {
     static uint8_t nrfiles=0;
 
-    uint8_t curline = activeline + lineoffset;
+    uint8_t menuline = activeline + lineoffset;
     uint8_t arg=0;
 
-    if (curline < MENU_MAX) {
-	arg = pgm_read_byte(&menu[curline].arg);
-    }
+    currentMenu = menu;
+    currentMenuMax = MENU_MAX;
 
     clearIfNecessary();
     if (mainMenu.force_lcd_update) {
@@ -74,47 +127,20 @@ void MainMenu::showSD()
 	}
     }
     if (force_lcd_update) {
-	for (uint8_t line=lineoffset; line<lineoffset+LCD_HEIGHT; line++) {
-	    if (line < MENU_MAX) {
-		show_t show = (show_t)(pgm_read_word(&menu[line].show));
-		lcd.setCursor(0, line-lineoffset);
-	        lcdProgMemprint(menu[line].name);
-		if (show) {
-		    show(line-lineoffset, pgm_read_byte(&menu[line].arg));
-		}
-	    } else {
-		uint16_t fileno = line-MENU_MAX;
-		card.getfilename(fileno);
-#ifdef DEBUG
-		MYSERIAL.print(F("line["));
-		MYSERIAL.print(line);
-		MYSERIAL.print(F("] "));
-		MYSERIAL.print(F("Filenr:"));MYSERIAL.print(fileno);
-		MYSERIAL.print(F(" = ")); MYSERIAL.println(card.longFilename);
-#endif
-		lcd.setCursor(0,line-lineoffset);
-		lcdprintPGM(" ");
-		if (card.filenameIsDir) {
-		    lcd.print("\005");
-		}
-		if (sizeof(card.longFilename) >= LCD_WIDTH) {
-		    card.longFilename[LCD_WIDTH-1] = '\0';
-		}
-		lcd.print(card.longFilename);
-	    }
+	for (uint8_t line=0; line<LCD_HEIGHT; line++) {
+	    showSDLine(line);
 	}
-	showCursor();
 	force_lcd_update = false;
     }
 
     if (CLICKED) {
 	BLOCK;	// XXX fix this
-	if (curline < MENU_MAX) {
-	    click_t click = (click_t)(pgm_read_word(&menu[curline].click));
-	    click(activeline, encoderpos, linechanging, arg);
+	if (menuline < MENU_MAX) {
+	    click_t click = (click_t)(pgm_read_word(&menu[menuline].click));
+	    click(activeline, encoderpos, linechanging, pgm_read_byte(&menu[menuline].arg));
 	} else {
 	    // check for selected file
-	    uint16_t fileno = curline-MENU_MAX;
+	    uint16_t fileno = menuline-MENU_MAX;
 	    card.getfilename(fileno);
 	    for (int8_t ind=0; card.filename[ind]; ind++) {
 		card.filename[ind] = tolower(card.filename[ind]);

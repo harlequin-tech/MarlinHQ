@@ -19,14 +19,16 @@
   
   #define lcdprintPGM(x) lcdProgMemprint(MYPGM(x))
   void lcdProgMemprint(const char *str);
+  bool encoderClicked(void);
 
   #ifdef NEWPANEL
     #define EN_C (1<<BLEN_C)
     #define EN_B (1<<BLEN_B)
     #define EN_A (1<<BLEN_A)
     
-    #define CLICKED (buttons&EN_C)
-    #define BLOCK {blocking=millis()+blocktime;}
+    #define CLICKED encoderClicked()
+    #define BLOCK 
+    //#define BLOCK {blocking=millis()+blocktime;}
 
     #if (SDCARDDETECT > -1)
       #ifdef SDCARDDETECTINVERTED 
@@ -74,14 +76,14 @@
   enum MainStatus{Main_Status, Main_Menu, Main_Prepare,Sub_PrepareMove, Main_Control, Main_SD,Sub_TempControl,Sub_MotionControl,Sub_RetractControl, Sub_PreheatPLASettings, Sub_PreheatABSSettings};
 
   class MainMenu{
+      typedef void (MainMenu::*funcp_t)(uint8_t line);
   public:
     MainMenu();
     void update();
-    int8_t activeline;
     MainStatus status;
-    uint8_t displayStartingRow;
     
     void show(const menu_t *menu, uint8_t menuMax);
+    void showLine(uint8_t line);
     void showStatus();
     void showMainMenu();
     void showPrepare();
@@ -92,21 +94,26 @@
     void showControlRetract();
     void showAxisMove();
     void showSD();
+    void showSDLine(uint8_t line);
     void showPLAsettings();
     void showABSsettings();
-    void showCursor();
+    void showCursor(uint8_t line);
+    void hideCursor(uint8_t line);
     void changeMenu(MainStatus newMenu);
     bool force_lcd_update;
     long lastencoderpos;
+    int8_t activeline;
     int8_t lineoffset;
-    int8_t lastlineoffset;
     bool linechanging;
     bool tune;
     
   private:
+    funcp_t showMenuLine;
     void updateActiveLines(const uint8_t maxlines,volatile long &encoderpos);
     void clearIfNecessary(void);
-    uint32_t timeoutToStatus;
+    uint32_t lastChange;
+    const menu_t *currentMenu;
+    uint8_t currentMenuMax;
   };
 
   //conversion routines, could need some overworking

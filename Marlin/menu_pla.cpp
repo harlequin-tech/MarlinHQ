@@ -71,7 +71,7 @@ static void mp_AdjustPreheat(uint8_t line, volatile long &pos, uint8_t which)
     mp_Show(line, itostr3(pos));
 }
 
-static void mp_ClickStore(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
+void mp_ClickStore(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
     EEPROM_StoreSettings();
 }
