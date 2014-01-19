@@ -16,6 +16,7 @@
 extern CardReader card;
 
 static char *dirname = "/";
+static uint8_t nrfiles=0;
 
 static void sd_ShowDir(uint8_t line, uint8_t arg)
 {
@@ -57,16 +58,12 @@ void MainMenu::showSDLine(uint8_t line)
 {
     uint8_t menuline = line + lineoffset;
 
-    MYSERIAL.print(F("showSDLine: "));
-    MYSERIAL.print(line);
-    MYSERIAL.print(F(" offset "));
-    MYSERIAL.println(lineoffset);
-
     if (menuline < MENU_MAX) {
 	show_t show = (show_t)(pgm_read_word(&currentMenu[menuline].show));
 	lcd.setCursor(0, line);
 	if (line == activeline) {
-	    lcd.setBackground(2);
+	    lcd.setBackground(LCD_CURSOR_BACKGROUND);
+	    lcd.setColour(LCD_CURSOR_COLOUR);
 	}
 	lcdProgMemprint(currentMenu[menuline].name);
 	if (show) {
@@ -75,9 +72,10 @@ void MainMenu::showSDLine(uint8_t line)
 	if (line == activeline) {
 	    lcd.setCursor(0,line);
 	    lcd.print((line+lineoffset)?'>':'\003');    
-	    lcd.setBackground(0);
+	    lcd.setBackground(LCD_TEXT_BACKGROUND);
+	    lcd.setColour(LCD_TEXT_COLOUR);
 	}
-    } else {
+    } else if ((menuline-MENU_MAX) < nrfiles) {
 	uint16_t fileno = menuline-MENU_MAX;
 	card.getfilename(fileno);
 #ifdef DEBUG
@@ -90,7 +88,8 @@ void MainMenu::showSDLine(uint8_t line)
 	lcd.setCursor(0,line);
 	if (line == activeline) {
 	    lcd.print('>');
-	    lcd.setBackground(2);
+	    lcd.setBackground(LCD_CURSOR_BACKGROUND);
+	    lcd.setColour(LCD_CURSOR_COLOUR);
 	} else {
 	    lcd.print(' ');
 	}
@@ -102,17 +101,16 @@ void MainMenu::showSDLine(uint8_t line)
 	}
 	lcd.print(card.longFilename);
 	if (line == activeline) {
-	    lcd.setBackground(0);
+	    lcd.setBackground(LCD_TEXT_BACKGROUND);
+	    lcd.setColour(LCD_TEXT_COLOUR);
 	}
     }
 }
 
 void MainMenu::showSD()
 {
-    static uint8_t nrfiles=0;
 
     uint8_t menuline = activeline + lineoffset;
-    uint8_t arg=0;
 
     currentMenu = menu;
     currentMenuMax = MENU_MAX;
@@ -180,7 +178,7 @@ void MainMenu::showSD()
 	}
     }
 
-    updateActiveLines(MENU_MAX+nrfiles-2,encoderpos);
+    updateActiveLines(MENU_MAX+nrfiles,encoderpos);
 }
 #else
 void MainMenu::sdShow() { }
