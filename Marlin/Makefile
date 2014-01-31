@@ -1,6 +1,6 @@
 ARDUINODIR:=/Applications/Arduino.marlin.app/Contents/Resources/Java
 AVRTOOLSPATH := $(ARDUINODIR)/hardware/tools/avr/bin
-SOURCES := Trinity.ino ultralcd.cpp EEPROMwrite.cpp cardreader.cpp \
+SOURCES := MarlinHQ.ino ultralcd.cpp EEPROMwrite.cpp cardreader.cpp \
 	    menu_main.cpp menu_motion.cpp menu_moveaxis.cpp menu_pla.cpp \
 	    menu_prepare.cpp menu_sd.cpp menu_tempcontrol.cpp menu_tune.cpp \
 	    motion_control.cpp planner.cpp stepper.cpp temperature.cpp watchdog.cpp \
@@ -8,4 +8,4 @@ SOURCES := Trinity.ino ultralcd.cpp EEPROMwrite.cpp cardreader.cpp \
 LIBRARIES := SPI oled256 SD
 BOARD := mighty_opt
 #BOARD := atmega328
-include ../../../arduino.mk
+include arduino.mk
