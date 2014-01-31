@@ -348,7 +348,6 @@ void setup()
   LCD_INIT;
 }
 
-
 void loop()
 {
     //rfstream.available();
@@ -381,6 +380,7 @@ void loop()
     manage_heater();
     manage_inactivity();
     checkHitEndstops();
+    manage_inactivity();
     LCD_STATUS;
 }
 
@@ -510,9 +510,9 @@ void get_command()
 	    MYSERIAL.println(F("echo: shutdown"));
 	    /* Shutdown */
 	    card.printingHasFinished();
-	    setTargetHotend0(0);
-	    setTargetHotend1(0);
-	    setTargetHotend2(0);
+	    setTargetHotend(0,0);
+	    setTargetHotend(0,1);
+	    setTargetHotend(0,2);
 	    setTargetBed(0);
 	    /* Raise Z */
             current_position[Z_AXIS] += 5;

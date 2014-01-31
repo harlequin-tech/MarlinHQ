@@ -44,7 +44,7 @@ static void mp_ClickEnqueue(uint8_t line, volatile long &pos, bool &adjustValue,
 
 static void mp_ClickPreheatPLA(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
-    setTargetHotend0(plaPreheatHotendTemp);
+    setTargetHotend(plaPreheatHotendTemp, 0);
     setTargetBed(plaPreheatHPBTemp);
 #if FAN_PIN > -1
     FanSpeed = plaPreheatFanSpeed;
@@ -55,7 +55,7 @@ static void mp_ClickPreheatPLA(uint8_t line, volatile long &pos, bool &adjustVal
 
 static void mp_ClickPreheatABS(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
-    setTargetHotend0(absPreheatHotendTemp);
+    setTargetHotend(absPreheatHotendTemp, 0);
     setTargetBed(absPreheatHPBTemp); 
 #if FAN_PIN > -1
     FanSpeed = absPreheatFanSpeed;
@@ -66,9 +66,9 @@ static void mp_ClickPreheatABS(uint8_t line, volatile long &pos, bool &adjustVal
 
 static void mp_ClickCooldown(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
-    setTargetHotend0(0);
-    setTargetHotend1(0);
-    setTargetHotend2(0);
+    setTargetHotend(0,0);
+    setTargetHotend(0,1);
+    setTargetHotend(0,2);
     setTargetBed(0);
     beepshort();
 }

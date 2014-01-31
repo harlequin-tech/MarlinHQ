@@ -114,6 +114,7 @@
     uint32_t lastChange;
     const menu_t *currentMenu;
     uint8_t currentMenuMax;
+    uint8_t lcdOffset;
   };
 
   //conversion routines, could need some overworking
@@ -128,6 +129,12 @@
   #define LCD_MESSAGEPGM(x) lcd_statuspgm(MYPGM(x));
   #define LCD_ALERTMESSAGEPGM(x) lcd_alertstatuspgm(MYPGM(x));
   #define LCD_STATUS lcd_status()
+
+#define LCD_TEXT_BACKGROUND	0
+#define LCD_TEXT_COLOUR		8
+#define LCD_CURSOR_COLOUR	15
+#define LCD_CURSOR_BACKGROUND	2
+
 #else //no lcd
   #define LCD_INIT
   #define LCD_STATUS

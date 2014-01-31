@@ -400,7 +400,7 @@ void getHighESpeed()
   if(!autotemp_enabled){
     return;
   }
-  if(degTargetHotend0()+2<autotemp_min) {  //probably temperature set to zero.
+  if(degTargetHotend(0)+2<autotemp_min) {  //probably temperature set to zero.
     return; //do nothing
   }
 
@@ -432,7 +432,7 @@ void getHighESpeed()
     t=AUTOTEMP_OLDWEIGHT*oldt+(1-AUTOTEMP_OLDWEIGHT)*t;
   }
   oldt=t;
-  setTargetHotend0(t);
+  setTargetHotend(t,0);
 }
 #endif
 
