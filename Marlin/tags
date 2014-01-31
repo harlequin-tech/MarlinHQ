@@ -1,0 +1,2818 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+.DEFAULT_GOAL	arduino.mk	/^.DEFAULT_GOAL := all$/;"	m
+ABS_FANSPEED	menu_pla.cpp	/^#define ABS_FANSPEED	/;"	d	file:
+ABS_HOTENDTEMP	menu_pla.cpp	/^#define ABS_HOTENDTEMP	/;"	d	file:
+ABS_HPBTEMP	menu_pla.cpp	/^#define ABS_HPBTEMP	/;"	d	file:
+ABS_PREHEAT_FAN_SPEED	Configuration.h	/^  #define ABS_PREHEAT_FAN_SPEED /;"	d
+ABS_PREHEAT_HOTEND_TEMP	Configuration.h	/^  #define ABS_PREHEAT_HOTEND_TEMP /;"	d
+ABS_PREHEAT_HPB_TEMP	Configuration.h	/^  #define ABS_PREHEAT_HPB_TEMP /;"	d
+ACW_END	ultralcd.cpp	/^#define ACW_END /;"	d	file:
+ACW_FULL	ultralcd.cpp	/^#define ACW_FULL /;"	d	file:
+ACW_HALF	ultralcd.cpp	/^#define ACW_HALF /;"	d	file:
+AIO0_DDR	fastio.h	/^#define AIO0_DDR	/;"	d
+AIO0_DDR	fastio.h	/^#define AIO0_DDR /;"	d
+AIO0_PIN	fastio.h	/^#define AIO0_PIN	/;"	d
+AIO0_PIN	fastio.h	/^#define AIO0_PIN /;"	d
+AIO0_PWM	fastio.h	/^#define AIO0_PWM	/;"	d
+AIO0_RPORT	fastio.h	/^#define AIO0_RPORT	/;"	d
+AIO0_RPORT	fastio.h	/^#define AIO0_RPORT /;"	d
+AIO0_WPORT	fastio.h	/^#define AIO0_WPORT	/;"	d
+AIO0_WPORT	fastio.h	/^#define AIO0_WPORT /;"	d
+AIO1_DDR	fastio.h	/^#define AIO1_DDR	/;"	d
+AIO1_DDR	fastio.h	/^#define AIO1_DDR /;"	d
+AIO1_PIN	fastio.h	/^#define AIO1_PIN	/;"	d
+AIO1_PIN	fastio.h	/^#define AIO1_PIN /;"	d
+AIO1_PWM	fastio.h	/^#define AIO1_PWM	/;"	d
+AIO1_RPORT	fastio.h	/^#define AIO1_RPORT	/;"	d
+AIO1_RPORT	fastio.h	/^#define AIO1_RPORT /;"	d
+AIO1_WPORT	fastio.h	/^#define AIO1_WPORT	/;"	d
+AIO1_WPORT	fastio.h	/^#define AIO1_WPORT /;"	d
+AIO2_DDR	fastio.h	/^#define AIO2_DDR	/;"	d
+AIO2_DDR	fastio.h	/^#define AIO2_DDR /;"	d
+AIO2_PIN	fastio.h	/^#define AIO2_PIN	/;"	d
+AIO2_PIN	fastio.h	/^#define AIO2_PIN /;"	d
+AIO2_PWM	fastio.h	/^#define AIO2_PWM	/;"	d
+AIO2_RPORT	fastio.h	/^#define AIO2_RPORT	/;"	d
+AIO2_RPORT	fastio.h	/^#define AIO2_RPORT /;"	d
+AIO2_WPORT	fastio.h	/^#define AIO2_WPORT	/;"	d
+AIO2_WPORT	fastio.h	/^#define AIO2_WPORT /;"	d
+AIO3_DDR	fastio.h	/^#define AIO3_DDR	/;"	d
+AIO3_DDR	fastio.h	/^#define AIO3_DDR /;"	d
+AIO3_PIN	fastio.h	/^#define AIO3_PIN	/;"	d
+AIO3_PIN	fastio.h	/^#define AIO3_PIN /;"	d
+AIO3_PWM	fastio.h	/^#define AIO3_PWM	/;"	d
+AIO3_RPORT	fastio.h	/^#define AIO3_RPORT	/;"	d
+AIO3_RPORT	fastio.h	/^#define AIO3_RPORT /;"	d
+AIO3_WPORT	fastio.h	/^#define AIO3_WPORT	/;"	d
+AIO3_WPORT	fastio.h	/^#define AIO3_WPORT /;"	d
+AIO4_DDR	fastio.h	/^#define AIO4_DDR	/;"	d
+AIO4_DDR	fastio.h	/^#define AIO4_DDR /;"	d
+AIO4_PIN	fastio.h	/^#define AIO4_PIN	/;"	d
+AIO4_PIN	fastio.h	/^#define AIO4_PIN /;"	d
+AIO4_PWM	fastio.h	/^#define AIO4_PWM	/;"	d
+AIO4_RPORT	fastio.h	/^#define AIO4_RPORT	/;"	d
+AIO4_RPORT	fastio.h	/^#define AIO4_RPORT /;"	d
+AIO4_WPORT	fastio.h	/^#define AIO4_WPORT	/;"	d
+AIO4_WPORT	fastio.h	/^#define AIO4_WPORT /;"	d
+AIO5_DDR	fastio.h	/^#define AIO5_DDR	/;"	d
+AIO5_DDR	fastio.h	/^#define AIO5_DDR /;"	d
+AIO5_PIN	fastio.h	/^#define AIO5_PIN	/;"	d
+AIO5_PIN	fastio.h	/^#define AIO5_PIN /;"	d
+AIO5_PWM	fastio.h	/^#define AIO5_PWM	/;"	d
+AIO5_RPORT	fastio.h	/^#define AIO5_RPORT	/;"	d
+AIO5_RPORT	fastio.h	/^#define AIO5_RPORT /;"	d
+AIO5_WPORT	fastio.h	/^#define AIO5_WPORT	/;"	d
+AIO5_WPORT	fastio.h	/^#define AIO5_WPORT /;"	d
+AIO6_DDR	fastio.h	/^#define AIO6_DDR	/;"	d
+AIO6_DDR	fastio.h	/^#define AIO6_DDR /;"	d
+AIO6_PIN	fastio.h	/^#define AIO6_PIN	/;"	d
+AIO6_PIN	fastio.h	/^#define AIO6_PIN /;"	d
+AIO6_PWM	fastio.h	/^#define AIO6_PWM	/;"	d
+AIO6_RPORT	fastio.h	/^#define AIO6_RPORT	/;"	d
+AIO6_RPORT	fastio.h	/^#define AIO6_RPORT /;"	d
+AIO6_WPORT	fastio.h	/^#define AIO6_WPORT	/;"	d
+AIO6_WPORT	fastio.h	/^#define AIO6_WPORT /;"	d
+AIO7_DDR	fastio.h	/^#define AIO7_DDR	/;"	d
+AIO7_DDR	fastio.h	/^#define AIO7_DDR /;"	d
+AIO7_PIN	fastio.h	/^#define AIO7_PIN	/;"	d
+AIO7_PIN	fastio.h	/^#define AIO7_PIN /;"	d
+AIO7_PWM	fastio.h	/^#define AIO7_PWM	/;"	d
+AIO7_RPORT	fastio.h	/^#define AIO7_RPORT	/;"	d
+AIO7_RPORT	fastio.h	/^#define AIO7_RPORT /;"	d
+AIO7_WPORT	fastio.h	/^#define AIO7_WPORT	/;"	d
+AIO7_WPORT	fastio.h	/^#define AIO7_WPORT /;"	d
+ALARM_PIN	pins.h	/^#define ALARM_PIN /;"	d
+AR	arduino.mk	/^AR := $(call findsoftware,avr-ar)$/;"	m
+ARDUINOCONST	arduino.mk	/^ARDUINOCONST ?= 105$/;"	m
+ARDUINOCOREDIR	arduino.mk	/^ARDUINOCOREDIR := $(ARDUINODIR)\/hardware\/arduino\/cores\/arduino$/;"	m
+ARDUINODIR	Makefile	/^ARDUINODIR:=\/Applications\/Arduino.marlin.app\/Contents\/Resources\/Java$/;"	m
+ARDUINODIR	arduino.mk	/^ARDUINODIR := $(firstword $(wildcard ~\/opt\/arduino \/usr\/share\/arduino \\$/;"	m
+ARDUINODIR	arduino.mk	/^ARDUINODIR?=\/Applications\/Arduino.app\/Contents\/Resources\/Java$/;"	m
+ARDUINOLIB	arduino.mk	/^ARDUINOLIB := .lib\/arduino.a$/;"	m
+ARDUINOLIBOBJS	arduino.mk	/^ARDUINOLIBOBJS := $(foreach dir, $(ARDUINOCOREDIR) $(LIBRARYDIRS), \\$/;"	m
+AUTOTEMP	Configuration_adv.h	/^#define AUTOTEMP$/;"	d
+AUTOTEMP_FACTOR	menu_tempcontrol.cpp	/^#define AUTOTEMP_FACTOR	/;"	d	file:
+AUTOTEMP_MAX	menu_tempcontrol.cpp	/^#define AUTOTEMP_MAX	/;"	d	file:
+AUTOTEMP_MIN	menu_tempcontrol.cpp	/^#define AUTOTEMP_MIN	/;"	d	file:
+AUTOTEMP_OLDWEIGHT	Configuration_adv.h	/^  #define AUTOTEMP_OLDWEIGHT /;"	d
+AVRDUDE	arduino.mk	/^AVRDUDE := $(call findsoftware,avrdude)$/;"	m
+AVRDUDECONF	arduino.mk	/^AVRDUDECONF := $(ARDUINODIR)\/hardware\/tools\/avr\/etc\/avrdude.conf$/;"	m
+AVRDUDECONF	arduino.mk	/^AVRDUDECONF := $(wildcard $(AVRDUDE).conf)$/;"	m
+AVRSIZE	arduino.mk	/^AVRSIZE := $(call findsoftware,avr-size)$/;"	m
+AVRTOOLSPATH	Makefile	/^AVRTOOLSPATH := $(ARDUINODIR)\/hardware\/tools\/avr\/bin$/;"	m
+AVRTOOLSPATH	arduino.mk	/^AVRTOOLSPATH ?= $(subst :, , $(PATH)) $(ARDUINODIR)\/hardware\/tools \\$/;"	m
+AXIS_RELATIVE_MODES	Configuration_adv.h	/^#define AXIS_RELATIVE_MODES /;"	d
+AxisEnum	Marlin.h	/^enum AxisEnum {X_AXIS=0, Y_AXIS=1, Z_AXIS=2, E_AXIS=3};$/;"	g
+BAUDRATE	Configuration.h	/^#define BAUDRATE /;"	d
+BED_CHECK_INTERVAL	Configuration_adv.h	/^#define BED_CHECK_INTERVAL /;"	d
+BED_HYSTERESIS	Configuration_adv.h	/^  #define BED_HYSTERESIS /;"	d
+BED_MAXTEMP	Configuration.h	/^#define BED_MAXTEMP /;"	d
+BED_MAXTEMP	Configuration_adv.h	/^  #undef BED_MAXTEMP$/;"	d
+BED_MINTEMP	Configuration.h	/^#define BED_MINTEMP /;"	d
+BED_MINTEMP	Configuration_adv.h	/^  #undef BED_MINTEMP$/;"	d
+BED_USES_AD595	Configuration_adv.h	/^  #define BED_USES_AD595$/;"	d
+BED_USES_THERMISTOR	Configuration_adv.h	/^  #define BED_USES_THERMISTOR$/;"	d
+BEEPER	Configuration.h	/^#define BEEPER /;"	d
+BEEPER	pins.h	/^    #define BEEPER /;"	d
+BLEN_A	mb_sanguino.h	/^    #define BLEN_A /;"	d
+BLEN_A	pins.h	/^    #define BLEN_A /;"	d
+BLEN_B	mb_sanguino.h	/^    #define BLEN_B /;"	d
+BLEN_B	pins.h	/^    #define BLEN_B /;"	d
+BLEN_C	mb_sanguino.h	/^    #define BLEN_C /;"	d
+BLEN_C	pins.h	/^    #define BLEN_C /;"	d
+BLOCK	ultralcd.h	/^    #define BLOCK /;"	d
+BLOCK	ultralcd.h	/^  #define BLOCK /;"	d
+BLOCK_BUFFER_SIZE	Configuration_adv.h	/^  #define BLOCK_BUFFER_SIZE /;"	d
+BL_DW	pins.h	/^    #define BL_DW /;"	d
+BL_LE	pins.h	/^    #define BL_LE /;"	d
+BL_MI	pins.h	/^    #define BL_MI /;"	d
+BL_RI	pins.h	/^    #define BL_RI /;"	d
+BL_ST	pins.h	/^    #define BL_ST /;"	d
+BL_UP	pins.h	/^    #define BL_UP /;"	d
+BOARD	Makefile	/^BOARD := mighty_opt$/;"	m
+BOARDSFILE	arduino.mk	/^BOARDSFILE := $(ARDUINODIR)\/hardware\/arduino\/boards.txt$/;"	m
+BOARD_BOOTLOADER_EFUSES	arduino.mk	/^BOARD_BOOTLOADER_EFUSES := $(call readboardsparam,bootloader.extended_fuses)$/;"	m
+BOARD_BOOTLOADER_FILE	arduino.mk	/^BOARD_BOOTLOADER_FILE := $(call readboardsparam,bootloader.file)$/;"	m
+BOARD_BOOTLOADER_HFUSES	arduino.mk	/^BOARD_BOOTLOADER_HFUSES := $(call readboardsparam,bootloader.high_fuses)$/;"	m
+BOARD_BOOTLOADER_LFUSES	arduino.mk	/^BOARD_BOOTLOADER_LFUSES := $(call readboardsparam,bootloader.low_fuses)$/;"	m
+BOARD_BOOTLOADER_LOCK	arduino.mk	/^BOARD_BOOTLOADER_LOCK := $(call readboardsparam,bootloader.lock_bits)$/;"	m
+BOARD_BOOTLOADER_PATH	arduino.mk	/^BOARD_BOOTLOADER_PATH := $(call readboardsparam,bootloader.path)$/;"	m
+BOARD_BOOTLOADER_UNLOCK	arduino.mk	/^BOARD_BOOTLOADER_UNLOCK := $(call readboardsparam,bootloader.unlock_bits)$/;"	m
+BOARD_BUILD_FCPU	arduino.mk	/^BOARD_BUILD_FCPU := $(call readboardsparam,build.f_cpu)$/;"	m
+BOARD_BUILD_MCU	arduino.mk	/^BOARD_BUILD_MCU := $(call readboardsparam,build.mcu)$/;"	m
+BOARD_BUILD_VARIANT	arduino.mk	/^BOARD_BUILD_VARIANT := $(call readboardsparam,build.variant)$/;"	m
+BOARD_UPLOAD_PROTOCOL	arduino.mk	/^BOARD_UPLOAD_PROTOCOL := $(call readboardsparam,upload.protocol)$/;"	m
+BOARD_UPLOAD_SPEED	arduino.mk	/^BOARD_UPLOAD_SPEED := $(call readboardsparam,upload.speed)$/;"	m
+BOARD_USB_PID	arduino.mk	/^BOARD_USB_PID := $(call readboardsparam,build.pid)$/;"	m
+BOARD_USB_VID	arduino.mk	/^BOARD_USB_VID := $(call readboardsparam,build.vid)$/;"	m
+BOGUS_TEMPERATURE_FAILSAFE_OVERRIDE	pins.h	/^#define BOGUS_TEMPERATURE_FAILSAFE_OVERRIDE$/;"	d
+BOOTLOADERHEX	arduino.mk	/^BOOTLOADERHEX := $(addprefix \\$/;"	m
+BTN_EN1	mb_sanguino.h	/^    #define BTN_EN1 /;"	d
+BTN_EN1	pins.h	/^    #define BTN_EN1 /;"	d
+BTN_EN2	mb_sanguino.h	/^    #define BTN_EN2 /;"	d
+BTN_EN2	pins.h	/^    #define BTN_EN2 /;"	d
+BTN_ENC	mb_sanguino.h	/^    #define BTN_ENC /;"	d
+BTN_ENC	pins.h	/^    #define BTN_ENC /;"	d
+BUFSIZE	Configuration_adv.h	/^#define BUFSIZE /;"	d
+CARDINSERTED	ultralcd.h	/^        #define CARDINSERTED /;"	d
+CARDREADER_H	cardreader.h	/^#define CARDREADER_H$/;"	d
+CC	arduino.mk	/^CC := $(call findsoftware,avr-gcc)$/;"	m
+CHANGE	wiring.h	/^#define CHANGE /;"	d
+CHECK_ENDSTOPS	stepper.cpp	/^#define CHECK_ENDSTOPS /;"	d	file:
+CLICKED	ultralcd.h	/^    #define CLICKED /;"	d
+CLICKED	ultralcd.h	/^  #define CLICKED /;"	d
+CONFIGURATION_ADV_H	Configuration_adv.h	/^#define CONFIGURATION_ADV_H$/;"	d
+CONFIGURATION_H	Configuration.h	/^#define CONFIGURATION_H$/;"	d
+CONTROLLERFAN_SEC	Configuration_adv.h	/^#define CONTROLLERFAN_SEC /;"	d
+CPPDEPFLAGS	arduino.mk	/^CPPDEPFLAGS = -MMD -MP -MF .dep\/$<.dep$/;"	m
+CPPINOFLAGS	arduino.mk	/^CPPINOFLAGS := -x c++ -include $(ARDUINOCOREDIR)\/Arduino.h$/;"	m
+CRITICAL_SECTION_END	Marlin.h	/^  #define CRITICAL_SECTION_END /;"	d
+CRITICAL_SECTION_START	Marlin.h	/^  #define CRITICAL_SECTION_START /;"	d
+CW_END	ultralcd.cpp	/^#define CW_END /;"	d	file:
+CW_FULL	ultralcd.cpp	/^#define CW_FULL /;"	d	file:
+CW_HALF	ultralcd.cpp	/^#define CW_HALF /;"	d	file:
+CXX	arduino.mk	/^CXX := $(call findsoftware,avr-g++)$/;"	m
+CardReader	cardreader.cpp	/^CardReader::CardReader()$/;"	f	class:CardReader
+CardReader	cardreader.h	/^class CardReader$/;"	c
+CooldownNoWait	Configuration_adv.h	/^#define CooldownNoWait /;"	d
+DEBOUNCE_CLICK_MS	ultralcd.cpp	/^#define DEBOUNCE_CLICK_MS /;"	d	file:
+DEBOUNCE_MS	ultralcd.cpp	/^#define DEBOUNCE_MS /;"	d	file:
+DEBUG	cardreader.cpp	/^#undef DEBUG$/;"	d	file:
+DEBUG_LED	fastio.h	/^#define	DEBUG_LED	/;"	d
+DEBUG_PIN	pins.h	/^    #define DEBUG_PIN /;"	d
+DEBUG_PIN	pins.h	/^#define DEBUG_PIN /;"	d
+DEFAULT	wiring.h	/^#define DEFAULT /;"	d
+DEFAULT_ACCELERATION	Configuration.h	/^#define DEFAULT_ACCELERATION /;"	d
+DEFAULT_AXIS_STEPS_PER_UNIT	Configuration.h	/^#define DEFAULT_AXIS_STEPS_PER_UNIT /;"	d
+DEFAULT_EJERK	Configuration.h	/^#define DEFAULT_EJERK /;"	d
+DEFAULT_Kc	Configuration_adv.h	/^    #define  DEFAULT_Kc /;"	d
+DEFAULT_Kd	Configuration.h	/^    #define  DEFAULT_Kd /;"	d
+DEFAULT_Ki	Configuration.h	/^    #define  DEFAULT_Ki /;"	d
+DEFAULT_Kp	Configuration.h	/^    #define  DEFAULT_Kp /;"	d
+DEFAULT_MAX_ACCELERATION	Configuration.h	/^#define DEFAULT_MAX_ACCELERATION /;"	d
+DEFAULT_MAX_FEEDRATE	Configuration.h	/^#define DEFAULT_MAX_FEEDRATE /;"	d
+DEFAULT_MINIMUMFEEDRATE	Configuration_adv.h	/^#define DEFAULT_MINIMUMFEEDRATE /;"	d
+DEFAULT_MINSEGMENTTIME	Configuration_adv.h	/^#define DEFAULT_MINSEGMENTTIME /;"	d
+DEFAULT_MINTRAVELFEEDRATE	Configuration_adv.h	/^#define DEFAULT_MINTRAVELFEEDRATE /;"	d
+DEFAULT_RETRACT_ACCELERATION	Configuration.h	/^#define DEFAULT_RETRACT_ACCELERATION /;"	d
+DEFAULT_STEPPER_DEACTIVE_TIME	Configuration_adv.h	/^#define DEFAULT_STEPPER_DEACTIVE_TIME /;"	d
+DEFAULT_XYJERK	Configuration.h	/^#define DEFAULT_XYJERK /;"	d
+DEFAULT_ZJERK	Configuration.h	/^#define DEFAULT_ZJERK /;"	d
+DEG_TO_RAD	wiring.h	/^#define DEG_TO_RAD /;"	d
+DEPFILES	arduino.mk	/^DEPFILES := $(patsubst %, .dep\/%.dep, $(SOURCES))$/;"	m
+DIO0_DDR	fastio.h	/^#define	DIO0_DDR	/;"	d
+DIO0_DDR	fastio.h	/^#define DIO0_DDR	/;"	d
+DIO0_DDR	fastio.h	/^#define DIO0_DDR /;"	d
+DIO0_PIN	fastio.h	/^#define	DIO0_PIN	/;"	d
+DIO0_PIN	fastio.h	/^#define DIO0_PIN	/;"	d
+DIO0_PIN	fastio.h	/^#define DIO0_PIN /;"	d
+DIO0_PWM	fastio.h	/^#define DIO0_PWM	/;"	d
+DIO0_RPORT	fastio.h	/^#define	DIO0_RPORT	/;"	d
+DIO0_RPORT	fastio.h	/^#define DIO0_RPORT	/;"	d
+DIO0_RPORT	fastio.h	/^#define DIO0_RPORT /;"	d
+DIO0_WPORT	fastio.h	/^#define	DIO0_WPORT	/;"	d
+DIO0_WPORT	fastio.h	/^#define DIO0_WPORT	/;"	d
+DIO0_WPORT	fastio.h	/^#define DIO0_WPORT /;"	d
+DIO10_DDR	fastio.h	/^#define	DIO10_DDR	/;"	d
+DIO10_DDR	fastio.h	/^#define DIO10_DDR	/;"	d
+DIO10_DDR	fastio.h	/^#define DIO10_DDR /;"	d
+DIO10_PIN	fastio.h	/^#define	DIO10_PIN	/;"	d
+DIO10_PIN	fastio.h	/^#define DIO10_PIN	/;"	d
+DIO10_PIN	fastio.h	/^#define DIO10_PIN /;"	d
+DIO10_PWM	fastio.h	/^#define DIO10_PWM	/;"	d
+DIO10_RPORT	fastio.h	/^#define	DIO10_RPORT	/;"	d
+DIO10_RPORT	fastio.h	/^#define DIO10_RPORT	/;"	d
+DIO10_RPORT	fastio.h	/^#define DIO10_RPORT /;"	d
+DIO10_WPORT	fastio.h	/^#define	DIO10_WPORT	/;"	d
+DIO10_WPORT	fastio.h	/^#define DIO10_WPORT	/;"	d
+DIO10_WPORT	fastio.h	/^#define DIO10_WPORT /;"	d
+DIO11_DDR	fastio.h	/^#define	DIO11_DDR	/;"	d
+DIO11_DDR	fastio.h	/^#define DIO11_DDR	/;"	d
+DIO11_DDR	fastio.h	/^#define DIO11_DDR /;"	d
+DIO11_PIN	fastio.h	/^#define	DIO11_PIN	/;"	d
+DIO11_PIN	fastio.h	/^#define DIO11_PIN	/;"	d
+DIO11_PIN	fastio.h	/^#define DIO11_PIN /;"	d
+DIO11_PWM	fastio.h	/^#define DIO11_PWM	/;"	d
+DIO11_RPORT	fastio.h	/^#define	DIO11_RPORT	/;"	d
+DIO11_RPORT	fastio.h	/^#define DIO11_RPORT	/;"	d
+DIO11_RPORT	fastio.h	/^#define DIO11_RPORT /;"	d
+DIO11_WPORT	fastio.h	/^#define	DIO11_WPORT	/;"	d
+DIO11_WPORT	fastio.h	/^#define DIO11_WPORT	/;"	d
+DIO11_WPORT	fastio.h	/^#define DIO11_WPORT /;"	d
+DIO12_DDR	fastio.h	/^#define	DIO12_DDR	/;"	d
+DIO12_DDR	fastio.h	/^#define DIO12_DDR	/;"	d
+DIO12_DDR	fastio.h	/^#define DIO12_DDR /;"	d
+DIO12_PIN	fastio.h	/^#define	DIO12_PIN	/;"	d
+DIO12_PIN	fastio.h	/^#define DIO12_PIN	/;"	d
+DIO12_PIN	fastio.h	/^#define DIO12_PIN /;"	d
+DIO12_PWM	fastio.h	/^#define DIO12_PWM	/;"	d
+DIO12_RPORT	fastio.h	/^#define	DIO12_RPORT	/;"	d
+DIO12_RPORT	fastio.h	/^#define DIO12_RPORT	/;"	d
+DIO12_RPORT	fastio.h	/^#define DIO12_RPORT /;"	d
+DIO12_WPORT	fastio.h	/^#define	DIO12_WPORT	/;"	d
+DIO12_WPORT	fastio.h	/^#define DIO12_WPORT	/;"	d
+DIO12_WPORT	fastio.h	/^#define DIO12_WPORT /;"	d
+DIO13_DDR	fastio.h	/^#define	DIO13_DDR	/;"	d
+DIO13_DDR	fastio.h	/^#define DIO13_DDR	/;"	d
+DIO13_DDR	fastio.h	/^#define DIO13_DDR /;"	d
+DIO13_PIN	fastio.h	/^#define	DIO13_PIN	/;"	d
+DIO13_PIN	fastio.h	/^#define DIO13_PIN	/;"	d
+DIO13_PIN	fastio.h	/^#define DIO13_PIN /;"	d
+DIO13_PWM	fastio.h	/^#define DIO13_PWM	/;"	d
+DIO13_RPORT	fastio.h	/^#define	DIO13_RPORT	/;"	d
+DIO13_RPORT	fastio.h	/^#define DIO13_RPORT	/;"	d
+DIO13_RPORT	fastio.h	/^#define DIO13_RPORT /;"	d
+DIO13_WPORT	fastio.h	/^#define	DIO13_WPORT	/;"	d
+DIO13_WPORT	fastio.h	/^#define DIO13_WPORT	/;"	d
+DIO13_WPORT	fastio.h	/^#define DIO13_WPORT /;"	d
+DIO14_DDR	fastio.h	/^#define	DIO14_DDR	/;"	d
+DIO14_DDR	fastio.h	/^#define DIO14_DDR	/;"	d
+DIO14_DDR	fastio.h	/^#define DIO14_DDR /;"	d
+DIO14_PIN	fastio.h	/^#define	DIO14_PIN	/;"	d
+DIO14_PIN	fastio.h	/^#define DIO14_PIN	/;"	d
+DIO14_PIN	fastio.h	/^#define DIO14_PIN /;"	d
+DIO14_PWM	fastio.h	/^#define DIO14_PWM	/;"	d
+DIO14_RPORT	fastio.h	/^#define	DIO14_RPORT	/;"	d
+DIO14_RPORT	fastio.h	/^#define DIO14_RPORT	/;"	d
+DIO14_RPORT	fastio.h	/^#define DIO14_RPORT /;"	d
+DIO14_WPORT	fastio.h	/^#define	DIO14_WPORT	/;"	d
+DIO14_WPORT	fastio.h	/^#define DIO14_WPORT	/;"	d
+DIO14_WPORT	fastio.h	/^#define DIO14_WPORT /;"	d
+DIO15_DDR	fastio.h	/^#define	DIO15_DDR	/;"	d
+DIO15_DDR	fastio.h	/^#define DIO15_DDR	/;"	d
+DIO15_DDR	fastio.h	/^#define DIO15_DDR /;"	d
+DIO15_PIN	fastio.h	/^#define	DIO15_PIN	/;"	d
+DIO15_PIN	fastio.h	/^#define DIO15_PIN	/;"	d
+DIO15_PIN	fastio.h	/^#define DIO15_PIN /;"	d
+DIO15_PWM	fastio.h	/^#define DIO15_PWM	/;"	d
+DIO15_RPORT	fastio.h	/^#define	DIO15_RPORT	/;"	d
+DIO15_RPORT	fastio.h	/^#define DIO15_RPORT	/;"	d
+DIO15_RPORT	fastio.h	/^#define DIO15_RPORT /;"	d
+DIO15_WPORT	fastio.h	/^#define	DIO15_WPORT	/;"	d
+DIO15_WPORT	fastio.h	/^#define DIO15_WPORT	/;"	d
+DIO15_WPORT	fastio.h	/^#define DIO15_WPORT /;"	d
+DIO16_DDR	fastio.h	/^#define	DIO16_DDR	/;"	d
+DIO16_DDR	fastio.h	/^#define DIO16_DDR	/;"	d
+DIO16_DDR	fastio.h	/^#define DIO16_DDR /;"	d
+DIO16_PIN	fastio.h	/^#define	DIO16_PIN	/;"	d
+DIO16_PIN	fastio.h	/^#define DIO16_PIN	/;"	d
+DIO16_PIN	fastio.h	/^#define DIO16_PIN /;"	d
+DIO16_PWM	fastio.h	/^#define DIO16_PWM	/;"	d
+DIO16_RPORT	fastio.h	/^#define	DIO16_RPORT	/;"	d
+DIO16_RPORT	fastio.h	/^#define DIO16_RPORT	/;"	d
+DIO16_RPORT	fastio.h	/^#define DIO16_RPORT /;"	d
+DIO16_WPORT	fastio.h	/^#define	DIO16_WPORT	/;"	d
+DIO16_WPORT	fastio.h	/^#define DIO16_WPORT	/;"	d
+DIO16_WPORT	fastio.h	/^#define DIO16_WPORT /;"	d
+DIO17_DDR	fastio.h	/^#define	DIO17_DDR	/;"	d
+DIO17_DDR	fastio.h	/^#define DIO17_DDR	/;"	d
+DIO17_DDR	fastio.h	/^#define DIO17_DDR /;"	d
+DIO17_PIN	fastio.h	/^#define	DIO17_PIN	/;"	d
+DIO17_PIN	fastio.h	/^#define DIO17_PIN	/;"	d
+DIO17_PIN	fastio.h	/^#define DIO17_PIN /;"	d
+DIO17_PWM	fastio.h	/^#define DIO17_PWM	/;"	d
+DIO17_RPORT	fastio.h	/^#define	DIO17_RPORT	/;"	d
+DIO17_RPORT	fastio.h	/^#define DIO17_RPORT	/;"	d
+DIO17_RPORT	fastio.h	/^#define DIO17_RPORT /;"	d
+DIO17_WPORT	fastio.h	/^#define	DIO17_WPORT	/;"	d
+DIO17_WPORT	fastio.h	/^#define DIO17_WPORT	/;"	d
+DIO17_WPORT	fastio.h	/^#define DIO17_WPORT /;"	d
+DIO18_DDR	fastio.h	/^#define	DIO18_DDR	/;"	d
+DIO18_DDR	fastio.h	/^#define DIO18_DDR	/;"	d
+DIO18_DDR	fastio.h	/^#define DIO18_DDR /;"	d
+DIO18_PIN	fastio.h	/^#define	DIO18_PIN	/;"	d
+DIO18_PIN	fastio.h	/^#define DIO18_PIN	/;"	d
+DIO18_PIN	fastio.h	/^#define DIO18_PIN /;"	d
+DIO18_PWM	fastio.h	/^#define DIO18_PWM	/;"	d
+DIO18_RPORT	fastio.h	/^#define	DIO18_RPORT	/;"	d
+DIO18_RPORT	fastio.h	/^#define DIO18_RPORT	/;"	d
+DIO18_RPORT	fastio.h	/^#define DIO18_RPORT /;"	d
+DIO18_WPORT	fastio.h	/^#define	DIO18_WPORT	/;"	d
+DIO18_WPORT	fastio.h	/^#define DIO18_WPORT	/;"	d
+DIO18_WPORT	fastio.h	/^#define DIO18_WPORT /;"	d
+DIO19_DDR	fastio.h	/^#define	DIO19_DDR	/;"	d
+DIO19_DDR	fastio.h	/^#define DIO19_DDR	/;"	d
+DIO19_DDR	fastio.h	/^#define DIO19_DDR /;"	d
+DIO19_PIN	fastio.h	/^#define	DIO19_PIN	/;"	d
+DIO19_PIN	fastio.h	/^#define DIO19_PIN	/;"	d
+DIO19_PIN	fastio.h	/^#define DIO19_PIN /;"	d
+DIO19_PWM	fastio.h	/^#define DIO19_PWM	/;"	d
+DIO19_RPORT	fastio.h	/^#define	DIO19_RPORT	/;"	d
+DIO19_RPORT	fastio.h	/^#define DIO19_RPORT	/;"	d
+DIO19_RPORT	fastio.h	/^#define DIO19_RPORT /;"	d
+DIO19_WPORT	fastio.h	/^#define	DIO19_WPORT	/;"	d
+DIO19_WPORT	fastio.h	/^#define DIO19_WPORT	/;"	d
+DIO19_WPORT	fastio.h	/^#define DIO19_WPORT /;"	d
+DIO1_DDR	fastio.h	/^#define	DIO1_DDR	/;"	d
+DIO1_DDR	fastio.h	/^#define DIO1_DDR	/;"	d
+DIO1_DDR	fastio.h	/^#define DIO1_DDR /;"	d
+DIO1_PIN	fastio.h	/^#define	DIO1_PIN	/;"	d
+DIO1_PIN	fastio.h	/^#define DIO1_PIN	/;"	d
+DIO1_PIN	fastio.h	/^#define DIO1_PIN /;"	d
+DIO1_PWM	fastio.h	/^#define DIO1_PWM	/;"	d
+DIO1_RPORT	fastio.h	/^#define	DIO1_RPORT	/;"	d
+DIO1_RPORT	fastio.h	/^#define DIO1_RPORT	/;"	d
+DIO1_RPORT	fastio.h	/^#define DIO1_RPORT /;"	d
+DIO1_WPORT	fastio.h	/^#define	DIO1_WPORT	/;"	d
+DIO1_WPORT	fastio.h	/^#define DIO1_WPORT	/;"	d
+DIO1_WPORT	fastio.h	/^#define DIO1_WPORT /;"	d
+DIO20_DDR	fastio.h	/^#define	DIO20_DDR	/;"	d
+DIO20_DDR	fastio.h	/^#define DIO20_DDR	/;"	d
+DIO20_DDR	fastio.h	/^#define DIO20_DDR /;"	d
+DIO20_PIN	fastio.h	/^#define	DIO20_PIN	/;"	d
+DIO20_PIN	fastio.h	/^#define DIO20_PIN	/;"	d
+DIO20_PIN	fastio.h	/^#define DIO20_PIN /;"	d
+DIO20_PWM	fastio.h	/^#define DIO20_PWM	/;"	d
+DIO20_RPORT	fastio.h	/^#define	DIO20_RPORT	/;"	d
+DIO20_RPORT	fastio.h	/^#define DIO20_RPORT	/;"	d
+DIO20_RPORT	fastio.h	/^#define DIO20_RPORT /;"	d
+DIO20_WPORT	fastio.h	/^#define	DIO20_WPORT	/;"	d
+DIO20_WPORT	fastio.h	/^#define DIO20_WPORT	/;"	d
+DIO20_WPORT	fastio.h	/^#define DIO20_WPORT /;"	d
+DIO21_DDR	fastio.h	/^#define	DIO21_DDR	/;"	d
+DIO21_DDR	fastio.h	/^#define DIO21_DDR	/;"	d
+DIO21_DDR	fastio.h	/^#define DIO21_DDR /;"	d
+DIO21_PIN	fastio.h	/^#define	DIO21_PIN	/;"	d
+DIO21_PIN	fastio.h	/^#define DIO21_PIN	/;"	d
+DIO21_PIN	fastio.h	/^#define DIO21_PIN /;"	d
+DIO21_PWM	fastio.h	/^#define DIO21_PWM	/;"	d
+DIO21_RPORT	fastio.h	/^#define	DIO21_RPORT	/;"	d
+DIO21_RPORT	fastio.h	/^#define DIO21_RPORT	/;"	d
+DIO21_RPORT	fastio.h	/^#define DIO21_RPORT /;"	d
+DIO21_WPORT	fastio.h	/^#define	DIO21_WPORT	/;"	d
+DIO21_WPORT	fastio.h	/^#define DIO21_WPORT	/;"	d
+DIO21_WPORT	fastio.h	/^#define DIO21_WPORT /;"	d
+DIO22_DDR	fastio.h	/^#define	DIO22_DDR	/;"	d
+DIO22_DDR	fastio.h	/^#define DIO22_DDR	/;"	d
+DIO22_DDR	fastio.h	/^#define DIO22_DDR /;"	d
+DIO22_PIN	fastio.h	/^#define	DIO22_PIN	/;"	d
+DIO22_PIN	fastio.h	/^#define DIO22_PIN	/;"	d
+DIO22_PIN	fastio.h	/^#define DIO22_PIN /;"	d
+DIO22_PWM	fastio.h	/^#define DIO22_PWM	/;"	d
+DIO22_RPORT	fastio.h	/^#define	DIO22_RPORT	/;"	d
+DIO22_RPORT	fastio.h	/^#define DIO22_RPORT	/;"	d
+DIO22_RPORT	fastio.h	/^#define DIO22_RPORT /;"	d
+DIO22_WPORT	fastio.h	/^#define	DIO22_WPORT	/;"	d
+DIO22_WPORT	fastio.h	/^#define DIO22_WPORT	/;"	d
+DIO22_WPORT	fastio.h	/^#define DIO22_WPORT /;"	d
+DIO23_DDR	fastio.h	/^#define	DIO23_DDR	/;"	d
+DIO23_DDR	fastio.h	/^#define DIO23_DDR	/;"	d
+DIO23_DDR	fastio.h	/^#define DIO23_DDR /;"	d
+DIO23_PIN	fastio.h	/^#define	DIO23_PIN	/;"	d
+DIO23_PIN	fastio.h	/^#define DIO23_PIN	/;"	d
+DIO23_PIN	fastio.h	/^#define DIO23_PIN /;"	d
+DIO23_PWM	fastio.h	/^#define DIO23_PWM	/;"	d
+DIO23_RPORT	fastio.h	/^#define	DIO23_RPORT	/;"	d
+DIO23_RPORT	fastio.h	/^#define DIO23_RPORT	/;"	d
+DIO23_RPORT	fastio.h	/^#define DIO23_RPORT /;"	d
+DIO23_WPORT	fastio.h	/^#define	DIO23_WPORT	/;"	d
+DIO23_WPORT	fastio.h	/^#define DIO23_WPORT	/;"	d
+DIO23_WPORT	fastio.h	/^#define DIO23_WPORT /;"	d
+DIO24_DDR	fastio.h	/^#define	DIO24_DDR	/;"	d
+DIO24_DDR	fastio.h	/^#define DIO24_DDR	/;"	d
+DIO24_DDR	fastio.h	/^#define DIO24_DDR /;"	d
+DIO24_PIN	fastio.h	/^#define	DIO24_PIN	/;"	d
+DIO24_PIN	fastio.h	/^#define DIO24_PIN	/;"	d
+DIO24_PIN	fastio.h	/^#define DIO24_PIN /;"	d
+DIO24_PWM	fastio.h	/^#define DIO24_PWM	/;"	d
+DIO24_RPORT	fastio.h	/^#define	DIO24_RPORT	/;"	d
+DIO24_RPORT	fastio.h	/^#define DIO24_RPORT	/;"	d
+DIO24_RPORT	fastio.h	/^#define DIO24_RPORT /;"	d
+DIO24_WPORT	fastio.h	/^#define	DIO24_WPORT	/;"	d
+DIO24_WPORT	fastio.h	/^#define DIO24_WPORT	/;"	d
+DIO24_WPORT	fastio.h	/^#define DIO24_WPORT /;"	d
+DIO25_DDR	fastio.h	/^#define	DIO25_DDR	/;"	d
+DIO25_DDR	fastio.h	/^#define DIO25_DDR	/;"	d
+DIO25_DDR	fastio.h	/^#define DIO25_DDR /;"	d
+DIO25_PIN	fastio.h	/^#define	DIO25_PIN	/;"	d
+DIO25_PIN	fastio.h	/^#define DIO25_PIN	/;"	d
+DIO25_PIN	fastio.h	/^#define DIO25_PIN /;"	d
+DIO25_PWM	fastio.h	/^#define DIO25_PWM	/;"	d
+DIO25_RPORT	fastio.h	/^#define	DIO25_RPORT	/;"	d
+DIO25_RPORT	fastio.h	/^#define DIO25_RPORT	/;"	d
+DIO25_RPORT	fastio.h	/^#define DIO25_RPORT /;"	d
+DIO25_WPORT	fastio.h	/^#define	DIO25_WPORT	/;"	d
+DIO25_WPORT	fastio.h	/^#define DIO25_WPORT	/;"	d
+DIO25_WPORT	fastio.h	/^#define DIO25_WPORT /;"	d
+DIO26_DDR	fastio.h	/^#define	DIO26_DDR	/;"	d
+DIO26_DDR	fastio.h	/^#define DIO26_DDR	/;"	d
+DIO26_DDR	fastio.h	/^#define DIO26_DDR /;"	d
+DIO26_PIN	fastio.h	/^#define	DIO26_PIN	/;"	d
+DIO26_PIN	fastio.h	/^#define DIO26_PIN	/;"	d
+DIO26_PIN	fastio.h	/^#define DIO26_PIN /;"	d
+DIO26_PWM	fastio.h	/^#define DIO26_PWM	/;"	d
+DIO26_RPORT	fastio.h	/^#define	DIO26_RPORT	/;"	d
+DIO26_RPORT	fastio.h	/^#define DIO26_RPORT	/;"	d
+DIO26_RPORT	fastio.h	/^#define DIO26_RPORT /;"	d
+DIO26_WPORT	fastio.h	/^#define	DIO26_WPORT	/;"	d
+DIO26_WPORT	fastio.h	/^#define DIO26_WPORT	/;"	d
+DIO26_WPORT	fastio.h	/^#define DIO26_WPORT /;"	d
+DIO27_DDR	fastio.h	/^#define	DIO27_DDR	/;"	d
+DIO27_DDR	fastio.h	/^#define DIO27_DDR	/;"	d
+DIO27_DDR	fastio.h	/^#define DIO27_DDR /;"	d
+DIO27_PIN	fastio.h	/^#define	DIO27_PIN	/;"	d
+DIO27_PIN	fastio.h	/^#define DIO27_PIN	/;"	d
+DIO27_PIN	fastio.h	/^#define DIO27_PIN /;"	d
+DIO27_PWM	fastio.h	/^#define DIO27_PWM	/;"	d
+DIO27_RPORT	fastio.h	/^#define	DIO27_RPORT	/;"	d
+DIO27_RPORT	fastio.h	/^#define DIO27_RPORT	/;"	d
+DIO27_RPORT	fastio.h	/^#define DIO27_RPORT /;"	d
+DIO27_WPORT	fastio.h	/^#define	DIO27_WPORT	/;"	d
+DIO27_WPORT	fastio.h	/^#define DIO27_WPORT	/;"	d
+DIO27_WPORT	fastio.h	/^#define DIO27_WPORT /;"	d
+DIO28_DDR	fastio.h	/^#define	DIO28_DDR	/;"	d
+DIO28_DDR	fastio.h	/^#define DIO28_DDR	/;"	d
+DIO28_DDR	fastio.h	/^#define DIO28_DDR /;"	d
+DIO28_PIN	fastio.h	/^#define	DIO28_PIN	/;"	d
+DIO28_PIN	fastio.h	/^#define DIO28_PIN	/;"	d
+DIO28_PIN	fastio.h	/^#define DIO28_PIN /;"	d
+DIO28_PWM	fastio.h	/^#define DIO28_PWM	/;"	d
+DIO28_RPORT	fastio.h	/^#define	DIO28_RPORT	/;"	d
+DIO28_RPORT	fastio.h	/^#define DIO28_RPORT	/;"	d
+DIO28_RPORT	fastio.h	/^#define DIO28_RPORT /;"	d
+DIO28_WPORT	fastio.h	/^#define	DIO28_WPORT	/;"	d
+DIO28_WPORT	fastio.h	/^#define DIO28_WPORT	/;"	d
+DIO28_WPORT	fastio.h	/^#define DIO28_WPORT /;"	d
+DIO29_DDR	fastio.h	/^#define	DIO29_DDR	/;"	d
+DIO29_DDR	fastio.h	/^#define DIO29_DDR	/;"	d
+DIO29_DDR	fastio.h	/^#define DIO29_DDR /;"	d
+DIO29_PIN	fastio.h	/^#define	DIO29_PIN	/;"	d
+DIO29_PIN	fastio.h	/^#define DIO29_PIN	/;"	d
+DIO29_PIN	fastio.h	/^#define DIO29_PIN /;"	d
+DIO29_PWM	fastio.h	/^#define DIO29_PWM	/;"	d
+DIO29_RPORT	fastio.h	/^#define	DIO29_RPORT	/;"	d
+DIO29_RPORT	fastio.h	/^#define DIO29_RPORT	/;"	d
+DIO29_RPORT	fastio.h	/^#define DIO29_RPORT /;"	d
+DIO29_WPORT	fastio.h	/^#define	DIO29_WPORT	/;"	d
+DIO29_WPORT	fastio.h	/^#define DIO29_WPORT	/;"	d
+DIO29_WPORT	fastio.h	/^#define DIO29_WPORT /;"	d
+DIO2_DDR	fastio.h	/^#define	DIO2_DDR	/;"	d
+DIO2_DDR	fastio.h	/^#define DIO2_DDR	/;"	d
+DIO2_DDR	fastio.h	/^#define DIO2_DDR /;"	d
+DIO2_PIN	fastio.h	/^#define	DIO2_PIN	/;"	d
+DIO2_PIN	fastio.h	/^#define DIO2_PIN	/;"	d
+DIO2_PIN	fastio.h	/^#define DIO2_PIN /;"	d
+DIO2_PWM	fastio.h	/^#define DIO2_PWM	/;"	d
+DIO2_RPORT	fastio.h	/^#define	DIO2_RPORT	/;"	d
+DIO2_RPORT	fastio.h	/^#define DIO2_RPORT	/;"	d
+DIO2_RPORT	fastio.h	/^#define DIO2_RPORT /;"	d
+DIO2_WPORT	fastio.h	/^#define	DIO2_WPORT	/;"	d
+DIO2_WPORT	fastio.h	/^#define DIO2_WPORT	/;"	d
+DIO2_WPORT	fastio.h	/^#define DIO2_WPORT /;"	d
+DIO30_DDR	fastio.h	/^#define	DIO30_DDR	/;"	d
+DIO30_DDR	fastio.h	/^#define DIO30_DDR	/;"	d
+DIO30_DDR	fastio.h	/^#define DIO30_DDR /;"	d
+DIO30_PIN	fastio.h	/^#define	DIO30_PIN	/;"	d
+DIO30_PIN	fastio.h	/^#define DIO30_PIN	/;"	d
+DIO30_PIN	fastio.h	/^#define DIO30_PIN /;"	d
+DIO30_PWM	fastio.h	/^#define DIO30_PWM	/;"	d
+DIO30_RPORT	fastio.h	/^#define	DIO30_RPORT	/;"	d
+DIO30_RPORT	fastio.h	/^#define DIO30_RPORT	/;"	d
+DIO30_RPORT	fastio.h	/^#define DIO30_RPORT /;"	d
+DIO30_WPORT	fastio.h	/^#define	DIO30_WPORT	/;"	d
+DIO30_WPORT	fastio.h	/^#define DIO30_WPORT	/;"	d
+DIO30_WPORT	fastio.h	/^#define DIO30_WPORT /;"	d
+DIO31_DDR	fastio.h	/^#define	DIO31_DDR	/;"	d
+DIO31_DDR	fastio.h	/^#define DIO31_DDR	/;"	d
+DIO31_DDR	fastio.h	/^#define DIO31_DDR /;"	d
+DIO31_PIN	fastio.h	/^#define	DIO31_PIN	/;"	d
+DIO31_PIN	fastio.h	/^#define DIO31_PIN	/;"	d
+DIO31_PIN	fastio.h	/^#define DIO31_PIN /;"	d
+DIO31_PWM	fastio.h	/^#define DIO31_PWM	/;"	d
+DIO31_RPORT	fastio.h	/^#define	DIO31_RPORT	/;"	d
+DIO31_RPORT	fastio.h	/^#define DIO31_RPORT	/;"	d
+DIO31_RPORT	fastio.h	/^#define DIO31_RPORT /;"	d
+DIO31_WPORT	fastio.h	/^#define	DIO31_WPORT	/;"	d
+DIO31_WPORT	fastio.h	/^#define DIO31_WPORT	/;"	d
+DIO31_WPORT	fastio.h	/^#define DIO31_WPORT /;"	d
+DIO32_DDR	fastio.h	/^#define	DIO32_DDR	/;"	d
+DIO32_DDR	fastio.h	/^#define DIO32_DDR /;"	d
+DIO32_PIN	fastio.h	/^#define	DIO32_PIN	/;"	d
+DIO32_PIN	fastio.h	/^#define DIO32_PIN /;"	d
+DIO32_PWM	fastio.h	/^#define DIO32_PWM	/;"	d
+DIO32_RPORT	fastio.h	/^#define	DIO32_RPORT	/;"	d
+DIO32_RPORT	fastio.h	/^#define DIO32_RPORT /;"	d
+DIO32_WPORT	fastio.h	/^#define	DIO32_WPORT	/;"	d
+DIO32_WPORT	fastio.h	/^#define DIO32_WPORT /;"	d
+DIO33_DDR	fastio.h	/^#define	DIO33_DDR	/;"	d
+DIO33_DDR	fastio.h	/^#define DIO33_DDR /;"	d
+DIO33_PIN	fastio.h	/^#define	DIO33_PIN	/;"	d
+DIO33_PIN	fastio.h	/^#define DIO33_PIN /;"	d
+DIO33_PWM	fastio.h	/^#define DIO33_PWM	/;"	d
+DIO33_RPORT	fastio.h	/^#define	DIO33_RPORT	/;"	d
+DIO33_RPORT	fastio.h	/^#define DIO33_RPORT /;"	d
+DIO33_WPORT	fastio.h	/^#define	DIO33_WPORT	/;"	d
+DIO33_WPORT	fastio.h	/^#define DIO33_WPORT /;"	d
+DIO34_DDR	fastio.h	/^#define	DIO34_DDR	/;"	d
+DIO34_DDR	fastio.h	/^#define DIO34_DDR /;"	d
+DIO34_PIN	fastio.h	/^#define	DIO34_PIN	/;"	d
+DIO34_PIN	fastio.h	/^#define DIO34_PIN /;"	d
+DIO34_PWM	fastio.h	/^#define DIO34_PWM	/;"	d
+DIO34_RPORT	fastio.h	/^#define	DIO34_RPORT	/;"	d
+DIO34_RPORT	fastio.h	/^#define DIO34_RPORT /;"	d
+DIO34_WPORT	fastio.h	/^#define	DIO34_WPORT	/;"	d
+DIO34_WPORT	fastio.h	/^#define DIO34_WPORT /;"	d
+DIO35_DDR	fastio.h	/^#define	DIO35_DDR	/;"	d
+DIO35_DDR	fastio.h	/^#define DIO35_DDR /;"	d
+DIO35_PIN	fastio.h	/^#define	DIO35_PIN	/;"	d
+DIO35_PIN	fastio.h	/^#define DIO35_PIN /;"	d
+DIO35_PWM	fastio.h	/^#define DIO35_PWM	/;"	d
+DIO35_RPORT	fastio.h	/^#define	DIO35_RPORT	/;"	d
+DIO35_RPORT	fastio.h	/^#define DIO35_RPORT /;"	d
+DIO35_WPORT	fastio.h	/^#define	DIO35_WPORT	/;"	d
+DIO35_WPORT	fastio.h	/^#define DIO35_WPORT /;"	d
+DIO36_DDR	fastio.h	/^#define	DIO36_DDR	/;"	d
+DIO36_DDR	fastio.h	/^#define DIO36_DDR /;"	d
+DIO36_PIN	fastio.h	/^#define	DIO36_PIN	/;"	d
+DIO36_PIN	fastio.h	/^#define DIO36_PIN /;"	d
+DIO36_PWM	fastio.h	/^#define DIO36_PWM	/;"	d
+DIO36_RPORT	fastio.h	/^#define	DIO36_RPORT	/;"	d
+DIO36_RPORT	fastio.h	/^#define DIO36_RPORT /;"	d
+DIO36_WPORT	fastio.h	/^#define	DIO36_WPORT	/;"	d
+DIO36_WPORT	fastio.h	/^#define DIO36_WPORT /;"	d
+DIO37_DDR	fastio.h	/^#define	DIO37_DDR	/;"	d
+DIO37_DDR	fastio.h	/^#define DIO37_DDR /;"	d
+DIO37_PIN	fastio.h	/^#define	DIO37_PIN	/;"	d
+DIO37_PIN	fastio.h	/^#define DIO37_PIN /;"	d
+DIO37_PWM	fastio.h	/^#define DIO37_PWM	/;"	d
+DIO37_RPORT	fastio.h	/^#define	DIO37_RPORT	/;"	d
+DIO37_RPORT	fastio.h	/^#define DIO37_RPORT /;"	d
+DIO37_WPORT	fastio.h	/^#define	DIO37_WPORT	/;"	d
+DIO37_WPORT	fastio.h	/^#define DIO37_WPORT /;"	d
+DIO38_DDR	fastio.h	/^#define	DIO38_DDR	/;"	d
+DIO38_DDR	fastio.h	/^#define DIO38_DDR /;"	d
+DIO38_PIN	fastio.h	/^#define	DIO38_PIN	/;"	d
+DIO38_PIN	fastio.h	/^#define DIO38_PIN /;"	d
+DIO38_PWM	fastio.h	/^#define DIO38_PWM	/;"	d
+DIO38_RPORT	fastio.h	/^#define	DIO38_RPORT	/;"	d
+DIO38_RPORT	fastio.h	/^#define DIO38_RPORT /;"	d
+DIO38_WPORT	fastio.h	/^#define	DIO38_WPORT	/;"	d
+DIO38_WPORT	fastio.h	/^#define DIO38_WPORT /;"	d
+DIO39_DDR	fastio.h	/^#define	DIO39_DDR	/;"	d
+DIO39_DDR	fastio.h	/^#define DIO39_DDR /;"	d
+DIO39_PIN	fastio.h	/^#define	DIO39_PIN	/;"	d
+DIO39_PIN	fastio.h	/^#define DIO39_PIN /;"	d
+DIO39_PWM	fastio.h	/^#define DIO39_PWM	/;"	d
+DIO39_RPORT	fastio.h	/^#define	DIO39_RPORT	/;"	d
+DIO39_RPORT	fastio.h	/^#define DIO39_RPORT /;"	d
+DIO39_WPORT	fastio.h	/^#define	DIO39_WPORT	/;"	d
+DIO39_WPORT	fastio.h	/^#define DIO39_WPORT /;"	d
+DIO3_DDR	fastio.h	/^#define	DIO3_DDR	/;"	d
+DIO3_DDR	fastio.h	/^#define DIO3_DDR	/;"	d
+DIO3_DDR	fastio.h	/^#define DIO3_DDR /;"	d
+DIO3_PIN	fastio.h	/^#define	DIO3_PIN	/;"	d
+DIO3_PIN	fastio.h	/^#define DIO3_PIN	/;"	d
+DIO3_PIN	fastio.h	/^#define DIO3_PIN /;"	d
+DIO3_PWM	fastio.h	/^#define DIO3_PWM	/;"	d
+DIO3_RPORT	fastio.h	/^#define	DIO3_RPORT	/;"	d
+DIO3_RPORT	fastio.h	/^#define DIO3_RPORT	/;"	d
+DIO3_RPORT	fastio.h	/^#define DIO3_RPORT /;"	d
+DIO3_WPORT	fastio.h	/^#define	DIO3_WPORT	/;"	d
+DIO3_WPORT	fastio.h	/^#define DIO3_WPORT	/;"	d
+DIO3_WPORT	fastio.h	/^#define DIO3_WPORT /;"	d
+DIO40_DDR	fastio.h	/^#define	DIO40_DDR	/;"	d
+DIO40_DDR	fastio.h	/^#define DIO40_DDR /;"	d
+DIO40_PIN	fastio.h	/^#define	DIO40_PIN	/;"	d
+DIO40_PIN	fastio.h	/^#define DIO40_PIN /;"	d
+DIO40_PWM	fastio.h	/^#define DIO40_PWM	/;"	d
+DIO40_RPORT	fastio.h	/^#define	DIO40_RPORT	/;"	d
+DIO40_RPORT	fastio.h	/^#define DIO40_RPORT /;"	d
+DIO40_WPORT	fastio.h	/^#define	DIO40_WPORT	/;"	d
+DIO40_WPORT	fastio.h	/^#define DIO40_WPORT /;"	d
+DIO41_DDR	fastio.h	/^#define	DIO41_DDR	/;"	d
+DIO41_DDR	fastio.h	/^#define DIO41_DDR /;"	d
+DIO41_PIN	fastio.h	/^#define	DIO41_PIN	/;"	d
+DIO41_PIN	fastio.h	/^#define DIO41_PIN /;"	d
+DIO41_PWM	fastio.h	/^#define DIO41_PWM	/;"	d
+DIO41_RPORT	fastio.h	/^#define	DIO41_RPORT	/;"	d
+DIO41_RPORT	fastio.h	/^#define DIO41_RPORT /;"	d
+DIO41_WPORT	fastio.h	/^#define	DIO41_WPORT	/;"	d
+DIO41_WPORT	fastio.h	/^#define DIO41_WPORT /;"	d
+DIO42_DDR	fastio.h	/^#define	DIO42_DDR	/;"	d
+DIO42_DDR	fastio.h	/^#define DIO42_DDR /;"	d
+DIO42_PIN	fastio.h	/^#define	DIO42_PIN	/;"	d
+DIO42_PIN	fastio.h	/^#define DIO42_PIN /;"	d
+DIO42_PWM	fastio.h	/^#define DIO42_PWM	/;"	d
+DIO42_RPORT	fastio.h	/^#define	DIO42_RPORT	/;"	d
+DIO42_RPORT	fastio.h	/^#define DIO42_RPORT /;"	d
+DIO42_WPORT	fastio.h	/^#define	DIO42_WPORT	/;"	d
+DIO42_WPORT	fastio.h	/^#define DIO42_WPORT /;"	d
+DIO43_DDR	fastio.h	/^#define	DIO43_DDR	/;"	d
+DIO43_DDR	fastio.h	/^#define DIO43_DDR /;"	d
+DIO43_PIN	fastio.h	/^#define	DIO43_PIN	/;"	d
+DIO43_PIN	fastio.h	/^#define DIO43_PIN /;"	d
+DIO43_PWM	fastio.h	/^#define DIO43_PWM	/;"	d
+DIO43_RPORT	fastio.h	/^#define	DIO43_RPORT	/;"	d
+DIO43_RPORT	fastio.h	/^#define DIO43_RPORT /;"	d
+DIO43_WPORT	fastio.h	/^#define	DIO43_WPORT	/;"	d
+DIO43_WPORT	fastio.h	/^#define DIO43_WPORT /;"	d
+DIO44_DDR	fastio.h	/^#define	DIO44_DDR	/;"	d
+DIO44_DDR	fastio.h	/^#define DIO44_DDR /;"	d
+DIO44_PIN	fastio.h	/^#define	DIO44_PIN	/;"	d
+DIO44_PIN	fastio.h	/^#define DIO44_PIN /;"	d
+DIO44_PWM	fastio.h	/^#define DIO44_PWM	/;"	d
+DIO44_RPORT	fastio.h	/^#define	DIO44_RPORT	/;"	d
+DIO44_RPORT	fastio.h	/^#define DIO44_RPORT /;"	d
+DIO44_WPORT	fastio.h	/^#define	DIO44_WPORT	/;"	d
+DIO44_WPORT	fastio.h	/^#define DIO44_WPORT /;"	d
+DIO45_DDR	fastio.h	/^#define	DIO45_DDR	/;"	d
+DIO45_DDR	fastio.h	/^#define DIO45_DDR /;"	d
+DIO45_PIN	fastio.h	/^#define	DIO45_PIN	/;"	d
+DIO45_PIN	fastio.h	/^#define DIO45_PIN /;"	d
+DIO45_PWM	fastio.h	/^#define DIO45_PWM	/;"	d
+DIO45_RPORT	fastio.h	/^#define	DIO45_RPORT	/;"	d
+DIO45_RPORT	fastio.h	/^#define DIO45_RPORT /;"	d
+DIO45_WPORT	fastio.h	/^#define	DIO45_WPORT	/;"	d
+DIO45_WPORT	fastio.h	/^#define DIO45_WPORT /;"	d
+DIO46_DDR	fastio.h	/^#define	DIO46_DDR	/;"	d
+DIO46_DDR	fastio.h	/^#define DIO46_DDR /;"	d
+DIO46_PIN	fastio.h	/^#define	DIO46_PIN	/;"	d
+DIO46_PIN	fastio.h	/^#define DIO46_PIN /;"	d
+DIO46_PWM	fastio.h	/^#define DIO46_PWM	/;"	d
+DIO46_RPORT	fastio.h	/^#define	DIO46_RPORT	/;"	d
+DIO46_RPORT	fastio.h	/^#define DIO46_RPORT /;"	d
+DIO46_WPORT	fastio.h	/^#define	DIO46_WPORT	/;"	d
+DIO46_WPORT	fastio.h	/^#define DIO46_WPORT /;"	d
+DIO47_DDR	fastio.h	/^#define	DIO47_DDR	/;"	d
+DIO47_DDR	fastio.h	/^#define DIO47_DDR /;"	d
+DIO47_PIN	fastio.h	/^#define	DIO47_PIN	/;"	d
+DIO47_PIN	fastio.h	/^#define DIO47_PIN /;"	d
+DIO47_PWM	fastio.h	/^#define DIO47_PWM	/;"	d
+DIO47_RPORT	fastio.h	/^#define	DIO47_RPORT	/;"	d
+DIO47_RPORT	fastio.h	/^#define DIO47_RPORT /;"	d
+DIO47_WPORT	fastio.h	/^#define	DIO47_WPORT	/;"	d
+DIO47_WPORT	fastio.h	/^#define DIO47_WPORT /;"	d
+DIO48_DDR	fastio.h	/^#define	DIO48_DDR	/;"	d
+DIO48_PIN	fastio.h	/^#define	DIO48_PIN	/;"	d
+DIO48_PWM	fastio.h	/^#define DIO48_PWM	/;"	d
+DIO48_RPORT	fastio.h	/^#define	DIO48_RPORT	/;"	d
+DIO48_WPORT	fastio.h	/^#define	DIO48_WPORT	/;"	d
+DIO49_DDR	fastio.h	/^#define	DIO49_DDR	/;"	d
+DIO49_PIN	fastio.h	/^#define	DIO49_PIN	/;"	d
+DIO49_PWM	fastio.h	/^#define DIO49_PWM	/;"	d
+DIO49_RPORT	fastio.h	/^#define	DIO49_RPORT	/;"	d
+DIO49_WPORT	fastio.h	/^#define	DIO49_WPORT	/;"	d
+DIO4_DDR	fastio.h	/^#define	DIO4_DDR	/;"	d
+DIO4_DDR	fastio.h	/^#define DIO4_DDR	/;"	d
+DIO4_DDR	fastio.h	/^#define DIO4_DDR /;"	d
+DIO4_PIN	fastio.h	/^#define	DIO4_PIN	/;"	d
+DIO4_PIN	fastio.h	/^#define DIO4_PIN	/;"	d
+DIO4_PIN	fastio.h	/^#define DIO4_PIN /;"	d
+DIO4_PWM	fastio.h	/^#define DIO4_PWM	/;"	d
+DIO4_RPORT	fastio.h	/^#define	DIO4_RPORT	/;"	d
+DIO4_RPORT	fastio.h	/^#define DIO4_RPORT	/;"	d
+DIO4_RPORT	fastio.h	/^#define DIO4_RPORT /;"	d
+DIO4_WPORT	fastio.h	/^#define	DIO4_WPORT	/;"	d
+DIO4_WPORT	fastio.h	/^#define DIO4_WPORT	/;"	d
+DIO4_WPORT	fastio.h	/^#define DIO4_WPORT /;"	d
+DIO50_DDR	fastio.h	/^#define	DIO50_DDR	/;"	d
+DIO50_PIN	fastio.h	/^#define	DIO50_PIN	/;"	d
+DIO50_PWM	fastio.h	/^#define DIO50_PWM	/;"	d
+DIO50_RPORT	fastio.h	/^#define	DIO50_RPORT	/;"	d
+DIO50_WPORT	fastio.h	/^#define	DIO50_WPORT	/;"	d
+DIO51_DDR	fastio.h	/^#define	DIO51_DDR	/;"	d
+DIO51_PIN	fastio.h	/^#define	DIO51_PIN	/;"	d
+DIO51_PWM	fastio.h	/^#define DIO51_PWM	/;"	d
+DIO51_RPORT	fastio.h	/^#define	DIO51_RPORT	/;"	d
+DIO51_WPORT	fastio.h	/^#define	DIO51_WPORT	/;"	d
+DIO52_DDR	fastio.h	/^#define	DIO52_DDR	/;"	d
+DIO52_PIN	fastio.h	/^#define	DIO52_PIN	/;"	d
+DIO52_PWM	fastio.h	/^#define DIO52_PWM	/;"	d
+DIO52_RPORT	fastio.h	/^#define	DIO52_RPORT	/;"	d
+DIO52_WPORT	fastio.h	/^#define	DIO52_WPORT	/;"	d
+DIO53_DDR	fastio.h	/^#define	DIO53_DDR	/;"	d
+DIO53_PIN	fastio.h	/^#define	DIO53_PIN	/;"	d
+DIO53_PWM	fastio.h	/^#define DIO53_PWM	/;"	d
+DIO53_RPORT	fastio.h	/^#define	DIO53_RPORT	/;"	d
+DIO53_WPORT	fastio.h	/^#define	DIO53_WPORT	/;"	d
+DIO54_DDR	fastio.h	/^#define DIO54_DDR	/;"	d
+DIO54_PIN	fastio.h	/^#define DIO54_PIN	/;"	d
+DIO54_PWM	fastio.h	/^#define DIO54_PWM	/;"	d
+DIO54_RPORT	fastio.h	/^#define DIO54_RPORT	/;"	d
+DIO54_WPORT	fastio.h	/^#define DIO54_WPORT	/;"	d
+DIO55_DDR	fastio.h	/^#define DIO55_DDR	/;"	d
+DIO55_PIN	fastio.h	/^#define DIO55_PIN	/;"	d
+DIO55_PWM	fastio.h	/^#define DIO55_PWM	/;"	d
+DIO55_RPORT	fastio.h	/^#define DIO55_RPORT	/;"	d
+DIO55_WPORT	fastio.h	/^#define DIO55_WPORT	/;"	d
+DIO56_DDR	fastio.h	/^#define DIO56_DDR	/;"	d
+DIO56_PIN	fastio.h	/^#define DIO56_PIN	/;"	d
+DIO56_PWM	fastio.h	/^#define DIO56_PWM	/;"	d
+DIO56_RPORT	fastio.h	/^#define DIO56_RPORT	/;"	d
+DIO56_WPORT	fastio.h	/^#define DIO56_WPORT	/;"	d
+DIO57_DDR	fastio.h	/^#define DIO57_DDR	/;"	d
+DIO57_PIN	fastio.h	/^#define DIO57_PIN	/;"	d
+DIO57_PWM	fastio.h	/^#define DIO57_PWM	/;"	d
+DIO57_RPORT	fastio.h	/^#define DIO57_RPORT	/;"	d
+DIO57_WPORT	fastio.h	/^#define DIO57_WPORT	/;"	d
+DIO58_DDR	fastio.h	/^#define DIO58_DDR	/;"	d
+DIO58_PIN	fastio.h	/^#define DIO58_PIN	/;"	d
+DIO58_PWM	fastio.h	/^#define DIO58_PWM	/;"	d
+DIO58_RPORT	fastio.h	/^#define DIO58_RPORT	/;"	d
+DIO58_WPORT	fastio.h	/^#define DIO58_WPORT	/;"	d
+DIO59_DDR	fastio.h	/^#define DIO59_DDR	/;"	d
+DIO59_PIN	fastio.h	/^#define DIO59_PIN	/;"	d
+DIO59_PWM	fastio.h	/^#define DIO59_PWM	/;"	d
+DIO59_RPORT	fastio.h	/^#define DIO59_RPORT	/;"	d
+DIO59_WPORT	fastio.h	/^#define DIO59_WPORT	/;"	d
+DIO5_DDR	fastio.h	/^#define	DIO5_DDR	/;"	d
+DIO5_DDR	fastio.h	/^#define DIO5_DDR	/;"	d
+DIO5_DDR	fastio.h	/^#define DIO5_DDR /;"	d
+DIO5_PIN	fastio.h	/^#define	DIO5_PIN	/;"	d
+DIO5_PIN	fastio.h	/^#define DIO5_PIN	/;"	d
+DIO5_PIN	fastio.h	/^#define DIO5_PIN /;"	d
+DIO5_PWM	fastio.h	/^#define DIO5_PWM	/;"	d
+DIO5_RPORT	fastio.h	/^#define	DIO5_RPORT	/;"	d
+DIO5_RPORT	fastio.h	/^#define DIO5_RPORT	/;"	d
+DIO5_RPORT	fastio.h	/^#define DIO5_RPORT /;"	d
+DIO5_WPORT	fastio.h	/^#define	DIO5_WPORT	/;"	d
+DIO5_WPORT	fastio.h	/^#define DIO5_WPORT	/;"	d
+DIO5_WPORT	fastio.h	/^#define DIO5_WPORT /;"	d
+DIO60_DDR	fastio.h	/^#define DIO60_DDR	/;"	d
+DIO60_PIN	fastio.h	/^#define DIO60_PIN	/;"	d
+DIO60_PWM	fastio.h	/^#define DIO60_PWM	/;"	d
+DIO60_RPORT	fastio.h	/^#define DIO60_RPORT	/;"	d
+DIO60_WPORT	fastio.h	/^#define DIO60_WPORT	/;"	d
+DIO61_DDR	fastio.h	/^#define DIO61_DDR	/;"	d
+DIO61_PIN	fastio.h	/^#define DIO61_PIN	/;"	d
+DIO61_PWM	fastio.h	/^#define DIO61_PWM	/;"	d
+DIO61_RPORT	fastio.h	/^#define DIO61_RPORT	/;"	d
+DIO61_WPORT	fastio.h	/^#define DIO61_WPORT	/;"	d
+DIO62_DDR	fastio.h	/^#define DIO62_DDR	/;"	d
+DIO62_PIN	fastio.h	/^#define DIO62_PIN	/;"	d
+DIO62_PWM	fastio.h	/^#define DIO62_PWM	/;"	d
+DIO62_RPORT	fastio.h	/^#define DIO62_RPORT	/;"	d
+DIO62_WPORT	fastio.h	/^#define DIO62_WPORT	/;"	d
+DIO63_DDR	fastio.h	/^#define DIO63_DDR	/;"	d
+DIO63_PIN	fastio.h	/^#define DIO63_PIN	/;"	d
+DIO63_PWM	fastio.h	/^#define DIO63_PWM	/;"	d
+DIO63_RPORT	fastio.h	/^#define DIO63_RPORT	/;"	d
+DIO63_WPORT	fastio.h	/^#define DIO63_WPORT	/;"	d
+DIO64_DDR	fastio.h	/^#define DIO64_DDR	/;"	d
+DIO64_PIN	fastio.h	/^#define DIO64_PIN	/;"	d
+DIO64_PWM	fastio.h	/^#define DIO64_PWM	/;"	d
+DIO64_RPORT	fastio.h	/^#define DIO64_RPORT	/;"	d
+DIO64_WPORT	fastio.h	/^#define DIO64_WPORT	/;"	d
+DIO65_DDR	fastio.h	/^#define DIO65_DDR	/;"	d
+DIO65_PIN	fastio.h	/^#define DIO65_PIN	/;"	d
+DIO65_PWM	fastio.h	/^#define DIO65_PWM	/;"	d
+DIO65_RPORT	fastio.h	/^#define DIO65_RPORT	/;"	d
+DIO65_WPORT	fastio.h	/^#define DIO65_WPORT	/;"	d
+DIO66_DDR	fastio.h	/^#define DIO66_DDR	/;"	d
+DIO66_PIN	fastio.h	/^#define DIO66_PIN	/;"	d
+DIO66_PWM	fastio.h	/^#define DIO66_PWM	/;"	d
+DIO66_RPORT	fastio.h	/^#define DIO66_RPORT	/;"	d
+DIO66_WPORT	fastio.h	/^#define DIO66_WPORT	/;"	d
+DIO67_DDR	fastio.h	/^#define DIO67_DDR	/;"	d
+DIO67_PIN	fastio.h	/^#define DIO67_PIN	/;"	d
+DIO67_PWM	fastio.h	/^#define DIO67_PWM	/;"	d
+DIO67_RPORT	fastio.h	/^#define DIO67_RPORT	/;"	d
+DIO67_WPORT	fastio.h	/^#define DIO67_WPORT	/;"	d
+DIO68_DDR	fastio.h	/^#define DIO68_DDR	/;"	d
+DIO68_PIN	fastio.h	/^#define DIO68_PIN	/;"	d
+DIO68_PWM	fastio.h	/^#define DIO68_PWM	/;"	d
+DIO68_RPORT	fastio.h	/^#define DIO68_RPORT	/;"	d
+DIO68_WPORT	fastio.h	/^#define DIO68_WPORT	/;"	d
+DIO69_DDR	fastio.h	/^#define DIO69_DDR	/;"	d
+DIO69_PIN	fastio.h	/^#define DIO69_PIN	/;"	d
+DIO69_PWM	fastio.h	/^#define DIO69_PWM	/;"	d
+DIO69_RPORT	fastio.h	/^#define DIO69_RPORT	/;"	d
+DIO69_WPORT	fastio.h	/^#define DIO69_WPORT	/;"	d
+DIO6_DDR	fastio.h	/^#define	DIO6_DDR	/;"	d
+DIO6_DDR	fastio.h	/^#define DIO6_DDR	/;"	d
+DIO6_DDR	fastio.h	/^#define DIO6_DDR /;"	d
+DIO6_PIN	fastio.h	/^#define	DIO6_PIN	/;"	d
+DIO6_PIN	fastio.h	/^#define DIO6_PIN	/;"	d
+DIO6_PIN	fastio.h	/^#define DIO6_PIN /;"	d
+DIO6_PWM	fastio.h	/^#define DIO6_PWM	/;"	d
+DIO6_RPORT	fastio.h	/^#define	DIO6_RPORT	/;"	d
+DIO6_RPORT	fastio.h	/^#define DIO6_RPORT	/;"	d
+DIO6_RPORT	fastio.h	/^#define DIO6_RPORT /;"	d
+DIO6_WPORT	fastio.h	/^#define	DIO6_WPORT	/;"	d
+DIO6_WPORT	fastio.h	/^#define DIO6_WPORT	/;"	d
+DIO6_WPORT	fastio.h	/^#define DIO6_WPORT /;"	d
+DIO7_DDR	fastio.h	/^#define	DIO7_DDR	/;"	d
+DIO7_DDR	fastio.h	/^#define DIO7_DDR	/;"	d
+DIO7_DDR	fastio.h	/^#define DIO7_DDR /;"	d
+DIO7_PIN	fastio.h	/^#define	DIO7_PIN	/;"	d
+DIO7_PIN	fastio.h	/^#define DIO7_PIN	/;"	d
+DIO7_PIN	fastio.h	/^#define DIO7_PIN /;"	d
+DIO7_PWM	fastio.h	/^#define DIO7_PWM	/;"	d
+DIO7_RPORT	fastio.h	/^#define	DIO7_RPORT	/;"	d
+DIO7_RPORT	fastio.h	/^#define DIO7_RPORT	/;"	d
+DIO7_RPORT	fastio.h	/^#define DIO7_RPORT /;"	d
+DIO7_WPORT	fastio.h	/^#define	DIO7_WPORT	/;"	d
+DIO7_WPORT	fastio.h	/^#define DIO7_WPORT	/;"	d
+DIO7_WPORT	fastio.h	/^#define DIO7_WPORT /;"	d
+DIO8_DDR	fastio.h	/^#define	DIO8_DDR	/;"	d
+DIO8_DDR	fastio.h	/^#define DIO8_DDR	/;"	d
+DIO8_DDR	fastio.h	/^#define DIO8_DDR /;"	d
+DIO8_PIN	fastio.h	/^#define	DIO8_PIN	/;"	d
+DIO8_PIN	fastio.h	/^#define DIO8_PIN	/;"	d
+DIO8_PIN	fastio.h	/^#define DIO8_PIN /;"	d
+DIO8_PWM	fastio.h	/^#define DIO8_PWM	/;"	d
+DIO8_RPORT	fastio.h	/^#define	DIO8_RPORT	/;"	d
+DIO8_RPORT	fastio.h	/^#define DIO8_RPORT	/;"	d
+DIO8_RPORT	fastio.h	/^#define DIO8_RPORT /;"	d
+DIO8_WPORT	fastio.h	/^#define	DIO8_WPORT	/;"	d
+DIO8_WPORT	fastio.h	/^#define DIO8_WPORT	/;"	d
+DIO8_WPORT	fastio.h	/^#define DIO8_WPORT /;"	d
+DIO9_DDR	fastio.h	/^#define	DIO9_DDR	/;"	d
+DIO9_DDR	fastio.h	/^#define DIO9_DDR	/;"	d
+DIO9_DDR	fastio.h	/^#define DIO9_DDR /;"	d
+DIO9_PIN	fastio.h	/^#define	DIO9_PIN	/;"	d
+DIO9_PIN	fastio.h	/^#define DIO9_PIN	/;"	d
+DIO9_PIN	fastio.h	/^#define DIO9_PIN /;"	d
+DIO9_PWM	fastio.h	/^#define DIO9_PWM	/;"	d
+DIO9_RPORT	fastio.h	/^#define	DIO9_RPORT	/;"	d
+DIO9_RPORT	fastio.h	/^#define DIO9_RPORT	/;"	d
+DIO9_RPORT	fastio.h	/^#define DIO9_RPORT /;"	d
+DIO9_WPORT	fastio.h	/^#define	DIO9_WPORT	/;"	d
+DIO9_WPORT	fastio.h	/^#define DIO9_WPORT	/;"	d
+DIO9_WPORT	fastio.h	/^#define DIO9_WPORT /;"	d
+DISABLE_E	Configuration.h	/^#define DISABLE_E /;"	d
+DISABLE_STEPPER_DRIVER_INTERRUPT	stepper.cpp	/^#define DISABLE_STEPPER_DRIVER_INTERRUPT(/;"	d	file:
+DISABLE_X	Configuration.h	/^#define DISABLE_X /;"	d
+DISABLE_Y	Configuration.h	/^#define DISABLE_Y /;"	d
+DISABLE_Z	Configuration.h	/^#define DISABLE_Z /;"	d
+DISPLAY	wiring.h	/^#define DISPLAY /;"	d
+D_FILAMENT	Configuration_adv.h	/^  #define D_FILAMENT /;"	d
+E0_DIR_PIN	mb_sanguino.h	/^#define E0_DIR_PIN /;"	d
+E0_DIR_PIN	pins.h	/^    #define E0_DIR_PIN /;"	d
+E0_DIR_PIN	pins.h	/^#define E0_DIR_PIN /;"	d
+E0_ENABLE_PIN	mb_sanguino.h	/^#define E0_ENABLE_PIN /;"	d
+E0_ENABLE_PIN	pins.h	/^    #define E0_ENABLE_PIN /;"	d
+E0_ENABLE_PIN	pins.h	/^#define E0_ENABLE_PIN /;"	d
+E0_STEP_PIN	mb_sanguino.h	/^#define E0_STEP_PIN /;"	d
+E0_STEP_PIN	pins.h	/^    #define E0_STEP_PIN /;"	d
+E0_STEP_PIN	pins.h	/^#define E0_STEP_PIN /;"	d
+E1_DIR_PIN	pins.h	/^#define E1_DIR_PIN /;"	d
+E1_ENABLE_PIN	pins.h	/^#define E1_ENABLE_PIN /;"	d
+E1_STEP_PIN	pins.h	/^#define E1_STEP_PIN /;"	d
+E2_DIR_PIN	pins.h	/^#define E2_DIR_PIN /;"	d
+E2_ENABLE_PIN	pins.h	/^#define E2_ENABLE_PIN /;"	d
+E2_STEP_PIN	pins.h	/^#define E2_STEP_PIN /;"	d
+EEPROM_CHITCHAT	Configuration.h	/^#define EEPROM_CHITCHAT$/;"	d
+EEPROM_H	EEPROMwrite.h	/^#define EEPROM_H$/;"	d
+EEPROM_OFFSET	EEPROMwrite.h	/^#define EEPROM_OFFSET /;"	d
+EEPROM_RetrieveSettings	EEPROMwrite.h	/^inline void EEPROM_RetrieveSettings(bool def=false)$/;"	f
+EEPROM_SETTINGS	Configuration.h	/^#define EEPROM_SETTINGS$/;"	d
+EEPROM_StoreSettings	EEPROMwrite.h	/^inline void EEPROM_StoreSettings() $/;"	f
+EEPROM_VERSION	EEPROMwrite.h	/^#define EEPROM_VERSION /;"	d
+EEPROM_printSettings	EEPROMwrite.h	/^inline void EEPROM_printSettings()$/;"	f
+EEPROM_readAnything	EEPROMwrite.h	/^template <class T> int EEPROM_readAnything(int &ee, T& value)$/;"	f
+EEPROM_writeAnything	EEPROMwrite.h	/^template <class T> int EEPROM_writeAnything(int &ee, const T& value)$/;"	f
+ENABLE_STEPPER_DRIVER_INTERRUPT	stepper.cpp	/^#define ENABLE_STEPPER_DRIVER_INTERRUPT(/;"	d	file:
+ENDSTOPPULLUPS	Configuration.h	/^#define ENDSTOPPULLUPS /;"	d
+ENDSTOPPULLUP_XMAX	Configuration.h	/^  #define ENDSTOPPULLUP_XMAX$/;"	d
+ENDSTOPPULLUP_XMIN	Configuration.h	/^  #define ENDSTOPPULLUP_XMIN$/;"	d
+ENDSTOPPULLUP_YMAX	Configuration.h	/^  #define ENDSTOPPULLUP_YMAX$/;"	d
+ENDSTOPPULLUP_YMIN	Configuration.h	/^  #define ENDSTOPPULLUP_YMIN$/;"	d
+ENDSTOPPULLUP_ZMAX	Configuration.h	/^  #define ENDSTOPPULLUP_ZMAX$/;"	d
+ENDSTOPPULLUP_ZMIN	Configuration.h	/^  #define ENDSTOPPULLUP_ZMIN$/;"	d
+ENDSTOPS_ONLY_FOR_HOMING	Configuration_adv.h	/^#define ENDSTOPS_ONLY_FOR_HOMING /;"	d
+EN_A	ultralcd.h	/^    #define EN_A /;"	d
+EN_B	ultralcd.h	/^    #define EN_B /;"	d
+EN_C	ultralcd.h	/^    #define EN_C /;"	d
+ERR	ultralcd.cpp	/^#define ERR	/;"	d	file:
+EXTERNAL	wiring.h	/^#define EXTERNAL /;"	d
+EXTRUDERS	Configuration_adv.h	/^  #define EXTRUDERS /;"	d
+EXTRUDERS	Configuration_adv.h	/^  #undef EXTRUDERS$/;"	d
+EXTRUDERS	Configuration_adv.h	/^#define EXTRUDERS /;"	d
+EXTRUDER_1	menu_tempcontrol.cpp	/^#define EXTRUDER_1	/;"	d	file:
+EXTRUDER_1	menu_tune.cpp	/^#define EXTRUDER_1	/;"	d	file:
+EXTRUDER_2	menu_tempcontrol.cpp	/^#define EXTRUDER_2	/;"	d	file:
+EXTRUDER_2	menu_tune.cpp	/^#define EXTRUDER_2	/;"	d	file:
+EXTRUDER_3	menu_tempcontrol.cpp	/^#define EXTRUDER_3	/;"	d	file:
+EXTRUDER_3	menu_tune.cpp	/^#define EXTRUDER_3	/;"	d	file:
+EXTRUDER_ADVANCE_K	Configuration_adv.h	/^  #define EXTRUDER_ADVANCE_K /;"	d
+EXTRUDER_RUNOUT_ESTEPS	Configuration_adv.h	/^#define EXTRUDER_RUNOUT_ESTEPS /;"	d
+EXTRUDER_RUNOUT_EXTRUDE	Configuration_adv.h	/^#define EXTRUDER_RUNOUT_EXTRUDE /;"	d
+EXTRUDER_RUNOUT_MINTEMP	Configuration_adv.h	/^#define EXTRUDER_RUNOUT_MINTEMP /;"	d
+EXTRUDER_RUNOUT_SECONDS	Configuration_adv.h	/^#define EXTRUDER_RUNOUT_SECONDS /;"	d
+EXTRUDER_RUNOUT_SPEED	Configuration_adv.h	/^#define EXTRUDER_RUNOUT_SPEED /;"	d
+EXTRUDE_MAXLENGTH	Configuration.h	/^#define EXTRUDE_MAXLENGTH /;"	d
+EXTRUDE_MINTEMP	Configuration.h	/^#define EXTRUDE_MINTEMP /;"	d
+EXTRUTION_AREA	Configuration_adv.h	/^  #define EXTRUTION_AREA /;"	d
+E_AXIS	Marlin.h	/^enum AxisEnum {X_AXIS=0, Y_AXIS=1, Z_AXIS=2, E_AXIS=3};$/;"	e	enum:AxisEnum
+E_DIR_PIN	pins.h	/^#define E_DIR_PIN /;"	d
+E_ENABLE_ON	Configuration.h	/^#define E_ENABLE_ON /;"	d
+E_ENABLE_PIN	pins.h	/^#define E_ENABLE_PIN /;"	d
+E_STEP_PIN	pins.h	/^#define E_STEP_PIN /;"	d
+FALLING	wiring.h	/^#define FALLING /;"	d
+FAN_PIN	mb_sanguino.h	/^#define FAN_PIN /;"	d
+FAN_PIN	pins.h	/^    #define FAN_PIN /;"	d
+FAN_PIN	pins.h	/^  #define FAN_PIN /;"	d
+FAN_PIN	pins.h	/^#define FAN_PIN /;"	d
+FIRMWARE_URL	language.h	/^	#define FIRMWARE_URL /;"	d
+FORCE_INLINE	Marlin.h	/^#define  FORCE_INLINE /;"	d
+GEN7_VERSION	pins.h	/^#define GEN7_VERSION /;"	d
+GET_INPUT	fastio.h	/^#define GET_INPUT(/;"	d
+GET_OUTPUT	fastio.h	/^#define GET_OUTPUT(/;"	d
+GET_TIMER	fastio.h	/^#define GET_TIMER(/;"	d
+HALF_PI	wiring.h	/^#define HALF_PI /;"	d
+HEATER_0_MAXTEMP	Configuration.h	/^#define HEATER_0_MAXTEMP /;"	d
+HEATER_0_MAXTEMP	Configuration_adv.h	/^  #undef HEATER_0_MAXTEMP$/;"	d
+HEATER_0_MINTEMP	Configuration.h	/^#define HEATER_0_MINTEMP /;"	d
+HEATER_0_MINTEMP	Configuration_adv.h	/^  #undef HEATER_0_MINTEMP$/;"	d
+HEATER_0_PIN	mb_sanguino.h	/^#define HEATER_0_PIN /;"	d
+HEATER_0_PIN	pins.h	/^    #define HEATER_0_PIN /;"	d
+HEATER_0_PIN	pins.h	/^  #define HEATER_0_PIN /;"	d
+HEATER_0_PIN	pins.h	/^#define HEATER_0_PIN /;"	d
+HEATER_0_USES_AD595	Configuration_adv.h	/^  #define HEATER_0_USES_AD595$/;"	d
+HEATER_0_USES_MAX31855	Configuration_adv.h	/^  #define HEATER_0_USES_MAX31855$/;"	d
+HEATER_0_USES_MAX6675	Configuration_adv.h	/^  #define HEATER_0_USES_MAX6675$/;"	d
+HEATER_0_USES_THERMISTOR	Configuration_adv.h	/^  #define HEATER_0_USES_THERMISTOR$/;"	d
+HEATER_1_MAXTEMP	Configuration.h	/^#define HEATER_1_MAXTEMP /;"	d
+HEATER_1_MAXTEMP	Configuration_adv.h	/^  #undef HEATER_1_MAXTEMP$/;"	d
+HEATER_1_MINTEMP	Configuration.h	/^#define HEATER_1_MINTEMP /;"	d
+HEATER_1_MINTEMP	Configuration_adv.h	/^  #undef HEATER_1_MINTEMP$/;"	d
+HEATER_1_PIN	mb_sanguino.h	/^#define HEATER_1_PIN /;"	d
+HEATER_1_PIN	pins.h	/^    #define HEATER_1_PIN /;"	d
+HEATER_1_PIN	pins.h	/^#define HEATER_1_PIN /;"	d
+HEATER_1_USES_AD595	Configuration_adv.h	/^  #define HEATER_1_USES_AD595$/;"	d
+HEATER_1_USES_THERMISTOR	Configuration_adv.h	/^  #define HEATER_1_USES_THERMISTOR$/;"	d
+HEATER_2_MAXTEMP	Configuration.h	/^#define HEATER_2_MAXTEMP /;"	d
+HEATER_2_MAXTEMP	Configuration_adv.h	/^  #undef HEATER_2_MAXTEMP$/;"	d
+HEATER_2_MINTEMP	Configuration.h	/^#define HEATER_2_MINTEMP /;"	d
+HEATER_2_MINTEMP	Configuration_adv.h	/^  #undef HEATER_2_MINTEMP$/;"	d
+HEATER_2_PIN	mb_sanguino.h	/^#define HEATER_2_PIN /;"	d
+HEATER_2_PIN	pins.h	/^    #define HEATER_2_PIN /;"	d
+HEATER_2_PIN	pins.h	/^#define HEATER_2_PIN /;"	d
+HEATER_2_USES_AD595	Configuration_adv.h	/^  #define HEATER_2_USES_AD595$/;"	d
+HEATER_2_USES_THERMISTOR	Configuration_adv.h	/^  #define HEATER_2_USES_THERMISTOR$/;"	d
+HEATER_BED_PIN	mb_sanguino.h	/^#define HEATER_BED_PIN /;"	d
+HEATER_BED_PIN	pins.h	/^    #define HEATER_BED_PIN /;"	d
+HEATER_BED_PIN	pins.h	/^  #define HEATER_BED_PIN /;"	d
+HEATER_BED_PIN	pins.h	/^#define HEATER_BED_PIN /;"	d
+HEAT_INTERVAL	temperature.cpp	/^#define HEAT_INTERVAL /;"	d	file:
+HIGH	wiring.h	/^#define HIGH /;"	d
+HOMING_FEEDRATE	Configuration.h	/^#define HOMING_FEEDRATE /;"	d
+HardwareSerial_h	Marlin.h	/^#define  HardwareSerial_h /;"	d
+I2C_SCL	pins.h	/^#define I2C_SCL	/;"	d
+I2C_SDA	pins.h	/^#define I2C_SDA	/;"	d
+INOFILE	arduino.mk	/^INOFILE := $(wildcard *.ino *.pde)$/;"	m
+INPUT	wiring.h	/^#define INPUT /;"	d
+INTERNAL	wiring.h	/^#define INTERNAL /;"	d
+INTERNAL1V1	wiring.h	/^#define INTERNAL1V1 /;"	d
+INTERNAL2V56	wiring.h	/^#define INTERNAL2V56 /;"	d
+INVERT_E0_DIR	Configuration.h	/^#define INVERT_E0_DIR /;"	d
+INVERT_E1_DIR	Configuration.h	/^#define INVERT_E1_DIR /;"	d
+INVERT_E2_DIR	Configuration.h	/^#define INVERT_E2_DIR /;"	d
+INVERT_E_STEP_PIN	Configuration_adv.h	/^#define INVERT_E_STEP_PIN /;"	d
+INVERT_X_DIR	Configuration.h	/^#define INVERT_X_DIR /;"	d
+INVERT_X_STEP_PIN	Configuration_adv.h	/^#define INVERT_X_STEP_PIN /;"	d
+INVERT_Y_DIR	Configuration.h	/^#define INVERT_Y_DIR /;"	d
+INVERT_Y_STEP_PIN	Configuration_adv.h	/^#define INVERT_Y_STEP_PIN /;"	d
+INVERT_Z_DIR	Configuration.h	/^#define INVERT_Z_DIR /;"	d
+INVERT_Z_STEP_PIN	Configuration_adv.h	/^#define INVERT_Z_STEP_PIN /;"	d
+ISR	stepper.cpp	/^  ISR(TIMER0_COMPA_vect)$/;"	f
+ISR	stepper.cpp	/^ISR(TIMER1_COMPA_vect)$/;"	f
+ISR	temperature.cpp	/^ISR(TIMER0_COMPB_vect)$/;"	f
+ISR	watchdog.cpp	/^ISR(WDT_vect) $/;"	f
+IS_SD_PRINTING	cardreader.h	/^#define IS_SD_PRINTING /;"	d
+IS_SD_PRINTING	ultralcd.h	/^    #define IS_SD_PRINTING /;"	d
+K1	Configuration.h	/^  #define K1 /;"	d
+K2	temperature.cpp	/^          #define K2 /;"	d	file:
+KILL_PIN	mb_sanguino.h	/^#define KILL_PIN /;"	d
+KILL_PIN	pins.h	/^    #define KILL_PIN /;"	d
+KILL_PIN	pins.h	/^#define KILL_PIN /;"	d
+KNOWN_BOARD	mb_sanguino.h	/^#define KNOWN_BOARD /;"	d
+KNOWN_BOARD	pins.h	/^#define	KNOWN_BOARD /;"	d
+KNOWN_BOARD	pins.h	/^#define KNOWN_BOARD /;"	d
+KNOWN_BOARD	pins.h	/^#define KNOWN_BOARD$/;"	d
+Kc	temperature.cpp	/^    float Kc=DEFAULT_Kc;$/;"	v
+Kd	temperature.cpp	/^  float Kd=(DEFAULT_Kd\/PID_dT);$/;"	v
+Ki	temperature.cpp	/^  float Ki=(DEFAULT_Ki*PID_dT);$/;"	v
+Kp	temperature.cpp	/^  float Kp=DEFAULT_Kp;$/;"	v
+LANGUAGE_CHOICE	language.h	/^#define LANGUAGE_CHOICE /;"	d
+LANGUAGE_H	language.h	/^#define LANGUAGE_H$/;"	d
+LCD_ALERTMESSAGEPGM	ultralcd.h	/^  #define LCD_ALERTMESSAGEPGM(/;"	d
+LCD_CURSOR_BACKGROUND	ultralcd.h	/^#define LCD_CURSOR_BACKGROUND	/;"	d
+LCD_CURSOR_COLOUR	ultralcd.h	/^#define LCD_CURSOR_COLOUR	/;"	d
+LCD_HEIGHT	Configuration.h	/^    #define LCD_HEIGHT /;"	d
+LCD_HEIGHT	Configuration.h	/^  #define LCD_HEIGHT /;"	d
+LCD_INIT	ultralcd.h	/^  #define LCD_INIT /;"	d
+LCD_INIT	ultralcd.h	/^  #define LCD_INIT$/;"	d
+LCD_MESSAGE	ultralcd.h	/^  #define LCD_MESSAGE(/;"	d
+LCD_MESSAGEPGM	ultralcd.h	/^  #define LCD_MESSAGEPGM(/;"	d
+LCD_PINS_D4	pins.h	/^    #define LCD_PINS_D4 /;"	d
+LCD_PINS_D4	pins.h	/^#define LCD_PINS_D4 /;"	d
+LCD_PINS_D5	pins.h	/^    #define LCD_PINS_D5 /;"	d
+LCD_PINS_D5	pins.h	/^#define LCD_PINS_D5 /;"	d
+LCD_PINS_D6	pins.h	/^    #define LCD_PINS_D6 /;"	d
+LCD_PINS_D6	pins.h	/^#define LCD_PINS_D6 /;"	d
+LCD_PINS_D7	pins.h	/^    #define LCD_PINS_D7 /;"	d
+LCD_PINS_D7	pins.h	/^#define LCD_PINS_D7 /;"	d
+LCD_PINS_ENABLE	pins.h	/^    #define LCD_PINS_ENABLE /;"	d
+LCD_PINS_ENABLE	pins.h	/^#define LCD_PINS_ENABLE /;"	d
+LCD_PINS_RS	pins.h	/^    #define LCD_PINS_RS /;"	d
+LCD_PINS_RS	pins.h	/^#define LCD_PINS_RS /;"	d
+LCD_STATUS	ultralcd.h	/^  #define LCD_STATUS /;"	d
+LCD_STATUS	ultralcd.h	/^  #define LCD_STATUS$/;"	d
+LCD_TEXT_BACKGROUND	ultralcd.h	/^#define LCD_TEXT_BACKGROUND	/;"	d
+LCD_TEXT_COLOUR	ultralcd.h	/^#define LCD_TEXT_COLOUR	/;"	d
+LCD_UPDATE_INTERVAL	ultralcd.h	/^  #define LCD_UPDATE_INTERVAL /;"	d
+LCD_WIDTH	Configuration.h	/^    #define LCD_WIDTH /;"	d
+LCD_WIDTH	Configuration.h	/^  #define LCD_WIDTH /;"	d
+LD	arduino.mk	/^LD := $(call findsoftware,avr-ld)$/;"	m
+LED_PIN	mb_sanguino.h	/^#define LED_PIN /;"	d
+LED_PIN	pins.h	/^    #define LED_PIN /;"	d
+LED_PIN	pins.h	/^#define LED_PIN /;"	d
+LIBRARIES	Makefile	/^LIBRARIES := SPI oled256 SD$/;"	m
+LIBRARIES	arduino.mk	/^LIBRARIES := $(filter $(notdir $(wildcard $(addsuffix \/*, $(LIBRARYPATH)))), \\$/;"	m
+LIBRARYDIRS	arduino.mk	/^LIBRARYDIRS := $(foreach lib, $(LIBRARIES), \\$/;"	m
+LIBRARYPATH	arduino.mk	/^LIBRARYPATH ?= libraries libs $(SKETCHBOOKDIR)\/libraries $(ARDUINODIR)\/libraries$/;"	m
+LONG_FILENAME_LENGTH	cardreader.h	/^#define LONG_FILENAME_LENGTH /;"	d
+LOW	wiring.h	/^#define LOW /;"	d
+LSBFIRST	wiring.h	/^#define LSBFIRST /;"	d
+MACHINE_NAME	language.h	/^	#define MACHINE_NAME /;"	d
+MARLIN_H	Marlin.h	/^#define MARLIN_H$/;"	d
+MASK	fastio.h	/^#define MASK(/;"	d
+MAX31855_FAULT	temperature.cpp	/^#define MAX31855_FAULT /;"	d	file:
+MAX31855_SS	temperature.cpp	/^#define MAX31855_SS /;"	d	file:
+MAX6675_SS	pins.h	/^  #define MAX6675_SS /;"	d
+MAX_CMD_SIZE	Configuration_adv.h	/^#define MAX_CMD_SIZE /;"	d
+MAX_FREQ_TIME	planner.cpp	/^#define MAX_FREQ_TIME /;"	d	file:
+MAX_MISO_PIN	pins.h	/^  #define MAX_MISO_PIN /;"	d
+MAX_MOSI_PIN	pins.h	/^  #define MAX_MOSI_PIN /;"	d
+MAX_SCK_PIN	pins.h	/^  #define MAX_SCK_PIN /;"	d
+MAX_STEP_FREQUENCY	Configuration_adv.h	/^#define MAX_STEP_FREQUENCY /;"	d
+MAX_VFAT_ENTRIES	cardreader.h	/^#define MAX_VFAT_ENTRIES /;"	d
+MB_DUEMILANOVE	Configuration.h	/^#define MB_DUEMILANOVE /;"	d
+MB_GEN3	Configuration.h	/^#define MB_GEN3	/;"	d
+MB_GEN6	Configuration.h	/^#define MB_GEN6	/;"	d
+MB_GEN6_DELUXE	Configuration.h	/^#define MB_GEN6_DELUXE	/;"	d
+MB_GEN7_1_1	Configuration.h	/^#define MB_GEN7_1_1	/;"	d
+MB_GEN7_1_2	Configuration.h	/^#define MB_GEN7_1_2	/;"	d
+MB_GEN7_1_3	Configuration.h	/^#define MB_GEN7_1_3	/;"	d
+MB_GEN7_1_4	Configuration.h	/^#define MB_GEN7_1_4	/;"	d
+MB_GEN7_CUSTOM	Configuration.h	/^#define MB_GEN7_CUSTOM	/;"	d
+MB_MELZI	Configuration.h	/^#define MB_MELZI	/;"	d
+MB_OMCA	Configuration.h	/^#define MB_OMCA /;"	d
+MB_OMCA_ALPHA	Configuration.h	/^#define MB_OMCA_ALPHA /;"	d
+MB_RAMPS_1_2	Configuration.h	/^#define MB_RAMPS_1_2	/;"	d
+MB_RAMPS_1_3	Configuration.h	/^#define MB_RAMPS_1_3	/;"	d
+MB_RAMPS_1_3A	Configuration.h	/^#define MB_RAMPS_1_3A	/;"	d
+MB_SANGUINO	Configuration.h	/^#define MB_SANGUINO	/;"	d
+MB_SANGUINOLOLU	Configuration.h	/^#define MB_SANGUINOLOLU /;"	d
+MB_TEENSYLU	Configuration.h	/^#define MB_TEENSYLU	/;"	d
+MB_ULTIMAKER	Configuration.h	/^#define MB_ULTIMAKER /;"	d
+MB_ULTIMAKER_OLD	Configuration.h	/^#define MB_ULTIMAKER_OLD /;"	d
+MELZI	pins.h	/^#define MELZI$/;"	d
+MENU_ABS_MAX	menu_pla.cpp	/^#define MENU_ABS_MAX /;"	d	file:
+MENU_H_	menu.h	/^#define MENU_H_$/;"	d
+MENU_MAX	menu_control.cpp	/^#define MENU_MAX /;"	d	file:
+MENU_MAX	menu_main.cpp	/^#define MENU_MAX /;"	d	file:
+MENU_MAX	menu_motion.cpp	/^#define MENU_MAX /;"	d	file:
+MENU_MAX	menu_moveaxis.cpp	/^#define MENU_MAX /;"	d	file:
+MENU_MAX	menu_prepare.cpp	/^#define MENU_MAX /;"	d	file:
+MENU_MAX	menu_retract.cpp	/^#define MENU_MAX /;"	d	file:
+MENU_MAX	menu_sd.cpp	/^#define MENU_MAX /;"	d	file:
+MENU_MAX	menu_tempcontrol.cpp	/^#define MENU_MAX /;"	d	file:
+MENU_MAX	menu_tune.cpp	/^#define MENU_MAX /;"	d	file:
+MENU_PLA_MAX	menu_pla.cpp	/^#define MENU_PLA_MAX /;"	d	file:
+MINIMUM_PLANNER_SPEED	Configuration_adv.h	/^#define MINIMUM_PLANNER_SPEED /;"	d
+MIN_RETRACT	Configuration_adv.h	/^#define MIN_RETRACT /;"	d
+MISO	fastio.h	/^#define	MISO	/;"	d
+MISO_PIN	pins.h	/^  #define MISO_PIN /;"	d
+MMA_EXTRUDE	menu_moveaxis.cpp	/^#define MMA_EXTRUDE /;"	d	file:
+MMA_RETRACT	menu_moveaxis.cpp	/^#define MMA_RETRACT /;"	d	file:
+MM_PER_ARC_SEGMENT	Configuration_adv.h	/^#define MM_PER_ARC_SEGMENT /;"	d
+MOSI	fastio.h	/^#define	MOSI	/;"	d
+MOSI_PIN	pins.h	/^  #define MOSI_PIN /;"	d
+MOTHERBOARD	Configuration.h	/^#define MOTHERBOARD /;"	d
+MOTHERBOARD	pins.h	/^#define MOTHERBOARD /;"	d
+MOTHERBOARD	pins.h	/^#undef MOTHERBOARD$/;"	d
+MOTION_ACCELERATION	menu_motion.cpp	/^#define MOTION_ACCELERATION	/;"	d	file:
+MOTION_ARETRACT	menu_motion.cpp	/^#define MOTION_ARETRACT	/;"	d	file:
+MOTION_ESTEPS	menu_motion.cpp	/^#define MOTION_ESTEPS	/;"	d	file:
+MOTION_VMAXE	menu_motion.cpp	/^#define MOTION_VMAXE	/;"	d	file:
+MOTION_VMAXX	menu_motion.cpp	/^#define MOTION_VMAXX	/;"	d	file:
+MOTION_VMAXY	menu_motion.cpp	/^#define MOTION_VMAXY	/;"	d	file:
+MOTION_VMAXZ	menu_motion.cpp	/^#define MOTION_VMAXZ	/;"	d	file:
+MOTION_VMINFEED	menu_motion.cpp	/^#define MOTION_VMINFEED	/;"	d	file:
+MOTION_VMINTRAVEL	menu_motion.cpp	/^#define MOTION_VMINTRAVEL	/;"	d	file:
+MOTION_XSTEPS	menu_motion.cpp	/^#define MOTION_XSTEPS	/;"	d	file:
+MOTION_XYJERK	menu_motion.cpp	/^#define MOTION_XYJERK	/;"	d	file:
+MOTION_YSTEPS	menu_motion.cpp	/^#define MOTION_YSTEPS	/;"	d	file:
+MOTION_ZSTEPS	menu_motion.cpp	/^#define MOTION_ZSTEPS	/;"	d	file:
+MP_AUTO_HOME	menu_prepare.cpp	/^#define MP_AUTO_HOME /;"	d	file:
+MP_DISABLE_STEPPERS	menu_prepare.cpp	/^#define MP_DISABLE_STEPPERS /;"	d	file:
+MP_SET_ORIGIN	menu_prepare.cpp	/^#define MP_SET_ORIGIN /;"	d	file:
+MR_FEEDRATE	menu_retract.cpp	/^#define MR_FEEDRATE	/;"	d	file:
+MR_LENGTH	menu_retract.cpp	/^#define MR_LENGTH	/;"	d	file:
+MR_RECOVER_FEEDRATE	menu_retract.cpp	/^#define MR_RECOVER_FEEDRATE	/;"	d	file:
+MR_RECOVER_LENGTH	menu_retract.cpp	/^#define MR_RECOVER_LENGTH	/;"	d	file:
+MR_ZLIFT	menu_retract.cpp	/^#define MR_ZLIFT	/;"	d	file:
+MSBFIRST	wiring.h	/^#define MSBFIRST /;"	d
+MSG_ACC	language.h	/^	#define MSG_ACC /;"	d
+MSG_ACC	language.h	/^#define MSG_ACC /;"	d
+MSG_ACTIVE_EXTRUDER	language.h	/^	#define MSG_ACTIVE_EXTRUDER /;"	d
+MSG_ACTIVE_EXTRUDER	language.h	/^#define MSG_ACTIVE_EXTRUDER /;"	d
+MSG_AMAX	language.h	/^	#define MSG_AMAX /;"	d
+MSG_AMAX	language.h	/^#define MSG_AMAX /;"	d
+MSG_AUTHOR	language.h	/^	#define MSG_AUTHOR /;"	d
+MSG_AUTHOR	language.h	/^#define MSG_AUTHOR /;"	d
+MSG_AUTORETRACT	language.h	/^	#define MSG_AUTORETRACT /;"	d
+MSG_AUTORETRACT	language.h	/^        #define MSG_AUTORETRACT /;"	d
+MSG_AUTORETRACT	language.h	/^#define MSG_AUTORETRACT /;"	d
+MSG_AUTOSTART	language.h	/^	#define MSG_AUTOSTART /;"	d
+MSG_AUTOSTART	language.h	/^#define MSG_AUTOSTART /;"	d
+MSG_AUTOTEMP	language.h	/^	#define MSG_AUTOTEMP /;"	d
+MSG_AUTOTEMP	language.h	/^#define MSG_AUTOTEMP /;"	d
+MSG_AUTO_HOME	language.h	/^	#define MSG_AUTO_HOME /;"	d
+MSG_AUTO_HOME	language.h	/^#define MSG_AUTO_HOME /;"	d
+MSG_A_RETRACT	language.h	/^	#define MSG_A_RETRACT /;"	d
+MSG_A_RETRACT	language.h	/^#define MSG_A_RETRACT /;"	d
+MSG_BED	language.h	/^	#define MSG_BED /;"	d
+MSG_BED	language.h	/^#define MSG_BED /;"	d
+MSG_BED_DONE	language.h	/^	#define MSG_BED_DONE /;"	d
+MSG_BED_DONE	language.h	/^#define MSG_BED_DONE /;"	d
+MSG_BED_HEATING	language.h	/^	#define MSG_BED_HEATING /;"	d
+MSG_BED_HEATING	language.h	/^#define MSG_BED_HEATING /;"	d
+MSG_BEGIN_FILE_LIST	language.h	/^	#define MSG_BEGIN_FILE_LIST /;"	d
+MSG_BEGIN_FILE_LIST	language.h	/^#define MSG_BEGIN_FILE_LIST /;"	d
+MSG_BROWNOUT_RESET	language.h	/^	#define MSG_BROWNOUT_RESET /;"	d
+MSG_BROWNOUT_RESET	language.h	/^#define MSG_BROWNOUT_RESET /;"	d
+MSG_CARD_MENU	language.h	/^	#define MSG_CARD_MENU /;"	d
+MSG_CARD_MENU	language.h	/^#define MSG_CARD_MENU /;"	d
+MSG_CONFIGURATION_VER	language.h	/^	#define MSG_CONFIGURATION_VER /;"	d
+MSG_CONFIGURATION_VER	language.h	/^#define MSG_CONFIGURATION_VER /;"	d
+MSG_CONTROL	language.h	/^	#define MSG_CONTROL /;"	d
+MSG_CONTROL	language.h	/^#define MSG_CONTROL /;"	d
+MSG_CONTROL_ARROW	language.h	/^	#define MSG_CONTROL_ARROW /;"	d
+MSG_CONTROL_ARROW	language.h	/^#define MSG_CONTROL_ARROW /;"	d
+MSG_CONTROL_RETRACT	language.h	/^	#define MSG_CONTROL_RETRACT /;"	d
+MSG_CONTROL_RETRACT	language.h	/^        #define MSG_CONTROL_RETRACT /;"	d
+MSG_CONTROL_RETRACT	language.h	/^#define MSG_CONTROL_RETRACT /;"	d
+MSG_CONTROL_RETRACTF	language.h	/^	#define MSG_CONTROL_RETRACTF /;"	d
+MSG_CONTROL_RETRACTF	language.h	/^        #define MSG_CONTROL_RETRACTF /;"	d
+MSG_CONTROL_RETRACTF	language.h	/^#define MSG_CONTROL_RETRACTF /;"	d
+MSG_CONTROL_RETRACT_RECOVER	language.h	/^	#define MSG_CONTROL_RETRACT_RECOVER /;"	d
+MSG_CONTROL_RETRACT_RECOVER	language.h	/^        #define MSG_CONTROL_RETRACT_RECOVER /;"	d
+MSG_CONTROL_RETRACT_RECOVER	language.h	/^#define MSG_CONTROL_RETRACT_RECOVER /;"	d
+MSG_CONTROL_RETRACT_RECOVERF	language.h	/^	#define MSG_CONTROL_RETRACT_RECOVERF /;"	d
+MSG_CONTROL_RETRACT_RECOVERF	language.h	/^        #define MSG_CONTROL_RETRACT_RECOVERF /;"	d
+MSG_CONTROL_RETRACT_RECOVERF	language.h	/^#define MSG_CONTROL_RETRACT_RECOVERF /;"	d
+MSG_CONTROL_RETRACT_ZLIFT	language.h	/^	#define MSG_CONTROL_RETRACT_ZLIFT /;"	d
+MSG_CONTROL_RETRACT_ZLIFT	language.h	/^        #define MSG_CONTROL_RETRACT_ZLIFT /;"	d
+MSG_CONTROL_RETRACT_ZLIFT	language.h	/^#define MSG_CONTROL_RETRACT_ZLIFT /;"	d
+MSG_COOLDOWN	language.h	/^	#define MSG_COOLDOWN /;"	d
+MSG_COOLDOWN	language.h	/^#define MSG_COOLDOWN /;"	d
+MSG_COUNT_X	language.h	/^	#define MSG_COUNT_X /;"	d
+MSG_COUNT_X	language.h	/^#define MSG_COUNT_X /;"	d
+MSG_DISABLE_STEPPERS	language.h	/^	#define MSG_DISABLE_STEPPERS /;"	d
+MSG_DISABLE_STEPPERS	language.h	/^#define MSG_DISABLE_STEPPERS /;"	d
+MSG_DWELL	language.h	/^	#define MSG_DWELL /;"	d
+MSG_DWELL	language.h	/^#define MSG_DWELL /;"	d
+MSG_E	language.h	/^	#define MSG_E /;"	d
+MSG_E	language.h	/^#define MSG_E /;"	d
+MSG_ENDSTOPS_HIT	language.h	/^	#define MSG_ENDSTOPS_HIT /;"	d
+MSG_ENDSTOPS_HIT	language.h	/^#define MSG_ENDSTOPS_HIT /;"	d
+MSG_END_FILE_LIST	language.h	/^	#define MSG_END_FILE_LIST /;"	d
+MSG_END_FILE_LIST	language.h	/^#define MSG_END_FILE_LIST /;"	d
+MSG_ERR_CHECKSUM_MISMATCH	language.h	/^	#define MSG_ERR_CHECKSUM_MISMATCH /;"	d
+MSG_ERR_CHECKSUM_MISMATCH	language.h	/^#define MSG_ERR_CHECKSUM_MISMATCH /;"	d
+MSG_ERR_COLD_EXTRUDE_STOP	language.h	/^	#define MSG_ERR_COLD_EXTRUDE_STOP /;"	d
+MSG_ERR_COLD_EXTRUDE_STOP	language.h	/^#define MSG_ERR_COLD_EXTRUDE_STOP /;"	d
+MSG_ERR_KILLED	language.h	/^	#define MSG_ERR_KILLED /;"	d
+MSG_ERR_KILLED	language.h	/^#define MSG_ERR_KILLED /;"	d
+MSG_ERR_LINE_NO	language.h	/^	#define MSG_ERR_LINE_NO /;"	d
+MSG_ERR_LINE_NO	language.h	/^#define MSG_ERR_LINE_NO /;"	d
+MSG_ERR_LONG_EXTRUDE_STOP	language.h	/^	#define MSG_ERR_LONG_EXTRUDE_STOP /;"	d
+MSG_ERR_LONG_EXTRUDE_STOP	language.h	/^#define MSG_ERR_LONG_EXTRUDE_STOP /;"	d
+MSG_ERR_NO_CHECKSUM	language.h	/^	#define MSG_ERR_NO_CHECKSUM /;"	d
+MSG_ERR_NO_CHECKSUM	language.h	/^#define MSG_ERR_NO_CHECKSUM /;"	d
+MSG_ERR_NO_LINENUMBER_WITH_CHECKSUM	language.h	/^	#define MSG_ERR_NO_LINENUMBER_WITH_CHECKSUM /;"	d
+MSG_ERR_NO_LINENUMBER_WITH_CHECKSUM	language.h	/^#define MSG_ERR_NO_LINENUMBER_WITH_CHECKSUM /;"	d
+MSG_ERR_NO_THERMISTORS	language.h	/^	#define MSG_ERR_NO_THERMISTORS /;"	d
+MSG_ERR_NO_THERMISTORS	language.h	/^#define MSG_ERR_NO_THERMISTORS /;"	d
+MSG_ERR_STOPPED	language.h	/^	#define MSG_ERR_STOPPED /;"	d
+MSG_ERR_STOPPED	language.h	/^#define MSG_ERR_STOPPED /;"	d
+MSG_ESTEPS	language.h	/^	#define MSG_ESTEPS /;"	d
+MSG_ESTEPS	language.h	/^#define MSG_ESTEPS /;"	d
+MSG_EXTERNAL_RESET	language.h	/^	#define MSG_EXTERNAL_RESET /;"	d
+MSG_EXTERNAL_RESET	language.h	/^#define MSG_EXTERNAL_RESET /;"	d
+MSG_EXTRUDE	language.h	/^	#define MSG_EXTRUDE /;"	d
+MSG_EXTRUDE	language.h	/^#define MSG_EXTRUDE /;"	d
+MSG_Enqueing	language.h	/^	#define MSG_Enqueing /;"	d
+MSG_Enqueing	language.h	/^#define MSG_Enqueing /;"	d
+MSG_FACTOR	language.h	/^	#define MSG_FACTOR /;"	d
+MSG_FACTOR	language.h	/^#define MSG_FACTOR /;"	d
+MSG_FAN_SPEED	language.h	/^	#define MSG_FAN_SPEED /;"	d
+MSG_FAN_SPEED	language.h	/^#define MSG_FAN_SPEED /;"	d
+MSG_FILE_PRINTED	language.h	/^	#define MSG_FILE_PRINTED /;"	d
+MSG_FILE_PRINTED	language.h	/^#define MSG_FILE_PRINTED /;"	d
+MSG_FILE_SAVED	language.h	/^	#define MSG_FILE_SAVED /;"	d
+MSG_FILE_SAVED	language.h	/^#define MSG_FILE_SAVED /;"	d
+MSG_FLOW	language.h	/^	#define MSG_FLOW /;"	d
+MSG_FLOW	language.h	/^#define MSG_FLOW /;"	d
+MSG_FREE_MEMORY	language.h	/^	#define MSG_FREE_MEMORY /;"	d
+MSG_FREE_MEMORY	language.h	/^#define MSG_FREE_MEMORY /;"	d
+MSG_HEATING	language.h	/^	#define MSG_HEATING /;"	d
+MSG_HEATING	language.h	/^#define MSG_HEATING /;"	d
+MSG_HEATING_COMPLETE	language.h	/^	#define MSG_HEATING_COMPLETE /;"	d
+MSG_HEATING_COMPLETE	language.h	/^#define MSG_HEATING_COMPLETE /;"	d
+MSG_INVALID_EXTRUDER	language.h	/^	#define MSG_INVALID_EXTRUDER /;"	d
+MSG_INVALID_EXTRUDER	language.h	/^#define MSG_INVALID_EXTRUDER /;"	d
+MSG_KILLED	language.h	/^	#define MSG_KILLED /;"	d
+MSG_KILLED	language.h	/^#define MSG_KILLED /;"	d
+MSG_LOAD_EEPROM	language.h	/^	#define MSG_LOAD_EEPROM /;"	d
+MSG_LOAD_EEPROM	language.h	/^#define MSG_LOAD_EEPROM /;"	d
+MSG_M104_INVALID_EXTRUDER	language.h	/^	#define MSG_M104_INVALID_EXTRUDER /;"	d
+MSG_M104_INVALID_EXTRUDER	language.h	/^#define MSG_M104_INVALID_EXTRUDER /;"	d
+MSG_M105_INVALID_EXTRUDER	language.h	/^	#define MSG_M105_INVALID_EXTRUDER /;"	d
+MSG_M105_INVALID_EXTRUDER	language.h	/^#define MSG_M105_INVALID_EXTRUDER /;"	d
+MSG_M109_INVALID_EXTRUDER	language.h	/^	#define MSG_M109_INVALID_EXTRUDER /;"	d
+MSG_M109_INVALID_EXTRUDER	language.h	/^#define MSG_M109_INVALID_EXTRUDER /;"	d
+MSG_M115_REPORT	language.h	/^	#define MSG_M115_REPORT /;"	d
+MSG_M115_REPORT	language.h	/^#define MSG_M115_REPORT /;"	d
+MSG_MAIN	language.h	/^	#define MSG_MAIN /;"	d
+MSG_MAIN	language.h	/^#define MSG_MAIN /;"	d
+MSG_MAIN_WIDE	language.h	/^	#define MSG_MAIN_WIDE /;"	d
+MSG_MAIN_WIDE	language.h	/^#define MSG_MAIN_WIDE /;"	d
+MSG_MARLIN	language.h	/^	#define MSG_MARLIN /;"	d
+MSG_MARLIN	language.h	/^#define MSG_MARLIN /;"	d
+MSG_MAX	language.h	/^	#define MSG_MAX /;"	d
+MSG_MAX	language.h	/^#define MSG_MAX /;"	d
+MSG_MIN	language.h	/^	#define MSG_MIN /;"	d
+MSG_MIN	language.h	/^#define MSG_MIN /;"	d
+MSG_MOTION_WIDE	language.h	/^	#define MSG_MOTION_WIDE /;"	d
+MSG_MOTION_WIDE	language.h	/^#define MSG_MOTION_WIDE /;"	d
+MSG_MOVE_AXIS	language.h	/^	#define MSG_MOVE_AXIS /;"	d
+MSG_MOVE_AXIS	language.h	/^#define MSG_MOVE_AXIS /;"	d
+MSG_NOZZLE	language.h	/^	#define MSG_NOZZLE /;"	d
+MSG_NOZZLE	language.h	/^#define MSG_NOZZLE /;"	d
+MSG_NOZZLE1	language.h	/^	#define MSG_NOZZLE1 /;"	d
+MSG_NOZZLE1	language.h	/^#define MSG_NOZZLE1 /;"	d
+MSG_NOZZLE2	language.h	/^	#define MSG_NOZZLE2 /;"	d
+MSG_NOZZLE2	language.h	/^#define MSG_NOZZLE2 /;"	d
+MSG_NO_CARD	language.h	/^	#define MSG_NO_CARD /;"	d
+MSG_NO_CARD	language.h	/^#define MSG_NO_CARD /;"	d
+MSG_NO_MOVE	language.h	/^	#define MSG_NO_MOVE /;"	d
+MSG_NO_MOVE	language.h	/^#define MSG_NO_MOVE /;"	d
+MSG_OFF	language.h	/^	#define MSG_OFF /;"	d
+MSG_OFF	language.h	/^#define MSG_OFF /;"	d
+MSG_OK	language.h	/^	#define MSG_OK /;"	d
+MSG_OK	language.h	/^#define MSG_OK /;"	d
+MSG_ON	language.h	/^	#define MSG_ON /;"	d
+MSG_ON	language.h	/^#define MSG_ON /;"	d
+MSG_PART_RELEASE	language.h	/^	#define MSG_PART_RELEASE /;"	d
+MSG_PART_RELEASE	language.h	/^#define MSG_PART_RELEASE /;"	d
+MSG_PAUSE_PRINT	language.h	/^	#define MSG_PAUSE_PRINT /;"	d
+MSG_PAUSE_PRINT	language.h	/^#define MSG_PAUSE_PRINT /;"	d
+MSG_PID_C	language.h	/^	#define MSG_PID_C /;"	d
+MSG_PID_C	language.h	/^#define MSG_PID_C /;"	d
+MSG_PID_D	language.h	/^	#define MSG_PID_D /;"	d
+MSG_PID_D	language.h	/^#define MSG_PID_D /;"	d
+MSG_PID_I	language.h	/^	#define MSG_PID_I /;"	d
+MSG_PID_I	language.h	/^#define MSG_PID_I /;"	d
+MSG_PID_P	language.h	/^	#define MSG_PID_P /;"	d
+MSG_PID_P	language.h	/^#define MSG_PID_P /;"	d
+MSG_PLANNER_BUFFER_BYTES	language.h	/^	#define MSG_PLANNER_BUFFER_BYTES /;"	d
+MSG_PLANNER_BUFFER_BYTES	language.h	/^#define MSG_PLANNER_BUFFER_BYTES /;"	d
+MSG_POWERUP	language.h	/^	#define MSG_POWERUP /;"	d
+MSG_POWERUP	language.h	/^#define MSG_POWERUP /;"	d
+MSG_PREHEAT_ABS	language.h	/^	#define MSG_PREHEAT_ABS /;"	d
+MSG_PREHEAT_ABS	language.h	/^#define MSG_PREHEAT_ABS /;"	d
+MSG_PREHEAT_ABS_SETTINGS	language.h	/^	#define MSG_PREHEAT_ABS_SETTINGS /;"	d
+MSG_PREHEAT_ABS_SETTINGS	language.h	/^#define MSG_PREHEAT_ABS_SETTINGS /;"	d
+MSG_PREHEAT_PLA	language.h	/^	#define MSG_PREHEAT_PLA /;"	d
+MSG_PREHEAT_PLA	language.h	/^#define MSG_PREHEAT_PLA /;"	d
+MSG_PREHEAT_PLA_SETTINGS	language.h	/^	#define MSG_PREHEAT_PLA_SETTINGS /;"	d
+MSG_PREHEAT_PLA_SETTINGS	language.h	/^#define MSG_PREHEAT_PLA_SETTINGS /;"	d
+MSG_PREPARE	language.h	/^	#define MSG_PREPARE /;"	d
+MSG_PREPARE	language.h	/^#define MSG_PREPARE /;"	d
+MSG_PREPARE_ALT	language.h	/^	#define MSG_PREPARE_ALT /;"	d
+MSG_PREPARE_ALT	language.h	/^#define MSG_PREPARE_ALT /;"	d
+MSG_RECTRACT_WIDE	language.h	/^	#define MSG_RECTRACT_WIDE /;"	d
+MSG_RECTRACT_WIDE	language.h	/^#define MSG_RECTRACT_WIDE /;"	d
+MSG_REFRESH	language.h	/^	#define MSG_REFRESH /;"	d
+MSG_REFRESH	language.h	/^#define MSG_REFRESH /;"	d
+MSG_RESEND	language.h	/^	#define MSG_RESEND /;"	d
+MSG_RESEND	language.h	/^#define MSG_RESEND /;"	d
+MSG_RESTORE_FAILSAFE	language.h	/^	#define MSG_RESTORE_FAILSAFE /;"	d
+MSG_RESTORE_FAILSAFE	language.h	/^#define MSG_RESTORE_FAILSAFE /;"	d
+MSG_RESUME_PRINT	language.h	/^	#define MSG_RESUME_PRINT /;"	d
+MSG_RESUME_PRINT	language.h	/^#define MSG_RESUME_PRINT /;"	d
+MSG_RETRACT	language.h	/^	#define MSG_RETRACT /;"	d
+MSG_RETRACT	language.h	/^#define MSG_RETRACT /;"	d
+MSG_RETRACT_ARROW	language.h	/^	#define MSG_RETRACT_ARROW /;"	d
+MSG_RETRACT_ARROW	language.h	/^#define MSG_RETRACT_ARROW /;"	d
+MSG_SD_CANT_ENTER_SUBDIR	language.h	/^	#define MSG_SD_CANT_ENTER_SUBDIR /;"	d
+MSG_SD_CANT_ENTER_SUBDIR	language.h	/^#define MSG_SD_CANT_ENTER_SUBDIR /;"	d
+MSG_SD_CANT_OPEN_SUBDIR	language.h	/^	#define MSG_SD_CANT_OPEN_SUBDIR /;"	d
+MSG_SD_CANT_OPEN_SUBDIR	language.h	/^#define MSG_SD_CANT_OPEN_SUBDIR /;"	d
+MSG_SD_CARD_OK	language.h	/^	#define MSG_SD_CARD_OK /;"	d
+MSG_SD_CARD_OK	language.h	/^#define MSG_SD_CARD_OK /;"	d
+MSG_SD_ERR_WRITE_TO_FILE	language.h	/^	#define MSG_SD_ERR_WRITE_TO_FILE /;"	d
+MSG_SD_ERR_WRITE_TO_FILE	language.h	/^#define MSG_SD_ERR_WRITE_TO_FILE /;"	d
+MSG_SD_FILE_OPENED	language.h	/^	#define MSG_SD_FILE_OPENED /;"	d
+MSG_SD_FILE_OPENED	language.h	/^#define MSG_SD_FILE_OPENED /;"	d
+MSG_SD_FILE_SELECTED	language.h	/^	#define MSG_SD_FILE_SELECTED /;"	d
+MSG_SD_FILE_SELECTED	language.h	/^#define MSG_SD_FILE_SELECTED /;"	d
+MSG_SD_INIT_FAIL	language.h	/^	#define MSG_SD_INIT_FAIL /;"	d
+MSG_SD_INIT_FAIL	language.h	/^#define MSG_SD_INIT_FAIL /;"	d
+MSG_SD_INSERTED	language.h	/^	#define MSG_SD_INSERTED /;"	d
+MSG_SD_INSERTED	language.h	/^#define MSG_SD_INSERTED /;"	d
+MSG_SD_NOT_PRINTING	language.h	/^	#define MSG_SD_NOT_PRINTING /;"	d
+MSG_SD_NOT_PRINTING	language.h	/^#define MSG_SD_NOT_PRINTING /;"	d
+MSG_SD_OPENROOT_FAIL	language.h	/^	#define MSG_SD_OPENROOT_FAIL /;"	d
+MSG_SD_OPENROOT_FAIL	language.h	/^#define MSG_SD_OPENROOT_FAIL /;"	d
+MSG_SD_OPEN_FILE_FAIL	language.h	/^	#define MSG_SD_OPEN_FILE_FAIL /;"	d
+MSG_SD_OPEN_FILE_FAIL	language.h	/^#define MSG_SD_OPEN_FILE_FAIL /;"	d
+MSG_SD_PRINTING_BYTE	language.h	/^	#define MSG_SD_PRINTING_BYTE /;"	d
+MSG_SD_PRINTING_BYTE	language.h	/^#define MSG_SD_PRINTING_BYTE /;"	d
+MSG_SD_REMOVED	language.h	/^	#define MSG_SD_REMOVED /;"	d
+MSG_SD_REMOVED	language.h	/^#define MSG_SD_REMOVED /;"	d
+MSG_SD_SIZE	language.h	/^	#define MSG_SD_SIZE /;"	d
+MSG_SD_SIZE	language.h	/^#define MSG_SD_SIZE /;"	d
+MSG_SD_VOL_INIT_FAIL	language.h	/^	#define MSG_SD_VOL_INIT_FAIL /;"	d
+MSG_SD_VOL_INIT_FAIL	language.h	/^#define MSG_SD_VOL_INIT_FAIL /;"	d
+MSG_SD_WORKDIR_FAIL	language.h	/^	#define MSG_SD_WORKDIR_FAIL /;"	d
+MSG_SD_WORKDIR_FAIL	language.h	/^#define MSG_SD_WORKDIR_FAIL /;"	d
+MSG_SD_WRITE_TO_FILE	language.h	/^	#define MSG_SD_WRITE_TO_FILE /;"	d
+MSG_SD_WRITE_TO_FILE	language.h	/^#define MSG_SD_WRITE_TO_FILE /;"	d
+MSG_SERIAL_ERROR_MENU_STRUCTURE	language.h	/^	#define MSG_SERIAL_ERROR_MENU_STRUCTURE /;"	d
+MSG_SERIAL_ERROR_MENU_STRUCTURE	language.h	/^        #define MSG_SERIAL_ERROR_MENU_STRUCTURE /;"	d
+MSG_SERIAL_ERROR_MENU_STRUCTURE	language.h	/^#define MSG_SERIAL_ERROR_MENU_STRUCTURE /;"	d
+MSG_SET_ORIGIN	language.h	/^	#define MSG_SET_ORIGIN /;"	d
+MSG_SET_ORIGIN	language.h	/^#define MSG_SET_ORIGIN /;"	d
+MSG_SOFTWARE_RESET	language.h	/^	#define MSG_SOFTWARE_RESET /;"	d
+MSG_SOFTWARE_RESET	language.h	/^#define MSG_SOFTWARE_RESET /;"	d
+MSG_SPEED	language.h	/^	#define MSG_SPEED /;"	d
+MSG_SPEED	language.h	/^#define MSG_SPEED /;"	d
+MSG_STEPPER_RELEASED	language.h	/^	#define MSG_STEPPER_RELEASED /;"	d
+MSG_STEPPER_RELEASED	language.h	/^#define MSG_STEPPER_RELEASED /;"	d
+MSG_STEPPER_TO_HIGH	language.h	/^	#define MSG_STEPPER_TO_HIGH /;"	d
+MSG_STEPPER_TO_HIGH	language.h	/^#define MSG_STEPPER_TO_HIGH /;"	d
+MSG_STOPPED	language.h	/^	#define MSG_STOPPED /;"	d
+MSG_STOPPED	language.h	/^#define MSG_STOPPED /;"	d
+MSG_STOP_PRINT	language.h	/^	#define MSG_STOP_PRINT /;"	d
+MSG_STOP_PRINT	language.h	/^#define MSG_STOP_PRINT /;"	d
+MSG_STORE_EEPROM	language.h	/^	#define MSG_STORE_EEPROM /;"	d
+MSG_STORE_EEPROM	language.h	/^#define MSG_STORE_EEPROM /;"	d
+MSG_TEMPERATURE_RTN	language.h	/^	#define MSG_TEMPERATURE_RTN /;"	d
+MSG_TEMPERATURE_RTN	language.h	/^        #define MSG_TEMPERATURE_RTN /;"	d
+MSG_TEMPERATURE_RTN	language.h	/^#define MSG_TEMPERATURE_RTN /;"	d
+MSG_TEMPERATURE_WIDE	language.h	/^	#define MSG_TEMPERATURE_WIDE /;"	d
+MSG_TEMPERATURE_WIDE	language.h	/^#define MSG_TEMPERATURE_WIDE /;"	d
+MSG_TUNE	language.h	/^	#define MSG_TUNE /;"	d
+MSG_TUNE	language.h	/^#define MSG_TUNE /;"	d
+MSG_UNKNOWN_COMMAND	language.h	/^	#define MSG_UNKNOWN_COMMAND /;"	d
+MSG_UNKNOWN_COMMAND	language.h	/^#define MSG_UNKNOWN_COMMAND /;"	d
+MSG_USERWAIT	language.h	/^	#define MSG_USERWAIT /;"	d
+MSG_USERWAIT	language.h	/^#define MSG_USERWAIT /;"	d
+MSG_VMAX	language.h	/^	#define MSG_VMAX /;"	d
+MSG_VMAX	language.h	/^#define MSG_VMAX /;"	d
+MSG_VMIN	language.h	/^	#define MSG_VMIN /;"	d
+MSG_VMIN	language.h	/^#define MSG_VMIN /;"	d
+MSG_VTRAV_MIN	language.h	/^	#define MSG_VTRAV_MIN /;"	d
+MSG_VTRAV_MIN	language.h	/^#define MSG_VTRAV_MIN /;"	d
+MSG_VXY_JERK	language.h	/^	#define MSG_VXY_JERK /;"	d
+MSG_VXY_JERK	language.h	/^#define MSG_VXY_JERK /;"	d
+MSG_WATCH	language.h	/^	#define MSG_WATCH /;"	d
+MSG_WATCH	language.h	/^#define MSG_WATCH /;"	d
+MSG_WATCHDOG_RESET	language.h	/^	#define MSG_WATCHDOG_RESET /;"	d
+MSG_WATCHDOG_RESET	language.h	/^#define MSG_WATCHDOG_RESET /;"	d
+MSG_X	language.h	/^	#define MSG_X /;"	d
+MSG_X	language.h	/^#define MSG_X /;"	d
+MSG_XSTEPS	language.h	/^	#define MSG_XSTEPS /;"	d
+MSG_XSTEPS	language.h	/^#define MSG_XSTEPS /;"	d
+MSG_X_MAX	language.h	/^	#define MSG_X_MAX /;"	d
+MSG_X_MAX	language.h	/^#define MSG_X_MAX /;"	d
+MSG_X_MIN	language.h	/^	#define MSG_X_MIN /;"	d
+MSG_X_MIN	language.h	/^#define MSG_X_MIN /;"	d
+MSG_Y	language.h	/^	#define MSG_Y /;"	d
+MSG_Y	language.h	/^#define MSG_Y /;"	d
+MSG_YSTEPS	language.h	/^	#define MSG_YSTEPS /;"	d
+MSG_YSTEPS	language.h	/^#define MSG_YSTEPS /;"	d
+MSG_Y_MAX	language.h	/^	#define MSG_Y_MAX /;"	d
+MSG_Y_MAX	language.h	/^#define MSG_Y_MAX /;"	d
+MSG_Y_MIN	language.h	/^	#define MSG_Y_MIN /;"	d
+MSG_Y_MIN	language.h	/^#define MSG_Y_MIN /;"	d
+MSG_Z	language.h	/^	#define MSG_Z /;"	d
+MSG_Z	language.h	/^#define MSG_Z /;"	d
+MSG_ZSTEPS	language.h	/^	#define MSG_ZSTEPS /;"	d
+MSG_ZSTEPS	language.h	/^#define MSG_ZSTEPS /;"	d
+MSG_Z_MAX	language.h	/^	#define MSG_Z_MAX /;"	d
+MSG_Z_MAX	language.h	/^#define MSG_Z_MAX /;"	d
+MSG_Z_MIN	language.h	/^	#define MSG_Z_MIN /;"	d
+MSG_Z_MIN	language.h	/^#define MSG_Z_MIN /;"	d
+MYPGM	Marlin.h	/^#define MYPGM(/;"	d
+MYSERIAL	Marlin.h	/^#define MYSERIAL /;"	d
+MainMenu	ultralcd.cpp	/^MainMenu::MainMenu()$/;"	f	class:MainMenu
+MainMenu	ultralcd.h	/^  class MainMenu{$/;"	c
+MainStatus	ultralcd.h	/^  enum MainStatus{Main_Status, Main_Menu, Main_Prepare,Sub_PrepareMove, Main_Control, Main_SD,Sub_TempControl,Sub_MotionControl,Sub_RetractControl, Sub_PreheatPLASettings, Sub_PreheatABSSettings};$/;"	g
+Main_Control	ultralcd.h	/^  enum MainStatus{Main_Status, Main_Menu, Main_Prepare,Sub_PrepareMove, Main_Control, Main_SD,Sub_TempControl,Sub_MotionControl,Sub_RetractControl, Sub_PreheatPLASettings, Sub_PreheatABSSettings};$/;"	e	enum:MainStatus
+Main_Menu	ultralcd.h	/^  enum MainStatus{Main_Status, Main_Menu, Main_Prepare,Sub_PrepareMove, Main_Control, Main_SD,Sub_TempControl,Sub_MotionControl,Sub_RetractControl, Sub_PreheatPLASettings, Sub_PreheatABSSettings};$/;"	e	enum:MainStatus
+Main_Prepare	ultralcd.h	/^  enum MainStatus{Main_Status, Main_Menu, Main_Prepare,Sub_PrepareMove, Main_Control, Main_SD,Sub_TempControl,Sub_MotionControl,Sub_RetractControl, Sub_PreheatPLASettings, Sub_PreheatABSSettings};$/;"	e	enum:MainStatus
+Main_SD	ultralcd.h	/^  enum MainStatus{Main_Status, Main_Menu, Main_Prepare,Sub_PrepareMove, Main_Control, Main_SD,Sub_TempControl,Sub_MotionControl,Sub_RetractControl, Sub_PreheatPLASettings, Sub_PreheatABSSettings};$/;"	e	enum:MainStatus
+Main_Status	ultralcd.h	/^  enum MainStatus{Main_Status, Main_Menu, Main_Prepare,Sub_PrepareMove, Main_Control, Main_SD,Sub_TempControl,Sub_MotionControl,Sub_RetractControl, Sub_PreheatPLASettings, Sub_PreheatABSSettings};$/;"	e	enum:MainStatus
+MultiU16X8toH16	stepper.cpp	/^#define MultiU16X8toH16(/;"	d	file:
+MultiU24X24toH16	stepper.cpp	/^#define MultiU24X24toH16(/;"	d	file:
+NEWPANEL	Configuration.h	/^ #define NEWPANEL$/;"	d
+NEWPANEL	Configuration.h	/^#define NEWPANEL$/;"	d
+NORM_E_DIR	stepper.h	/^  #define NORM_E_DIR(/;"	d
+NUM_AXIS	Configuration.h	/^#define NUM_AXIS /;"	d
+NUM_PARMS	menu_pla.cpp	/^#define NUM_PARMS	/;"	d	file:
+N_ARC_CORRECTION	Configuration_adv.h	/^#define N_ARC_CORRECTION /;"	d
+OBJCOPY	arduino.mk	/^OBJCOPY := $(call findsoftware,avr-objcopy)$/;"	m
+OBJECTS	arduino.mk	/^OBJECTS := $(addsuffix .o, $(basename $(SOURCES)))$/;"	m
+OC0A	fastio.h	/^#define	OC0A	/;"	d
+OC0B	fastio.h	/^#define	OC0B	/;"	d
+OC1A	fastio.h	/^#define	OC1A	/;"	d
+OC1B	fastio.h	/^#define	OC1B	/;"	d
+OC2A	fastio.h	/^#define	OC2A	/;"	d
+OC2B	fastio.h	/^#define	OC2B	/;"	d
+OC3A	fastio.h	/^#define	OC3A	/;"	d
+OC3B	fastio.h	/^#define	OC3B	/;"	d
+OC3C	fastio.h	/^#define	OC3C	/;"	d
+OC4A	fastio.h	/^#define	OC4A	/;"	d
+OC4B	fastio.h	/^#define	OC4B	/;"	d
+OC4C	fastio.h	/^#define	OC4C	/;"	d
+OC5A	fastio.h	/^#define	OC5A	/;"	d
+OC5B	fastio.h	/^#define	OC5B	/;"	d
+OC5C	fastio.h	/^#define	OC5C	/;"	d
+OCR1A_nominal	stepper.cpp	/^static unsigned short OCR1A_nominal;$/;"	v	file:
+OUTPUT	wiring.h	/^#define OUTPUT /;"	d
+OVERSAMPLENR	thermistortables.h	/^#define OVERSAMPLENR /;"	d
+PA0	fastio.h	/^#undef PA0$/;"	d
+PA0_DDR	fastio.h	/^#define PA0_DDR	/;"	d
+PA0_PIN	fastio.h	/^#define PA0_PIN	/;"	d
+PA0_PWM	fastio.h	/^#define PA0_PWM	/;"	d
+PA0_RPORT	fastio.h	/^#define PA0_RPORT	/;"	d
+PA0_WPORT	fastio.h	/^#define PA0_WPORT	/;"	d
+PA1	fastio.h	/^#undef PA1$/;"	d
+PA1_DDR	fastio.h	/^#define PA1_DDR	/;"	d
+PA1_PIN	fastio.h	/^#define PA1_PIN	/;"	d
+PA1_PWM	fastio.h	/^#define PA1_PWM	/;"	d
+PA1_RPORT	fastio.h	/^#define PA1_RPORT	/;"	d
+PA1_WPORT	fastio.h	/^#define PA1_WPORT	/;"	d
+PA2	fastio.h	/^#undef PA2$/;"	d
+PA2_DDR	fastio.h	/^#define PA2_DDR	/;"	d
+PA2_PIN	fastio.h	/^#define PA2_PIN	/;"	d
+PA2_PWM	fastio.h	/^#define PA2_PWM	/;"	d
+PA2_RPORT	fastio.h	/^#define PA2_RPORT	/;"	d
+PA2_WPORT	fastio.h	/^#define PA2_WPORT	/;"	d
+PA3	fastio.h	/^#undef PA3$/;"	d
+PA3_DDR	fastio.h	/^#define PA3_DDR	/;"	d
+PA3_PIN	fastio.h	/^#define PA3_PIN	/;"	d
+PA3_PWM	fastio.h	/^#define PA3_PWM	/;"	d
+PA3_RPORT	fastio.h	/^#define PA3_RPORT	/;"	d
+PA3_WPORT	fastio.h	/^#define PA3_WPORT	/;"	d
+PA4	fastio.h	/^#undef PA4$/;"	d
+PA4_DDR	fastio.h	/^#define PA4_DDR	/;"	d
+PA4_PIN	fastio.h	/^#define PA4_PIN	/;"	d
+PA4_PWM	fastio.h	/^#define PA4_PWM	/;"	d
+PA4_RPORT	fastio.h	/^#define PA4_RPORT	/;"	d
+PA4_WPORT	fastio.h	/^#define PA4_WPORT	/;"	d
+PA5	fastio.h	/^#undef PA5$/;"	d
+PA5_DDR	fastio.h	/^#define PA5_DDR	/;"	d
+PA5_PIN	fastio.h	/^#define PA5_PIN	/;"	d
+PA5_PWM	fastio.h	/^#define PA5_PWM	/;"	d
+PA5_RPORT	fastio.h	/^#define PA5_RPORT	/;"	d
+PA5_WPORT	fastio.h	/^#define PA5_WPORT	/;"	d
+PA6	fastio.h	/^#undef PA6$/;"	d
+PA6_DDR	fastio.h	/^#define PA6_DDR	/;"	d
+PA6_PIN	fastio.h	/^#define PA6_PIN	/;"	d
+PA6_PWM	fastio.h	/^#define PA6_PWM	/;"	d
+PA6_RPORT	fastio.h	/^#define PA6_RPORT	/;"	d
+PA6_WPORT	fastio.h	/^#define PA6_WPORT	/;"	d
+PA7	fastio.h	/^#undef PA7$/;"	d
+PA7_DDR	fastio.h	/^#define PA7_DDR	/;"	d
+PA7_PIN	fastio.h	/^#define PA7_PIN	/;"	d
+PA7_PWM	fastio.h	/^#define PA7_PWM	/;"	d
+PA7_RPORT	fastio.h	/^#define PA7_RPORT	/;"	d
+PA7_WPORT	fastio.h	/^#define PA7_WPORT	/;"	d
+PB0	fastio.h	/^#undef PB0$/;"	d
+PB0_DDR	fastio.h	/^#define PB0_DDR	/;"	d
+PB0_PIN	fastio.h	/^#define PB0_PIN	/;"	d
+PB0_PWM	fastio.h	/^#define PB0_PWM	/;"	d
+PB0_RPORT	fastio.h	/^#define PB0_RPORT	/;"	d
+PB0_WPORT	fastio.h	/^#define PB0_WPORT	/;"	d
+PB1	fastio.h	/^#undef PB1$/;"	d
+PB1_DDR	fastio.h	/^#define PB1_DDR	/;"	d
+PB1_PIN	fastio.h	/^#define PB1_PIN	/;"	d
+PB1_PWM	fastio.h	/^#define PB1_PWM	/;"	d
+PB1_RPORT	fastio.h	/^#define PB1_RPORT	/;"	d
+PB1_WPORT	fastio.h	/^#define PB1_WPORT	/;"	d
+PB2	fastio.h	/^#undef PB2$/;"	d
+PB2_DDR	fastio.h	/^#define PB2_DDR	/;"	d
+PB2_PIN	fastio.h	/^#define PB2_PIN	/;"	d
+PB2_PWM	fastio.h	/^#define PB2_PWM	/;"	d
+PB2_RPORT	fastio.h	/^#define PB2_RPORT	/;"	d
+PB2_WPORT	fastio.h	/^#define PB2_WPORT	/;"	d
+PB3	fastio.h	/^#undef PB3$/;"	d
+PB3_DDR	fastio.h	/^#define PB3_DDR	/;"	d
+PB3_PIN	fastio.h	/^#define PB3_PIN	/;"	d
+PB3_PWM	fastio.h	/^#define PB3_PWM	/;"	d
+PB3_RPORT	fastio.h	/^#define PB3_RPORT	/;"	d
+PB3_WPORT	fastio.h	/^#define PB3_WPORT	/;"	d
+PB4	fastio.h	/^#undef PB4$/;"	d
+PB4_DDR	fastio.h	/^#define PB4_DDR	/;"	d
+PB4_PIN	fastio.h	/^#define PB4_PIN	/;"	d
+PB4_PWM	fastio.h	/^#define PB4_PWM	/;"	d
+PB4_RPORT	fastio.h	/^#define PB4_RPORT	/;"	d
+PB4_WPORT	fastio.h	/^#define PB4_WPORT	/;"	d
+PB5	fastio.h	/^#undef PB5$/;"	d
+PB5_DDR	fastio.h	/^#define PB5_DDR	/;"	d
+PB5_PIN	fastio.h	/^#define PB5_PIN	/;"	d
+PB5_PWM	fastio.h	/^#define PB5_PWM	/;"	d
+PB5_RPORT	fastio.h	/^#define PB5_RPORT	/;"	d
+PB5_WPORT	fastio.h	/^#define PB5_WPORT	/;"	d
+PB6	fastio.h	/^#undef PB6$/;"	d
+PB6_DDR	fastio.h	/^#define PB6_DDR	/;"	d
+PB6_PIN	fastio.h	/^#define PB6_PIN	/;"	d
+PB6_PWM	fastio.h	/^#define PB6_PWM	/;"	d
+PB6_RPORT	fastio.h	/^#define PB6_RPORT	/;"	d
+PB6_WPORT	fastio.h	/^#define PB6_WPORT	/;"	d
+PB7	fastio.h	/^#undef PB7$/;"	d
+PB7_DDR	fastio.h	/^#define PB7_DDR	/;"	d
+PB7_PIN	fastio.h	/^#define PB7_PIN	/;"	d
+PB7_PWM	fastio.h	/^#define PB7_PWM	/;"	d
+PB7_RPORT	fastio.h	/^#define PB7_RPORT	/;"	d
+PB7_WPORT	fastio.h	/^#define PB7_WPORT	/;"	d
+PC0	fastio.h	/^#undef PC0$/;"	d
+PC0_DDR	fastio.h	/^#define PC0_DDR	/;"	d
+PC0_PIN	fastio.h	/^#define PC0_PIN	/;"	d
+PC0_PWM	fastio.h	/^#define PC0_PWM	/;"	d
+PC0_RPORT	fastio.h	/^#define PC0_RPORT	/;"	d
+PC0_WPORT	fastio.h	/^#define PC0_WPORT	/;"	d
+PC1	fastio.h	/^#undef PC1$/;"	d
+PC1_DDR	fastio.h	/^#define PC1_DDR	/;"	d
+PC1_PIN	fastio.h	/^#define PC1_PIN	/;"	d
+PC1_PWM	fastio.h	/^#define PC1_PWM	/;"	d
+PC1_RPORT	fastio.h	/^#define PC1_RPORT	/;"	d
+PC1_WPORT	fastio.h	/^#define PC1_WPORT	/;"	d
+PC2	fastio.h	/^#undef PC2$/;"	d
+PC2_DDR	fastio.h	/^#define PC2_DDR	/;"	d
+PC2_PIN	fastio.h	/^#define PC2_PIN	/;"	d
+PC2_PWM	fastio.h	/^#define PC2_PWM	/;"	d
+PC2_RPORT	fastio.h	/^#define PC2_RPORT	/;"	d
+PC2_WPORT	fastio.h	/^#define PC2_WPORT	/;"	d
+PC3	fastio.h	/^#undef PC3$/;"	d
+PC3_DDR	fastio.h	/^#define PC3_DDR	/;"	d
+PC3_PIN	fastio.h	/^#define PC3_PIN	/;"	d
+PC3_PWM	fastio.h	/^#define PC3_PWM	/;"	d
+PC3_RPORT	fastio.h	/^#define PC3_RPORT	/;"	d
+PC3_WPORT	fastio.h	/^#define PC3_WPORT	/;"	d
+PC4	fastio.h	/^#undef PC4$/;"	d
+PC4_DDR	fastio.h	/^#define PC4_DDR	/;"	d
+PC4_PIN	fastio.h	/^#define PC4_PIN	/;"	d
+PC4_PWM	fastio.h	/^#define PC4_PWM	/;"	d
+PC4_RPORT	fastio.h	/^#define PC4_RPORT	/;"	d
+PC4_WPORT	fastio.h	/^#define PC4_WPORT	/;"	d
+PC5	fastio.h	/^#undef PC5$/;"	d
+PC5_DDR	fastio.h	/^#define PC5_DDR	/;"	d
+PC5_PIN	fastio.h	/^#define PC5_PIN	/;"	d
+PC5_PWM	fastio.h	/^#define PC5_PWM	/;"	d
+PC5_RPORT	fastio.h	/^#define PC5_RPORT	/;"	d
+PC5_WPORT	fastio.h	/^#define PC5_WPORT	/;"	d
+PC6	fastio.h	/^#undef PC6$/;"	d
+PC6_DDR	fastio.h	/^#define PC6_DDR	/;"	d
+PC6_PIN	fastio.h	/^#define PC6_PIN	/;"	d
+PC6_PWM	fastio.h	/^#define PC6_PWM	/;"	d
+PC6_RPORT	fastio.h	/^#define PC6_RPORT	/;"	d
+PC6_WPORT	fastio.h	/^#define PC6_WPORT	/;"	d
+PC7	fastio.h	/^#undef PC7$/;"	d
+PC7_DDR	fastio.h	/^#define PC7_DDR	/;"	d
+PC7_PIN	fastio.h	/^#define PC7_PIN	/;"	d
+PC7_PWM	fastio.h	/^#define PC7_PWM	/;"	d
+PC7_RPORT	fastio.h	/^#define PC7_RPORT	/;"	d
+PC7_WPORT	fastio.h	/^#define PC7_WPORT	/;"	d
+PD0	fastio.h	/^#undef PD0$/;"	d
+PD0_DDR	fastio.h	/^#define PD0_DDR	/;"	d
+PD0_PIN	fastio.h	/^#define PD0_PIN	/;"	d
+PD0_PWM	fastio.h	/^#define PD0_PWM	/;"	d
+PD0_RPORT	fastio.h	/^#define PD0_RPORT	/;"	d
+PD0_WPORT	fastio.h	/^#define PD0_WPORT	/;"	d
+PD1	fastio.h	/^#undef PD1$/;"	d
+PD1_DDR	fastio.h	/^#define PD1_DDR	/;"	d
+PD1_PIN	fastio.h	/^#define PD1_PIN	/;"	d
+PD1_PWM	fastio.h	/^#define PD1_PWM	/;"	d
+PD1_RPORT	fastio.h	/^#define PD1_RPORT	/;"	d
+PD1_WPORT	fastio.h	/^#define PD1_WPORT	/;"	d
+PD2	fastio.h	/^#undef PD2$/;"	d
+PD2_DDR	fastio.h	/^#define PD2_DDR	/;"	d
+PD2_PIN	fastio.h	/^#define PD2_PIN	/;"	d
+PD2_PWM	fastio.h	/^#define PD2_PWM	/;"	d
+PD2_RPORT	fastio.h	/^#define PD2_RPORT	/;"	d
+PD2_WPORT	fastio.h	/^#define PD2_WPORT	/;"	d
+PD3	fastio.h	/^#undef PD3$/;"	d
+PD3_DDR	fastio.h	/^#define PD3_DDR	/;"	d
+PD3_PIN	fastio.h	/^#define PD3_PIN	/;"	d
+PD3_PWM	fastio.h	/^#define PD3_PWM	/;"	d
+PD3_RPORT	fastio.h	/^#define PD3_RPORT	/;"	d
+PD3_WPORT	fastio.h	/^#define PD3_WPORT	/;"	d
+PD4	fastio.h	/^#undef PD4$/;"	d
+PD4_DDR	fastio.h	/^#define PD4_DDR	/;"	d
+PD4_PIN	fastio.h	/^#define PD4_PIN	/;"	d
+PD4_PWM	fastio.h	/^#define PD4_PWM	/;"	d
+PD4_RPORT	fastio.h	/^#define PD4_RPORT	/;"	d
+PD4_WPORT	fastio.h	/^#define PD4_WPORT	/;"	d
+PD5	fastio.h	/^#undef PD5$/;"	d
+PD5_DDR	fastio.h	/^#define PD5_DDR	/;"	d
+PD5_PIN	fastio.h	/^#define PD5_PIN	/;"	d
+PD5_PWM	fastio.h	/^#define PD5_PWM	/;"	d
+PD5_RPORT	fastio.h	/^#define PD5_RPORT	/;"	d
+PD5_WPORT	fastio.h	/^#define PD5_WPORT	/;"	d
+PD6	fastio.h	/^#undef PD6$/;"	d
+PD6_DDR	fastio.h	/^#define PD6_DDR	/;"	d
+PD6_PIN	fastio.h	/^#define PD6_PIN	/;"	d
+PD6_PWM	fastio.h	/^#define PD6_PWM	/;"	d
+PD6_RPORT	fastio.h	/^#define PD6_RPORT	/;"	d
+PD6_WPORT	fastio.h	/^#define PD6_WPORT	/;"	d
+PD7	fastio.h	/^#undef PD7$/;"	d
+PD7_DDR	fastio.h	/^#define PD7_DDR	/;"	d
+PD7_PIN	fastio.h	/^#define PD7_PIN	/;"	d
+PD7_PWM	fastio.h	/^#define PD7_PWM	/;"	d
+PD7_RPORT	fastio.h	/^#define PD7_RPORT	/;"	d
+PD7_WPORT	fastio.h	/^#define PD7_WPORT	/;"	d
+PE0	fastio.h	/^#undef PE0$/;"	d
+PE0_DDR	fastio.h	/^#define PE0_DDR	/;"	d
+PE0_PIN	fastio.h	/^#define PE0_PIN	/;"	d
+PE0_PWM	fastio.h	/^#define PE0_PWM	/;"	d
+PE0_RPORT	fastio.h	/^#define PE0_RPORT	/;"	d
+PE0_WPORT	fastio.h	/^#define PE0_WPORT	/;"	d
+PE1	fastio.h	/^#undef PE1$/;"	d
+PE1_DDR	fastio.h	/^#define PE1_DDR	/;"	d
+PE1_PIN	fastio.h	/^#define PE1_PIN	/;"	d
+PE1_PWM	fastio.h	/^#define PE1_PWM	/;"	d
+PE1_RPORT	fastio.h	/^#define PE1_RPORT	/;"	d
+PE1_WPORT	fastio.h	/^#define PE1_WPORT	/;"	d
+PE2	fastio.h	/^#undef PE2$/;"	d
+PE2_DDR	fastio.h	/^#define PE2_DDR	/;"	d
+PE2_PIN	fastio.h	/^#define PE2_PIN	/;"	d
+PE2_PWM	fastio.h	/^#define PE2_PWM	/;"	d
+PE2_RPORT	fastio.h	/^#define PE2_RPORT	/;"	d
+PE2_WPORT	fastio.h	/^#define PE2_WPORT	/;"	d
+PE3	fastio.h	/^#undef PE3$/;"	d
+PE3_DDR	fastio.h	/^#define PE3_DDR	/;"	d
+PE3_PIN	fastio.h	/^#define PE3_PIN	/;"	d
+PE3_PWM	fastio.h	/^#define PE3_PWM	/;"	d
+PE3_RPORT	fastio.h	/^#define PE3_RPORT	/;"	d
+PE3_WPORT	fastio.h	/^#define PE3_WPORT	/;"	d
+PE4	fastio.h	/^#undef PE4$/;"	d
+PE4_DDR	fastio.h	/^#define PE4_DDR	/;"	d
+PE4_PIN	fastio.h	/^#define PE4_PIN	/;"	d
+PE4_PWM	fastio.h	/^#define PE4_PWM	/;"	d
+PE4_RPORT	fastio.h	/^#define PE4_RPORT	/;"	d
+PE4_WPORT	fastio.h	/^#define PE4_WPORT	/;"	d
+PE5	fastio.h	/^#undef PE5$/;"	d
+PE5_DDR	fastio.h	/^#define PE5_DDR	/;"	d
+PE5_PIN	fastio.h	/^#define PE5_PIN	/;"	d
+PE5_PWM	fastio.h	/^#define PE5_PWM	/;"	d
+PE5_RPORT	fastio.h	/^#define PE5_RPORT	/;"	d
+PE5_WPORT	fastio.h	/^#define PE5_WPORT	/;"	d
+PE6	fastio.h	/^#undef PE6$/;"	d
+PE6_DDR	fastio.h	/^#define PE6_DDR	/;"	d
+PE6_PIN	fastio.h	/^#define PE6_PIN	/;"	d
+PE6_PWM	fastio.h	/^#define PE6_PWM	/;"	d
+PE6_RPORT	fastio.h	/^#define PE6_RPORT	/;"	d
+PE6_WPORT	fastio.h	/^#define PE6_WPORT	/;"	d
+PE7	fastio.h	/^#undef PE7$/;"	d
+PE7_DDR	fastio.h	/^#define PE7_DDR	/;"	d
+PE7_PIN	fastio.h	/^#define PE7_PIN	/;"	d
+PE7_PWM	fastio.h	/^#define PE7_PWM	/;"	d
+PE7_RPORT	fastio.h	/^#define PE7_RPORT	/;"	d
+PE7_WPORT	fastio.h	/^#define PE7_WPORT	/;"	d
+PF0	fastio.h	/^#undef PF0$/;"	d
+PF0_DDR	fastio.h	/^#define PF0_DDR	/;"	d
+PF0_PIN	fastio.h	/^#define PF0_PIN	/;"	d
+PF0_PWM	fastio.h	/^#define PF0_PWM	/;"	d
+PF0_RPORT	fastio.h	/^#define PF0_RPORT	/;"	d
+PF0_WPORT	fastio.h	/^#define PF0_WPORT	/;"	d
+PF1	fastio.h	/^#undef PF1$/;"	d
+PF1_DDR	fastio.h	/^#define PF1_DDR	/;"	d
+PF1_PIN	fastio.h	/^#define PF1_PIN	/;"	d
+PF1_PWM	fastio.h	/^#define PF1_PWM	/;"	d
+PF1_RPORT	fastio.h	/^#define PF1_RPORT	/;"	d
+PF1_WPORT	fastio.h	/^#define PF1_WPORT	/;"	d
+PF2	fastio.h	/^#undef PF2$/;"	d
+PF2_DDR	fastio.h	/^#define PF2_DDR	/;"	d
+PF2_PIN	fastio.h	/^#define PF2_PIN	/;"	d
+PF2_PWM	fastio.h	/^#define PF2_PWM	/;"	d
+PF2_RPORT	fastio.h	/^#define PF2_RPORT	/;"	d
+PF2_WPORT	fastio.h	/^#define PF2_WPORT	/;"	d
+PF3	fastio.h	/^#undef PF3$/;"	d
+PF3_DDR	fastio.h	/^#define PF3_DDR	/;"	d
+PF3_PIN	fastio.h	/^#define PF3_PIN	/;"	d
+PF3_PWM	fastio.h	/^#define PF3_PWM	/;"	d
+PF3_RPORT	fastio.h	/^#define PF3_RPORT	/;"	d
+PF3_WPORT	fastio.h	/^#define PF3_WPORT	/;"	d
+PF4	fastio.h	/^#undef PF4$/;"	d
+PF4_DDR	fastio.h	/^#define PF4_DDR	/;"	d
+PF4_PIN	fastio.h	/^#define PF4_PIN	/;"	d
+PF4_PWM	fastio.h	/^#define PF4_PWM	/;"	d
+PF4_RPORT	fastio.h	/^#define PF4_RPORT	/;"	d
+PF4_WPORT	fastio.h	/^#define PF4_WPORT	/;"	d
+PF5	fastio.h	/^#undef PF5$/;"	d
+PF5_DDR	fastio.h	/^#define PF5_DDR	/;"	d
+PF5_PIN	fastio.h	/^#define PF5_PIN	/;"	d
+PF5_PWM	fastio.h	/^#define PF5_PWM	/;"	d
+PF5_RPORT	fastio.h	/^#define PF5_RPORT	/;"	d
+PF5_WPORT	fastio.h	/^#define PF5_WPORT	/;"	d
+PF6	fastio.h	/^#undef PF6$/;"	d
+PF6_DDR	fastio.h	/^#define PF6_DDR	/;"	d
+PF6_PIN	fastio.h	/^#define PF6_PIN	/;"	d
+PF6_PWM	fastio.h	/^#define PF6_PWM	/;"	d
+PF6_RPORT	fastio.h	/^#define PF6_RPORT	/;"	d
+PF6_WPORT	fastio.h	/^#define PF6_WPORT	/;"	d
+PF7	fastio.h	/^#undef PF7$/;"	d
+PF7_DDR	fastio.h	/^#define PF7_DDR	/;"	d
+PF7_PIN	fastio.h	/^#define PF7_PIN	/;"	d
+PF7_PWM	fastio.h	/^#define PF7_PWM	/;"	d
+PF7_RPORT	fastio.h	/^#define PF7_RPORT	/;"	d
+PF7_WPORT	fastio.h	/^#define PF7_WPORT	/;"	d
+PG0	fastio.h	/^#undef PG0$/;"	d
+PG0_DDR	fastio.h	/^#define PG0_DDR	/;"	d
+PG0_PIN	fastio.h	/^#define PG0_PIN	/;"	d
+PG0_PWM	fastio.h	/^#define PG0_PWM	/;"	d
+PG0_RPORT	fastio.h	/^#define PG0_RPORT	/;"	d
+PG0_WPORT	fastio.h	/^#define PG0_WPORT	/;"	d
+PG1	fastio.h	/^#undef PG1$/;"	d
+PG1_DDR	fastio.h	/^#define PG1_DDR	/;"	d
+PG1_PIN	fastio.h	/^#define PG1_PIN	/;"	d
+PG1_PWM	fastio.h	/^#define PG1_PWM	/;"	d
+PG1_RPORT	fastio.h	/^#define PG1_RPORT	/;"	d
+PG1_WPORT	fastio.h	/^#define PG1_WPORT	/;"	d
+PG2	fastio.h	/^#undef PG2$/;"	d
+PG2_DDR	fastio.h	/^#define PG2_DDR	/;"	d
+PG2_PIN	fastio.h	/^#define PG2_PIN	/;"	d
+PG2_PWM	fastio.h	/^#define PG2_PWM	/;"	d
+PG2_RPORT	fastio.h	/^#define PG2_RPORT	/;"	d
+PG2_WPORT	fastio.h	/^#define PG2_WPORT	/;"	d
+PG3	fastio.h	/^#undef PG3$/;"	d
+PG3_DDR	fastio.h	/^#define PG3_DDR	/;"	d
+PG3_PIN	fastio.h	/^#define PG3_PIN	/;"	d
+PG3_PWM	fastio.h	/^#define PG3_PWM	/;"	d
+PG3_RPORT	fastio.h	/^#define PG3_RPORT	/;"	d
+PG3_WPORT	fastio.h	/^#define PG3_WPORT	/;"	d
+PG4	fastio.h	/^#undef PG4$/;"	d
+PG4_DDR	fastio.h	/^#define PG4_DDR	/;"	d
+PG4_PIN	fastio.h	/^#define PG4_PIN	/;"	d
+PG4_PWM	fastio.h	/^#define PG4_PWM	/;"	d
+PG4_RPORT	fastio.h	/^#define PG4_RPORT	/;"	d
+PG4_WPORT	fastio.h	/^#define PG4_WPORT	/;"	d
+PG5	fastio.h	/^#undef PG5$/;"	d
+PG5_DDR	fastio.h	/^#define PG5_DDR	/;"	d
+PG5_PIN	fastio.h	/^#define PG5_PIN	/;"	d
+PG5_PWM	fastio.h	/^#define PG5_PWM	/;"	d
+PG5_RPORT	fastio.h	/^#define PG5_RPORT	/;"	d
+PG5_WPORT	fastio.h	/^#define PG5_WPORT	/;"	d
+PG6	fastio.h	/^#undef PG6$/;"	d
+PG6_DDR	fastio.h	/^#define PG6_DDR	/;"	d
+PG6_PIN	fastio.h	/^#define PG6_PIN	/;"	d
+PG6_PWM	fastio.h	/^#define PG6_PWM	/;"	d
+PG6_RPORT	fastio.h	/^#define PG6_RPORT	/;"	d
+PG6_WPORT	fastio.h	/^#define PG6_WPORT	/;"	d
+PG7	fastio.h	/^#undef PG7$/;"	d
+PG7_DDR	fastio.h	/^#define PG7_DDR	/;"	d
+PG7_PIN	fastio.h	/^#define PG7_PIN	/;"	d
+PG7_PWM	fastio.h	/^#define PG7_PWM	/;"	d
+PG7_RPORT	fastio.h	/^#define PG7_RPORT	/;"	d
+PG7_WPORT	fastio.h	/^#define PG7_WPORT	/;"	d
+PGM_RD_W	temperature.cpp	/^#define PGM_RD_W(/;"	d	file:
+PH0	fastio.h	/^#undef PH0$/;"	d
+PH0_DDR	fastio.h	/^#define PH0_DDR	/;"	d
+PH0_PIN	fastio.h	/^#define PH0_PIN	/;"	d
+PH0_PWM	fastio.h	/^#define PH0_PWM	/;"	d
+PH0_RPORT	fastio.h	/^#define PH0_RPORT	/;"	d
+PH0_WPORT	fastio.h	/^#define PH0_WPORT	/;"	d
+PH1	fastio.h	/^#undef PH1$/;"	d
+PH1_DDR	fastio.h	/^#define PH1_DDR	/;"	d
+PH1_PIN	fastio.h	/^#define PH1_PIN	/;"	d
+PH1_PWM	fastio.h	/^#define PH1_PWM	/;"	d
+PH1_RPORT	fastio.h	/^#define PH1_RPORT	/;"	d
+PH1_WPORT	fastio.h	/^#define PH1_WPORT	/;"	d
+PH2	fastio.h	/^#undef PH2$/;"	d
+PH2_DDR	fastio.h	/^#define PH2_DDR	/;"	d
+PH2_PIN	fastio.h	/^#define PH2_PIN	/;"	d
+PH2_PWM	fastio.h	/^#define PH2_PWM	/;"	d
+PH2_RPORT	fastio.h	/^#define PH2_RPORT	/;"	d
+PH2_WPORT	fastio.h	/^#define PH2_WPORT	/;"	d
+PH3	fastio.h	/^#undef PH3$/;"	d
+PH3_DDR	fastio.h	/^#define PH3_DDR	/;"	d
+PH3_PIN	fastio.h	/^#define PH3_PIN	/;"	d
+PH3_PWM	fastio.h	/^#define PH3_PWM	/;"	d
+PH3_RPORT	fastio.h	/^#define PH3_RPORT	/;"	d
+PH3_WPORT	fastio.h	/^#define PH3_WPORT	/;"	d
+PH4	fastio.h	/^#undef PH4$/;"	d
+PH4_DDR	fastio.h	/^#define PH4_DDR	/;"	d
+PH4_PIN	fastio.h	/^#define PH4_PIN	/;"	d
+PH4_PWM	fastio.h	/^#define PH4_PWM	/;"	d
+PH4_RPORT	fastio.h	/^#define PH4_RPORT	/;"	d
+PH4_WPORT	fastio.h	/^#define PH4_WPORT	/;"	d
+PH5	fastio.h	/^#undef PH5$/;"	d
+PH5_DDR	fastio.h	/^#define PH5_DDR	/;"	d
+PH5_PIN	fastio.h	/^#define PH5_PIN	/;"	d
+PH5_PWM	fastio.h	/^#define PH5_PWM	/;"	d
+PH5_RPORT	fastio.h	/^#define PH5_RPORT	/;"	d
+PH5_WPORT	fastio.h	/^#define PH5_WPORT	/;"	d
+PH6	fastio.h	/^#undef PH6$/;"	d
+PH6_DDR	fastio.h	/^#define PH6_DDR	/;"	d
+PH6_PIN	fastio.h	/^#define PH6_PIN	/;"	d
+PH6_PWM	fastio.h	/^#define PH6_PWM	/;"	d
+PH6_RPORT	fastio.h	/^#define PH6_RPORT	/;"	d
+PH6_WPORT	fastio.h	/^#define PH6_WPORT	/;"	d
+PH7	fastio.h	/^#undef PH7$/;"	d
+PH7_DDR	fastio.h	/^#define PH7_DDR	/;"	d
+PH7_PIN	fastio.h	/^#define PH7_PIN	/;"	d
+PH7_PWM	fastio.h	/^#define PH7_PWM	/;"	d
+PH7_RPORT	fastio.h	/^#define PH7_RPORT	/;"	d
+PH7_WPORT	fastio.h	/^#define PH7_WPORT	/;"	d
+PI	wiring.h	/^#define PI /;"	d
+PIDTEMP	Configuration.h	/^#define PIDTEMP$/;"	d
+PID_ADD_EXTRUSION_RATE	Configuration_adv.h	/^  #define PID_ADD_EXTRUSION_RATE /;"	d
+PID_C	menu_tempcontrol.cpp	/^#define PID_C	/;"	d	file:
+PID_D	menu_tempcontrol.cpp	/^#define PID_D	/;"	d	file:
+PID_I	menu_tempcontrol.cpp	/^#define PID_I	/;"	d	file:
+PID_INTEGRAL_DRIVE_MAX	Configuration.h	/^  #define PID_INTEGRAL_DRIVE_MAX /;"	d
+PID_MAX	Configuration.h	/^#define PID_MAX /;"	d
+PID_P	menu_tempcontrol.cpp	/^#define PID_P	/;"	d	file:
+PID_autotune	temperature.cpp	/^void PID_autotune(float temp)$/;"	f
+PID_dT	Configuration.h	/^  #define PID_dT /;"	d
+PINS_H	pins.h	/^#define PINS_H$/;"	d
+PJ0	fastio.h	/^#undef PJ0$/;"	d
+PJ0_DDR	fastio.h	/^#define PJ0_DDR	/;"	d
+PJ0_PIN	fastio.h	/^#define PJ0_PIN	/;"	d
+PJ0_PWM	fastio.h	/^#define PJ0_PWM	/;"	d
+PJ0_RPORT	fastio.h	/^#define PJ0_RPORT	/;"	d
+PJ0_WPORT	fastio.h	/^#define PJ0_WPORT	/;"	d
+PJ1	fastio.h	/^#undef PJ1$/;"	d
+PJ1_DDR	fastio.h	/^#define PJ1_DDR	/;"	d
+PJ1_PIN	fastio.h	/^#define PJ1_PIN	/;"	d
+PJ1_PWM	fastio.h	/^#define PJ1_PWM	/;"	d
+PJ1_RPORT	fastio.h	/^#define PJ1_RPORT	/;"	d
+PJ1_WPORT	fastio.h	/^#define PJ1_WPORT	/;"	d
+PJ2	fastio.h	/^#undef PJ2$/;"	d
+PJ2_DDR	fastio.h	/^#define PJ2_DDR	/;"	d
+PJ2_PIN	fastio.h	/^#define PJ2_PIN	/;"	d
+PJ2_PWM	fastio.h	/^#define PJ2_PWM	/;"	d
+PJ2_RPORT	fastio.h	/^#define PJ2_RPORT	/;"	d
+PJ2_WPORT	fastio.h	/^#define PJ2_WPORT	/;"	d
+PJ3	fastio.h	/^#undef PJ3$/;"	d
+PJ3_DDR	fastio.h	/^#define PJ3_DDR	/;"	d
+PJ3_PIN	fastio.h	/^#define PJ3_PIN	/;"	d
+PJ3_PWM	fastio.h	/^#define PJ3_PWM	/;"	d
+PJ3_RPORT	fastio.h	/^#define PJ3_RPORT	/;"	d
+PJ3_WPORT	fastio.h	/^#define PJ3_WPORT	/;"	d
+PJ4	fastio.h	/^#undef PJ4$/;"	d
+PJ4_DDR	fastio.h	/^#define PJ4_DDR	/;"	d
+PJ4_PIN	fastio.h	/^#define PJ4_PIN	/;"	d
+PJ4_PWM	fastio.h	/^#define PJ4_PWM	/;"	d
+PJ4_RPORT	fastio.h	/^#define PJ4_RPORT	/;"	d
+PJ4_WPORT	fastio.h	/^#define PJ4_WPORT	/;"	d
+PJ5	fastio.h	/^#undef PJ5$/;"	d
+PJ5_DDR	fastio.h	/^#define PJ5_DDR	/;"	d
+PJ5_PIN	fastio.h	/^#define PJ5_PIN	/;"	d
+PJ5_PWM	fastio.h	/^#define PJ5_PWM	/;"	d
+PJ5_RPORT	fastio.h	/^#define PJ5_RPORT	/;"	d
+PJ5_WPORT	fastio.h	/^#define PJ5_WPORT	/;"	d
+PJ6	fastio.h	/^#undef PJ6$/;"	d
+PJ6_DDR	fastio.h	/^#define PJ6_DDR	/;"	d
+PJ6_PIN	fastio.h	/^#define PJ6_PIN	/;"	d
+PJ6_PWM	fastio.h	/^#define PJ6_PWM	/;"	d
+PJ6_RPORT	fastio.h	/^#define PJ6_RPORT	/;"	d
+PJ6_WPORT	fastio.h	/^#define PJ6_WPORT	/;"	d
+PJ7	fastio.h	/^#undef PJ7$/;"	d
+PJ7_DDR	fastio.h	/^#define PJ7_DDR	/;"	d
+PJ7_PIN	fastio.h	/^#define PJ7_PIN	/;"	d
+PJ7_PWM	fastio.h	/^#define PJ7_PWM	/;"	d
+PJ7_RPORT	fastio.h	/^#define PJ7_RPORT	/;"	d
+PJ7_WPORT	fastio.h	/^#define PJ7_WPORT	/;"	d
+PK0	fastio.h	/^#undef PK0$/;"	d
+PK0_DDR	fastio.h	/^#define PK0_DDR	/;"	d
+PK0_PIN	fastio.h	/^#define PK0_PIN	/;"	d
+PK0_PWM	fastio.h	/^#define PK0_PWM	/;"	d
+PK0_RPORT	fastio.h	/^#define PK0_RPORT	/;"	d
+PK0_WPORT	fastio.h	/^#define PK0_WPORT	/;"	d
+PK1	fastio.h	/^#undef PK1$/;"	d
+PK1_DDR	fastio.h	/^#define PK1_DDR	/;"	d
+PK1_PIN	fastio.h	/^#define PK1_PIN	/;"	d
+PK1_PWM	fastio.h	/^#define PK1_PWM	/;"	d
+PK1_RPORT	fastio.h	/^#define PK1_RPORT	/;"	d
+PK1_WPORT	fastio.h	/^#define PK1_WPORT	/;"	d
+PK2	fastio.h	/^#undef PK2$/;"	d
+PK2_DDR	fastio.h	/^#define PK2_DDR	/;"	d
+PK2_PIN	fastio.h	/^#define PK2_PIN	/;"	d
+PK2_PWM	fastio.h	/^#define PK2_PWM	/;"	d
+PK2_RPORT	fastio.h	/^#define PK2_RPORT	/;"	d
+PK2_WPORT	fastio.h	/^#define PK2_WPORT	/;"	d
+PK3	fastio.h	/^#undef PK3$/;"	d
+PK3_DDR	fastio.h	/^#define PK3_DDR	/;"	d
+PK3_PIN	fastio.h	/^#define PK3_PIN	/;"	d
+PK3_PWM	fastio.h	/^#define PK3_PWM	/;"	d
+PK3_RPORT	fastio.h	/^#define PK3_RPORT	/;"	d
+PK3_WPORT	fastio.h	/^#define PK3_WPORT	/;"	d
+PK4	fastio.h	/^#undef PK4$/;"	d
+PK4_DDR	fastio.h	/^#define PK4_DDR	/;"	d
+PK4_PIN	fastio.h	/^#define PK4_PIN	/;"	d
+PK4_PWM	fastio.h	/^#define PK4_PWM	/;"	d
+PK4_RPORT	fastio.h	/^#define PK4_RPORT	/;"	d
+PK4_WPORT	fastio.h	/^#define PK4_WPORT	/;"	d
+PK5	fastio.h	/^#undef PK5$/;"	d
+PK5_DDR	fastio.h	/^#define PK5_DDR	/;"	d
+PK5_PIN	fastio.h	/^#define PK5_PIN	/;"	d
+PK5_PWM	fastio.h	/^#define PK5_PWM	/;"	d
+PK5_RPORT	fastio.h	/^#define PK5_RPORT	/;"	d
+PK5_WPORT	fastio.h	/^#define PK5_WPORT	/;"	d
+PK6	fastio.h	/^#undef PK6$/;"	d
+PK6_DDR	fastio.h	/^#define PK6_DDR	/;"	d
+PK6_PIN	fastio.h	/^#define PK6_PIN	/;"	d
+PK6_PWM	fastio.h	/^#define PK6_PWM	/;"	d
+PK6_RPORT	fastio.h	/^#define PK6_RPORT	/;"	d
+PK6_WPORT	fastio.h	/^#define PK6_WPORT	/;"	d
+PK7	fastio.h	/^#undef PK7$/;"	d
+PK7_DDR	fastio.h	/^#define PK7_DDR	/;"	d
+PK7_PIN	fastio.h	/^#define PK7_PIN	/;"	d
+PK7_PWM	fastio.h	/^#define PK7_PWM	/;"	d
+PK7_RPORT	fastio.h	/^#define PK7_RPORT	/;"	d
+PK7_WPORT	fastio.h	/^#define PK7_WPORT	/;"	d
+PL0	fastio.h	/^#undef PL0$/;"	d
+PL0_DDR	fastio.h	/^#define PL0_DDR	/;"	d
+PL0_PIN	fastio.h	/^#define PL0_PIN	/;"	d
+PL0_PWM	fastio.h	/^#define PL0_PWM	/;"	d
+PL0_RPORT	fastio.h	/^#define PL0_RPORT	/;"	d
+PL0_WPORT	fastio.h	/^#define PL0_WPORT	/;"	d
+PL1	fastio.h	/^#undef PL1$/;"	d
+PL1_DDR	fastio.h	/^#define PL1_DDR	/;"	d
+PL1_PIN	fastio.h	/^#define PL1_PIN	/;"	d
+PL1_PWM	fastio.h	/^#define PL1_PWM	/;"	d
+PL1_RPORT	fastio.h	/^#define PL1_RPORT	/;"	d
+PL1_WPORT	fastio.h	/^#define PL1_WPORT	/;"	d
+PL2	fastio.h	/^#undef PL2$/;"	d
+PL2_DDR	fastio.h	/^#define PL2_DDR	/;"	d
+PL2_PIN	fastio.h	/^#define PL2_PIN	/;"	d
+PL2_PWM	fastio.h	/^#define PL2_PWM	/;"	d
+PL2_RPORT	fastio.h	/^#define PL2_RPORT	/;"	d
+PL2_WPORT	fastio.h	/^#define PL2_WPORT	/;"	d
+PL3	fastio.h	/^#undef PL3$/;"	d
+PL3_DDR	fastio.h	/^#define PL3_DDR	/;"	d
+PL3_PIN	fastio.h	/^#define PL3_PIN	/;"	d
+PL3_PWM	fastio.h	/^#define PL3_PWM	/;"	d
+PL3_RPORT	fastio.h	/^#define PL3_RPORT	/;"	d
+PL3_WPORT	fastio.h	/^#define PL3_WPORT	/;"	d
+PL4	fastio.h	/^#undef PL4$/;"	d
+PL4_DDR	fastio.h	/^#define PL4_DDR	/;"	d
+PL4_PIN	fastio.h	/^#define PL4_PIN	/;"	d
+PL4_PWM	fastio.h	/^#define PL4_PWM	/;"	d
+PL4_RPORT	fastio.h	/^#define PL4_RPORT	/;"	d
+PL4_WPORT	fastio.h	/^#define PL4_WPORT	/;"	d
+PL5	fastio.h	/^#undef PL5$/;"	d
+PL5_DDR	fastio.h	/^#define PL5_DDR	/;"	d
+PL5_PIN	fastio.h	/^#define PL5_PIN	/;"	d
+PL5_PWM	fastio.h	/^#define PL5_PWM	/;"	d
+PL5_RPORT	fastio.h	/^#define PL5_RPORT	/;"	d
+PL5_WPORT	fastio.h	/^#define PL5_WPORT	/;"	d
+PL6	fastio.h	/^#undef PL6$/;"	d
+PL6_DDR	fastio.h	/^#define PL6_DDR	/;"	d
+PL6_PIN	fastio.h	/^#define PL6_PIN	/;"	d
+PL6_PWM	fastio.h	/^#define PL6_PWM	/;"	d
+PL6_RPORT	fastio.h	/^#define PL6_RPORT	/;"	d
+PL6_WPORT	fastio.h	/^#define PL6_WPORT	/;"	d
+PL7	fastio.h	/^#undef PL7$/;"	d
+PL7_DDR	fastio.h	/^#define PL7_DDR	/;"	d
+PL7_PIN	fastio.h	/^#define PL7_PIN	/;"	d
+PL7_PWM	fastio.h	/^#define PL7_PWM	/;"	d
+PL7_RPORT	fastio.h	/^#define PL7_RPORT	/;"	d
+PL7_WPORT	fastio.h	/^#define PL7_WPORT	/;"	d
+PLA_FANSPEED	menu_pla.cpp	/^#define PLA_FANSPEED	/;"	d	file:
+PLA_HOTENDTEMP	menu_pla.cpp	/^#define PLA_HOTENDTEMP	/;"	d	file:
+PLA_HPBTEMP	menu_pla.cpp	/^#define PLA_HPBTEMP	/;"	d	file:
+PLA_PREHEAT_FAN_SPEED	Configuration.h	/^  #define PLA_PREHEAT_FAN_SPEED /;"	d
+PLA_PREHEAT_HOTEND_TEMP	Configuration.h	/^  #define PLA_PREHEAT_HOTEND_TEMP /;"	d
+PLA_PREHEAT_HPB_TEMP	Configuration.h	/^  #define PLA_PREHEAT_HPB_TEMP /;"	d
+PREFERENCESFILE	arduino.mk	/^PREFERENCESFILE := $(firstword $(wildcard \\$/;"	m
+PREVENT_DANGEROUS_EXTRUDE	Configuration.h	/^#define PREVENT_DANGEROUS_EXTRUDE$/;"	d
+PREVENT_LENGTHY_EXTRUDE	Configuration.h	/^#define PREVENT_LENGTHY_EXTRUDE$/;"	d
+PROGMEM	Marlin.h	/^#define PROGMEM /;"	d
+PROGMEM	Marlin.h	/^#undef PROGMEM /;"	d
+PROGMEM	Marlin.h	/^const char echomagic[] PROGMEM ="echo:";$/;"	v
+PROGMEM	Marlin.h	/^const char errormagic[] PROGMEM ="Error:";$/;"	v
+PROGMEM	speed_lookuptable.h	/^const uint16_t speed_lookuptable_fast[256][2] PROGMEM = {$/;"	v
+PROGMEM	speed_lookuptable.h	/^const uint16_t speed_lookuptable_fast[256][2] PROGMEM = {\\$/;"	v
+PROGMEM	speed_lookuptable.h	/^const uint16_t speed_lookuptable_slow[256][2] PROGMEM = {$/;"	v
+PROGMEM	speed_lookuptable.h	/^const uint16_t speed_lookuptable_slow[256][2] PROGMEM = {\\$/;"	v
+PROGMEM	thermistortables.h	/^const short temptable_1[][2] PROGMEM = {$/;"	v
+PROGMEM	thermistortables.h	/^const short temptable_2[][2] PROGMEM = {$/;"	v
+PROGMEM	thermistortables.h	/^const short temptable_3[][2] PROGMEM = {$/;"	v
+PROGMEM	thermistortables.h	/^const short temptable_4[][2] PROGMEM = {$/;"	v
+PROGMEM	thermistortables.h	/^const short temptable_51[][2] PROGMEM = {$/;"	v
+PROGMEM	thermistortables.h	/^const short temptable_52[][2] PROGMEM = {$/;"	v
+PROGMEM	thermistortables.h	/^const short temptable_55[][2] PROGMEM = {$/;"	v
+PROGMEM	thermistortables.h	/^const short temptable_5[][2] PROGMEM = {$/;"	v
+PROGMEM	thermistortables.h	/^const short temptable_6[][2] PROGMEM = {$/;"	v
+PROGMEM	thermistortables.h	/^const short temptable_7[][2] PROGMEM = {$/;"	v
+PROTOCOL_VERSION	language.h	/^#define PROTOCOL_VERSION /;"	d
+PSTR	Marlin.h	/^#define PSTR(/;"	d
+PSTR	Marlin.h	/^#undef PSTR /;"	d
+PS_ON_PIN	mb_sanguino.h	/^#define PS_ON_PIN /;"	d
+PS_ON_PIN	pins.h	/^    #define PS_ON_PIN /;"	d
+PS_ON_PIN	pins.h	/^#define PS_ON_PIN /;"	d
+RAD_TO_DEG	wiring.h	/^#define RAD_TO_DEG /;"	d
+READ	fastio.h	/^#define READ(/;"	d
+REV_E_DIR	stepper.h	/^  #define REV_E_DIR(/;"	d
+RISING	wiring.h	/^#define RISING /;"	d
+ROUGH_BYTES_PER_SECOND	cardreader.cpp	/^#define ROUGH_BYTES_PER_SECOND	/;"	d	file:
+RXD	fastio.h	/^#define	RXD	/;"	d
+RXD0	fastio.h	/^#define	RXD0	/;"	d
+RXD1	fastio.h	/^#define	RXD1	/;"	d
+RX_ENABLE_PIN	pins.h	/^    #define RX_ENABLE_PIN	/;"	d
+RX_ENABLE_PIN	pins.h	/^#define RX_ENABLE_PIN /;"	d
+SANGUINOLOLU_V_1_2	pins.h	/^#define SANGUINOLOLU_V_1_2 /;"	d
+SCK	fastio.h	/^#define	SCK	/;"	d
+SCK_PIN	pins.h	/^  #define SCK_PIN /;"	d
+SCL	fastio.h	/^#define	SCL	/;"	d
+SDA	fastio.h	/^#define	SDA	/;"	d
+SDCARDDETECT	mb_sanguino.h	/^#define SDCARDDETECT /;"	d
+SDCARDDETECT	pins.h	/^	#define SDCARDDETECT /;"	d
+SDCARDDETECT	pins.h	/^    #define SDCARDDETECT /;"	d
+SDCARDDETECT	pins.h	/^#define SDCARDDETECT /;"	d
+SDCARDDETECTINVERTED	Configuration_adv.h	/^ #undef SDCARDDETECTINVERTED$/;"	d
+SDCARDDETECTINVERTED	Configuration_adv.h	/^#define SDCARDDETECTINVERTED /;"	d
+SDPOWER	mb_sanguino.h	/^#define SDPOWER /;"	d
+SDPOWER	pins.h	/^    #define SDPOWER /;"	d
+SDPOWER	pins.h	/^#define SDPOWER /;"	d
+SDSS	mb_sanguino.h	/^#define SDSS /;"	d
+SDSS	pins.h	/^    #define SDSS /;"	d
+SDSS	pins.h	/^#define SDSS /;"	d
+SDSUPPORT	Configuration.h	/^  #define SDSUPPORT$/;"	d
+SDSUPPORT	Configuration.h	/^#define SDSUPPORT /;"	d
+SD_FINISHED_RELEASECOMMAND	Configuration_adv.h	/^#define SD_FINISHED_RELEASECOMMAND /;"	d
+SD_FINISHED_STEPPERRELEASE	Configuration_adv.h	/^#define SD_FINISHED_STEPPERRELEASE /;"	d
+SENSITIVE_PINS	pins.h	/^#define SENSITIVE_PINS /;"	d
+SERIAL	wiring.h	/^#define SERIAL /;"	d
+SERIALDEV	arduino.mk	/^SERIALDEV := $(firstword $(wildcard \\$/;"	m
+SERIALDEVGUESS	arduino.mk	/^SERIALDEVGUESS := 0$/;"	m
+SERIALDEVGUESS	arduino.mk	/^SERIALDEVGUESS := 1$/;"	m
+SERIAL_ECHO	Marlin.h	/^#define SERIAL_ECHO(/;"	d
+SERIAL_ECHOLN	Marlin.h	/^#define SERIAL_ECHOLN(/;"	d
+SERIAL_ECHOLNPGM	Marlin.h	/^#define SERIAL_ECHOLNPGM(/;"	d
+SERIAL_ECHOPAIR	Marlin.h	/^#define SERIAL_ECHOPAIR(/;"	d
+SERIAL_ECHOPGM	Marlin.h	/^#define SERIAL_ECHOPGM(/;"	d
+SERIAL_ECHO_START	Marlin.h	/^#define SERIAL_ECHO_START /;"	d
+SERIAL_ERROR	Marlin.h	/^#define SERIAL_ERROR(/;"	d
+SERIAL_ERRORLN	Marlin.h	/^#define SERIAL_ERRORLN(/;"	d
+SERIAL_ERRORLNPGM	Marlin.h	/^#define SERIAL_ERRORLNPGM(/;"	d
+SERIAL_ERRORPGM	Marlin.h	/^#define SERIAL_ERRORPGM(/;"	d
+SERIAL_ERROR_START	Marlin.h	/^#define SERIAL_ERROR_START /;"	d
+SERIAL_PROTOCOL	Marlin.h	/^#define SERIAL_PROTOCOL(/;"	d
+SERIAL_PROTOCOLLN	Marlin.h	/^#define SERIAL_PROTOCOLLN(/;"	d
+SERIAL_PROTOCOLLNPGM	Marlin.h	/^#define SERIAL_PROTOCOLLNPGM(/;"	d
+SERIAL_PROTOCOLPGM	Marlin.h	/^#define SERIAL_PROTOCOLPGM(/;"	d
+SERIAL_PROTOCOL_F	Marlin.h	/^#define SERIAL_PROTOCOL_F(/;"	d
+SET_INPUT	fastio.h	/^#define SET_INPUT(/;"	d
+SET_OUTPUT	fastio.h	/^#define SET_OUTPUT(/;"	d
+SHIFT_CLK	pins.h	/^    #define SHIFT_CLK /;"	d
+SHIFT_EN	pins.h	/^    #define SHIFT_EN /;"	d
+SHIFT_LD	pins.h	/^    #define SHIFT_LD /;"	d
+SHIFT_OUT	pins.h	/^    #define SHIFT_OUT /;"	d
+SKETCHBOOKDIR	arduino.mk	/^SKETCHBOOKDIR := $(call readpreferencesparam,sketchbook.path)$/;"	m
+SLOWDOWN	Configuration_adv.h	/^#define SLOWDOWN$/;"	d
+SOURCES	Makefile	/^SOURCES := MarlinHQ.ino ultralcd.cpp EEPROMwrite.cpp cardreader.cpp \\$/;"	m
+SOURCES	arduino.mk	/^SOURCES := $(INOFILE) \\$/;"	m
+SPEED_LOOKUPTABLE_H	speed_lookuptable.h	/^#define SPEED_LOOKUPTABLE_H$/;"	d
+SS	fastio.h	/^#define	SS	/;"	d
+STATUSTIMEOUT	ultralcd.h	/^  #define STATUSTIMEOUT /;"	d
+STEPS_MM_E	Configuration_adv.h	/^  #define STEPS_MM_E /;"	d
+STEPS_PER_CUBIC_MM_E	Configuration_adv.h	/^  #define STEPS_PER_CUBIC_MM_E /;"	d
+STRINGIFY	language.h	/^#define STRINGIFY(/;"	d
+STRINGIFY_	language.h	/^#define STRINGIFY_(/;"	d
+STRING_CONFIG_H_AUTHOR	Configuration.h	/^#define STRING_CONFIG_H_AUTHOR /;"	d
+STRING_VERSION_CONFIG_H	Configuration.h	/^#define STRING_VERSION_CONFIG_H /;"	d
+STTYFARG	arduino.mk	/^STTYFARG := $(shell stty --help 2>&1 | \\$/;"	m
+SUICIDE_PIN	pins.h	/^    #define SUICIDE_PIN /;"	d
+SUICIDE_PIN	pins.h	/^#define SUICIDE_PIN /;"	d
+SerialprintPGM	Marlin.h	/^#define SerialprintPGM(/;"	d
+Sub_MotionControl	ultralcd.h	/^  enum MainStatus{Main_Status, Main_Menu, Main_Prepare,Sub_PrepareMove, Main_Control, Main_SD,Sub_TempControl,Sub_MotionControl,Sub_RetractControl, Sub_PreheatPLASettings, Sub_PreheatABSSettings};$/;"	e	enum:MainStatus
+Sub_PreheatABSSettings	ultralcd.h	/^  enum MainStatus{Main_Status, Main_Menu, Main_Prepare,Sub_PrepareMove, Main_Control, Main_SD,Sub_TempControl,Sub_MotionControl,Sub_RetractControl, Sub_PreheatPLASettings, Sub_PreheatABSSettings};$/;"	e	enum:MainStatus
+Sub_PreheatPLASettings	ultralcd.h	/^  enum MainStatus{Main_Status, Main_Menu, Main_Prepare,Sub_PrepareMove, Main_Control, Main_SD,Sub_TempControl,Sub_MotionControl,Sub_RetractControl, Sub_PreheatPLASettings, Sub_PreheatABSSettings};$/;"	e	enum:MainStatus
+Sub_PrepareMove	ultralcd.h	/^  enum MainStatus{Main_Status, Main_Menu, Main_Prepare,Sub_PrepareMove, Main_Control, Main_SD,Sub_TempControl,Sub_MotionControl,Sub_RetractControl, Sub_PreheatPLASettings, Sub_PreheatABSSettings};$/;"	e	enum:MainStatus
+Sub_RetractControl	ultralcd.h	/^  enum MainStatus{Main_Status, Main_Menu, Main_Prepare,Sub_PrepareMove, Main_Control, Main_SD,Sub_TempControl,Sub_MotionControl,Sub_RetractControl, Sub_PreheatPLASettings, Sub_PreheatABSSettings};$/;"	e	enum:MainStatus
+Sub_TempControl	ultralcd.h	/^  enum MainStatus{Main_Status, Main_Menu, Main_Prepare,Sub_PrepareMove, Main_Control, Main_SD,Sub_TempControl,Sub_MotionControl,Sub_RetractControl, Sub_PreheatPLASettings, Sub_PreheatABSSettings};$/;"	e	enum:MainStatus
+TARGET	arduino.mk	/^TARGET := $(basename $(INOFILE))$/;"	m
+TARGET	arduino.mk	/^TARGET := $(if $(TARGET),$(TARGET),a.out)$/;"	m
+TEMP_0_PIN	mb_sanguino.h	/^#define TEMP_0_PIN /;"	d
+TEMP_0_PIN	pins.h	/^    #define TEMP_0_PIN /;"	d
+TEMP_0_PIN	pins.h	/^#define TEMP_0_PIN /;"	d
+TEMP_1_PIN	mb_sanguino.h	/^#define TEMP_1_PIN /;"	d
+TEMP_1_PIN	pins.h	/^    #define TEMP_1_PIN /;"	d
+TEMP_1_PIN	pins.h	/^#define TEMP_1_PIN /;"	d
+TEMP_2_PIN	mb_sanguino.h	/^#define TEMP_2_PIN /;"	d
+TEMP_2_PIN	pins.h	/^    #define TEMP_2_PIN /;"	d
+TEMP_2_PIN	pins.h	/^#define TEMP_2_PIN /;"	d
+TEMP_BED_PIN	mb_sanguino.h	/^#define TEMP_BED_PIN /;"	d
+TEMP_BED_PIN	pins.h	/^    #define TEMP_BED_PIN /;"	d
+TEMP_BED_PIN	pins.h	/^#define TEMP_BED_PIN /;"	d
+TEMP_HYSTERESIS	Configuration.h	/^#define TEMP_HYSTERESIS /;"	d
+TEMP_RESIDENCY_TIME	Configuration.h	/^#define TEMP_RESIDENCY_TIME /;"	d
+TEMP_SENSOR_0	Configuration.h	/^#define TEMP_SENSOR_0 /;"	d
+TEMP_SENSOR_1	Configuration.h	/^#define TEMP_SENSOR_1 /;"	d
+TEMP_SENSOR_2	Configuration.h	/^#define TEMP_SENSOR_2 /;"	d
+TEMP_SENSOR_AD595_GAIN	Configuration_adv.h	/^#define TEMP_SENSOR_AD595_GAIN /;"	d
+TEMP_SENSOR_AD595_OFFSET	Configuration_adv.h	/^#define TEMP_SENSOR_AD595_OFFSET /;"	d
+TEMP_SENSOR_BED	Configuration.h	/^#define TEMP_SENSOR_BED /;"	d
+TEMP_WINDOW	Configuration.h	/^#define TEMP_WINDOW /;"	d
+THERMISTORBED	Configuration_adv.h	/^  #define THERMISTORBED /;"	d
+THERMISTORHEATER_0	Configuration_adv.h	/^  #define THERMISTORHEATER_0 /;"	d
+THERMISTORHEATER_1	Configuration_adv.h	/^  #define THERMISTORHEATER_1 /;"	d
+THERMISTORHEATER_2	Configuration_adv.h	/^  #define THERMISTORHEATER_2 /;"	d
+THERMISTORTABLES_H_	thermistortables.h	/^#define THERMISTORTABLES_H_$/;"	d
+TOGGLE	fastio.h	/^#define TOGGLE(/;"	d
+TT_NAME	thermistortables.h	/^#define TT_NAME(/;"	d
+TUNE_SPEED	menu_pla.cpp	/^#define TUNE_SPEED /;"	d	file:
+TUNE_SPEED	menu_tune.cpp	/^#define TUNE_SPEED /;"	d	file:
+TWO_PI	wiring.h	/^#define TWO_PI /;"	d
+TXD	fastio.h	/^#define	TXD	/;"	d
+TXD0	fastio.h	/^#define	TXD0	/;"	d
+TXD1	fastio.h	/^#define	TXD1	/;"	d
+TX_ENABLE_PIN	pins.h	/^    #define TX_ENABLE_PIN	/;"	d
+TX_ENABLE_PIN	pins.h	/^#define TX_ENABLE_PIN /;"	d
+Thermistor	createTemperatureLookup.py	/^class Thermistor:$/;"	c
+ULTIPANEL	Configuration.h	/^ #define ULTIPANEL$/;"	d
+ULTIPANEL	Configuration.h	/^#define ULTIPANEL /;"	d
+ULTRALCD_H	ultralcd.h	/^#define ULTRALCD_H$/;"	d
+ULTRA_LCD	Configuration.h	/^  #define ULTRA_LCD$/;"	d
+ULTRA_LCD	Configuration.h	/^#define ULTRA_LCD /;"	d
+UNUSED_PWM	pins.h	/^#define UNUSED_PWM /;"	d
+USE_HW_SERIAL	Marlin.h	/^#define USE_HW_SERIAL$/;"	d
+WATCHDOG_H	watchdog.h	/^#define WATCHDOG_H$/;"	d
+WELCOME_MSG	language.h	/^	#define WELCOME_MSG /;"	d
+WELCOME_MSG	language.h	/^#define WELCOME_MSG /;"	d
+WRITE	fastio.h	/^#define WRITE(/;"	d
+WRITE_E_STEP	stepper.h	/^  #define WRITE_E_STEP(/;"	d
+Wiring_h	wiring.h	/^#define Wiring_h$/;"	d
+X_AXIS	Marlin.h	/^enum AxisEnum {X_AXIS=0, Y_AXIS=1, Z_AXIS=2, E_AXIS=3};$/;"	e	enum:AxisEnum
+X_DIR_PIN	mb_sanguino.h	/^#define X_DIR_PIN /;"	d
+X_DIR_PIN	pins.h	/^    #define X_DIR_PIN /;"	d
+X_DIR_PIN	pins.h	/^#define X_DIR_PIN /;"	d
+X_ENABLE_ON	Configuration.h	/^#define X_ENABLE_ON /;"	d
+X_ENABLE_PIN	mb_sanguino.h	/^#define X_ENABLE_PIN /;"	d
+X_ENABLE_PIN	pins.h	/^    #define X_ENABLE_PIN /;"	d
+X_ENABLE_PIN	pins.h	/^#define X_ENABLE_PIN /;"	d
+X_ENDSTOPS_INVERTING	Configuration.h	/^const bool X_ENDSTOPS_INVERTING = true; \/\/ set to true to invert the logic of the endstops. $/;"	v
+X_HOME_DIR	Configuration.h	/^#define X_HOME_DIR /;"	d
+X_HOME_POS	Configuration.h	/^#define X_HOME_POS /;"	d
+X_HOME_RETRACT_MM	Configuration_adv.h	/^#define X_HOME_RETRACT_MM /;"	d
+X_MAX_LENGTH	Configuration.h	/^#define X_MAX_LENGTH /;"	d
+X_MAX_PIN	mb_sanguino.h	/^# define X_MAX_PIN /;"	d
+X_MAX_PIN	pins.h	/^    #define X_MAX_PIN /;"	d
+X_MAX_PIN	pins.h	/^#define X_MAX_PIN /;"	d
+X_MAX_POS	Configuration.h	/^#define X_MAX_POS /;"	d
+X_MIN_PIN	mb_sanguino.h	/^# define X_MIN_PIN /;"	d
+X_MIN_PIN	pins.h	/^    #define X_MIN_PIN /;"	d
+X_MIN_PIN	pins.h	/^#define X_MIN_PIN /;"	d
+X_MIN_POS	Configuration.h	/^#define X_MIN_POS /;"	d
+X_STEP_PIN	mb_sanguino.h	/^#define X_STEP_PIN /;"	d
+X_STEP_PIN	pins.h	/^    #define X_STEP_PIN /;"	d
+X_STEP_PIN	pins.h	/^#define X_STEP_PIN /;"	d
+Y_AXIS	Marlin.h	/^enum AxisEnum {X_AXIS=0, Y_AXIS=1, Z_AXIS=2, E_AXIS=3};$/;"	e	enum:AxisEnum
+Y_DIR_PIN	mb_sanguino.h	/^#define Y_DIR_PIN /;"	d
+Y_DIR_PIN	pins.h	/^    #define Y_DIR_PIN /;"	d
+Y_DIR_PIN	pins.h	/^#define Y_DIR_PIN /;"	d
+Y_ENABLE_ON	Configuration.h	/^#define Y_ENABLE_ON /;"	d
+Y_ENABLE_PIN	mb_sanguino.h	/^#define Y_ENABLE_PIN /;"	d
+Y_ENABLE_PIN	pins.h	/^    #define Y_ENABLE_PIN /;"	d
+Y_ENABLE_PIN	pins.h	/^#define Y_ENABLE_PIN /;"	d
+Y_ENDSTOPS_INVERTING	Configuration.h	/^const bool Y_ENDSTOPS_INVERTING = true; \/\/ set to true to invert the logic of the endstops. $/;"	v
+Y_HOME_DIR	Configuration.h	/^#define Y_HOME_DIR /;"	d
+Y_HOME_POS	Configuration.h	/^#define Y_HOME_POS /;"	d
+Y_HOME_RETRACT_MM	Configuration_adv.h	/^#define Y_HOME_RETRACT_MM /;"	d
+Y_MAX_LENGTH	Configuration.h	/^#define Y_MAX_LENGTH /;"	d
+Y_MAX_PIN	mb_sanguino.h	/^# define Y_MAX_PIN /;"	d
+Y_MAX_PIN	pins.h	/^    #define Y_MAX_PIN /;"	d
+Y_MAX_PIN	pins.h	/^#define Y_MAX_PIN /;"	d
+Y_MAX_POS	Configuration.h	/^#define Y_MAX_POS /;"	d
+Y_MIN_PIN	mb_sanguino.h	/^# define Y_MIN_PIN /;"	d
+Y_MIN_PIN	pins.h	/^    #define Y_MIN_PIN /;"	d
+Y_MIN_PIN	pins.h	/^#define Y_MIN_PIN /;"	d
+Y_MIN_POS	Configuration.h	/^#define Y_MIN_POS /;"	d
+Y_STEP_PIN	mb_sanguino.h	/^#define Y_STEP_PIN /;"	d
+Y_STEP_PIN	pins.h	/^    #define Y_STEP_PIN /;"	d
+Y_STEP_PIN	pins.h	/^#define Y_STEP_PIN /;"	d
+Z2_DIR_PIN	pins.h	/^#define Z2_DIR_PIN /;"	d
+Z2_ENABLE_PIN	pins.h	/^#define Z2_ENABLE_PIN /;"	d
+Z2_STEP_PIN	pins.h	/^#define Z2_STEP_PIN /;"	d
+Z_AXIS	Marlin.h	/^enum AxisEnum {X_AXIS=0, Y_AXIS=1, Z_AXIS=2, E_AXIS=3};$/;"	e	enum:AxisEnum
+Z_DIR_PIN	mb_sanguino.h	/^#define Z_DIR_PIN /;"	d
+Z_DIR_PIN	pins.h	/^    #define Z_DIR_PIN /;"	d
+Z_DIR_PIN	pins.h	/^#define Z_DIR_PIN /;"	d
+Z_ENABLE_ON	Configuration.h	/^#define Z_ENABLE_ON /;"	d
+Z_ENABLE_PIN	mb_sanguino.h	/^#define Z_ENABLE_PIN /;"	d
+Z_ENABLE_PIN	pins.h	/^    #define Z_ENABLE_PIN /;"	d
+Z_ENABLE_PIN	pins.h	/^#define Z_ENABLE_PIN /;"	d
+Z_ENDSTOPS_INVERTING	Configuration.h	/^const bool Z_ENDSTOPS_INVERTING = true; \/\/ set to true to invert the logic of the endstops. $/;"	v
+Z_HOME_DIR	Configuration.h	/^#define Z_HOME_DIR /;"	d
+Z_HOME_POS	Configuration.h	/^#define Z_HOME_POS /;"	d
+Z_HOME_RETRACT_MM	Configuration_adv.h	/^#define Z_HOME_RETRACT_MM /;"	d
+Z_MAX_LENGTH	Configuration.h	/^#define Z_MAX_LENGTH /;"	d
+Z_MAX_PIN	mb_sanguino.h	/^# define Z_MAX_PIN /;"	d
+Z_MAX_PIN	pins.h	/^    #define Z_MAX_PIN /;"	d
+Z_MAX_PIN	pins.h	/^#define Z_MAX_PIN /;"	d
+Z_MAX_POS	Configuration.h	/^#define Z_MAX_POS /;"	d
+Z_MIN_PIN	mb_sanguino.h	/^# define Z_MIN_PIN /;"	d
+Z_MIN_PIN	pins.h	/^    #define Z_MIN_PIN /;"	d
+Z_MIN_PIN	pins.h	/^#define Z_MIN_PIN /;"	d
+Z_MIN_POS	Configuration.h	/^#define Z_MIN_POS /;"	d
+Z_STEP_PIN	mb_sanguino.h	/^#define Z_STEP_PIN /;"	d
+Z_STEP_PIN	pins.h	/^    #define Z_STEP_PIN /;"	d
+Z_STEP_PIN	pins.h	/^#define Z_STEP_PIN /;"	d
+_ARDUINO_H	fastio.h	/^#define	_ARDUINO_H$/;"	d
+_E0_PINS	pins.h	/^#define _E0_PINS /;"	d
+_E1_PINS	pins.h	/^  #define _E1_PINS /;"	d
+_E1_PINS	pins.h	/^  #define _E1_PINS$/;"	d
+_E2_PINS	pins.h	/^  #define _E2_PINS /;"	d
+_E2_PINS	pins.h	/^  #define _E2_PINS$/;"	d
+_GET_INPUT	fastio.h	/^#define	_GET_INPUT(/;"	d
+_GET_OUTPUT	fastio.h	/^#define	_GET_OUTPUT(/;"	d
+_GET_TIMER	fastio.h	/^#define	_GET_TIMER(/;"	d
+_MB_SANGUINO_H_	mb_sanguino.h	/^#define _MB_SANGUINO_H_$/;"	d
+_READ	fastio.h	/^#define _READ(/;"	d
+_SET_INPUT	fastio.h	/^#define	_SET_INPUT(/;"	d
+_SET_OUTPUT	fastio.h	/^#define	_SET_OUTPUT(/;"	d
+_TOGGLE	fastio.h	/^#define _TOGGLE(/;"	d
+_TT_NAME	thermistortables.h	/^#define _TT_NAME(/;"	d
+_WRITE	fastio.h	/^#define _WRITE(/;"	d
+_WRITE_C	fastio.h	/^#define _WRITE_C(/;"	d
+_WRITE_NC	fastio.h	/^#define _WRITE_NC(/;"	d
+__FD	pins.h	/^#define __FD	/;"	d
+__FS	pins.h	/^#define __FS	/;"	d
+__GD	pins.h	/^#define __GD	/;"	d
+__GS	pins.h	/^#define __GS	/;"	d
+__author__	create_speed_lookuptable.py	/^__author__ = "Ben Gamari <bgamari@gmail.com>"$/;"	v
+__copyright__	create_speed_lookuptable.py	/^__copyright__ = "Copyright 2012, Ben Gamari"$/;"	v
+__init__	createTemperatureLookup.py	/^    def __init__(self, r0, t0, beta, r1, r2):$/;"	m	class:Thermistor
+__license__	create_speed_lookuptable.py	/^__license__ = "GPL"$/;"	v
+a	create_speed_lookuptable.py	/^a = [ timer_freq \/ ((i*256)+(args.cpu_freq*2)) for i in range(256) ]$/;"	v
+a	create_speed_lookuptable.py	/^a = [ timer_freq \/ ((i*8)+(args.cpu_freq*2)) for i in range(256) ]$/;"	v
+abs	wiring.h	/^#define abs(/;"	d
+abs	wiring.h	/^#undef abs$/;"	d
+absPreheatFanSpeed	EEPROMwrite.cpp	/^int absPreheatFanSpeed;$/;"	v
+absPreheatHPBTemp	EEPROMwrite.cpp	/^int absPreheatHPBTemp;$/;"	v
+absPreheatHotendTemp	EEPROMwrite.cpp	/^int absPreheatHotendTemp;$/;"	v
+acc_step_rate	stepper.cpp	/^static unsigned short acc_step_rate; \/\/ needed for deccelaration start point$/;"	v	file:
+accelerate_until	planner.h	/^  long accelerate_until;                    \/\/ The index of the step event on which to stop acceleration$/;"	m	struct:__anon4
+acceleration	planner.cpp	/^float acceleration;         \/\/ Normal acceleration mm\/s^2  THIS IS THE DEFAULT ACCELERATION for all moves. M204 SXXXX$/;"	v
+acceleration	planner.h	/^  float acceleration;                                \/\/ acceleration mm\/sec^2$/;"	m	struct:__anon4
+acceleration_rate	planner.h	/^  long acceleration_rate;                   \/\/ The acceleration rate used for acceleration calculation$/;"	m	struct:__anon4
+acceleration_st	planner.h	/^  unsigned long acceleration_st;                     \/\/ acceleration steps\/sec^2$/;"	m	struct:__anon4
+acceleration_time	stepper.cpp	/^static long acceleration_time, deceleration_time;$/;"	v	file:
+active_extruder	planner.h	/^  unsigned char active_extruder;            \/\/ Selects the active extruder$/;"	m	struct:__anon4
+activeline	ultralcd.h	/^    int8_t activeline;$/;"	m	class:MainMenu
+adjust	menu.h	/^    adjust_t adjust;$/;"	m	struct:__anon1
+adjust_t	menu.h	/^typedef void (*adjust_t)(uint8_t line, volatile long &pos, uint8_t arg);$/;"	t
+advance	planner.h	/^    float advance;$/;"	m	struct:__anon4
+advance	stepper.cpp	/^static long advance_rate, advance, final_advance = 0;$/;"	v	file:
+advance_rate	planner.h	/^    long advance_rate;$/;"	m	struct:__anon4
+advance_rate	stepper.cpp	/^static long advance_rate, advance, final_advance = 0;$/;"	v	file:
+allow_cold_extrude	planner.cpp	/^bool allow_cold_extrude=false;$/;"	v
+allow_cold_extrudes	planner.cpp	/^void allow_cold_extrudes(bool allow)$/;"	f
+analog2temp	temperature.cpp	/^float analog2temp(int raw, uint8_t e) {$/;"	f
+analog2tempBed	temperature.cpp	/^float analog2tempBed(int raw) {$/;"	f
+arg	menu.h	/^    uint8_t arg;$/;"	m	struct:__anon1
+argparse	create_speed_lookuptable.py	/^import argparse$/;"	i
+args	create_speed_lookuptable.py	/^args = parser.parse_args()$/;"	v
+autostart_atmillis	cardreader.h	/^    unsigned long autostart_atmillis;$/;"	m	class:CardReader
+autostart_stilltocheck	cardreader.h	/^    bool autostart_stilltocheck; \/\/the sd start is delayed, because otherwise the serial cannot answer fast enought to make contact with the hostsoftware.$/;"	m	class:CardReader
+autotempShutdown	temperature.h	/^FORCE_INLINE void autotempShutdown(){$/;"	f
+autotemp_enabled	planner.cpp	/^bool autotemp_enabled=false;$/;"	v
+autotemp_factor	planner.cpp	/^float autotemp_factor=0.1;$/;"	v
+autotemp_max	planner.cpp	/^float autotemp_max=250;$/;"	v
+autotemp_min	planner.cpp	/^float autotemp_min=210;$/;"	v
+axis_steps_per_sqr_second	planner.cpp	/^unsigned long axis_steps_per_sqr_second[NUM_AXIS];$/;"	v
+axis_steps_per_unit	planner.cpp	/^float axis_steps_per_unit[4];$/;"	v
+b	create_speed_lookuptable.py	/^b = [ a[i] - a[i+1] for i in range(255) ]$/;"	v
+bed_max_temp_error	temperature.cpp	/^void bed_max_temp_error(void) {$/;"	f
+bed_maxttemp	temperature.cpp	/^  static int bed_maxttemp = 16383;$/;"	v	file:
+bed_minttemp	temperature.cpp	/^  static int bed_minttemp = 0;$/;"	v	file:
+bedtemptable	thermistortables.h	/^  #define bedtemptable /;"	d
+bedtemptable_len	thermistortables.h	/^  #define bedtemptable_len /;"	d
+beep	ultralcd.cpp	/^void beep()$/;"	f
+beepshort	ultralcd.cpp	/^void beepshort()$/;"	f
+bit	wiring.h	/^#define bit(/;"	d
+bitClear	wiring.h	/^#define bitClear(/;"	d
+bitRead	wiring.h	/^#define bitRead(/;"	d
+bitSet	wiring.h	/^#define bitSet(/;"	d
+bitWrite	wiring.h	/^#define bitWrite(/;"	d
+block_buffer	planner.cpp	/^block_t block_buffer[BLOCK_BUFFER_SIZE];            \/\/ A ring buffer for motion instfructions$/;"	v
+block_buffer_head	planner.cpp	/^volatile unsigned char block_buffer_head;           \/\/ Index of the next block to be pushed$/;"	v
+block_buffer_tail	planner.cpp	/^volatile unsigned char block_buffer_tail;           \/\/ Index of the block to process now$/;"	v
+block_t	planner.h	/^} block_t;$/;"	t	typeref:struct:__anon4
+blocking	ultralcd.cpp	/^long blocking[8]={0,0,0,0,0,0,0,0};$/;"	v
+blocking	ultralcd.cpp	/^uint32_t blocking=0;$/;"	v
+blocks_queued	planner.h	/^FORCE_INLINE bool blocks_queued() $/;"	f
+blocktime	ultralcd.h	/^  #define blocktime /;"	d
+boolean	wiring.h	/^typedef uint8_t boolean;$/;"	t
+busy	planner.h	/^  volatile char busy;$/;"	m	struct:__anon4
+buttons	ultralcd.cpp	/^volatile char buttons=0;  \/\/the last checked buttons in a bit array.$/;"	v
+buttons_check	ultralcd.cpp	/^void buttons_check()$/;"	f
+buttons_init	ultralcd.cpp	/^void buttons_init()$/;"	f
+byte	wiring.h	/^typedef uint8_t byte;$/;"	t
+calc_timer	stepper.cpp	/^FORCE_INLINE unsigned short calc_timer(unsigned short step_rate) {$/;"	f
+calculate_trapezoid_for_block	planner.cpp	/^void calculate_trapezoid_for_block(block_t *block, float entry_factor, float exit_factor) {$/;"	f
+card	cardreader.h	/^    Sd2Card card;$/;"	m	class:CardReader
+cardOK	cardreader.h	/^    bool cardOK ;$/;"	m	class:CardReader
+cbi	Marlin.h	/^#define cbi(/;"	d
+changeMenu	ultralcd.cpp	/^void MainMenu::changeMenu(MainStatus newMenu)$/;"	f	class:MainMenu
+chdir	cardreader.cpp	/^bool CardReader::chdir(uint16_t *path, uint8_t depth)$/;"	f	class:CardReader
+checkHitEndstops	stepper.cpp	/^void checkHitEndstops()$/;"	f
+check_axes_activity	planner.cpp	/^void check_axes_activity() {$/;"	f
+check_endstops	stepper.cpp	/^static bool check_endstops = true;$/;"	v	file:
+checkautostart	cardreader.cpp	/^void CardReader::checkautostart(bool force)$/;"	f	class:CardReader
+clear	ultralcd.cpp	/^FORCE_INLINE void clear()$/;"	f
+clearIfNecessary	ultralcd.cpp	/^void MainMenu::clearIfNecessary()$/;"	f	class:MainMenu
+click	menu.h	/^    click_t click;$/;"	m	struct:__anon1
+click_t	menu.h	/^typedef void (*click_t)(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t arg);$/;"	t
+clockCyclesPerMicrosecond	wiring.h	/^#define clockCyclesPerMicrosecond(/;"	d
+clockCyclesToMicroseconds	wiring.h	/^#define clockCyclesToMicroseconds(/;"	d
+closefile	cardreader.cpp	/^void CardReader::closefile()$/;"	f	class:CardReader
+constrain	wiring.h	/^#define constrain(/;"	d
+conv	ultralcd.cpp	/^static char conv[8];$/;"	v	file:
+countFiles	cardreader.cpp	/^uint16_t CardReader::countFiles(SdFile &parent)$/;"	f	class:CardReader
+count_direction	stepper.cpp	/^volatile char count_direction[NUM_AXIS] = { 1, 1, 1, 1};$/;"	v
+count_position	stepper.cpp	/^volatile long count_position[NUM_AXIS] = { 0, 0, 0, 0};$/;"	v
+counter_e	stepper.cpp	/^            counter_e;$/;"	v	file:
+counter_x	stepper.cpp	/^static long counter_x,       \/\/ Counter variables for the bresenham line tracer$/;"	v	file:
+counter_y	stepper.cpp	/^            counter_y, $/;"	v	file:
+counter_z	stepper.cpp	/^            counter_z,       $/;"	v	file:
+cpu_freq	create_speed_lookuptable.py	/^cpu_freq = args.cpu_freq * 1000000$/;"	v
+createFilename	cardreader.cpp	/^char *createFilename(char *buffer,const dir_t &dir) \/\/buffer>12characters$/;"	f
+ctrlaltdelete	watchdog.cpp	/^void(* ctrlaltdelete) (void) = 0; \/\/does not work on my atmega2560$/;"	v
+curDir	cardreader.h	/^    SdFile root,*curDir,workDir,workDirParent,workDirParentParent;$/;"	m	class:CardReader
+curFilename	cardreader.h	/^    char curFilename[13];$/;"	m	class:CardReader
+currentMenu	ultralcd.h	/^    const menu_t *currentMenu;$/;"	m	class:MainMenu
+currentMenuMax	ultralcd.h	/^    uint8_t currentMenuMax;$/;"	m	class:MainMenu
+current_block	stepper.cpp	/^block_t *current_block;  \/\/ A pointer to the block currently being traced$/;"	v
+current_raw	temperature.cpp	/^int current_raw[EXTRUDERS] = { 0 };$/;"	v
+current_raw_bed	temperature.cpp	/^int current_raw_bed = 0;$/;"	v
+dTerm	temperature.cpp	/^  static float dTerm[EXTRUDERS];$/;"	v	file:
+debEncA	ultralcd.cpp	/^debounce_t debEncA = { 0, 0 };$/;"	v
+debEncB	ultralcd.cpp	/^debounce_t debEncB = { 0, 0 };$/;"	v
+debEncC	ultralcd.cpp	/^debounce_t debEncC = { 0, 0 };$/;"	v
+debounce	ultralcd.cpp	/^uint8_t debounce(uint8_t value, uint16_t period, debounce_t &state)$/;"	f
+debounce_t	ultralcd.cpp	/^} debounce_t;$/;"	t	typeref:struct:__anon5	file:
+decelerate_after	planner.h	/^  long decelerate_after;                    \/\/ The index of the step event on which to start decelerating$/;"	m	struct:__anon4
+deceleration_time	stepper.cpp	/^static long acceleration_time, deceleration_time;$/;"	v	file:
+degBed	temperature.h	/^FORCE_INLINE float degBed() {$/;"	f
+degHotend	temperature.h	/^FORCE_INLINE float degHotend(uint8_t extruder) {  $/;"	f
+degTargetBed	temperature.h	/^FORCE_INLINE float degTargetBed() {   $/;"	f
+degTargetHotend	temperature.h	/^FORCE_INLINE float degTargetHotend(uint8_t extruder) {  $/;"	f
+degrees	wiring.h	/^#define degrees(/;"	d
+direction_bits	planner.h	/^  unsigned char direction_bits;             \/\/ The direction bit set for this block (refers to *_DIRECTION_BIT in config.h)$/;"	m	struct:__anon4
+dirname	menu_sd.cpp	/^static char *dirname = "\/";$/;"	v	file:
+disable_e0	Marlin.h	/^  #define disable_e0(/;"	d
+disable_e1	Marlin.h	/^  #define disable_e1(/;"	d
+disable_e2	Marlin.h	/^  #define disable_e2(/;"	d
+disable_heater	temperature.cpp	/^void disable_heater()$/;"	f
+disable_x	Marlin.h	/^  #define disable_x(/;"	d
+disable_y	Marlin.h	/^  #define disable_y(/;"	d
+disable_z	Marlin.h	/^    #define disable_z(/;"	d
+disable_z	Marlin.h	/^  #define disable_z(/;"	d
+diveDirName	cardreader.h	/^    char* diveDirName;$/;"	m	class:CardReader
+dropsegments	Configuration_adv.h	/^const uint16_t dropsegments=5; \/\/everything with less than this number of steps will be ignored as move and joined with the next movement$/;"	v
+dumpMenuEntry	ultralcd.cpp	/^void dumpMenuEntry(menu_t *menu)$/;"	f
+e_steps	stepper.cpp	/^static long e_steps[3];$/;"	v	file:
+enable_e0	Marlin.h	/^  #define enable_e0(/;"	d
+enable_e1	Marlin.h	/^  #define enable_e1(/;"	d
+enable_e2	Marlin.h	/^  #define enable_e2(/;"	d
+enable_endstops	stepper.cpp	/^void enable_endstops(bool check)$/;"	f
+enable_x	Marlin.h	/^  #define  enable_x(/;"	d
+enable_x	Marlin.h	/^  #define enable_x(/;"	d
+enable_y	Marlin.h	/^  #define  enable_y(/;"	d
+enable_y	Marlin.h	/^  #define enable_y(/;"	d
+enable_z	Marlin.h	/^    #define  enable_z(/;"	d
+enable_z	Marlin.h	/^  #define enable_z(/;"	d
+encState	ultralcd.cpp	/^int8_t encState[4][4] = {$/;"	v
+encoderChange	ultralcd.cpp	/^int8_t encoderChange(uint8_t curEnc)$/;"	f
+encoderClicked	ultralcd.cpp	/^bool encoderClicked()$/;"	f
+encoderInit	ultralcd.cpp	/^void encoderInit()$/;"	f
+encoderpos	ultralcd.cpp	/^volatile long encoderpos=0;$/;"	v
+encrot0	mb_sanguino.h	/^    #define encrot0 /;"	d
+encrot0	pins.h	/^     #define encrot0 /;"	d
+encrot0	pins.h	/^    #define encrot0 /;"	d
+encrot1	mb_sanguino.h	/^    #define encrot1 /;"	d
+encrot1	pins.h	/^     #define encrot1 /;"	d
+encrot1	pins.h	/^    #define encrot1 /;"	d
+encrot2	mb_sanguino.h	/^    #define encrot2 /;"	d
+encrot2	pins.h	/^     #define encrot2 /;"	d
+encrot2	pins.h	/^    #define encrot2 /;"	d
+encrot3	mb_sanguino.h	/^    #define encrot3 /;"	d
+encrot3	pins.h	/^     #define encrot3 /;"	d
+encrot3	pins.h	/^    #define encrot3 /;"	d
+endstop_x_hit	stepper.cpp	/^static volatile bool endstop_x_hit=false;$/;"	v	file:
+endstop_y_hit	stepper.cpp	/^static volatile bool endstop_y_hit=false;$/;"	v	file:
+endstop_z_hit	stepper.cpp	/^static volatile bool endstop_z_hit=false;$/;"	v	file:
+endstops_hit_on_purpose	stepper.cpp	/^void endstops_hit_on_purpose()$/;"	f
+endstops_stepsDone	stepper.cpp	/^volatile long endstops_stepsTotal,endstops_stepsDone;$/;"	v
+endstops_stepsTotal	stepper.cpp	/^volatile long endstops_stepsTotal,endstops_stepsDone;$/;"	v
+endstops_trigsteps	stepper.cpp	/^volatile long endstops_trigsteps[3]={0,0,0};$/;"	v
+entry_speed	planner.h	/^  float entry_speed;                                 \/\/ Entry speed at previous-current junction in mm\/sec$/;"	m	struct:__anon4
+eof	cardreader.h	/^    FORCE_INLINE bool eof() $/;"	f	class:CardReader
+estimate_acceleration_distance	planner.cpp	/^FORCE_INLINE float estimate_acceleration_distance(float initial_rate, float target_rate, float acceleration)$/;"	f
+false	wiring.h	/^#define false /;"	d
+fan_speed	planner.h	/^  unsigned long fan_speed;$/;"	m	struct:__anon4
+file	cardreader.h	/^    SdFile file;$/;"	m	class:CardReader
+filePathDepth	cardreader.h	/^    uint8_t filePathDepth;	\/\/ Directory path depth for current file$/;"	m	class:CardReader
+filePathStack	cardreader.h	/^    uint16_t filePathStack[32];	\/\/ Directory path list for current file$/;"	m	class:CardReader
+filename	cardreader.h	/^    char filename[13];$/;"	m	class:CardReader
+filenameIsDir	cardreader.h	/^    bool filenameIsDir;$/;"	m	class:CardReader
+filesize	cardreader.h	/^    uint32_t filesize;$/;"	m	class:CardReader
+final_advance	planner.h	/^    volatile long final_advance;$/;"	m	struct:__anon4
+final_advance	stepper.cpp	/^static long advance_rate, advance, final_advance = 0;$/;"	v	file:
+final_rate	planner.h	/^  unsigned long final_rate;                          \/\/ The minimal rate at exit$/;"	m	struct:__anon4
+findsoftware	arduino.mk	/^findsoftware = $(firstword $(wildcard $(addsuffix \/$(1), $(AVRTOOLSPATH))))$/;"	m
+finishAndDisableSteppers	stepper.cpp	/^void finishAndDisableSteppers()$/;"	f
+force_lcd_update	ultralcd.h	/^    bool force_lcd_update;$/;"	m	class:MainMenu
+fparm	menu_motion.cpp	/^} fparm[] = {$/;"	v	typeref:struct:__anon2	file:
+fparm	menu_retract.cpp	/^} fparm[] = {$/;"	v	typeref:struct:__anon3	file:
+freeMemory	ultralcd.cpp	/^static int freeMemory(void) $/;"	f	file:
+ftostr3	ultralcd.cpp	/^char *ftostr3(const float &x)$/;"	f
+ftostr31	ultralcd.cpp	/^char *ftostr31(const float &x)$/;"	f
+ftostr32	ultralcd.cpp	/^char *ftostr32(const float &x)$/;"	f
+ftostr51	ultralcd.cpp	/^char *ftostr51(const float &x)$/;"	f
+ftostr52	ultralcd.cpp	/^char *ftostr52(const float &x)$/;"	f
+funcp_t	ultralcd.h	/^      typedef void (MainMenu::*funcp_t)(uint8_t line);$/;"	t	class:MainMenu
+get	cardreader.h	/^    FORCE_INLINE int16_t get() $/;"	f	class:CardReader
+getFilenameFromIndex	cardreader.cpp	/^char *CardReader::getFilenameFromIndex(SdFile &parent, uint16_t index)$/;"	f	class:CardReader
+getHeaterPower	temperature.cpp	/^int getHeaterPower(int heater) {$/;"	f
+getHighESpeed	planner.cpp	/^void getHighESpeed()$/;"	f
+getStatus	cardreader.cpp	/^void CardReader::getStatus()$/;"	f	class:CardReader
+getWorkDirName	cardreader.h	/^    FORCE_INLINE char* getWorkDirName()$/;"	f	class:CardReader
+getfilename	cardreader.cpp	/^char *CardReader::getfilename(SdFile &dir, const uint16_t index)$/;"	f	class:CardReader
+getfilename	cardreader.cpp	/^char *CardReader::getfilename(const uint16_t index)$/;"	f	class:CardReader
+getnrfilenames	cardreader.cpp	/^uint16_t CardReader::getnrfilenames()$/;"	f	class:CardReader
+getopt	createTemperatureLookup.py	/^import getopt$/;"	i
+heater_0_temptable	thermistortables.h	/^  #define heater_0_temptable /;"	d
+heater_0_temptable_len	thermistortables.h	/^  #define heater_0_temptable_len /;"	d
+heater_1_temptable	thermistortables.h	/^  #define heater_1_temptable /;"	d
+heater_1_temptable_len	thermistortables.h	/^  #define heater_1_temptable_len /;"	d
+heater_2_temptable	thermistortables.h	/^  #define heater_2_temptable /;"	d
+heater_2_temptable_len	thermistortables.h	/^  #define heater_2_temptable_len /;"	d
+heater_ttbl_map	temperature.cpp	/^  static void *heater_ttbl_map[EXTRUDERS] = { (void *)heater_0_temptable$/;"	v	file:
+heater_ttbllen_map	temperature.cpp	/^  static int heater_ttbllen_map[EXTRUDERS] = { heater_0_temptable_len$/;"	v	file:
+hideCursor	ultralcd.cpp	/^void MainMenu::hideCursor(uint8_t line)$/;"	f	class:MainMenu
+highByte	wiring.h	/^#define highByte(/;"	d
+iTerm	temperature.cpp	/^  static float iTerm[EXTRUDERS];$/;"	v	file:
+initial_advance	planner.h	/^    volatile long initial_advance;$/;"	m	struct:__anon4
+initial_rate	planner.h	/^  unsigned long initial_rate;                        \/\/ The jerk-adjusted step rate at start of block  $/;"	m	struct:__anon4
+initsd	cardreader.cpp	/^bool CardReader::initsd()$/;"	f	class:CardReader
+interrupts	wiring.h	/^#define interrupts(/;"	d
+intersection_distance	planner.cpp	/^FORCE_INLINE float intersection_distance(float initial_rate, float final_rate, float acceleration, float distance) $/;"	f
+intround	ultralcd.cpp	/^int intround(const float &x){return int(0.5+x);}$/;"	f
+isCoolingBed	temperature.h	/^FORCE_INLINE bool isCoolingBed() {$/;"	f
+isCoolingHotend	temperature.h	/^FORCE_INLINE bool isCoolingHotend(uint8_t extruder) {  $/;"	f
+isHeatingBed	temperature.h	/^FORCE_INLINE bool isHeatingBed() {$/;"	f
+isHeatingHotend	temperature.h	/^FORCE_INLINE bool isHeatingHotend(uint8_t extruder){  $/;"	f
+itostr2	ultralcd.cpp	/^char *itostr2(const uint8_t &x)$/;"	f
+itostr3	ultralcd.cpp	/^char *itostr3(const int &xx)$/;"	f
+itostr31	ultralcd.cpp	/^char *itostr31(const int &xx)$/;"	f
+itostr4	ultralcd.cpp	/^char *itostr4(const int &xx)$/;"	f
+junction_deviation	planner.cpp	/^float junction_deviation = 0.1;$/;"	v
+lastChange	ultralcd.h	/^    uint32_t lastChange;$/;"	m	class:MainMenu
+lastEnc	ultralcd.cpp	/^uint8_t lastEnc=0;$/;"	v
+lastStep	ultralcd.cpp	/^volatile int8_t lastStep=0;$/;"	v
+lastValue	ultralcd.cpp	/^    uint8_t lastValue;$/;"	m	struct:__anon5	file:
+lastenc	ultralcd.cpp	/^volatile uint8_t lastenc=0;$/;"	v
+lastencoderpos	ultralcd.h	/^    long lastencoderpos;$/;"	m	class:MainMenu
+lastnr	cardreader.h	/^    int lastnr; \/\/last number of the autostart;$/;"	m	class:CardReader
+lcdErrorStr	ultralcd.cpp	/^static char lcdErrorStr[17];$/;"	v	file:
+lcdOffset	ultralcd.h	/^    uint8_t lcdOffset;$/;"	m	class:MainMenu
+lcdProgMemprint	ultralcd.cpp	/^void lcdProgMemprint(const char *str)$/;"	f
+lcd_alertstatuspgm	ultralcd.cpp	/^void lcd_alertstatuspgm(const char* message)$/;"	f
+lcd_clearError	ultralcd.cpp	/^void lcd_clearError(void)$/;"	f
+lcd_error	ultralcd.cpp	/^void lcd_error(const __FlashStringHelper *error)$/;"	f
+lcd_init	ultralcd.cpp	/^void lcd_init()$/;"	f
+lcd_showError	ultralcd.cpp	/^static void lcd_showError(void)$/;"	f	file:
+lcd_status	ultralcd.cpp	/^void lcd_status()$/;"	f
+lcd_status	ultralcd.cpp	/^void lcd_status(const char* message)$/;"	f
+lcd_status	ultralcd.h	/^  FORCE_INLINE void lcd_status() {};$/;"	f
+lcd_statuspgm	ultralcd.cpp	/^void lcd_statuspgm(const char* message)$/;"	f
+lcdprintPGM	ultralcd.cpp	/^#define lcdprintPGM(/;"	d	file:
+lcdprintPGM	ultralcd.h	/^  #define lcdprintPGM(/;"	d
+lcdslow	ultralcd.h	/^  #define lcdslow /;"	d
+limit	menu_pla.cpp	/^static int limit[NUM_PARMS] = {$/;"	v	file:
+limitEncoder	ultralcd.cpp	/^void limitEncoder(volatile long &pos, long min, long max)$/;"	f
+linechanging	ultralcd.h	/^    bool linechanging;$/;"	m	class:MainMenu
+lineoffset	ultralcd.h	/^    int8_t lineoffset;$/;"	m	class:MainMenu
+longFilename	cardreader.h	/^    char longFilename[LONG_FILENAME_LENGTH];$/;"	m	class:CardReader
+lowByte	wiring.h	/^#define lowByte(/;"	d
+ls	cardreader.cpp	/^void CardReader::ls() $/;"	f	class:CardReader
+lsDive	cardreader.cpp	/^void CardReader::lsDive(char *path, uint16_t limit, SdFile &parent)$/;"	f	class:CardReader
+main	createTemperatureLookup.py	/^def main(argv):$/;"	f
+mainMenu	ultralcd.cpp	/^MainMenu mainMenu;$/;"	v
+main_ClickFile	menu_main.cpp	/^static void main_ClickFile(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)$/;"	f	file:
+main_ClickPause	menu_main.cpp	/^static void main_ClickPause(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)$/;"	f	file:
+main_ShowFile	menu_main.cpp	/^static void main_ShowFile(uint8_t line, uint8_t arg)$/;"	f	file:
+main_ShowPause	menu_main.cpp	/^static void main_ShowPause(uint8_t line, uint8_t arg)$/;"	f	file:
+main_ShowPrepare	menu_main.cpp	/^static void main_ShowPrepare(uint8_t line, uint8_t arg)$/;"	f	file:
+manage_heater	temperature.cpp	/^void manage_heater()$/;"	f
+max	menu_motion.cpp	/^    int32_t max;$/;"	m	struct:__anon2	file:
+max	menu_retract.cpp	/^    int32_t max;$/;"	m	struct:__anon3	file:
+max	wiring.h	/^#define max(/;"	d
+max31855_previous_millis	temperature.cpp	/^uint32_t max31855_previous_millis = 0;$/;"	v
+max31855_temp	temperature.cpp	/^int max31855_temp = 2000;$/;"	v
+max6675_previous_millis	temperature.cpp	/^long max6675_previous_millis = -HEAT_INTERVAL;$/;"	v
+max6675_temp	temperature.cpp	/^int max6675_temp = 2000;$/;"	v
+max_acceleration_units_per_sq_second	planner.cpp	/^unsigned long max_acceleration_units_per_sq_second[4]; \/\/ Use M201 to override by software$/;"	v
+max_allowable_speed	planner.cpp	/^FORCE_INLINE float max_allowable_speed(float acceleration, float target_velocity, float distance) {$/;"	f
+max_e_jerk	planner.cpp	/^float max_e_jerk;$/;"	v
+max_entry_speed	planner.h	/^  float max_entry_speed;                             \/\/ Maximum allowable junction entry speed in mm\/sec$/;"	m	struct:__anon4
+max_feedrate	planner.cpp	/^float max_feedrate[4]; \/\/ set the max speeds$/;"	v
+max_software_endstops	Configuration.h	/^#define max_software_endstops /;"	d
+max_temp_error	temperature.cpp	/^void max_temp_error(uint8_t e) {$/;"	f
+max_xy_jerk	planner.cpp	/^float max_xy_jerk; \/\/speed than can be stopped at once, if i understand correctly.$/;"	v
+max_z_jerk	planner.cpp	/^float max_z_jerk;$/;"	v
+maxttemp	temperature.cpp	/^  static int maxttemp[EXTRUDERS] = { 16383 }; \/\/ the first value used for all$/;"	v	file:
+mc_ClickLoad	menu_control.cpp	/^static void mc_ClickLoad(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t loadDefaults)$/;"	f	file:
+mc_arc	motion_control.cpp	/^void mc_arc(float *position, float *target, float *offset, uint8_t axis_0, uint8_t axis_1, $/;"	f
+mct_AdjustFactor	menu_tempcontrol.cpp	/^static void mct_AdjustFactor(uint8_t line, volatile long &pos, uint8_t arg)$/;"	f	file:
+mct_AdjustFan	menu_tempcontrol.cpp	/^void mct_AdjustFan(uint8_t line, volatile long &pos, uint8_t arg)$/;"	f
+mct_AdjustPid	menu_tempcontrol.cpp	/^static void mct_AdjustPid(uint8_t line, volatile long &pos, uint8_t which)$/;"	f	file:
+mct_AdjustTemp	menu_tempcontrol.cpp	/^void mct_AdjustTemp(uint8_t line, volatile long &pos, uint8_t arg)$/;"	f
+mct_ClickAutotemp	menu_tempcontrol.cpp	/^static void mct_ClickAutotemp(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)$/;"	f	file:
+mct_ClickAutotempStatus	menu_tempcontrol.cpp	/^static void mct_ClickAutotempStatus(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)$/;"	f	file:
+mct_ClickBed	menu_tempcontrol.cpp	/^void mct_ClickBed(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)$/;"	f
+mct_ClickFan	menu_tempcontrol.cpp	/^void mct_ClickFan(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)$/;"	f
+mct_ClickMenu	menu_tempcontrol.cpp	/^void mct_ClickMenu(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t newMenu)$/;"	f
+mct_ClickNozzle	menu_tempcontrol.cpp	/^void mct_ClickNozzle(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t extruder)$/;"	f
+mct_ClickPid	menu_tempcontrol.cpp	/^static void mct_ClickPid(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)$/;"	f	file:
+mct_Show	menu_tempcontrol.cpp	/^void mct_Show(uint8_t line, const char *value)$/;"	f
+mct_ShowAutotemp	menu_tempcontrol.cpp	/^static void mct_ShowAutotemp(uint8_t line, uint8_t which)$/;"	f	file:
+mct_ShowAutotempStatus	menu_tempcontrol.cpp	/^static void mct_ShowAutotempStatus(uint8_t line, uint8_t which)$/;"	f	file:
+mct_ShowBed	menu_tempcontrol.cpp	/^void mct_ShowBed(uint8_t line, uint8_t which)$/;"	f
+mct_ShowFan	menu_tempcontrol.cpp	/^void mct_ShowFan(uint8_t line, uint8_t which)$/;"	f
+mct_ShowNozzle	menu_tempcontrol.cpp	/^void mct_ShowNozzle(uint8_t line, uint8_t extruder)$/;"	f
+mct_ShowPid	menu_tempcontrol.cpp	/^static void mct_ShowPid(uint8_t line, uint8_t which)$/;"	f	file:
+menu	menu_control.cpp	/^static const menu_t menu[] __attribute__((__progmem__)) = {$/;"	v	file:
+menu	menu_main.cpp	/^static const menu_t menu[] __attribute__((__progmem__)) = {$/;"	v	file:
+menu	menu_motion.cpp	/^static const menu_t menu[] __attribute__((__progmem__)) = {$/;"	v	file:
+menu	menu_moveaxis.cpp	/^static const menu_t menu[] __attribute__((__progmem__)) = {$/;"	v	file:
+menu	menu_prepare.cpp	/^static menu_t menu[] __attribute__((__progmem__)) = {$/;"	v	file:
+menu	menu_retract.cpp	/^static const menu_t menu[] __attribute__((__progmem__)) = {$/;"	v	file:
+menu	menu_sd.cpp	/^static menu_t menu[] __attribute__((__progmem__)) = {$/;"	v	file:
+menu	menu_tempcontrol.cpp	/^static menu_t menu[] __attribute__((__progmem__)) = {$/;"	v	file:
+menu	menu_tune.cpp	/^static menu_t menu[] __attribute__((__progmem__)) = {$/;"	v	file:
+menu_abs	menu_pla.cpp	/^static const menu_t menu_abs[] __attribute__((__progmem__)) = {$/;"	v	file:
+menu_pla	menu_pla.cpp	/^static const menu_t menu_pla[] __attribute__((__progmem__)) = {$/;"	v	file:
+menu_t	menu.h	/^} menu_t;$/;"	t	typeref:struct:__anon1
+messagetext	ultralcd.cpp	/^static char messagetext[LCD_WIDTH]="";$/;"	v	file:
+microsecondsToClockCycles	wiring.h	/^#define microsecondsToClockCycles(/;"	d
+millimeters	planner.h	/^  float millimeters;                                 \/\/ The total travel of this block in mm$/;"	m	struct:__anon4
+min	menu_motion.cpp	/^    int16_t min;$/;"	m	struct:__anon2	file:
+min	menu_retract.cpp	/^    int16_t min;$/;"	m	struct:__anon3	file:
+min	wiring.h	/^#define min(/;"	d
+min_software_endstops	Configuration.h	/^#define min_software_endstops /;"	d
+min_temp_error	temperature.cpp	/^void min_temp_error(uint8_t e) {$/;"	f
+minimumfeedrate	planner.cpp	/^float minimumfeedrate;$/;"	v
+minsegmenttime	planner.cpp	/^unsigned long minsegmenttime;$/;"	v
+mintravelfeedrate	planner.cpp	/^float mintravelfeedrate;$/;"	v
+minttemp	temperature.cpp	/^  static int minttemp[EXTRUDERS] = { 0 };$/;"	v	file:
+mm_AdjustAccel	menu_motion.cpp	/^void mm_AdjustAccel(uint8_t line, volatile long &pos, uint8_t axis)$/;"	f
+mm_AdjustFloat	menu_motion.cpp	/^void mm_AdjustFloat(uint8_t line, volatile long &pos, uint8_t which)$/;"	f
+mm_ClickAccel	menu_motion.cpp	/^static void mm_ClickAccel(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)$/;"	f	file:
+mm_ClickFloat	menu_motion.cpp	/^static void mm_ClickFloat(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)$/;"	f	file:
+mm_ShowAccel	menu_motion.cpp	/^static void mm_ShowAccel(uint8_t line, uint8_t which)$/;"	f	file:
+mm_ShowFloat	menu_motion.cpp	/^static void mm_ShowFloat(uint8_t line, uint8_t which) $/;"	f	file:
+mma_AdjustAxis	menu_moveaxis.cpp	/^void mma_AdjustAxis(uint8_t line, volatile long &pos, uint8_t axis)$/;"	f
+mma_ClickAxis	menu_moveaxis.cpp	/^static void mma_ClickAxis(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t axis)$/;"	f	file:
+mma_ClickExtruder	menu_moveaxis.cpp	/^static void mma_ClickExtruder(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t direction)$/;"	f	file:
+mma_Show	menu_moveaxis.cpp	/^static void mma_Show(uint8_t line, const char *value)$/;"	f	file:
+mma_ShowAxis	menu_moveaxis.cpp	/^static void mma_ShowAxis(uint8_t line, uint8_t axis) $/;"	f	file:
+motion_control_h	motion_control.h	/^#define motion_control_h$/;"	d
+movesplanned	planner.cpp	/^uint8_t movesplanned()$/;"	f
+mp_AdjustPreheat	menu_pla.cpp	/^static void mp_AdjustPreheat(uint8_t line, volatile long &pos, uint8_t which)$/;"	f	file:
+mp_ClickAutostart	menu_prepare.cpp	/^static void mp_ClickAutostart(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)$/;"	f	file:
+mp_ClickCooldown	menu_prepare.cpp	/^static void mp_ClickCooldown(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)$/;"	f	file:
+mp_ClickEnqueue	menu_prepare.cpp	/^static void mp_ClickEnqueue(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)$/;"	f	file:
+mp_ClickPreheat	menu_pla.cpp	/^static void mp_ClickPreheat(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)$/;"	f	file:
+mp_ClickPreheatABS	menu_prepare.cpp	/^static void mp_ClickPreheatABS(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)$/;"	f	file:
+mp_ClickPreheatPLA	menu_prepare.cpp	/^static void mp_ClickPreheatPLA(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)$/;"	f	file:
+mp_ClickStore	menu_pla.cpp	/^void mp_ClickStore(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)$/;"	f
+mp_Show	menu_pla.cpp	/^static void mp_Show(uint8_t line, const char *value)$/;"	f	file:
+mp_ShowPreheat	menu_pla.cpp	/^static void mp_ShowPreheat(uint8_t line, uint8_t which) $/;"	f	file:
+mr_AdjustFloat	menu_retract.cpp	/^void mr_AdjustFloat(uint8_t line, volatile long &pos, uint8_t which)$/;"	f
+mr_ClickAuto	menu_retract.cpp	/^static void mr_ClickAuto(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t arg)$/;"	f	file:
+mr_ClickFloat	menu_retract.cpp	/^static void mr_ClickFloat(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)$/;"	f	file:
+mr_ShowAuto	menu_retract.cpp	/^static void mr_ShowAuto(uint8_t line, uint8_t arg) $/;"	f	file:
+mr_ShowFloat	menu_retract.cpp	/^static void mr_ShowFloat(uint8_t line, uint8_t which) $/;"	f	file:
+mt_AdjustFlow	menu_tune.cpp	/^void mt_AdjustFlow(uint8_t line, volatile long &pos, uint8_t arg)$/;"	f
+mt_AdjustSpeed	menu_tune.cpp	/^void mt_AdjustSpeed(uint8_t line, volatile long &pos, uint8_t arg)$/;"	f
+mt_ClickFlow	menu_tune.cpp	/^static void mt_ClickFlow(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t arg)$/;"	f	file:
+mt_ClickSpeed	menu_tune.cpp	/^static void mt_ClickSpeed(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t arg)$/;"	f	file:
+mt_Show	menu_tune.cpp	/^static void mt_Show(uint8_t line, const char *value)$/;"	f	file:
+mt_ShowFlow	menu_tune.cpp	/^static void mt_ShowFlow(uint8_t line, uint8_t arg) $/;"	f	file:
+mt_ShowSpeed	menu_tune.cpp	/^static void mt_ShowSpeed(uint8_t line, uint8_t arg) $/;"	f	file:
+name	menu.h	/^    char name[24];$/;"	m	struct:__anon1
+next_block_index	planner.cpp	/^static int8_t next_block_index(int8_t block_index) {$/;"	f	file:
+noInterrupts	wiring.h	/^#define noInterrupts(/;"	d
+nominal_length_flag	planner.h	/^  unsigned char nominal_length_flag;                 \/\/ Planner flag for nominal speed always reached$/;"	m	struct:__anon4
+nominal_rate	planner.h	/^  unsigned long nominal_rate;                        \/\/ The nominal step rate for this block in step_events\/sec $/;"	m	struct:__anon4
+nominal_speed	planner.h	/^  float nominal_speed;                               \/\/ The nominal speed for this block in mm\/sec $/;"	m	struct:__anon4
+nrFiles	cardreader.h	/^    int16_t nrFiles; \/\/counter for the files in the current directory$/;"	m	class:CardReader
+nrfiles	menu_sd.cpp	/^static uint8_t nrfiles=0;$/;"	v	file:
+old_OCR0A	stepper.cpp	/^  unsigned char old_OCR0A;$/;"	v
+old_advance	stepper.cpp	/^static long old_advance = 0;$/;"	v	file:
+old_direction_bits	planner.cpp	/^static unsigned char old_direction_bits = 0;               \/\/ Old direction bits. Used for speed calculations$/;"	v	file:
+old_x_max_endstop	stepper.cpp	/^static bool old_x_max_endstop=false;$/;"	v	file:
+old_x_min_endstop	stepper.cpp	/^static bool old_x_min_endstop=false;$/;"	v	file:
+old_y_max_endstop	stepper.cpp	/^static bool old_y_max_endstop=false;$/;"	v	file:
+old_y_min_endstop	stepper.cpp	/^static bool old_y_min_endstop=false;$/;"	v	file:
+old_z_max_endstop	stepper.cpp	/^static bool old_z_max_endstop=false;$/;"	v	file:
+old_z_min_endstop	stepper.cpp	/^static bool old_z_min_endstop=false;$/;"	v	file:
+openFile	cardreader.cpp	/^void CardReader::openFile(char* name,bool read)$/;"	f	class:CardReader
+out_bits	stepper.cpp	/^static unsigned char out_bits;        \/\/ The next stepping-bits to be output$/;"	v	file:
+pTerm	temperature.cpp	/^  static float pTerm[EXTRUDERS];$/;"	v	file:
+parameter	menu_pla.cpp	/^static int *parameter[NUM_PARMS] = {$/;"	v	file:
+parm	menu_motion.cpp	/^    float *parm;$/;"	m	struct:__anon2	file:
+parm	menu_retract.cpp	/^    float *parm;$/;"	m	struct:__anon3	file:
+parser	create_speed_lookuptable.py	/^parser = argparse.ArgumentParser(description=__doc__)$/;"	v
+pathDepth	cardreader.h	/^    uint8_t pathDepth;		\/\/ current depth in path list$/;"	m	class:CardReader
+pathStack	cardreader.h	/^    uint16_t pathStack[32];	\/\/ Directory path list$/;"	m	class:CardReader
+pauseSDPrint	cardreader.cpp	/^void CardReader::pauseSDPrint()$/;"	f	class:CardReader
+percentDone	cardreader.h	/^    FORCE_INLINE uint8_t percentDone()$/;"	f	class:CardReader
+pid_error	temperature.cpp	/^  static float pid_error[EXTRUDERS];$/;"	v	file:
+pid_reset	temperature.cpp	/^  static bool pid_reset[EXTRUDERS];$/;"	v	file:
+pid_setpoint	temperature.cpp	/^  float pid_setpoint[EXTRUDERS] = { 0.0 };$/;"	v
+plaPreheatFanSpeed	EEPROMwrite.cpp	/^int plaPreheatFanSpeed;$/;"	v
+plaPreheatHPBTemp	EEPROMwrite.cpp	/^int plaPreheatHPBTemp;$/;"	v
+plaPreheatHotendTemp	EEPROMwrite.cpp	/^int plaPreheatHotendTemp;$/;"	v
+plan_buffer_line	planner.cpp	/^void plan_buffer_line(const float &x, const float &y, const float &z, const float &e, float feed_rate, const uint8_t &extruder)$/;"	f
+plan_discard_current_block	planner.h	/^FORCE_INLINE void plan_discard_current_block()  $/;"	f
+plan_get_current_block	planner.h	/^FORCE_INLINE block_t *plan_get_current_block() $/;"	f
+plan_init	planner.cpp	/^void plan_init() {$/;"	f
+plan_set_e_position	planner.cpp	/^void plan_set_e_position(const float &e)$/;"	f
+plan_set_position	planner.cpp	/^void plan_set_position(const float &x, const float &y, const float &z, const float &e)$/;"	f
+planner_forward_pass	planner.cpp	/^void planner_forward_pass() {$/;"	f
+planner_forward_pass_kernel	planner.cpp	/^void planner_forward_pass_kernel(block_t *previous, block_t *current, block_t *next) {$/;"	f
+planner_h	planner.h	/^#define planner_h$/;"	d
+planner_recalculate	planner.cpp	/^void planner_recalculate() {   $/;"	f
+planner_recalculate_trapezoids	planner.cpp	/^void planner_recalculate_trapezoids() {$/;"	f
+planner_reverse_pass	planner.cpp	/^void planner_reverse_pass() {$/;"	f
+planner_reverse_pass_kernel	planner.cpp	/^void planner_reverse_pass_kernel(block_t *previous, block_t *current, block_t *next) {$/;"	f
+popDir	cardreader.cpp	/^bool CardReader::popDir(void)$/;"	f	class:CardReader
+position	planner.cpp	/^long position[4];   \/\/rescaled from extern when axis_steps_per_unit are changed by gcode$/;"	v
+prev_block_index	planner.cpp	/^static int8_t prev_block_index(int8_t block_index) {$/;"	f	file:
+previous_millis_bed_heater	temperature.cpp	/^static unsigned long  previous_millis_bed_heater;$/;"	v	file:
+previous_millis_lcd	ultralcd.cpp	/^static unsigned long previous_millis_lcd=0;$/;"	v	file:
+previous_nominal_speed	planner.cpp	/^static float previous_nominal_speed; \/\/ Nominal speed of previous path line segment$/;"	v	file:
+previous_speed	planner.cpp	/^static float previous_speed[4]; \/\/ Speed of previous path line segment$/;"	v	file:
+printingHasFinished	cardreader.cpp	/^void CardReader::printingHasFinished()$/;"	f	class:CardReader
+pushDir	cardreader.cpp	/^void CardReader::pushDir(const char *subdirname, uint16_t index)$/;"	f	class:CardReader
+quickStop	stepper.cpp	/^void quickStop()$/;"	f
+radians	wiring.h	/^#define radians(/;"	d
+read_max31855	temperature.cpp	/^int read_max31855()$/;"	f
+read_max6675	temperature.cpp	/^int read_max6675()$/;"	f
+readboardsparam	arduino.mk	/^readboardsparam = $(shell sed -ne "s\/$(BOARD).$(1)=\\(.*\\)\/\\1\/p" $(BOARDSFILE))$/;"	m
+readpreferencesparam	arduino.mk	/^readpreferencesparam = $(shell sed -ne "s\/$(1)=\\(.*\\)\/\\1\/p" $(PREFERENCESFILE))$/;"	m
+recalculate_flag	planner.h	/^  unsigned char recalculate_flag;                    \/\/ Planner flag to recalculate trapezoids on entry junction$/;"	m	struct:__anon4
+recover	cardreader.cpp	/^bool CardReader::recover(void)$/;"	f	class:CardReader
+release	cardreader.cpp	/^void CardReader::release()$/;"	f	class:CardReader
+removeFile	cardreader.cpp	/^void CardReader::removeFile(char* name)$/;"	f	class:CardReader
+retract_acceleration	planner.cpp	/^float retract_acceleration; \/\/  mm\/s^2   filament pull-pack and push-forward  while standing still in the other axis M204 TXXXX$/;"	v
+root	cardreader.h	/^    SdFile root,*curDir,workDir,workDirParent,workDirParentParent;$/;"	m	class:CardReader
+round	wiring.h	/^#define round(/;"	d
+saving	cardreader.h	/^    bool saving;$/;"	m	class:CardReader
+sbi	Marlin.h	/^#define sbi(/;"	d
+scale	menu_motion.cpp	/^    float scale;$/;"	m	struct:__anon2	file:
+scale	menu_retract.cpp	/^    float scale;$/;"	m	struct:__anon3	file:
+sdShow	menu_sd.cpp	/^void MainMenu::sdShow() { }$/;"	f	class:MainMenu
+sd_ClickDir	menu_sd.cpp	/^static void sd_ClickDir(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)$/;"	f	file:
+sd_ShowDir	menu_sd.cpp	/^static void sd_ShowDir(uint8_t line, uint8_t arg)$/;"	f	file:
+sdpos	cardreader.h	/^    uint32_t sdpos ;$/;"	m	class:CardReader
+sdprinting	cardreader.h	/^    bool sdprinting ;  $/;"	m	class:CardReader
+serialprintPGM	Marlin.h	/^FORCE_INLINE void serialprintPGM(const char *str)$/;"	f
+setIndex	cardreader.h	/^    FORCE_INLINE void setIndex(long index)$/;"	f	class:CardReader
+setTargetBed	temperature.h	/^FORCE_INLINE void setTargetBed(const float &celsius) {  $/;"	f
+setTargetHotend	temperature.h	/^FORCE_INLINE void setTargetHotend(const float &celsius, uint8_t extruder) {  $/;"	f
+setWatch	temperature.cpp	/^void setWatch() $/;"	f
+setroot	cardreader.cpp	/^void CardReader::setroot()$/;"	f	class:CardReader
+setting	createTemperatureLookup.py	/^    def setting(self, t):$/;"	m	class:Thermistor
+show	menu.h	/^    show_t show;$/;"	m	struct:__anon1
+show	ultralcd.cpp	/^void MainMenu::show(const menu_t *menu, uint8_t menuMax)$/;"	f	class:MainMenu
+showABSsettings	menu_pla.cpp	/^void MainMenu::showABSsettings()$/;"	f	class:MainMenu
+showAxisMove	menu_moveaxis.cpp	/^void MainMenu::showAxisMove()$/;"	f	class:MainMenu
+showControl	menu_control.cpp	/^void MainMenu::showControl()$/;"	f	class:MainMenu
+showControlMotion	menu_motion.cpp	/^void MainMenu::showControlMotion()$/;"	f	class:MainMenu
+showControlRetract	menu_retract.cpp	/^void MainMenu::showControlRetract()$/;"	f	class:MainMenu
+showControlTemp	menu_tempcontrol.cpp	/^void MainMenu::showControlTemp()$/;"	f	class:MainMenu
+showCursor	ultralcd.cpp	/^void MainMenu::showCursor(uint8_t line)$/;"	f	class:MainMenu
+showLine	ultralcd.cpp	/^void MainMenu::showLine(uint8_t line)$/;"	f	class:MainMenu
+showMainMenu	menu_main.cpp	/^void MainMenu::showMainMenu()$/;"	f	class:MainMenu
+showMenuLine	ultralcd.h	/^    funcp_t showMenuLine;$/;"	m	class:MainMenu
+showPLAsettings	menu_pla.cpp	/^void MainMenu::showPLAsettings()$/;"	f	class:MainMenu
+showPrepare	menu_prepare.cpp	/^void MainMenu::showPrepare()$/;"	f	class:MainMenu
+showSD	menu_sd.cpp	/^void MainMenu::showSD()$/;"	f	class:MainMenu
+showSDLine	menu_sd.cpp	/^void MainMenu::showSDLine(uint8_t line)$/;"	f	class:MainMenu
+showStatus	ultralcd.cpp	/^void MainMenu::showStatus()$/;"	f	class:MainMenu
+showTune	menu_tune.cpp	/^void MainMenu::showTune()$/;"	f	class:MainMenu
+show_t	menu.h	/^typedef void (*show_t)(uint8_t line, uint8_t arg);$/;"	t
+soft_pwm	temperature.cpp	/^  static unsigned char soft_pwm[EXTRUDERS];$/;"	v	file:
+sq	wiring.h	/^#define sq(/;"	d
+st_get_position	stepper.cpp	/^long st_get_position(uint8_t axis)$/;"	f
+st_init	stepper.cpp	/^void st_init()$/;"	f
+st_set_e_position	stepper.cpp	/^void st_set_e_position(const long &e)$/;"	f
+st_set_position	stepper.cpp	/^void st_set_position(const long &x, const long &y, const long &z, const long &e)$/;"	f
+st_synchronize	stepper.cpp	/^void st_synchronize()$/;"	f
+st_wake_up	stepper.cpp	/^void st_wake_up() {$/;"	f
+startFileprint	cardreader.cpp	/^void CardReader::startFileprint()$/;"	f	class:CardReader
+startTime	cardreader.h	/^    uint32_t startTime;$/;"	m	class:CardReader
+status	ultralcd.h	/^    MainStatus status;$/;"	m	class:MainMenu
+step_event_count	planner.h	/^  unsigned long step_event_count;           \/\/ The number of step events required to complete this block$/;"	m	struct:__anon4
+step_events_completed	stepper.cpp	/^volatile static unsigned long step_events_completed; \/\/ The number of step events executed in the current block$/;"	v	file:
+step_loops	stepper.cpp	/^static char step_loops;$/;"	v	file:
+step_wait	stepper.cpp	/^void step_wait(){$/;"	f
+stepper_h	stepper.h	/^#define stepper_h /;"	d
+steps_e	planner.h	/^  long steps_x, steps_y, steps_z, steps_e;  \/\/ Step count along each axis$/;"	m	struct:__anon4
+steps_x	planner.h	/^  long steps_x, steps_y, steps_z, steps_e;  \/\/ Step count along each axis$/;"	m	struct:__anon4
+steps_y	planner.h	/^  long steps_x, steps_y, steps_z, steps_e;  \/\/ Step count along each axis$/;"	m	struct:__anon4
+steps_z	planner.h	/^  long steps_x, steps_y, steps_z, steps_e;  \/\/ Step count along each axis$/;"	m	struct:__anon4
+sys	createTemperatureLookup.py	/^import sys$/;"	i
+target_bed_high_temp	temperature.cpp	/^int target_bed_high_temp =0;$/;"	v
+target_bed_low_temp	temperature.cpp	/^int target_bed_low_temp =0;  $/;"	v
+target_raw	temperature.cpp	/^int target_raw[EXTRUDERS] = { 0 };$/;"	v
+target_raw_bed	temperature.cpp	/^int target_raw_bed = 0;$/;"	v
+temp	createTemperatureLookup.py	/^    def temp(self,adc):$/;"	m	class:Thermistor
+temp2analog	temperature.cpp	/^int temp2analog(int celsius, uint8_t e) {$/;"	f
+temp2analogBed	temperature.cpp	/^int temp2analogBed(int celsius) {$/;"	f
+temp_dState	temperature.cpp	/^  static float temp_dState[EXTRUDERS] = { 0 };$/;"	v	file:
+temp_iState	temperature.cpp	/^  static float temp_iState[EXTRUDERS] = { 0 };$/;"	v	file:
+temp_iState_max	temperature.cpp	/^  static float temp_iState_max[EXTRUDERS];$/;"	v	file:
+temp_iState_min	temperature.cpp	/^  static float temp_iState_min[EXTRUDERS];$/;"	v	file:
+temp_meas_ready	temperature.cpp	/^static volatile bool temp_meas_ready = false;$/;"	v	file:
+temperature_h	temperature.h	/^#define temperature_h /;"	d
+time	ultralcd.cpp	/^    uint32_t time;$/;"	m	struct:__anon5	file:
+timeLeft	cardreader.cpp	/^uint32_t CardReader::timeLeft()$/;"	f	class:CardReader
+timeout_seconds	watchdog.cpp	/^static volatile uint8_t timeout_seconds=0;$/;"	v	file:
+timer_freq	create_speed_lookuptable.py	/^timer_freq = cpu_freq \/ args.divider$/;"	v
+tp_init	temperature.cpp	/^void tp_init()$/;"	f
+trapezoid_generator_reset	stepper.cpp	/^FORCE_INLINE void trapezoid_generator_reset() {$/;"	f
+true	wiring.h	/^#define true /;"	d
+tune	ultralcd.h	/^    bool tune;$/;"	m	class:MainMenu
+update	ultralcd.cpp	/^void MainMenu::update()$/;"	f	class:MainMenu
+updateActiveLines	ultralcd.cpp	/^void MainMenu::updateActiveLines(const uint8_t maxlines,volatile long &encoderpos)$/;"	f	class:MainMenu
+updatePID	temperature.cpp	/^void updatePID()$/;"	f
+usage	createTemperatureLookup.py	/^def usage():$/;"	f
+volume	cardreader.h	/^    SdVolume volume;$/;"	m	class:CardReader
+watch_oldtemp	temperature.cpp	/^  int watch_oldtemp[3] = {0,0,0};$/;"	v
+watch_raw	temperature.cpp	/^  int watch_raw[EXTRUDERS] = { -1000 }; \/\/ the first value used for all$/;"	v
+watchmillis	temperature.cpp	/^  unsigned long watchmillis = 0;$/;"	v
+wd_init	watchdog.cpp	/^void wd_init() $/;"	f
+wd_init	watchdog.h	/^  FORCE_INLINE void wd_init() {};$/;"	f
+wd_reset	watchdog.cpp	/^void wd_reset() $/;"	f
+wd_reset	watchdog.h	/^  FORCE_INLINE void wd_reset() {};$/;"	f
+word	wiring.h	/^typedef unsigned int word;$/;"	t
+workDir	cardreader.h	/^    SdFile root,*curDir,workDir,workDirParent,workDirParentParent;$/;"	m	class:CardReader
+workDirName	cardreader.h	/^    char workDirName[LONG_FILENAME_LENGTH];$/;"	m	class:CardReader
+workDirParent	cardreader.h	/^    SdFile root,*curDir,workDir,workDirParent,workDirParentParent;$/;"	m	class:CardReader
+workDirParentParent	cardreader.h	/^    SdFile root,*curDir,workDir,workDirParent,workDirParentParent;$/;"	m	class:CardReader
+write_command	cardreader.cpp	/^void CardReader::write_command(char *buf)$/;"	f	class:CardReader
+x_segment_time	planner.cpp	/^static long x_segment_time[3]={$/;"	v	file:
+y_segment_time	planner.cpp	/^static long y_segment_time[3]={$/;"	v	file:
