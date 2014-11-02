@@ -116,6 +116,9 @@ public:
     void fill(uint8_t colour);
     void clear();
     void reset();
+    void off(void);
+    void on(void);
+    bool isOn(void);
 
     void bitmapDraw(uint8_t x, uint8_t y, uint8_t width, uint8_t height, const uint16_t *image);
 
@@ -163,6 +166,7 @@ public:
     uint8_t cur_row;
     uint8_t _offset;
     uint8_t _bufHeight;
+    bool _isOn;
 
     struct {
 	uint8_t xaddr;

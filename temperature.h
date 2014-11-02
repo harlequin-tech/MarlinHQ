@@ -37,9 +37,11 @@ int temp2analog(int celsius, uint8_t e);
 int temp2analogBed(int celsius);
 float analog2temp(int raw, uint8_t e);
 float analog2tempBed(int raw);
+#if EXTRUDERS > 0
 extern int target_raw[EXTRUDERS];  
 extern int heatingtarget_raw[EXTRUDERS];  
 extern int current_raw[EXTRUDERS];
+#endif
 extern int target_raw_bed;
 extern int current_raw_bed;
 #ifdef BED_LIMIT_SWITCHING
@@ -63,7 +65,11 @@ extern float Kp,Ki,Kd,Kc;
 //deg=degreeCelsius
 
 FORCE_INLINE float degHotend(uint8_t extruder) {  
+#if EXTRUDERS > 0
   return analog2temp(current_raw[extruder], extruder);
+#else
+  return 0;
+#endif
 };
 
 FORCE_INLINE float degBed() {
@@ -71,7 +77,11 @@ FORCE_INLINE float degBed() {
 };
 
 FORCE_INLINE float degTargetHotend(uint8_t extruder) {  
+#if EXTRUDERS > 0
   return analog2temp(target_raw[extruder], extruder);
+#else
+  return 0;
+#endif
 };
 
 FORCE_INLINE float degTargetBed() {   
@@ -79,10 +89,12 @@ FORCE_INLINE float degTargetBed() {
 };
 
 FORCE_INLINE void setTargetHotend(const float &celsius, uint8_t extruder) {  
+#if EXTRUDERS > 0
   target_raw[extruder] = temp2analog(celsius, extruder);
 #ifdef PIDTEMP
   pid_setpoint[extruder] = celsius;
 #endif //PIDTEMP
+#endif
 };
 
 FORCE_INLINE void setTargetBed(const float &celsius) {  
@@ -103,7 +115,11 @@ FORCE_INLINE void setTargetBed(const float &celsius) {
 };
 
 FORCE_INLINE bool isHeatingHotend(uint8_t extruder){  
+#if EXTRUDERS > 0
   return target_raw[extruder] > current_raw[extruder];
+#else
+  return 0;
+#endif
 };
 
 FORCE_INLINE bool isHeatingBed() {
@@ -111,7 +127,11 @@ FORCE_INLINE bool isHeatingBed() {
 };
 
 FORCE_INLINE bool isCoolingHotend(uint8_t extruder) {  
+#if EXTRUDERS > 0
   return target_raw[extruder] < current_raw[extruder];
+#else
+  return 0;
+#endif
 };
 
 FORCE_INLINE bool isCoolingBed() {

@@ -3,7 +3,7 @@
 
 // Font selection
 #undef FONT_CHECKBOOK_12
-#define FONT_CHECKBOOK_14
+#undef FONT_CHECKBOOK_14
 
 typedef struct {
     uint8_t width;		// Width of glyph data in pixels

@@ -5,6 +5,8 @@
 #include "temperature.h"
 #include "language.h"
 
+#define FILE_EXT	'G'		// .gcode
+
 /* Work around a bug with PROGMEM and PSTR where the compiler always
  * generates warnings.
  */
@@ -71,7 +73,7 @@ uint16_t CardReader::countFiles(SdFile &parent)
 	if (!DIR_IS_FILE_OR_SUBDIR(&dir)) continue;
 
 	if (!DIR_IS_SUBDIR(&dir)) {
-	    if(dir.name[8]!='G') continue;
+	    if(dir.name[8]!=FILE_EXT) continue;
 	    if(dir.name[9]=='~') continue;
 	}
 
@@ -103,8 +105,8 @@ char *CardReader::getFilenameFromIndex(SdFile &parent, uint16_t index)
 	filenameIsDir = DIR_IS_SUBDIR(&dir);
 
 	if (!filenameIsDir) {
-	    if(dir.name[8]!='G') continue;
-	    if(dir.name[9]=='~') continue;
+	    if (dir.name[8]!=FILE_EXT) continue;
+	    if (dir.name[9]=='~') continue;
 	}
 
 	if (count == index) {
@@ -161,7 +163,7 @@ void CardReader::lsDive(char *path, uint16_t limit, SdFile &parent)
 	    filenameIsDir=DIR_IS_SUBDIR(&dir);
 
 	    if (!filenameIsDir) {
-		if(dir.name[8]!='G') continue;
+		if(dir.name[8]!=FILE_EXT) continue;
 		if(dir.name[9]=='~') continue;
 	    }
 

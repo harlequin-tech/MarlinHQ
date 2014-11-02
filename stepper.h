@@ -31,10 +31,14 @@
   #define WRITE_E_STEP(v) { if(current_block->active_extruder == 1) { WRITE(E1_STEP_PIN, v); } else { WRITE(E0_STEP_PIN, v); }}
   #define NORM_E_DIR() { if(current_block->active_extruder == 1) { WRITE(E1_DIR_PIN, !INVERT_E1_DIR); } else { WRITE(E0_DIR_PIN, !INVERT_E0_DIR); }}
   #define REV_E_DIR() { if(current_block->active_extruder == 1) { WRITE(E1_DIR_PIN, INVERT_E1_DIR); } else { WRITE(E0_DIR_PIN, INVERT_E0_DIR); }}
-#else
+#elif EXTRUDERS > 0
   #define WRITE_E_STEP(v) WRITE(E0_STEP_PIN, v)
   #define NORM_E_DIR() WRITE(E0_DIR_PIN, !INVERT_E0_DIR)
   #define REV_E_DIR() WRITE(E0_DIR_PIN, INVERT_E0_DIR)
+#else
+  #define WRITE_E_STEP(v) 
+  #define NORM_E_DIR() 
+  #define REV_E_DIR() 
 #endif
 
 

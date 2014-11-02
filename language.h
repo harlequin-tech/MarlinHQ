@@ -22,8 +22,8 @@
 	#define MACHINE_NAME "Ultimaker"
 	#define FIRMWARE_URL "http://firmware.ultimaker.com"
 #else
-	#define MACHINE_NAME "Trinity"
-	#define FIRMWARE_URL "http://co-lab181.co.nz"
+	#define MACHINE_NAME "Athena"
+	#define FIRMWARE_URL "http://hunt.net.nz"
 #endif
 
 #define STRINGIFY_(n) #n

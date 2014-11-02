@@ -238,6 +238,7 @@ void oled256::init()
     writeCommand(CMD_SET_DISPLAY_MODE_NORMAL);
 
     writeCommand(CMD_SET_DISPLAY_ON);
+    _isOn = true;
 }
 
 /**
@@ -346,6 +347,36 @@ uint8_t oled256::getOffset(void)
 {
     return _offset;
 }
+
+/**
+ * Turn the display off
+ */
+void oled256::off(void)
+{
+    writeCommand(CMD_SET_DISPLAY_OFF);
+    _isOn = false;
+}
+
+
+/**
+ * Turn the display on
+ */
+void oled256::on(void)
+{
+    writeCommand(CMD_SET_DISPLAY_ON);
+    _isOn = true;
+}
+
+/**
+ * See if the the OLED display is on
+ * @retval true if the display is on
+ * @retval false if the display is off
+ */
+bool oled256::isOn(void)
+{
+    return _isOn;
+}
+
 
 void oled256::setBufHeight(uint8_t rows)
 {

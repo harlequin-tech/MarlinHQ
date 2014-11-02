@@ -30,6 +30,7 @@
 
 
 #include "Marlin.h"
+#include "thermistortables.h"
 #include "ultralcd.h"
 #include "temperature.h"
 #include "watchdog.h"
@@ -37,22 +38,27 @@
 //===========================================================================
 //=============================public variables============================
 //===========================================================================
-int target_raw[EXTRUDERS] = { 0 };
 int target_raw_bed = 0;
 #ifdef BED_LIMIT_SWITCHING
 int target_bed_low_temp =0;  
 int target_bed_high_temp =0;
 #endif
-int current_raw[EXTRUDERS] = { 0 };
 int current_raw_bed = 0;
 
 #ifdef HEATER_0_USES_MAX31855
 #define MAX31855_SS 4	// digital pin 4 is chip select
 #endif
 
+#if EXTRUDERS > 0
+int target_raw[EXTRUDERS] = { 0 };
+int current_raw[EXTRUDERS] = { 0 };
+#endif
+
 #ifdef PIDTEMP
+#if EXTRUDERS > 0
   // used external
   float pid_setpoint[EXTRUDERS] = { 0.0 };
+#endif
   
   float Kp=DEFAULT_Kp;
   float Ki=(DEFAULT_Ki*PID_dT);
@@ -71,6 +77,7 @@ static volatile bool temp_meas_ready = false;
 static unsigned long  previous_millis_bed_heater;
 //static unsigned long previous_millis_heater;
 
+#if EXTRUDERS > 0
 #ifdef PIDTEMP
   //static cannot be external:
   static float temp_iState[EXTRUDERS] = { 0 };
@@ -87,6 +94,7 @@ static unsigned long  previous_millis_bed_heater;
   static bool pid_reset[EXTRUDERS];
 #endif //PIDTEMP
   static unsigned char soft_pwm[EXTRUDERS];
+#endif
   
 #ifdef WATCHPERIOD
   int watch_raw[EXTRUDERS] = { -1000 }; // the first value used for all
@@ -95,10 +103,11 @@ static unsigned long  previous_millis_bed_heater;
 #endif //WATCHPERIOD
 
 // Init min and max temp with extreme values to prevent false errors during startup
-  static int minttemp[EXTRUDERS] = { 0 };
-  static int maxttemp[EXTRUDERS] = { 16383 }; // the first value used for all
   static int bed_minttemp = 0;
   static int bed_maxttemp = 16383;
+#if EXTRUDERS > 0
+  static int minttemp[EXTRUDERS] = { 0 };
+  static int maxttemp[EXTRUDERS] = { 16383 }; // the first value used for all
   static void *heater_ttbl_map[EXTRUDERS] = { (void *)heater_0_temptable
 #if EXTRUDERS > 1
                                             , (void *)heater_1_temptable
@@ -121,6 +130,7 @@ static unsigned long  previous_millis_bed_heater;
   #error Unsupported number of extruders
 #endif
   };
+#endif
 
 //===========================================================================
 //=============================   functions      ============================
@@ -149,7 +159,9 @@ void PID_autotune(float temp)
   
   disable_heater(); // switch off all heaters.
   
+#if EXTRUDERS > 0
   soft_pwm[0] = PID_MAX/2;
+#endif
     
   for(;;) {
 
@@ -157,14 +169,18 @@ void PID_autotune(float temp)
       CRITICAL_SECTION_START;
       temp_meas_ready = false;
       CRITICAL_SECTION_END;
+#if EXTRUDERS > 0
       input = analog2temp(current_raw[0], 0);
+#endif
       
       max=max(max,input);
       min=min(min,input);
       if(heating == true && input > temp) {
         if(millis() - t2 > 5000) { 
           heating=false;
+#if EXTRUDERS > 0
           soft_pwm[0] = (bias - d) >> 1;
+#endif
           t1=millis();
           t_high=t1 - t2;
           max=temp;
@@ -215,7 +231,9 @@ void PID_autotune(float temp)
               */
             }
           }
+#if EXTRUDERS > 0
           soft_pwm[0] = (bias + d) >> 1;
+#endif
           cycles++;
           min=temp;
         }
@@ -246,7 +264,7 @@ void PID_autotune(float temp)
 
 void updatePID()
 {
-#ifdef PIDTEMP
+#if defined(PIDTEMP) && (EXTRUDERS > 0)
   for(int e = 0; e < EXTRUDERS; e++) { 
      temp_iState_max[e] = PID_INTEGRAL_DRIVE_MAX / Ki;  
   }
@@ -254,7 +272,11 @@ void updatePID()
 }
   
 int getHeaterPower(int heater) {
+#if EXTRUDERS > 0
   return soft_pwm[heater];
+#else
+  return 0;
+#endif
 }
 
 void manage_heater()
@@ -268,8 +290,10 @@ void manage_heater()
     wd_reset();
   #endif
   
+#if EXTRUDERS > 0
   float pid_input;
   float pid_output;
+#endif
 
   if(temp_meas_ready != true)   //better readability
     return; 
@@ -278,6 +302,7 @@ void manage_heater()
   temp_meas_ready = false;
   CRITICAL_SECTION_END;
 
+#if EXTRUDERS > 0
   for(int e = 0; e < EXTRUDERS; e++) 
   {
 
@@ -329,6 +354,7 @@ void manage_heater()
       soft_pwm[e] = 0;
     }
   } // End extruder for loop
+#endif
   
   #ifdef WATCHPERIOD
     if(watchmillis && millis() - watchmillis > WATCHPERIOD){
@@ -417,6 +443,7 @@ int temp2analog(int celsius, uint8_t e) {
       SERIAL_ERRORLNPGM(" - Invalid extruder number!");
       kill(10);
   }
+#if EXTRUDERS > 0
   #ifdef HEATER_0_USES_MAX6675
     if (e == 0)
     {
@@ -447,6 +474,9 @@ int temp2analog(int celsius, uint8_t e) {
     return (1023 * OVERSAMPLENR) - raw;
   }
   return ((celsius-TEMP_SENSOR_AD595_OFFSET)/TEMP_SENSOR_AD595_GAIN) * (1024.0 / (5.0 * 100.0) ) * OVERSAMPLENR;
+#else
+  return 0;
+#endif
 }
 
 // Takes bed temperature value as input and returns corresponding raw value. 
@@ -493,6 +523,7 @@ float analog2temp(int raw, uint8_t e) {
       SERIAL_ERRORLNPGM(" - Invalid extruder number !");
       kill(11);
   } 
+#if EXTRUDERS > 0
   #ifdef HEATER_0_USES_MAX6675
     if (e == 0)
     {
@@ -525,6 +556,9 @@ float analog2temp(int raw, uint8_t e) {
     return celsius;
   }
   return ((raw * ((5.0 * 100.0) / 1024.0) / OVERSAMPLENR) * TEMP_SENSOR_AD595_GAIN) + TEMP_SENSOR_AD595_OFFSET;
+#else
+  return 0;
+#endif
 }
 
 // Derived from RepRap FiveD extruder::getTemperature()
@@ -563,6 +597,7 @@ float analog2tempBed(int raw) {
 void tp_init()
 {
   // Finish init of mult extruder arrays 
+#if EXTRUDERS > 0
   for(int e = 0; e < EXTRUDERS; e++) {
     // populate with the first value 
 #ifdef WATCHPERIOD
@@ -574,6 +609,7 @@ void tp_init()
     temp_iState_max[e] = PID_INTEGRAL_DRIVE_MAX / Ki;
 #endif //PIDTEMP
   }
+#endif
 
   #if (HEATER_0_PIN > -1) 
     SET_OUTPUT(HEATER_0_PIN);
@@ -653,12 +689,14 @@ void tp_init()
   // Wait for temperature measurement to settle
   delay(250);
 
+#if EXTRUDERS > 0
 #ifdef HEATER_0_MINTEMP
   minttemp[0] = temp2analog(HEATER_0_MINTEMP, 0);
 #endif //MINTEMP
 #ifdef HEATER_0_MAXTEMP
   maxttemp[0] = temp2analog(HEATER_0_MAXTEMP, 0);
 #endif //MAXTEMP
+#endif
 
 #if (EXTRUDERS > 1) && defined(HEATER_1_MINTEMP)
   minttemp[1] = temp2analog(HEATER_1_MINTEMP, 1);
@@ -708,8 +746,10 @@ void disable_heater()
     setTargetHotend(0,i);
   setTargetBed(0);
   #if TEMP_0_PIN > -1
+#if EXTRUDERS > 0
   target_raw[0]=0;
   soft_pwm[0]=0;
+#endif
    #if HEATER_0_PIN > -1  
      WRITE(HEATER_0_PIN,LOW);
    #endif
@@ -874,7 +914,9 @@ ISR(TIMER0_COMPB_vect)
   static unsigned long raw_temp_bed_value = 0;
   static unsigned char temp_state = 0;
   static unsigned char pwm_count = 1;
+#if EXTRUDERS > 0
   static unsigned char soft_pwm_0;
+#endif
 #if EXTRUDERS > 1
   static unsigned char soft_pwm_1;
 #endif
@@ -883,8 +925,10 @@ ISR(TIMER0_COMPB_vect)
 #endif
   
   if(pwm_count == 0){
+#if EXTRUDERS > 0
     soft_pwm_0 = soft_pwm[0];
     if(soft_pwm_0 > 0) WRITE(HEATER_0_PIN,1);
+#endif
     #if EXTRUDERS > 1
     soft_pwm_1 = soft_pwm[1];
     if(soft_pwm_1 > 0) WRITE(HEATER_1_PIN,1);
@@ -894,7 +938,9 @@ ISR(TIMER0_COMPB_vect)
     if(soft_pwm_2 > 0) WRITE(HEATER_2_PIN,1);
     #endif
   }
+#if EXTRUDERS > 0
   if(soft_pwm_0 <= pwm_count) WRITE(HEATER_0_PIN,0);
+#endif
   #if EXTRUDERS > 1
   if(soft_pwm_1 <= pwm_count) WRITE(HEATER_1_PIN,0);
   #endif
@@ -1003,11 +1049,13 @@ ISR(TIMER0_COMPB_vect)
     
   if(temp_count >= 16) // 8 ms * 16 = 128ms.
   {
+#if EXTRUDERS > 0
     #if defined(HEATER_0_USES_AD595) || defined(HEATER_0_USES_MAX6675) || defined(HEATER_0_USES_MAX31855)
       current_raw[0] = raw_temp_0_value;
     #else
       current_raw[0] = 16383 - raw_temp_0_value;
     #endif
+#endif
 
 #if EXTRUDERS > 1    
     #ifdef HEATER_1_USES_AD595
@@ -1038,6 +1086,7 @@ ISR(TIMER0_COMPB_vect)
     raw_temp_2_value = 0;
     raw_temp_bed_value = 0;
 
+#if EXTRUDERS > 0
     for(unsigned char e = 0; e < EXTRUDERS; e++) {
        if(current_raw[e] >= maxttemp[e]) {
           target_raw[e] = 0;
@@ -1058,6 +1107,7 @@ ISR(TIMER0_COMPB_vect)
           #endif
        }
     }
+#endif
   
 #if defined(BED_MAXTEMP) && (HEATER_BED_PIN > -1)
     if(current_raw_bed >= bed_maxttemp) {

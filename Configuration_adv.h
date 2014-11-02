@@ -71,8 +71,6 @@
 //=============================Mechanical Settings===========================
 //===========================================================================
 
-// This defines the number of extruders
-#define EXTRUDERS 1
 
 #define ENDSTOPS_ONLY_FOR_HOMING // If defined the endstops will only be used for homing
 

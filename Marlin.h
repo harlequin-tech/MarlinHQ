@@ -125,8 +125,13 @@ void manage_inactivity();
 #endif
 
 #if Y_ENABLE_PIN > -1
+#ifdef Y2_ENABLE_PIN
+  #define  enable_y() do { WRITE(Y_ENABLE_PIN, Y_ENABLE_ON); WRITE(Y2_ENABLE_PIN, Y_ENABLE_ON); } while (0)
+  #define disable_y() do { WRITE(Y_ENABLE_PIN,!Y_ENABLE_ON); WRITE(Y2_ENABLE_PIN,!Y_ENABLE_ON); } while (0)
+#else
   #define  enable_y() WRITE(Y_ENABLE_PIN, Y_ENABLE_ON)
   #define disable_y() WRITE(Y_ENABLE_PIN,!Y_ENABLE_ON)
+#endif
 #else
   #define enable_y() ;
   #define disable_y() ;

@@ -376,6 +376,9 @@ ISR(TIMER1_COMPA_vect)
     if ((out_bits & (1<<Y_AXIS)) != 0) {   // -direction
       #if !defined COREXY  //NOT COREXY
         WRITE(Y_DIR_PIN,INVERT_Y_DIR);
+#ifdef Y2_DIR_PIN
+        WRITE(Y2_DIR_PIN,INVERT_Y_DIR);
+#endif
       #endif
       count_direction[Y_AXIS]=-1;
       CHECK_ENDSTOPS
@@ -394,6 +397,9 @@ ISR(TIMER1_COMPA_vect)
     else { // +direction
       #if !defined COREXY  //NOT COREXY
         WRITE(Y_DIR_PIN,!INVERT_Y_DIR);
+#ifdef Y2_DIR_PIN
+        WRITE(Y2_DIR_PIN,!INVERT_Y_DIR);
+#endif
       #endif
       count_direction[Y_AXIS]=1;
       CHECK_ENDSTOPS
@@ -519,9 +525,15 @@ ISR(TIMER1_COMPA_vect)
         counter_y += current_block->steps_y;
         if (counter_y > 0) {
           WRITE(Y_STEP_PIN, !INVERT_Y_STEP_PIN);
+#ifdef DUAL_Y_STEPPERS
+          WRITE(Y2_STEP_PIN, !INVERT_Y_STEP_PIN);
+#endif
           counter_y -= current_block->step_event_count; 
           count_position[Y_AXIS]+=count_direction[Y_AXIS]; 
           WRITE(Y_STEP_PIN, INVERT_Y_STEP_PIN);
+#ifdef DUAL_Y_STEPPERS
+          WRITE(Y2_STEP_PIN, INVERT_Y_STEP_PIN);
+#endif
         }
       #endif
   
@@ -532,32 +544,56 @@ ISR(TIMER1_COMPA_vect)
         if ((counter_x > 0)&&!(counter_y>0)){  //X step only
           WRITE(X_STEP_PIN, !INVERT_X_STEP_PIN);
           WRITE(Y_STEP_PIN, !INVERT_Y_STEP_PIN);
+#ifdef DUAL_Y_STEPPERS
+          WRITE(Y2_STEP_PIN, !INVERT_Y_STEP_PIN);
+#endif
           counter_x -= current_block->step_event_count; 
           count_position[X_AXIS]+=count_direction[X_AXIS];         
           WRITE(X_STEP_PIN, INVERT_X_STEP_PIN);
           WRITE(Y_STEP_PIN, INVERT_Y_STEP_PIN);
+#ifdef DUAL_Y_STEPPERS
+          WRITE(Y2_STEP_PIN, INVERT_Y_STEP_PIN);
+#endif
         }
         
         if (!(counter_x > 0)&&(counter_y>0)){  //Y step only
           WRITE(X_STEP_PIN, !INVERT_X_STEP_PIN);
           WRITE(Y_STEP_PIN, !INVERT_Y_STEP_PIN);
+#ifdef DUAL_Y_STEPPERS
+          WRITE(Y2_STEP_PIN, !INVERT_Y_STEP_PIN);
+#endif
           counter_y -= current_block->step_event_count; 
           count_position[Y_AXIS]+=count_direction[Y_AXIS];
           WRITE(X_STEP_PIN, INVERT_X_STEP_PIN);
           WRITE(Y_STEP_PIN, INVERT_Y_STEP_PIN);
+#ifdef DUAL_Y_STEPPERS
+          WRITE(Y2_STEP_PIN, INVERT_Y_STEP_PIN);
+#endif
         }        
         
         if ((counter_x > 0)&&(counter_y>0)){  //step in both axes
           if (((out_bits & (1<<X_AXIS)) == 0)^((out_bits & (1<<Y_AXIS)) == 0)){  //X and Y in different directions
             WRITE(Y_STEP_PIN, !INVERT_Y_STEP_PIN);
+#ifdef DUAL_Y_STEPPERS
+            WRITE(Y2_STEP_PIN, !INVERT_Y_STEP_PIN);
+#endif
+	    WRITE(Y_STEP_PIN, INVERT_Y_STEP_PIN);
+#ifdef DUAL_Y_STEPPERS
+	    WRITE(Y2_STEP_PIN, INVERT_Y_STEP_PIN);
+#endif
             counter_x -= current_block->step_event_count;             
-            WRITE(Y_STEP_PIN, INVERT_Y_STEP_PIN);
             step_wait();
             count_position[X_AXIS]+=count_direction[X_AXIS];
             count_position[Y_AXIS]+=count_direction[Y_AXIS];
             WRITE(Y_STEP_PIN, !INVERT_Y_STEP_PIN);
+#ifdef DUAL_Y_STEPPERS
+            WRITE(Y2_STEP_PIN, !INVERT_Y_STEP_PIN);
+#endif
             counter_y -= current_block->step_event_count;
             WRITE(Y_STEP_PIN, INVERT_Y_STEP_PIN);
+#ifdef DUAL_Y_STEPPERS
+          WRITE(Y2_STEP_PIN, INVERT_Y_STEP_PIN);
+#endif
           }
           else{  //X and Y in same direction
             WRITE(X_STEP_PIN, !INVERT_X_STEP_PIN);
@@ -735,6 +771,9 @@ void st_init()
   #if Y_DIR_PIN > -1 
     SET_OUTPUT(Y_DIR_PIN);
   #endif
+#ifdef Y2_DIR_PIN
+    SET_OUTPUT(Y2_DIR_PIN);
+#endif
   #if Z_DIR_PIN > -1 
     SET_OUTPUT(Z_DIR_PIN);
 
@@ -761,6 +800,10 @@ void st_init()
   #if (Y_ENABLE_PIN > -1)
     SET_OUTPUT(Y_ENABLE_PIN);
     if(!Y_ENABLE_ON) WRITE(Y_ENABLE_PIN,HIGH);
+  #endif
+  #ifdef Y2_ENABLE_PIN
+    SET_OUTPUT(Y2_ENABLE_PIN);
+    if(!Y_ENABLE_ON) WRITE(Y2_ENABLE_PIN,HIGH);
   #endif
   #if (Z_ENABLE_PIN > -1)
     SET_OUTPUT(Z_ENABLE_PIN);
@@ -838,7 +881,16 @@ void st_init()
   #if (Y_STEP_PIN > -1) 
     SET_OUTPUT(Y_STEP_PIN);
     WRITE(Y_STEP_PIN,INVERT_Y_STEP_PIN);
-    if(!Y_ENABLE_ON) WRITE(Y_ENABLE_PIN,HIGH);
+#ifdef DUAL_Y_STEPPERS
+    SET_OUTPUT(Y2_STEP_PIN);
+    WRITE(Y2_STEP_PIN,INVERT_Y_STEP_PIN);
+#endif
+    if (!Y_ENABLE_ON) {
+	WRITE(Y_ENABLE_PIN,HIGH);
+#ifdef Y2_ENABLE_PIN
+	WRITE(Y2_ENABLE_PIN,HIGH);
+#endif    
+    }
   #endif  
   #if (Z_STEP_PIN > -1) 
     SET_OUTPUT(Z_STEP_PIN);

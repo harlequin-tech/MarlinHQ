@@ -14,6 +14,7 @@ extern CardReader card;
 #define MP_AUTO_HOME        2
 #define MP_SET_ORIGIN       3
 
+#if 0
 static void mp_ClickAutostart(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
 #ifdef SDSUPPORT
@@ -23,6 +24,7 @@ static void mp_ClickAutostart(uint8_t line, volatile long &pos, bool &adjustValu
 #endif
     beepshort();
 }
+#endif
 
 static void mp_ClickEnqueue(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
@@ -42,6 +44,7 @@ static void mp_ClickEnqueue(uint8_t line, volatile long &pos, bool &adjustValue,
     beepshort();
 }
 
+#if EXTRUDERS > 0
 static void mp_ClickPreheatPLA(uint8_t line, volatile long &pos, bool &adjustValue, uint8_t which)
 {
     setTargetHotend(plaPreheatHotendTemp, 0);
@@ -72,17 +75,20 @@ static void mp_ClickCooldown(uint8_t line, volatile long &pos, bool &adjustValue
     setTargetBed(0);
     beepshort();
 }
+#endif
 
 static menu_t menu[] __attribute__((__progmem__)) = {
     { MSG_MAIN,            NULL,        mct_ClickMenu,           NULL,  Main_Menu },
+#if EXTRUDERS > 0
     { MSG_PREHEAT_PLA,     NULL,	mp_ClickPreheatPLA,      NULL,   0 },
     { MSG_PREHEAT_ABS,     NULL,	mp_ClickPreheatABS,      NULL,   0 },
     { MSG_COOLDOWN,        NULL,	mp_ClickCooldown,        NULL,   0 },
+#endif
     { MSG_MOVE_AXIS,       NULL,	mct_ClickMenu,           NULL,   Sub_PrepareMove },
     { MSG_DISABLE_STEPPERS,NULL,	mp_ClickEnqueue,         NULL,   MP_DISABLE_STEPPERS },
     { MSG_AUTO_HOME,       NULL,	mp_ClickEnqueue,         NULL,   MP_AUTO_HOME },
     { MSG_SET_ORIGIN,      NULL,	mp_ClickEnqueue,         NULL,   MP_SET_ORIGIN }, 
-    { MSG_AUTOSTART,       NULL,	mp_ClickAutostart,       NULL,   0 },
+    //{ MSG_AUTOSTART,       NULL,	mp_ClickAutostart,       NULL,   0 },
 };
 
 #define MENU_MAX (sizeof(menu) / sizeof(menu[0]))

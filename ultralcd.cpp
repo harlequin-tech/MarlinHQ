@@ -247,6 +247,10 @@ void beepshort()
   #endif  
 }
 
+#define LCD_SLEEP 120000
+uint32_t lcd_active=0;
+bool lcd_off = false;
+
 void lcd_status()
 {
 #if defined(ULTIPANEL) || defined(NEWPANEL)
@@ -259,13 +263,33 @@ void lcd_status()
     }
 #endif
     if ((buttons != oldbuttons) || ((now - previous_millis_lcd) >= LCD_UPDATE_INTERVAL)) {
+	if (buttons != oldbuttons) {
+	    lcd_active = now;
+	    oldbuttons = buttons;
+	}
 	previous_millis_lcd = now;
-	oldbuttons = buttons;
-	mainMenu.update();
+	if ((now - lcd_active) < LCD_SLEEP) {
+	    if (lcd_off) {
+		lcd.on();
+		lcd_off = false;
+	    }
+	    mainMenu.update();
+	    lcd_off = false;
+	} else if (!lcd_off) {
+	    lcd.off();
+	    lcd_off = true;
+	}
     }
 #else
     if ((now - previous_millis_lcd) >= LCD_UPDATE_INTERVAL) {
-	mainMenu.update();
+	if ((now - lcd_active) < LCD_SLEEP) {
+	    lcd_active = now;
+	    mainMenu.update();
+	    lcd_off = false;
+	} else if (!lcd_off) {
+	    lcd.off();
+	    lcd_off = true;
+	}
     }
 #endif
 }
