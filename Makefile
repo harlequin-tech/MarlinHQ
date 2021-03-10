@@ -8,7 +8,8 @@
 LIBRARIES := SPI oled256 SD
 #BOARD := mighty_opt
 #BOARD := atmega328
-BOARD := mega2560
+#BOARD := mega2560
+BOARD := atmega1284p
 
 #CPPFLAGS := -DHQ_AEON
 #CPPFLAGS := -DHQ_TRINITY

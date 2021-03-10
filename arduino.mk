@@ -160,7 +160,7 @@
 
 ARDUINODIR := /usr/share/arduino/
 #ARDUINODIR?=/Applications/Arduino.app/Contents/Resources/Java
-#SKETCHES=$(HOME)/Documents/Arduino
+SKETCHES=$(HOME)/sketchbook
 #BOARD=uno
 #BAUD=115200
 
@@ -203,6 +203,8 @@ endif
 
 # obtain board parameters from the arduino boards.txt file
 BOARDSFILE := $(ARDUINODIR)/hardware/arduino/boards.txt
+BOARDSFILE += $(wildcard $(SKETCHES)/hardware/*/boards.txt)
+$(info BOARDSFILE: $(BOARDSFILE))
 readboardsparam = $(shell sed -ne "s/$(BOARD).$(1)=\(.*\)/\1/p" $(BOARDSFILE))
 BOARD_BUILD_MCU := $(call readboardsparam,build.mcu)
 BOARD_BUILD_FCPU := $(call readboardsparam,build.f_cpu)
@@ -300,6 +302,9 @@ CPPFLAGS += -DF_CPU=$(BOARD_BUILD_FCPU) -DARDUINO=$(ARDUINOCONST)
 CPPFLAGS += -DUSB_VID=$(BOARD_USB_VID) -DUSB_PID=$(BOARD_USB_PID)
 CPPFLAGS += -I. -Iutil -Iutility -I $(ARDUINOCOREDIR)
 CPPFLAGS += -I $(ARDUINODIR)/hardware/arduino/variants/$(BOARD_BUILD_VARIANT)/
+CPPFLAGS += -I $(SKETCHES)/hardware/Sanguino/avr//variants/$(BOARD_BUILD_VARIANT)/
+$(info CPPFLAGS: $(CPPFLAHS))
+#                            hardware/Sanguino/avr/variants/sanguino
 CPPFLAGS += $(addprefix -I , $(LIBRARYDIRS))
 CPPDEPFLAGS = -MMD -MP -MF .dep/$<.dep
 CPPINOFLAGS := -x c++ -include $(ARDUINOCOREDIR)/Arduino.h
