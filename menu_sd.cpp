@@ -47,7 +47,7 @@ static void sd_ClickDir(uint8_t line, volatile long &pos, bool &adjustValue, uin
     beepshort();
 }
 
-static menu_t menu[] __attribute__((__progmem__)) = {
+static const menu_t menu[] __attribute__((__progmem__)) = {
     { MSG_MAIN,            NULL,             mct_ClickMenu,     NULL,           Main_Menu },
     { "",                  sd_ShowDir,       sd_ClickDir,       NULL,           0 },
 };

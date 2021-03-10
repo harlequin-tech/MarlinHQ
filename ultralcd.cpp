@@ -49,10 +49,14 @@ void lcd_clearError(void)
 
 void lcd_error(const __FlashStringHelper *error)
 {
+    lcd.setCursor(16,4);
+    lcd.print(error);
+#if 0
     lcd_clearError();
 
-    strncpy_P(lcdErrorStr, (const prog_char *)error, 16);
+    strncpy(lcdErrorStr, error, 16);
     lcd_showError();
+#endif
 }
 
 static int freeMemory(void) 

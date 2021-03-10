@@ -71,7 +71,7 @@ void mt_AdjustFlow(uint8_t line, volatile long &pos, uint8_t arg)
     mt_Show(line, ftostr52(encoderpos/100.0));
 }
 
-static menu_t menu[] __attribute__((__progmem__)) = {
+static const menu_t menu[] __attribute__((__progmem__)) = {
     { MSG_MAIN,    NULL,	   mct_ClickMenu,   NULL,		Main_Menu },
     { MSG_SPEED,   mt_ShowSpeed,   mt_ClickSpeed,   mt_AdjustSpeed,	0 },
     { MSG_FLOW,    mt_ShowFlow,    mt_ClickFlow,    mt_AdjustFlow,      0 },

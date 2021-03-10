@@ -63,7 +63,8 @@
 #if MOTHERBOARD == MB_GEN7_1_2
 #define KNOWN_BOARD
 
-#if !defined(__AVR_ATmega644P__) && !defined(__AVR_ATmega644__) && !defined(__AVR_ATmega1284P__)
+#defined __AVR_ATmega2560P__
+#if !defined(__AVR_ATmega644P__) && !defined(__AVR_ATmega644__) && !defined(__AVR_ATmega1284P__) && !defined(__AVR_ATmega2560P__)
 #error Oops! Make sure you have 'Gen7' selected from the 'Tools -> Boards' menu.
 
 #endif

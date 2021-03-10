@@ -32,9 +32,12 @@
 //   PCINT7-0: D31-24   : bit 0
 
 #define KNOWN_BOARD 1
+#define __AVR_ATmega2560P__
 #ifndef __AVR_ATmega644P__
 #ifndef __AVR_ATmega1284P__
+#ifndef __AVR_ATmega2560P__
 #error Oops!  Make sure you have 'Sanguino' selected from the 'Tools -> Boards' menu.
+#endif
 #endif
 #endif
 

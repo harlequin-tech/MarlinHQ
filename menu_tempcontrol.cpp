@@ -237,7 +237,7 @@ static void mct_AdjustPid(uint8_t line, volatile long &pos, uint8_t which)
 }
 #endif // PIDTEMP
 
-static menu_t menu[] __attribute__((__progmem__)) = {
+static const menu_t menu[] __attribute__((__progmem__)) = {
     { MSG_CONTROL, NULL,	   mct_ClickMenu,   NULL,		Main_Control },
     { MSG_NOZZLE,  mct_ShowNozzle, mct_ClickNozzle, mct_AdjustTemp,	EXTRUDER_1 },
 #if EXTRUDERS > 1

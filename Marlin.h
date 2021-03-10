@@ -34,7 +34,7 @@
 //#undef PSTR 
 //#define PSTR(s) (__extension__({static prog_char __c[] PROGMEM = (s); &__c[0];})) 
 
-#if 1
+#if 0
 #if ARDUINO >= 100 
   #if defined(__AVR_ATmega644P__)
     #include "WProgram.h"
@@ -45,7 +45,7 @@
    #include "WProgram.h"
 #endif
 #endif
-#if 0
+#if 1
 #include "Arduino.h"
 #endif
 

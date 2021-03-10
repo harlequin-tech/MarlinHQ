@@ -77,7 +77,7 @@ static void mp_ClickCooldown(uint8_t line, volatile long &pos, bool &adjustValue
 }
 #endif
 
-static menu_t menu[] __attribute__((__progmem__)) = {
+static const menu_t menu[] __attribute__((__progmem__)) = {
     { MSG_MAIN,            NULL,        mct_ClickMenu,           NULL,  Main_Menu },
 #if EXTRUDERS > 0
     { MSG_PREHEAT_PLA,     NULL,	mp_ClickPreheatPLA,      NULL,   0 },

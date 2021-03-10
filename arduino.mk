@@ -158,7 +158,8 @@
 #              from those that that would be built for the project.
 #_______________________________________________________________________________
 
-ARDUINODIR?=/Applications/Arduino.app/Contents/Resources/Java
+ARDUINODIR := /usr/share/arduino/
+#ARDUINODIR?=/Applications/Arduino.app/Contents/Resources/Java
 #SKETCHES=$(HOME)/Documents/Arduino
 #BOARD=uno
 #BAUD=115200

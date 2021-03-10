@@ -14,4 +14,5 @@ BOARD := mega2560
 #CPPFLAGS := -DHQ_TRINITY
 CPPFLAGS := -DHQ_ATHENA
 
-include ../arduino.mk
+include arduino.mk
+#include ../arduino.mk
